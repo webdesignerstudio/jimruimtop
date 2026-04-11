@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Pagina niet gevonden - Jim Ruimt Op</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandNavy: '#1A436D',
+                        brandCyan: '#5BCEFF',
+                        brandCream: '#F4F0E6',
+                        brandGreen: '#7CC19D',
+                    },
+                    fontFamily: {
+                        headline: ['Manrope', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brandCream font-body">
+    <div class="min-h-screen flex items-center justify-center px-6">
+        <div class="max-w-2xl w-full text-center">
+            <!-- Error Icon -->
+            <div class="mb-8">
+                <span class="material-symbols-outlined text-9xl text-brandCyan">search_off</span>
+            </div>
+            
+            <!-- Error Message -->
+            <h1 class="font-headline text-6xl md:text-8xl font-bold text-brandNavy mb-4">404</h1>
+            <h2 class="font-headline text-2xl md:text-3xl font-bold text-brandNavy mb-6">Pagina niet gevonden</h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-md mx-auto">
+                Oeps! De pagina die u zoekt bestaat niet of is verplaatst. Laten we u helpen de weg terug te vinden.
+            </p>
+            
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="index.html" class="inline-block bg-brandNavy text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brandCyan hover:text-brandNavy transition-all shadow-lg">
+                    <span class="flex items-center gap-2">
+                        <span class="material-symbols-outlined">home</span>
+                        Terug naar Home
+                    </span>
+                </a>
+                <a href="contact.html" class="inline-block border-2 border-brandNavy text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-brandNavy hover:text-white transition-all">
+                    Contact Opnemen
+                </a>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="mt-12 pt-8 border-t border-gray-300">
+                <p class="text-sm text-gray-500 mb-4">Populaire pagina's:</p>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <a href="diensten.html" class="text-brandNavy hover:text-brandCyan font-semibold transition-colors">Diensten</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="over-mij.html" class="text-brandNavy hover:text-brandCyan font-semibold transition-colors">Over Mij</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="contact.html" class="text-brandNavy hover:text-brandCyan font-semibold transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
