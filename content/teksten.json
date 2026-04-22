@@ -1,0 +1,64 @@
+{
+    "index": {
+        "hero_script": "Woningontruiming Tilburg",
+        "hero_kop_regel1": "Van Chaos naar Rust,",
+        "hero_kop_regel2": "Uw Zorgeloze Afronding",
+        "hero_kop_regel3": "Begint Hier.",
+        "hero_subtekst": "Geen gewoon ontruimingsbedrijf — maar een <strong>afscheids- en ontzorgservice</strong> voor senioren en nabestaanden in Tilburg en omstreken. Praktisch geregeld, emotioneel begeleid.",
+        "hero_quote": "Ruimte creëren in huis is ruimte creëren in het hoofd.",
+        "diensten_kop": "Woningontruiming in Tilburg",
+        "diensten_subtekst": "Professionele ondersteuning voor alle ontruimingswerkzaamheden in regio Tilburg — van garage tot complete woning.",
+        "hoe_werkt_kop": "Hoe werkt het?",
+        "hoe_werkt_subtekst": "In drie eenvoudige stappen regelen we alles voor u.",
+        "stap1_kop": "Gratis Intake",
+        "stap1_tekst": "Jim komt langs voor een vrijblijvende inspectie op locatie. Geen kosten, geen verplichtingen.",
+        "stap2_kop": "Duidelijke Offerte",
+        "stap2_tekst": "Binnen 48 uur ontvangt u een vaste prijs. Transparant, eerlijk, zonder verborgen kosten.",
+        "stap3_kop": "Wij Regelen Alles",
+        "stap3_tekst": "Van inboedel sorteren tot bezemschoon opleveren. U hoeft er niet bij te zijn als u dat niet wilt."
+    },
+    "diensten": {
+        "hero_kop": "Diensten",
+        "hero_subtekst": "Professionele woningontruiming in Tilburg en omstreken.",
+        "intro_kop": "Alles wat we voor u kunnen doen",
+        "intro_tekst": "Van complete woningontruiming tot garageontruiming, van seniorenverhuizing tot zorgeloos afscheid. Jim regelt het."
+    },
+    "over_mij": {
+        "hero_script": "Gedreven door zorg",
+        "hero_kop": "Het Gezicht Achter De Rust.",
+        "hero_subtekst": "In Tilburg en omstreken help ik mensen bij de meest kwetsbare transities in hun leven. Geen haast, geen oordeel, maar oprechte aandacht voor wat echt waarde heeft.",
+        "verhaal_kop": "Waarom dit bedrijf bestaat",
+        "verhaal_tekst_1": "Dit bedrijf is ontstaan vanuit een persoonlijke ervaring. Binnen één week moesten beide zorgwoningen van mijn opa's en oma's leeg — midden in een periode van rouw. Er was stress, druk en chaos, terwijl de familie juist ruimte nodig had om afscheid te nemen.",
+        "verhaal_tekst_2": "Dat moment maakte iets duidelijk: families verdienen ondersteuning die verder gaat dan alleen spullen weggooiën. Ze verdienen iemand die rust brengt, begrijpt wat er meespeelt en het praktische én emotionele aanpakt.",
+        "belofte_kop": "Mijn Belofte aan U",
+        "belofte_1": "Altijd een luisterend oor voor uw verhaal.",
+        "belofte_2": "Zorgvuldige afhandeling van persoonlijke eigendommen.",
+        "belofte_3": "Een resultaat dat direct rust en overzicht geeft.",
+        "werkwijze_kop": "Mijn Werkwijze in Tilburg",
+        "werkwijze_subtekst": "De waarden die de basis vormen van elke woningontruiming en opruimsessie die ik onderneem.",
+        "waarde1_kop": "Empathie",
+        "waarde1_tekst": "Ik begrijp de emotionele lading van een afscheid of verhuizing. Ik werk met mijn hart.",
+        "waarde2_kop": "Discretie",
+        "waarde2_tekst": "Uw privacy is heilig. Wat er in huis gebeurt en wat we tegenkomen, blijft tussen ons.",
+        "waarde3_kop": "Structuur",
+        "waarde3_tekst": "Waar anderen chaos zien, zie ik een logisch proces om orde en rust te herstellen.",
+        "quote_jim": "Ik kijk ernaar uit om u te ontmoeten en samen een plan te maken dat bij u past.",
+        "kvk_nummer": "87654321"
+    },
+    "contact": {
+        "hero_script": "Laten we kennismaken",
+        "hero_kop": "Een schone lei begint met een gesprek.",
+        "hero_subtekst": "Zet vandaag de eerste stap naar rust en overzicht. Mijn kennismaking is altijd vrijblijvend en op uw tempo.",
+        "jim_quote": "Geen ingewikkelde procedures of lange wachtlijsten. Ik sta u graag persoonlijk te woord om te kijken hoe ik weer ruimte kan maken in uw leven."
+    },
+    "fotos": {
+        "hero_script": "Het resultaat spreekt voor zich",
+        "hero_kop": "Foto's & Resultaten",
+        "hero_subtekst": "Van vol en overweldigend naar leeg en bezemschoon. Bekijk het verschil dat Jim maakt — in woningen door heel Tilburg en omstreken.",
+        "gallerij_kop": "Galerij",
+        "gallerij_subtekst": "Een selectie van uitgevoerde ontruimingen. Klik op een foto om te vergroten.",
+        "cta_script": "Zo kan uw woning er ook uitzien",
+        "cta_kop": "Klaar voor een frisse start?",
+        "cta_tekst": "Plan een gratis intake in en ontdek wat Jim voor uw situatie kan betekenen."
+    }
+}

@@ -1,0 +1,8 @@
+# Beheer map — alleen directe PHP-bestanden toegankelijk
+Options -Indexes
+DirectoryIndex index.php
+
+# Blokkeer directe toegang tot config en auth
+<FilesMatch "^(config|auth)\.php$">
+    Deny from all
+</FilesMatch>

@@ -3,9 +3,10 @@
 User-agent: *
 Allow: /
 
-# Disallow admin or private areas (if any)
-# Disallow: /admin/
-# Disallow: /private/
+# Beheer en interne mappen
+Disallow: /beheer-jro/
+Disallow: /content/
+Disallow: /uploads/
 
 # Sitemap location
 Sitemap: https://www.jimruimtop.nl/sitemap.xml

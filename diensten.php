@@ -1,0 +1,390 @@
+<?php
+require_once __DIR__ . '/includes/functions.php';
+$contact  = laad_json('contact.json');
+$teksten  = laad_json('teksten.json');
+$p        = $teksten['diensten'] ?? [];
+
+$telefoon = t($contact, 'telefoon', '06 12 34 56 78');
+$tel_href = tel_link($contact);
+$wa_url   = whatsapp_url($contact);
+$email    = htmlspecialchars($contact['email'] ?? 'info@jimruimtop.nl', ENT_QUOTES, 'UTF-8');
+$adres    = t($contact, 'adres', 'Tilburg');
+?>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Diensten Woningontruiming Tilburg | Jim Ruimt Op</title>
+    <meta name="description" content="Woningontruiming, garage opruimen, zorgeloos afscheid en spoedontruiming in Tilburg. Vaste prijzen, gratis intake. Jim Ruimt Op — specialist in Tilburg en omgeving."/>
+    <meta name="robots" content="index, follow"/>
+    <link rel="canonical" href="https://www.jimruimtop.nl/diensten.html"/>
+    <meta property="og:title" content="Diensten Woningontruiming Tilburg | Jim Ruimt Op"/>
+    <meta property="og:description" content="Complete woningontruiming, garage opruimen, seniorenverhuizing en zorgeloos afscheid in Tilburg. Transparante prijzen, gratis intake."/>
+    <meta property="og:url" content="https://www.jimruimtop.nl/diensten.html"/>
+    <meta property="og:type" content="website"/>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Wat kost een woningontruiming in Tilburg?","acceptedAnswer":{"@type":"Answer","text":"De kosten variëren van €295 voor een garage of zolder tot €695 en meer voor een complete woning. Na een gratis intake ontvangt u een vaste prijs."}},
+        {"@type":"Question","name":"Hoe snel kan Jim Ruimt Op starten met een ontruiming?","acceptedAnswer":{"@type":"Answer","text":"Meestal kan Jim binnen 48 uur een gratis intake inplannen. Voor spoedontruimingen in Tilburg is snellere inzet mogelijk."}},
+        {"@type":"Question","name":"Wat gebeurt er met waardevolle spullen bij een ontruiming?","acceptedAnswer":{"@type":"Answer","text":"Samen met Jim wordt besproken wat er bewaard, verkocht of gedoneerd wordt. Waardevolle items krijgen een passende bestemming."}}
+      ]
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&family=Dancing+Script:wght@500&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { brandNavy:'#1A436D', brandCyan:'#5BCEFF', brandCream:'#F4F0E6', brandGreen:'#7CC19D' },
+                    fontFamily: { headline:['Manrope','sans-serif'], body:['Inter','sans-serif'], script:['Dancing Script','cursive'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        #progress-bar { position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#5BCEFF,#1A436D);z-index:9999;transition:width 0.1s ease; }
+        html { scroll-behavior:smooth; }
+        .cloud-shadow { box-shadow:0 20px 40px rgba(26,67,109,0.12); }
+        .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+        .fade-in-up { opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease; }
+        .fade-in-up.visible { opacity:1;transform:translateY(0); }
+        .fade-in-left { opacity:0;transform:translateX(-30px);transition:opacity 0.6s ease,transform 0.6s ease; }
+        .fade-in-left.visible { opacity:1;transform:translateX(0); }
+        .fade-in-right { opacity:0;transform:translateX(30px);transition:opacity 0.6s ease,transform 0.6s ease; }
+        .fade-in-right.visible { opacity:1;transform:translateX(0); }
+        .scale-in { opacity:0;transform:scale(0.9);transition:opacity 0.5s ease,transform 0.5s ease; }
+        .scale-in.visible { opacity:1;transform:scale(1); }
+        .delay-100{transition-delay:0.1s;} .delay-200{transition-delay:0.2s;} .delay-300{transition-delay:0.3s;} .delay-400{transition-delay:0.4s;} .delay-500{transition-delay:0.5s;}
+        .floating-cta { position:fixed;bottom:30px;right:30px;z-index:40;animation:float 3s ease-in-out infinite; }
+        @keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);} }
+        .pulse-glow { animation:pulse-glow 2s ease-in-out infinite; }
+        @keyframes pulse-glow { 0%,100%{box-shadow:0 0 0 0 rgba(91,206,255,0.4);}50%{box-shadow:0 0 20px 10px rgba(91,206,255,0.2);} }
+        .service-card { transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275); }
+        .service-card:hover { transform:translateY(-10px) scale(1.02);box-shadow:0 25px 50px rgba(26,67,109,0.2); }
+        .service-card:hover .icon-container { background-color:#1A436D; }
+        .service-card:hover .icon-container span { color:white; }
+        .pricing-card { transition:all 0.4s ease; }
+        .pricing-card:hover { transform:translateY(-10px);box-shadow:0 30px 60px rgba(26,67,109,0.25); }
+        .pricing-featured { animation:featured-pulse 3s ease-in-out infinite; }
+        @keyframes featured-pulse { 0%,100%{box-shadow:0 20px 40px rgba(26,67,109,0.2);}50%{box-shadow:0 30px 60px rgba(91,206,255,0.3);} }
+        .modal { display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:100;align-items:center;justify-content:center;padding:20px; }
+        .modal.active { display:flex; }
+        .modal-content { background:white;border-radius:1rem;max-width:500px;width:100%;max-height:90vh;overflow-y:auto;animation:modal-in 0.3s ease; }
+        @keyframes modal-in { from{opacity:0;transform:scale(0.9) translateY(20px);}to{opacity:1;transform:scale(1) translateY(0);} }
+    </style>
+</head>
+<body class="bg-white font-body" style="background-color:#f0f7ff">
+    <div id="progress-bar" style="width: 0%"></div>
+
+    <a href="contact.php" class="floating-cta bg-brandNavy text-white px-6 py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all flex items-center gap-2 pulse-glow">
+        <span class="material-symbols-outlined">calendar_today</span>
+        <span class="hidden sm:inline">Gratis Intake</span>
+    </a>
+
+    <a href="<?= $wa_url ?>" target="_blank" rel="noopener" style="position:fixed;bottom:170px;right:30px;z-index:41;background:#25D366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" aria-label="WhatsApp Jim Ruimt Op">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <header class="w-full bg-brandNavy sticky top-0 z-50 shadow-sm">
+        <nav class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
+            <a href="index.php" class="flex items-center gap-2 hover:scale-105 transition-transform">
+                <img src="file_25---53b04ee2-5183-4b2a-88a1-877f480030a6.jpg" alt="Jim Ruimt Op" class="w-14 h-14 object-contain" style="background:transparent;"/>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Home</a>
+                <a href="diensten.php" class="font-headline font-bold text-white border-b-2 border-brandCyan pb-1">Diensten</a>
+                <a href="fotos.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Foto's</a>
+                <a href="over-mij.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Over Mij</a>
+                <a href="contact.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Contact</a>
+            </div>
+            <div class="hidden md:flex items-center gap-4">
+                <a href="<?= $tel_href ?>" class="flex items-center gap-2 text-white font-bold hover:text-brandCyan transition-colors text-sm">
+                    <span class="material-symbols-outlined text-lg">call</span>
+                    <span><?= $telefoon ?></span>
+                </a>
+                <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all text-sm">Gratis Intake</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-white">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-brandNavy border-t border-white/20">
+            <div class="flex flex-col px-6 py-4 space-y-4">
+                <a href="index.php" class="font-headline font-bold text-white/70">Home</a>
+                <a href="diensten.php" class="font-headline font-bold text-white">Diensten</a>
+                <a href="fotos.php" class="font-headline font-bold text-white/70">Foto's</a>
+                <a href="over-mij.php" class="font-headline font-bold text-white/70">Over Mij</a>
+                <a href="contact.php" class="font-headline font-bold text-white/70">Contact</a>
+                <a href="<?= $tel_href ?>" class="flex items-center gap-2 text-white font-bold text-sm">
+                    <span class="material-symbols-outlined text-lg">call</span><?= $telefoon ?>
+                </a>
+                <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold text-center text-sm">Gratis Intake</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="bg-brandNavy text-white py-20 px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in-up">
+                <span class="font-script text-brandCyan text-3xl mb-4 block">Alles wat u nodig heeft</span>
+                <h1 class="font-headline text-5xl md:text-6xl font-bold mb-4">Woningontruiming in Tilburg</h1>
+                <h2 class="font-headline text-2xl font-normal mb-6 text-white/80">Onze Diensten &amp; Pakketten</h2>
+                <p class="text-xl text-white/80 max-w-2xl mx-auto">Van complete woningontruiming tot zorgeloos afscheid — praktisch ontzorgd, emotioneel begeleid. Actief in Tilburg en omstreken.</p>
+            </div>
+        </section>
+
+        <section class="py-20 px-6 -mt-10">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-white p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-100" onclick="openServiceModal(1)">
+                    <div class="icon-container w-16 h-16 bg-brandNavy/10 rounded-full flex items-center justify-center mb-6 transition-colors">
+                        <span class="material-symbols-outlined text-4xl text-brandNavy transition-colors">cleaning_services</span>
+                    </div>
+                    <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">Volledige ontruiming</h3>
+                    <p class="text-gray-600 mb-6">Complete ontruiming van uw woning, garage of bedrijfspand. Alles wordt zorgvuldig verwijderd en de ruimte wordt veegschoon achtergelaten.</p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Alle ruimtes</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Veegschoon</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Snelle service</li>
+                    </ul>
+                    <div class="mt-6 pt-4 border-t border-gray-100">
+                        <span class="text-brandCyan font-semibold text-sm flex items-center gap-1">Meer info <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                    </div>
+                </div>
+
+                <div class="service-card bg-white p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-200" onclick="openServiceModal(2)">
+                    <div class="icon-container w-16 h-16 bg-brandNavy/10 rounded-full flex items-center justify-center mb-6 transition-colors">
+                        <span class="material-symbols-outlined text-4xl text-brandNavy transition-colors">home</span>
+                    </div>
+                    <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">Woningontruiming</h3>
+                    <p class="text-gray-600 mb-6">Specialist in het ontruimen van woningen bij verhuizing, overlijden of verkoop. Met respect voor uw bezittingen en herinneringen.</p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Emotionele support</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Sorteren & herbestemmen</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Discrete service</li>
+                    </ul>
+                    <div class="mt-6 pt-4 border-t border-gray-100">
+                        <span class="text-brandCyan font-semibold text-sm flex items-center gap-1">Meer info <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                    </div>
+                </div>
+
+                <div class="service-card bg-white p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-300" onclick="openServiceModal(3)">
+                    <div class="icon-container w-16 h-16 bg-brandNavy/10 rounded-full flex items-center justify-center mb-6 transition-colors">
+                        <span class="material-symbols-outlined text-4xl text-brandNavy transition-colors">garage</span>
+                    </div>
+                    <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">Garage & Zolder</h3>
+                    <p class="text-gray-600 mb-6">Opruiming van garage, zolder, berging of schuur. Ruimte creëren voor wat echt belangrijk is.</p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Complete leegmaking</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Afval scheiden</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Hergebruik waar mogelijk</li>
+                    </ul>
+                    <div class="mt-6 pt-4 border-t border-gray-100">
+                        <span class="text-brandCyan font-semibold text-sm flex items-center gap-1">Meer info <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                    </div>
+                </div>
+
+                <div class="service-card bg-white p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-100" onclick="openServiceModal(4)">
+                    <div class="icon-container w-16 h-16 bg-brandNavy/10 rounded-full flex items-center justify-center mb-6 transition-colors">
+                        <span class="material-symbols-outlined text-4xl text-brandNavy transition-colors">diversity_1</span>
+                    </div>
+                    <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">Zorgeloos Afscheid</h3>
+                    <p class="text-gray-600 mb-6">Bij overlijden van een dierbare nemen wij u alle zorg uit handen. Discreet, empathisch en professioneel.</p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Volledige ontzorging</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Herbestemming spullen</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Coördinatie verhuizing</li>
+                    </ul>
+                    <div class="mt-6 pt-4 border-t border-gray-100">
+                        <span class="text-brandCyan font-semibold text-sm flex items-center gap-1">Meer info <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                    </div>
+                </div>
+
+                <div class="service-card bg-white p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-200" onclick="openServiceModal(5)">
+                    <div class="icon-container w-16 h-16 bg-brandNavy/10 rounded-full flex items-center justify-center mb-6 transition-colors">
+                        <span class="material-symbols-outlined text-4xl text-brandNavy transition-colors">swap_horiz</span>
+                    </div>
+                    <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">Sorteren & Herbestemmen</h3>
+                    <p class="text-gray-600 mb-6">Samen bepalen wat er bewaard, verkocht, gedoneerd of afgevoerd wordt. Waardevolle items krijgen een passende bestemming — via verkoop, donatie aan goede doelen of hergebruik.</p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Bewaren, verkopen, doneren of afvoeren</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Waardevolle items verkocht of gedoneerd</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Circulair & milieubewust</li>
+                    </ul>
+                    <div class="mt-6 pt-4 border-t border-gray-100">
+                        <a href="contact.php" class="text-brandCyan font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">Meer info <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+                    </div>
+                </div>
+
+                <div class="service-card bg-white p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-300" onclick="openServiceModal(6)">
+                    <div class="icon-container w-16 h-16 bg-brandNavy/10 rounded-full flex items-center justify-center mb-6 transition-colors">
+                        <span class="material-symbols-outlined text-4xl text-brandNavy transition-colors">cleaning_services</span>
+                    </div>
+                    <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">Schoonmaak & Oplevering</h3>
+                    <p class="text-gray-600 mb-6">Na de ontruiming wordt de woning bezemschoon opgeleverd. Coördinatie met woningcorporaties en verhuurders inbegrepen.</p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Bezemschoon opleveren</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Coördinatie met corporaties</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Geen boetes achteraf</li>
+                    </ul>
+                    <div class="mt-6 pt-4 border-t border-gray-100">
+                        <a href="contact.php" class="text-brandCyan font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">Meer info <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+                    </div>
+                </div>
+
+                <div class="service-card bg-brandCyan/10 border-2 border-brandCyan p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-100">
+                    <div class="icon-container w-16 h-16 bg-brandNavy/10 rounded-full flex items-center justify-center mb-6 transition-colors">
+                        <span class="material-symbols-outlined text-4xl text-brandNavy transition-colors">bolt</span>
+                    </div>
+                    <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">Spoedontruiming</h3>
+                    <p class="text-gray-600 mb-6">Woning moet snel leeg? Jim staat klaar voor spoedklussen in regio Tilburg. Snel, professioneel en betrouwbaar.</p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Snelle inzet mogelijk</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Ook buiten kantoortijden</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Vaste prijs, geen verrassingen</li>
+                    </ul>
+                    <div class="mt-6 pt-4 border-t border-brandCyan/30">
+                        <a href="contact.php" class="text-brandNavy font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">Direct contact <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in-up">
+                <span class="font-script text-brandCyan text-3xl mb-4 block">Heeft u vragen?</span>
+                <h2 class="font-headline text-4xl font-bold mb-6 text-brandNavy">Laten we samen kijken wat u nodig heeft</h2>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Elke situatie is uniek. Neem contact op voor een vrijblijvend gesprek en een passende offerte.</p>
+                <a href="contact.php" class="inline-block bg-brandCyan text-brandNavy px-10 py-4 rounded-full font-bold text-lg hover:bg-brandNavy hover:text-white transition-all shadow-lg pulse-glow">
+                    Gratis Intake Aanvragen
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-brandNavy text-white py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+            <div>
+                <h2 class="text-3xl font-bold mb-1 font-headline">Jim</h2>
+                <h3 class="text-xl font-bold mb-4 font-headline">Ruimt Op</h3>
+                <p class="text-white/70 text-sm max-w-xs">Specialist in ontruiming & ontzorging in regio Tilburg.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-10 w-full md:w-auto">
+                <div>
+                    <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Navigatie</h4>
+                    <ul class="space-y-2 text-white/70 text-sm">
+                        <li><a href="index.php" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="diensten.php" class="hover:text-white transition-colors">Diensten</a></li>
+                        <li><a href="fotos.php" class="hover:text-white transition-colors">Foto's</a></li>
+                        <li><a href="over-mij.php" class="hover:text-white transition-colors">Over Mij</a></li>
+                        <li><a href="contact.php" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Locatie</h4>
+                    <p class="text-white/70 text-sm"><?= $adres ?></p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Contact</h4>
+                    <p class="text-white/70 text-sm"><?= $adres ?><br/><?= $email ?><br/>Bel: <?= $telefoon ?></p>
+                </div>
+                <div class="flex flex-col items-start sm:items-end">
+                    <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Direct contact</h4>
+                    <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all">Contact Aanvragen</a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-white/50 text-sm">© 2025 Jim Ruimt Op. Alle rechten voorbehouden.</p>
+        </div>
+    </footer>
+
+    <div id="service-modal" class="modal">
+        <div class="modal-content relative">
+            <button onclick="closeServiceModal()" class="absolute top-4 right-4 w-10 h-10 bg-brandNavy text-white rounded-full flex items-center justify-center hover:bg-brandCyan hover:text-brandNavy transition-colors z-10">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div id="service-modal-content"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        function updateProgressBar() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            document.getElementById('progress-bar').style.width = ((scrollTop / docHeight) * 100) + '%';
+        }
+        window.addEventListener('scroll', updateProgressBar);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .scale-in').forEach(el => observer.observe(el));
+
+        const serviceData = {
+            1: { title:'Volledige ontruiming', icon:'cleaning_services', description:'Complete ontruiming van uw woning, garage of bedrijfspand. Alles wordt zorgvuldig verwijderd en de ruimte wordt veegschoon achtergelaten.', details:'Onze volledige ontruimingsdienst is ideaal als u een ruimte volledig leeg wilt hebben. Wij nemen alle zorg uit handen, van het verzamelen en sorteren tot het afvoeren van alle spullen.', features:['Alle ruimtes ontruimd','Veegschoon achtergelaten','Snelle service','Inclusief afvalafvoer','Geen verborgen kosten'], time:'1-2 dagen', price:'Vanaf €195' },
+            2: { title:'Woningontruiming', icon:'home', description:'Specialist in het ontruimen van woningen bij verhuizing, overlijden of verkoop. Met respect voor uw bezittingen en herinneringen.', details:'Een woningontruiming is vaak emotioneel en tijdrovend. Wij begrijpen dit en werken met respect en zorgvuldigheid.', features:['Emotionele ondersteuning','Sorteren & herbestemmen','Discrete service','Waardebepaling meubels','Fotodocumentatie'], time:'1-3 dagen', price:'Vanaf €495' },
+            3: { title:'Garage & Zolder', icon:'garage', description:'Opruiming van garage, zolder, berging of schuur. Ruimte creëren voor wat echt belangrijk is.', details:'Garages en zolders zijn vaak de meest verwaarloosde ruimtes. Wij maken ze weer gebruiksklaar.', features:['Complete leegmaking','Afval scheiden','Hergebruik waar mogelijk','Stofvrij opleveren','Recycling certificaat'], time:'4-8 uur', price:'Vanaf €295' },
+            4: { title:'Zorgeloos Afscheid', icon:'diversity_1', description:'Bij overlijden van een dierbare nemen wij u alle zorg uit handen. Discreet, empathisch en professioneel.', details:'Het verlies van een dierbare is al zwaar genoeg. Laat de praktische zaken aan ons over.', features:['Volledige ontzorging','Herbestemming spullen','Coördinatie verhuizing','Contact makelaar/notaris','24/7 bereikbaar'], time:'In overleg', price:'Op aanvraag' },
+            5: { title:'Sorteren & Herbestemmen', icon:'swap_horiz', description:'Vakkundige sortering en herbestemming van uw bezittingen.', details:'Samen bepalen we wat er bewaard, verkocht, gedoneerd of afgevoerd wordt.', features:['Bewaren, verkopen, doneren of afvoeren','Waardevolle items verkocht of gedoneerd','Circulair & milieubewust'], time:'1-4 uur', price:'Vanaf €125' },
+            6: { title:'Schoonmaak & Oplevering', icon:'cleaning_services', description:'Na de ontruiming wordt de woning bezemschoon opgeleverd.', details:'Coördinatie met woningcorporaties en verhuurders inbegrepen.', features:['Bezemschoon opleveren','Coördinatie met corporaties','Geen boetes achteraf'], time:'1-2 dagen', price:'Vanaf €350' }
+        };
+
+        function openServiceModal(id) {
+            const data = serviceData[id];
+            const content = `
+                <div class="bg-brandNavy text-white p-6 rounded-t-xl">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center">
+                            <span class="material-symbols-outlined text-3xl">${data.icon}</span>
+                        </div>
+                        <div>
+                            <h3 class="font-headline text-2xl font-bold">${data.title}</h3>
+                            <p class="text-white/70">${data.time}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 mb-4">${data.description}</p>
+                    <p class="text-gray-500 text-sm mb-6">${data.details}</p>
+                    <h4 class="font-bold text-brandNavy mb-3">Wat is inbegrepen:</h4>
+                    <ul class="space-y-2 mb-6">
+                        ${data.features.map(f => `<li class="flex items-center gap-2 text-gray-600"><span class="material-symbols-outlined text-brandCyan text-sm">check</span>${f}</li>`).join('')}
+                    </ul>
+                    <div class="bg-brandNavy/5 p-4 rounded-xl mb-6">
+                        <p class="text-sm text-gray-500">Prijs indicatie</p>
+                        <p class="text-2xl font-bold text-brandNavy">${data.price}</p>
+                    </div>
+                    <a href="contact.php" class="block w-full text-center bg-brandCyan text-brandNavy py-4 rounded-xl font-bold hover:bg-brandNavy hover:text-white transition-all">
+                        Offerte aanvragen
+                    </a>
+                </div>
+            `;
+            document.getElementById('service-modal-content').innerHTML = content;
+            document.getElementById('service-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeServiceModal() {
+            document.getElementById('service-modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeServiceModal(); });
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) { modal.classList.remove('active'); document.body.style.overflow = ''; }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => { updateProgressBar(); });
+    </script>
+</body>
+</html>

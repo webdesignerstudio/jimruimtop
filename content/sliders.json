@@ -1,0 +1,34 @@
+[
+    {
+        "titel": "Woonkamer — Eengezinswoning",
+        "locatie": "Tilburg — Complete woningontruiming",
+        "voor_bestand": "file_26---05787c6d-5a2f-4a29-a396-a37570acc71c.jpg",
+        "voor_alt": "Voor ontruiming woonkamer Tilburg",
+        "na_bestand": "file_24---f1a3f6be-ff29-4eb4-9169-64c58267bf1c.jpg",
+        "na_alt": "Na ontruiming woonkamer Tilburg"
+    },
+    {
+        "titel": "Garage — Opruiming & Sortering",
+        "locatie": "Tilburg Noord — Garageontruiming",
+        "voor_bestand": "file_26---05787c6d-5a2f-4a29-a396-a37570acc71c.jpg",
+        "voor_alt": "Voor ontruiming garage Tilburg",
+        "na_bestand": "file_24---f1a3f6be-ff29-4eb4-9169-64c58267bf1c.jpg",
+        "na_alt": "Na ontruiming garage Tilburg"
+    },
+    {
+        "titel": "Slaapkamer — Zorgeloos Afscheid",
+        "locatie": "Tilburg Zuid — Nabestaanden begeleiding",
+        "voor_bestand": "file_26---05787c6d-5a2f-4a29-a396-a37570acc71c.jpg",
+        "voor_alt": "Voor ontruiming slaapkamer Tilburg",
+        "na_bestand": "file_24---f1a3f6be-ff29-4eb4-9169-64c58267bf1c.jpg",
+        "na_alt": "Na ontruiming slaapkamer Tilburg"
+    },
+    {
+        "titel": "Zolder — Volledig leeggemaakt",
+        "locatie": "Oisterwijk — Zolderontruiming",
+        "voor_bestand": "file_26---05787c6d-5a2f-4a29-a396-a37570acc71c.jpg",
+        "voor_alt": "Voor zolderontruiming Tilburg",
+        "na_bestand": "file_24---f1a3f6be-ff29-4eb4-9169-64c58267bf1c.jpg",
+        "na_alt": "Na zolderontruiming Tilburg"
+    }
+]

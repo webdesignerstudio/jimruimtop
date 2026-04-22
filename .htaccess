@@ -13,7 +13,18 @@
     # RewriteCond %{HTTP_HOST} !^www\. [NC]
     # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
     
-    # Remove .html extension
+    # Redirect .html naar .php (301 permanent)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^index\.html$ /index.php [R=301,L]
+    RewriteRule ^diensten\.html$ /diensten.php [R=301,L]
+    RewriteRule ^fotos\.html$ /fotos.php [R=301,L]
+    RewriteRule ^over-mij\.html$ /over-mij.php [R=301,L]
+    RewriteRule ^contact\.html$ /contact.php [R=301,L]
+
+    # Blokkeer directe browser-toegang tot /content/
+    RewriteRule ^content/ - [F,L]
+
+    # Remove .html extension (fallback)
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^([^\.]+)$ $1.html [NC,L]
@@ -84,6 +95,12 @@ Options -Indexes
 
 # Protect configuration files
 <FilesMatch "(^#.*#|\.(bak|conf|dist|fla|in[ci]|log|psd|sh|sql|sw[op])|~)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Blokkeer directe toegang tot JSON-bestanden
+<FilesMatch "\.json$">
     Order allow,deny
     Deny from all
 </FilesMatch>

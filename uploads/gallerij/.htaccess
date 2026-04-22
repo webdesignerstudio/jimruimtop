@@ -1,0 +1,5 @@
+# Sta alleen afbeeldingen toe, geen PHP-uitvoering
+Options -Indexes
+<FilesMatch "\.php$">
+    Deny from all
+</FilesMatch>
