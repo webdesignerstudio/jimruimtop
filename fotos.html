@@ -50,8 +50,8 @@
         }
         .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(124,193,157,0.4); }
-            50% { box-shadow: 0 0 20px 10px rgba(124,193,157,0.2); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(91,206,255,0.4); }
+            50% { box-shadow: 0 0 20px 10px rgba(91,206,255,0.2); }
         }
         .whatsapp-btn {
             position: fixed; bottom: 170px; right: 30px; z-index: 41;
@@ -158,11 +158,11 @@
         .delay-300 { transition-delay: 0.3s; }
     </style>
 </head>
-<body class="bg-white font-body">
+<body class="bg-white font-body" style="background-color:#f0f7ff">
     <div id="progress-bar" style="width:0%"></div>
 
     <!-- Floating CTA -->
-    <a href="contact.html" class="floating-cta bg-brandGreen text-white px-6 py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all flex items-center gap-2 pulse-glow">
+    <a href="contact.html" class="floating-cta bg-brandNavy text-white px-6 py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all flex items-center gap-2 pulse-glow">
         <span class="material-symbols-outlined">calendar_today</span>
         <span class="hidden sm:inline">Gratis Intake</span>
     </a>
@@ -173,44 +173,44 @@
     </a>
 
     <!-- Header -->
-    <header class="w-full bg-brandCream sticky top-0 z-50 shadow-sm">
+    <header class="w-full bg-brandNavy sticky top-0 z-50 shadow-sm">
         <nav class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
             <a href="index.html" class="flex items-center gap-2">
-                <img src="file_25---53b04ee2-5183-4b2a-88a1-877f480030a6.jpg" alt="Jim Ruimt Op logo" class="w-12 h-12 object-contain" style="mix-blend-mode:multiply"/>
+                <img src="file_25---53b04ee2-5183-4b2a-88a1-877f480030a6.jpg" alt="Jim Ruimt Op logo" class="w-12 h-12 object-contain" style="filter:brightness(0) invert(1)"/>
                 <div>
-                    <h1 class="text-xl font-bold leading-tight text-brandNavy font-headline">Jim Ruimt Op</h1>
+                    <h1 class="text-xl font-bold leading-tight text-white font-headline">Jim Ruimt Op</h1>
                     <p class="text-brandCyan italic text-sm">Zorgeloos geregeld!</p>
                 </div>
             </a>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="font-headline font-bold text-gray-600 hover:text-brandNavy transition-colors">Home</a>
-                <a href="diensten.html" class="font-headline font-bold text-gray-600 hover:text-brandNavy transition-colors">Diensten</a>
-                <a href="fotos.html" class="font-headline font-bold text-brandNavy border-b-2 border-brandNavy pb-1">Foto's</a>
-                <a href="over-mij.html" class="font-headline font-bold text-gray-600 hover:text-brandNavy transition-colors">Over Mij</a>
-                <a href="contact.html" class="font-headline font-bold text-gray-600 hover:text-brandNavy transition-colors">Contact</a>
+                <a href="index.html" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Home</a>
+                <a href="diensten.html" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Diensten</a>
+                <a href="fotos.html" class="font-headline font-bold text-white border-b-2 border-brandCyan pb-1">Foto's</a>
+                <a href="over-mij.html" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Over Mij</a>
+                <a href="contact.html" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Contact</a>
             </div>
             <div class="hidden md:flex items-center gap-4">
-                <a href="tel:+31612345678" class="flex items-center gap-2 text-brandNavy font-bold hover:text-brandCyan transition-colors text-sm">
+                <a href="tel:+31612345678" class="flex items-center gap-2 text-white font-bold hover:text-brandCyan transition-colors text-sm">
                     <span class="material-symbols-outlined text-lg">call</span>
                     <span>06 12 34 56 78</span>
                 </a>
-                <a href="contact.html" class="bg-brandNavy text-white px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all text-sm">Gratis Intake</a>
+                <a href="contact.html" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all text-sm">Gratis Intake</a>
             </div>
-            <button id="mobile-menu-btn" class="md:hidden text-brandNavy">
+            <button id="mobile-menu-btn" class="md:hidden text-white">
                 <span class="material-symbols-outlined text-3xl">menu</span>
             </button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden bg-brandCream border-t border-gray-200">
+        <div id="mobile-menu" class="hidden md:hidden bg-brandNavy border-t border-white/20">
             <div class="flex flex-col px-6 py-4 space-y-4">
-                <a href="index.html" class="font-headline font-bold text-gray-600">Home</a>
-                <a href="diensten.html" class="font-headline font-bold text-gray-600">Diensten</a>
-                <a href="fotos.html" class="font-headline font-bold text-brandNavy">Foto's</a>
-                <a href="over-mij.html" class="font-headline font-bold text-gray-600">Over Mij</a>
-                <a href="contact.html" class="font-headline font-bold text-gray-600">Contact</a>
-                <a href="tel:+31612345678" class="flex items-center gap-2 text-brandNavy font-bold text-sm">
+                <a href="index.html" class="font-headline font-bold text-white/70">Home</a>
+                <a href="diensten.html" class="font-headline font-bold text-white/70">Diensten</a>
+                <a href="fotos.html" class="font-headline font-bold text-white">Foto's</a>
+                <a href="over-mij.html" class="font-headline font-bold text-white/70">Over Mij</a>
+                <a href="contact.html" class="font-headline font-bold text-white/70">Contact</a>
+                <a href="tel:+31612345678" class="flex items-center gap-2 text-white font-bold text-sm">
                     <span class="material-symbols-outlined text-lg">call</span>06 12 34 56 78
                 </a>
-                <a href="contact.html" class="bg-brandNavy text-white px-6 py-3 rounded-full font-bold text-center text-sm">Gratis Intake</a>
+                <a href="contact.html" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold text-center text-sm">Gratis Intake</a>
             </div>
         </div>
     </header>

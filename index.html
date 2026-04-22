@@ -197,8 +197,8 @@
         }
         
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(124, 193, 157, 0.4); }
-            50% { box-shadow: 0 0 20px 10px rgba(124, 193, 157, 0.2); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(91, 206, 255, 0.4); }
+            50% { box-shadow: 0 0 20px 10px rgba(91, 206, 255, 0.2); }
         }
         
         /* Image hover zoom */
@@ -274,18 +274,12 @@
         }
     </style>
 </head>
-<body class="bg-white font-body">
+<body class="bg-white font-body" style="background-color:#f0f7ff">
     <!-- Scroll Progress Bar -->
     <div id="progress-bar" style="width: 0%"></div>
 
-    <!-- Style Toggle -->
-    <a href="index2.html" title="Bekijk blauwe variant" style="position:fixed;top:50%;right:0;transform:translateY(-50%);z-index:42;background:#1A436D;color:#5BCEFF;width:28px;border-radius:8px 0 0 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:10px 4px;box-shadow:-2px 0 12px rgba(26,67,109,0.18);transition:width 0.2s ease;cursor:pointer;text-decoration:none;" onmouseover="this.style.width='90px'" onmouseout="this.style.width='28px'" aria-label="Bekijk blauwe kleurvariant">
-        <span class="material-symbols-outlined" style="font-size:16px;flex-shrink:0">palette</span>
-        <span style="font-size:9px;font-weight:700;letter-spacing:0.05em;writing-mode:vertical-rl;text-orientation:mixed;overflow:hidden;max-height:60px;opacity:0.7">BLAUW</span>
-    </a>
-
     <!-- Floating CTA Button -->
-    <a href="contact.html" class="floating-cta bg-brandGreen text-white px-6 py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all flex items-center gap-2 pulse-glow">
+    <a href="contact.html" class="floating-cta bg-brandNavy text-white px-6 py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all flex items-center gap-2 pulse-glow">
         <span class="material-symbols-outlined">calendar_today</span>
         <span class="hidden sm:inline">Gratis Intake</span>
     </a>
@@ -296,46 +290,46 @@
     </a>
 
     <!-- Header -->
-    <header class="w-full bg-brandCream sticky top-0 z-50 shadow-sm">
+    <header class="w-full bg-brandNavy sticky top-0 z-50 shadow-sm">
         <nav class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
             <a href="index.html" class="flex items-center gap-2 hover:scale-105 transition-transform">
-                <img src="file_25---53b04ee2-5183-4b2a-88a1-877f480030a6.jpg" alt="Jim Ruimt Op logo, ontruimingsbedrijf Tilburg" class="w-12 h-12 object-contain" style="mix-blend-mode:multiply"/>
+                <img src="file_25---53b04ee2-5183-4b2a-88a1-877f480030a6.jpg" alt="Jim Ruimt Op logo, ontruimingsbedrijf Tilburg" class="w-12 h-12 object-contain" style="filter:brightness(0) invert(1)"/>
                 <div>
-                    <h1 class="text-xl font-bold leading-tight text-brandNavy font-headline">Jim Ruimt Op</h1>
+                    <h1 class="text-xl font-bold leading-tight text-white font-headline">Jim Ruimt Op</h1>
                     <p class="text-brandCyan italic text-sm">Zorgeloos geregeld!</p>
                 </div>
             </a>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="font-headline font-bold text-brandNavy border-b-2 border-brandNavy pb-1 hover:text-brandCyan transition-colors">Home</a>
-                <a href="diensten.html" class="font-headline font-bold text-gray-600 hover:text-brandNavy hover:border-b-2 hover:border-brandNavy pb-1 transition-all">Diensten</a>
-                <a href="fotos.html" class="font-headline font-bold text-gray-600 hover:text-brandNavy hover:border-b-2 hover:border-brandNavy pb-1 transition-all">Foto's</a>
-                <a href="over-mij.html" class="font-headline font-bold text-gray-600 hover:text-brandNavy hover:border-b-2 hover:border-brandNavy pb-1 transition-all">Over Mij</a>
-                <a href="contact.html" class="font-headline font-bold text-gray-600 hover:text-brandNavy hover:border-b-2 hover:border-brandNavy pb-1 transition-all">Contact</a>
+                <a href="index.html" class="font-headline font-bold text-white border-b-2 border-brandCyan pb-1 hover:text-brandCyan transition-colors">Home</a>
+                <a href="diensten.html" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Diensten</a>
+                <a href="fotos.html" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Foto's</a>
+                <a href="over-mij.html" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Over Mij</a>
+                <a href="contact.html" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Contact</a>
             </div>
             <div class="hidden md:flex items-center gap-4">
-                <a href="tel:+31612345678" class="flex items-center gap-2 text-brandNavy font-bold hover:text-brandCyan transition-colors text-sm">
+                <a href="tel:+31612345678" class="flex items-center gap-2 text-white font-bold hover:text-brandCyan transition-colors text-sm">
                     <span class="material-symbols-outlined text-lg">call</span>
                     <span>06 12 34 56 78</span>
                 </a>
-                <a href="contact.html" class="bg-brandNavy text-white px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all text-sm shadow-md">
+                <a href="contact.html" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all text-sm shadow-md">
                     Gratis Intake
                 </a>
             </div>
-            <button id="mobile-menu-btn" class="md:hidden text-brandNavy hover:text-brandCyan transition-colors">
+            <button id="mobile-menu-btn" class="md:hidden text-white hover:text-brandCyan transition-colors">
                 <span class="material-symbols-outlined text-3xl">menu</span>
             </button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden bg-brandCream border-t border-gray-200">
+        <div id="mobile-menu" class="hidden md:hidden bg-brandNavy border-t border-white/20">
             <div class="flex flex-col px-6 py-4 space-y-4">
-                <a href="index.html" class="font-headline font-bold text-brandNavy">Home</a>
-                <a href="diensten.html" class="font-headline font-bold text-gray-600 hover:text-brandNavy">Diensten</a>
-                <a href="fotos.html" class="font-headline font-bold text-gray-600 hover:text-brandNavy">Foto's</a>
-                <a href="over-mij.html" class="font-headline font-bold text-gray-600 hover:text-brandNavy">Over Mij</a>
-                <a href="contact.html" class="font-headline font-bold text-gray-600 hover:text-brandNavy">Contact</a>
-                <a href="tel:+31612345678" class="flex items-center gap-2 text-brandNavy font-bold text-sm">
+                <a href="index.html" class="font-headline font-bold text-white">Home</a>
+                <a href="diensten.html" class="font-headline font-bold text-white/70 hover:text-brandCyan">Diensten</a>
+                <a href="fotos.html" class="font-headline font-bold text-white/70 hover:text-brandCyan">Foto's</a>
+                <a href="over-mij.html" class="font-headline font-bold text-white/70 hover:text-brandCyan">Over Mij</a>
+                <a href="contact.html" class="font-headline font-bold text-white/70 hover:text-brandCyan">Contact</a>
+                <a href="tel:+31612345678" class="flex items-center gap-2 text-white font-bold text-sm">
                     <span class="material-symbols-outlined text-lg">call</span>06 12 34 56 78
                 </a>
-                <a href="contact.html" class="bg-brandNavy text-white px-6 py-3 rounded-full font-bold text-center text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">Gratis Intake</a>
+                <a href="contact.html" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold text-center text-sm hover:opacity-90 transition-all">Gratis Intake</a>
             </div>
         </div>
     </header>
@@ -353,7 +347,7 @@
                     </h2>
                     <p class="text-xl mb-8 text-gray-700 max-w-lg">Geen gewoon ontruimingsbedrijf — maar een <strong>afscheids- en ontzorgservice</strong> voor senioren en nabestaanden in Tilburg en omstreken. Praktisch geregeld, emotioneel begeleid.</p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="contact.html" class="inline-block bg-brandGreen text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brandNavy transition-all shadow-lg pulse-glow">
+                        <a href="contact.html" class="inline-block bg-brandCyan text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-lg pulse-glow">
                             Kennismakingsgesprek
                         </a>
                         <a href="diensten.html" class="inline-block border-2 border-brandNavy text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-brandNavy hover:text-white transition-all">
@@ -395,7 +389,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto relative px-4 mt-16">
 
                 <!-- Core Aanbod Card -->
-                <div class="pricing-card card-tilted-left bg-white border-2 border-gray-100 p-8 rounded-2xl cloud-shadow flex flex-col items-center text-center">
+                <div class="pricing-card card-tilted-left bg-white border-2 border-brandCyan/30 p-8 rounded-2xl cloud-shadow flex flex-col items-center text-center">
                     <div class="mb-4 text-brandNavy">
                         <span class="material-symbols-outlined text-5xl">home</span>
                     </div>
@@ -404,10 +398,10 @@
                     <div class="text-2xl font-bold text-brandNavy mb-1">Op aanvraag</div>
                     <p class="text-xs text-gray-400 mb-4">Gratis intake — vaste prijs achteraf</p>
                     <ul class="text-left space-y-2 mb-6 text-sm w-full">
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Complete woningontruiming</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Sorteren: bewaren / verkopen / doneren / afvoeren</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Schoonmaak & bezemschoon oplevering</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Coördinatie met woningcorporaties</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Complete woningontruiming</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Sorteren: bewaren / verkopen / doneren / afvoeren</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Schoonmaak & bezemschoon oplevering</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Coördinatie met woningcorporaties</li>
                     </ul>
                     <a href="diensten.html#pakket-core" class="mt-auto text-brandNavy font-bold hover:text-brandCyan transition-colors flex items-center gap-1 text-sm">
                         Bekijk pakket <span class="material-symbols-outlined text-sm">arrow_forward</span>
@@ -427,19 +421,19 @@
                     <div class="text-2xl font-bold text-brandNavy mb-1">Op aanvraag</div>
                     <p class="text-xs text-gray-500 mb-4">Inclusief begeleiding & familiegesprekken</p>
                     <ul class="text-left space-y-2 mb-6 text-sm w-full">
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Alles van Core aanbod</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Rustige begeleiding bij keuzes</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Tijd nemen voor herinneringen</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Familiegesprekken faciliteren</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Waardevolle items verkopen / doneren</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Alles van Core aanbod</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Rustige begeleiding bij keuzes</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Tijd nemen voor herinneringen</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Familiegesprekken faciliteren</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Waardevolle items verkopen / doneren</li>
                     </ul>
-                    <a href="diensten.html#pakket-premium" class="mt-auto bg-brandGreen text-white px-6 py-2 rounded-full font-bold hover:bg-brandNavy transition-colors text-sm">
+                    <a href="diensten.html#pakket-premium" class="mt-auto bg-brandNavy text-white px-6 py-2 rounded-full font-bold hover:bg-brandCyan hover:text-brandNavy transition-colors text-sm">
                         Bekijk pakket
                     </a>
                 </div>
 
                 <!-- Senior Vooruit-planning Card -->
-                <div class="pricing-card card-tilted-right bg-white border-2 border-gray-100 p-8 rounded-2xl cloud-shadow flex flex-col items-center text-center">
+                <div class="pricing-card card-tilted-right bg-white border-2 border-brandCyan/30 p-8 rounded-2xl cloud-shadow flex flex-col items-center text-center">
                     <div class="mb-4 text-brandNavy">
                         <span class="material-symbols-outlined text-5xl">elderly</span>
                     </div>
@@ -448,10 +442,10 @@
                     <div class="text-2xl font-bold text-brandNavy mb-1">Op aanvraag</div>
                     <p class="text-xs text-gray-400 mb-4">Vooruit plannen zonder stress</p>
                     <ul class="text-left space-y-2 mb-6 text-sm w-full">
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Inventarisatie van de woning</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Persoonlijk plan op maat</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Keuzes vooraf vastleggen</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Kinderen worden niet belast</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Inventarisatie van de woning</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Persoonlijk plan op maat</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Keuzes vooraf vastleggen</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Kinderen worden niet belast</li>
                     </ul>
                     <a href="diensten.html#pakket-senior" class="mt-auto bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
                         Bekijk pakket
@@ -461,48 +455,48 @@
         </section>
 
         <!-- Diensten Sectie -->
-        <section class="bg-brandCream py-20 px-6">
+        <section class="bg-brandNavy py-20 px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 fade-in-up">
-                    <h2 class="font-headline text-4xl font-bold mb-4 text-brandNavy">Woningontruiming in Tilburg</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">Professionele ondersteuning voor alle ontruimingswerkzaamheden in regio Tilburg — van garage tot complete woning.</p>
+                    <h2 class="font-headline text-4xl font-bold mb-4 text-white">Woningontruiming in Tilburg</h2>
+                    <p class="text-white/70 max-w-2xl mx-auto">Professionele ondersteuning voor alle ontruimingswerkzaamheden in regio Tilburg — van garage tot complete woning.</p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white rounded-xl cloud-shadow cursor-pointer fade-in-up delay-100">
-                        <span class="material-symbols-outlined text-brandNavy text-3xl transition-colors">home_work</span>
-                        <span class="service-text text-lg font-medium text-brandNavy transition-colors">Volledige ontruiming</span>
+                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white/10 rounded-xl cloud-shadow cursor-pointer fade-in-up delay-100">
+                        <span class="material-symbols-outlined text-brandCyan text-3xl transition-colors">home_work</span>
+                        <span class="service-text text-lg font-medium text-white transition-colors">Volledige ontruiming</span>
                     </div>
-                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white rounded-xl cloud-shadow cursor-pointer fade-in-up delay-200">
-                        <span class="material-symbols-outlined text-brandNavy text-3xl transition-colors">garage</span>
-                        <span class="service-text text-lg font-medium text-brandNavy transition-colors">Garageontruiming</span>
+                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white/10 rounded-xl cloud-shadow cursor-pointer fade-in-up delay-200">
+                        <span class="material-symbols-outlined text-brandCyan text-3xl transition-colors">garage</span>
+                        <span class="service-text text-lg font-medium text-white transition-colors">Garageontruiming</span>
                     </div>
-                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white rounded-xl cloud-shadow cursor-pointer fade-in-up delay-300">
-                        <span class="material-symbols-outlined text-brandNavy text-3xl transition-colors">home</span>
-                        <span class="service-text text-lg font-medium text-brandNavy transition-colors">Woningontruiming</span>
+                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white/10 rounded-xl cloud-shadow cursor-pointer fade-in-up delay-300">
+                        <span class="material-symbols-outlined text-brandCyan text-3xl transition-colors">home</span>
+                        <span class="service-text text-lg font-medium text-white transition-colors">Woningontruiming</span>
                     </div>
-                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white rounded-xl cloud-shadow cursor-pointer fade-in-up delay-400">
-                        <span class="material-symbols-outlined text-brandNavy text-3xl transition-colors">sentiment_calm</span>
-                        <span class="service-text text-lg font-medium text-brandNavy transition-colors">Emotionele Begeleiding</span>
+                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white/10 rounded-xl cloud-shadow cursor-pointer fade-in-up delay-400">
+                        <span class="material-symbols-outlined text-brandCyan text-3xl transition-colors">sentiment_calm</span>
+                        <span class="service-text text-lg font-medium text-white transition-colors">Emotionele Begeleiding</span>
                     </div>
-                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white rounded-xl cloud-shadow cursor-pointer fade-in-up delay-100">
-                        <span class="material-symbols-outlined text-brandNavy text-3xl transition-colors">swap_horiz</span>
-                        <span class="service-text text-lg font-medium text-brandNavy transition-colors">Sorteren & Herbestemmen</span>
+                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white/10 rounded-xl cloud-shadow cursor-pointer fade-in-up delay-100">
+                        <span class="material-symbols-outlined text-brandCyan text-3xl transition-colors">swap_horiz</span>
+                        <span class="service-text text-lg font-medium text-white transition-colors">Sorteren & Herbestemmen</span>
                     </div>
-                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white rounded-xl cloud-shadow cursor-pointer fade-in-up delay-200">
-                        <span class="material-symbols-outlined text-brandNavy text-3xl transition-colors">roofing</span>
-                        <span class="service-text text-lg font-medium text-brandNavy transition-colors">Zolderontruiming</span>
+                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white/10 rounded-xl cloud-shadow cursor-pointer fade-in-up delay-200">
+                        <span class="material-symbols-outlined text-brandCyan text-3xl transition-colors">roofing</span>
+                        <span class="service-text text-lg font-medium text-white transition-colors">Zolderontruiming</span>
                     </div>
-                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white rounded-xl cloud-shadow cursor-pointer fade-in-up delay-300">
-                        <span class="material-symbols-outlined text-brandNavy text-3xl transition-colors">favorite</span>
-                        <span class="service-text text-lg font-medium text-brandNavy transition-colors">Zorgeloos Afscheid</span>
+                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white/10 rounded-xl cloud-shadow cursor-pointer fade-in-up delay-300">
+                        <span class="material-symbols-outlined text-brandCyan text-3xl transition-colors">favorite</span>
+                        <span class="service-text text-lg font-medium text-white transition-colors">Zorgeloos Afscheid</span>
                     </div>
-                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white rounded-xl cloud-shadow cursor-pointer fade-in-up delay-400">
-                        <span class="material-symbols-outlined text-brandNavy text-3xl transition-colors">mop</span>
-                        <span class="service-text text-lg font-medium text-brandNavy transition-colors">Schoonmaak & Oplevering</span>
+                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white/10 rounded-xl cloud-shadow cursor-pointer fade-in-up delay-400">
+                        <span class="material-symbols-outlined text-brandCyan text-3xl transition-colors">mop</span>
+                        <span class="service-text text-lg font-medium text-white transition-colors">Schoonmaak & Oplevering</span>
                     </div>
                 </div>
                 <div class="text-center mt-12 fade-in-up">
-                    <a href="diensten.html" class="inline-block border-2 border-brandNavy text-brandNavy px-8 py-3 rounded-full font-bold hover:bg-brandNavy hover:text-white transition-all hover:scale-105">
+                    <a href="diensten.html" class="inline-block border-2 border-brandCyan text-brandCyan px-8 py-3 rounded-full font-bold hover:bg-brandCyan hover:text-brandNavy transition-all hover:scale-105">
                         Bekijk alle diensten
                     </a>
                 </div>
@@ -528,8 +522,8 @@
                         <p class="text-gray-600">Binnen 48 uur ontvangt u een vaste prijs. Transparant, eerlijk, zonder verborgen kosten.</p>
                     </div>
                     <div class="text-center fade-in-up delay-300">
-                        <div class="w-16 h-16 bg-brandGreen text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 cloud-shadow">3</div>
-                        <h3 class="font-headline text-xl font-bold text-brandNavy mb-3">Wij Regelen Alles</h3>
+                        <div class="w-16 h-16 bg-brandNavy text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 cloud-shadow border-2 border-brandCyan">3</div>
+                        <h3 class="font-headline text-xl font-bold text-brandNavy mb-3">Ik Regel Alles</h3>
                         <p class="text-gray-600">Van inboedel sorteren tot bezemschoon opleveren. U hoeft er niet bij te zijn als u dat niet wilt.</p>
                     </div>
                 </div>
@@ -601,7 +595,7 @@
                 <!-- Contact Form Column -->
                 <div class="fade-in-right delay-200">
                     <h2 class="font-headline text-3xl font-bold mb-2 text-brandNavy">Contact of bel terug</h2>
-                    <p class="text-gray-500 mb-6 text-sm flex items-center gap-1"><span class="material-symbols-outlined text-brandGreen text-base">verified</span> Wij reageren binnen 48 uur</p>
+                    <p class="text-gray-500 mb-6 text-sm flex items-center gap-1"><span class="material-symbols-outlined text-brandCyan text-base">verified</span> Ik reageer binnen 48 uur</p>
                     <form id="contact-form" action="#" method="POST" class="space-y-4 bg-white p-6 rounded-xl cloud-shadow">
                         <div class="grid grid-cols-2 gap-4">
                             <div>
@@ -811,11 +805,13 @@
             setTimeout(() => {
                 btn.innerHTML = '<span class="material-symbols-outlined">check</span> Verzonden!';
                 btn.classList.remove('bg-brandNavy');
-                btn.classList.add('bg-brandGreen');
+                btn.classList.add('bg-brandCyan');
+                btn.classList.add('text-brandNavy');
                 
                 setTimeout(() => {
                     btn.innerHTML = originalText;
-                    btn.classList.remove('bg-brandGreen');
+                    btn.classList.remove('bg-brandCyan');
+                    btn.classList.remove('text-brandNavy');
                     btn.classList.add('bg-brandNavy');
                     btn.disabled = false;
                     this.reset();

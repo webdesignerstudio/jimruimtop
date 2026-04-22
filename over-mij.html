@@ -125,8 +125,8 @@
         }
         
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(124, 193, 157, 0.4); }
-            50% { box-shadow: 0 0 20px 10px rgba(124, 193, 157, 0.2); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(91, 206, 255, 0.4); }
+            50% { box-shadow: 0 0 20px 10px rgba(91, 206, 255, 0.2); }
         }
         
         /* Image hover effects */
@@ -159,7 +159,7 @@
         }
         .location-badge:hover {
             transform: translateX(5px);
-            background-color: rgba(26, 67, 109, 0.05);
+            background-color: rgba(91, 206, 255, 0.1);
         }
         
         /* Quote animation */
@@ -173,12 +173,12 @@
         }
     </style>
 </head>
-<body class="bg-white font-body">
+<body class="bg-white font-body" style="background-color:#f0f7ff">
     <!-- Scroll Progress Bar -->
     <div id="progress-bar" style="width: 0%"></div>
     
     <!-- Floating CTA Button -->
-    <a href="contact.html" class="floating-cta bg-brandGreen text-white px-6 py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all flex items-center gap-2 pulse-glow">
+    <a href="contact.html" class="floating-cta bg-brandNavy text-white px-6 py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all flex items-center gap-2 pulse-glow">
         <span class="material-symbols-outlined">calendar_today</span>
         <span class="hidden sm:inline">Gratis Intake</span>
     </a>
@@ -189,46 +189,46 @@
     </a>
 
     <!-- Header -->
-    <header class="w-full bg-brandCream sticky top-0 z-50 shadow-sm">
+    <header class="w-full bg-brandNavy sticky top-0 z-50 shadow-sm">
         <nav class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
             <a href="index.html" class="flex items-center gap-2">
-                <img src="file_25---53b04ee2-5183-4b2a-88a1-877f480030a6.jpg" alt="Jim Ruimt Op logo, ontruimingsbedrijf Tilburg" class="w-12 h-12 object-contain" style="mix-blend-mode:multiply"/>
+                <img src="file_25---53b04ee2-5183-4b2a-88a1-877f480030a6.jpg" alt="Jim Ruimt Op logo, ontruimingsbedrijf Tilburg" class="w-12 h-12 object-contain" style="filter:brightness(0) invert(1)"/>
                 <div>
-                    <h1 class="text-xl font-bold leading-tight text-brandNavy font-headline">Jim Ruimt Op</h1>
+                    <h1 class="text-xl font-bold leading-tight text-white font-headline">Jim Ruimt Op</h1>
                     <p class="text-brandCyan italic text-sm">Zorgeloos geregeld!</p>
                 </div>
             </a>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="font-headline font-bold text-gray-600 hover:text-brandNavy transition-colors">Home</a>
-                <a href="diensten.html" class="font-headline font-bold text-gray-600 hover:text-brandNavy transition-colors">Diensten</a>
-                <a href="fotos.html" class="font-headline font-bold text-gray-600 hover:text-brandNavy transition-colors">Foto's</a>
-                <a href="over-mij.html" class="font-headline font-bold text-brandNavy border-b-2 border-brandNavy pb-1">Over Mij</a>
-                <a href="contact.html" class="font-headline font-bold text-gray-600 hover:text-brandNavy transition-colors">Contact</a>
+                <a href="index.html" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Home</a>
+                <a href="diensten.html" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Diensten</a>
+                <a href="fotos.html" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Foto's</a>
+                <a href="over-mij.html" class="font-headline font-bold text-white border-b-2 border-brandCyan pb-1">Over Mij</a>
+                <a href="contact.html" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Contact</a>
             </div>
             <div class="hidden md:flex items-center gap-4">
-                <a href="tel:+31612345678" class="flex items-center gap-2 text-brandNavy font-bold hover:text-brandCyan transition-colors text-sm">
+                <a href="tel:+31612345678" class="flex items-center gap-2 text-white font-bold hover:text-brandCyan transition-colors text-sm">
                     <span class="material-symbols-outlined text-lg">call</span>
                     <span>06 12 34 56 78</span>
                 </a>
-                <a href="contact.html" class="bg-brandNavy text-white px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all text-sm">
+                <a href="contact.html" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all text-sm">
                     Gratis Intake
                 </a>
             </div>
-            <button id="mobile-menu-btn" class="md:hidden text-brandNavy">
+            <button id="mobile-menu-btn" class="md:hidden text-white">
                 <span class="material-symbols-outlined text-3xl">menu</span>
             </button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden bg-brandCream border-t border-gray-200">
+        <div id="mobile-menu" class="hidden md:hidden bg-brandNavy border-t border-white/20">
             <div class="flex flex-col px-6 py-4 space-y-4">
-                <a href="index.html" class="font-headline font-bold text-gray-600">Home</a>
-                <a href="diensten.html" class="font-headline font-bold text-gray-600">Diensten</a>
-                <a href="fotos.html" class="font-headline font-bold text-gray-600">Foto's</a>
-                <a href="over-mij.html" class="font-headline font-bold text-brandNavy">Over Mij</a>
-                <a href="contact.html" class="font-headline font-bold text-gray-600">Contact</a>
-                <a href="tel:+31612345678" class="flex items-center gap-2 text-brandNavy font-bold text-sm">
+                <a href="index.html" class="font-headline font-bold text-white/70">Home</a>
+                <a href="diensten.html" class="font-headline font-bold text-white/70">Diensten</a>
+                <a href="fotos.html" class="font-headline font-bold text-white/70">Foto's</a>
+                <a href="over-mij.html" class="font-headline font-bold text-white">Over Mij</a>
+                <a href="contact.html" class="font-headline font-bold text-white/70">Contact</a>
+                <a href="tel:+31612345678" class="flex items-center gap-2 text-white font-bold text-sm">
                     <span class="material-symbols-outlined text-lg">call</span>06 12 34 56 78
                 </a>
-                <a href="contact.html" class="bg-brandNavy text-white px-6 py-3 rounded-full font-bold text-center text-sm">Gratis Intake</a>
+                <a href="contact.html" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold text-center text-sm">Gratis Intake</a>
             </div>
         </div>
     </header>
@@ -246,7 +246,7 @@
                         In Tilburg en omstreken help ik mensen bij de meest kwetsbare transities in hun leven. Geen haast, geen oordeel, maar oprechte aandacht voor wat echt waarde heeft.
                     </p>
                     <div class="flex items-center gap-4">
-                        <img src="file_24---f1a3f6be-ff29-4eb4-9169-64c58267bf1c.jpg" alt="Jim, oprichter Jim Ruimt Op Tilburg" class="w-16 h-16 rounded-full object-cover border-4 border-brandCream"/>
+                        <img src="file_24---f1a3f6be-ff29-4eb4-9169-64c58267bf1c.jpg" alt="Jim, oprichter Jim Ruimt Op Tilburg" class="w-16 h-16 rounded-full object-cover border-4 border-white"/>
                         <div>
                             <p class="font-bold text-brandNavy">Jim</p>
                             <p class="text-sm text-gray-500">Oprichter & Specialist</p>
@@ -255,7 +255,7 @@
                 </div>
                 <div class="w-full md:w-1/2 relative fade-in-right delay-200">
                     <div class="absolute -top-10 -left-10 w-64 h-64 bg-brandCyan/20 rounded-full blur-3xl"></div>
-                    <div class="relative rounded-2xl overflow-hidden cloud-shadow border-8 border-brandCream rotate-2 img-hover-zoom">
+                    <div class="relative rounded-2xl overflow-hidden cloud-shadow border-8 border-white rotate-2 img-hover-zoom">
                         <img src="file_26---05787c6d-5a2f-4a29-a396-a37570acc71c.jpg" alt="Jim tijdens een woningontruiming in Tilburg" class="w-full h-auto object-cover"/>
                     </div>
                     <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl cloud-shadow max-w-xs hidden md:block quote-float">
@@ -267,7 +267,7 @@
         </section>
 
         <!-- Story Section -->
-        <section class="bg-brandCream py-24 px-6">
+        <section class="bg-brandNavy py-24 px-6">
             <div class="max-w-7xl mx-auto">
 
                 <!-- Feitenbalk -->
@@ -306,19 +306,19 @@
                                     Dat moment maakte iets duidelijk: families verdienen ondersteuning die verder gaat dan alleen spullen weggooiën. Ze verdienen iemand die rust brengt, begrijpt wat er meespeelt en het praktische én emotionele aanpakt.
                                 </p>
                             </div>
-                            <div class="bg-white p-8 rounded-xl cloud-shadow border-l-4 border-brandGreen">
+                            <div class="bg-white p-8 rounded-xl cloud-shadow border-l-4 border-brandCyan">
                                 <h3 class="font-headline text-xl font-bold text-brandNavy mb-4">Mijn Belofte aan U</h3>
                                 <ul class="space-y-4">
                                     <li class="flex items-start gap-3">
-                                        <span class="material-symbols-outlined text-brandGreen">check_circle</span>
+                                        <span class="material-symbols-outlined text-brandCyan">check_circle</span>
                                         <span class="text-sm text-gray-600">Altijd een luisterend oor voor uw verhaal.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
-                                        <span class="material-symbols-outlined text-brandGreen">check_circle</span>
+                                        <span class="material-symbols-outlined text-brandCyan">check_circle</span>
                                         <span class="text-sm text-gray-600">Zorgvuldige afhandeling van persoonlijke eigendommen.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
-                                        <span class="material-symbols-outlined text-brandGreen">check_circle</span>
+                                        <span class="material-symbols-outlined text-brandCyan">check_circle</span>
                                         <span class="text-sm text-gray-600">Een resultaat dat direct rust en overzicht geeft.</span>
                                     </li>
                                 </ul>
@@ -341,7 +341,7 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <!-- Value 1 -->
-                    <div class="value-card bg-brandCream p-10 rounded-xl hover:bg-brandCyan/10 transition-colors duration-500 group fade-in-up delay-100">
+                    <div class="value-card bg-white p-10 rounded-xl hover:bg-brandCyan/10 transition-colors duration-500 group fade-in-up delay-100">
                         <div class="w-12 h-12 bg-brandNavy rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-white">favorite</span>
                         </div>
@@ -359,7 +359,7 @@
                     </div>
 
                     <!-- Value 3 -->
-                    <div class="value-card bg-brandCream p-10 rounded-xl hover:bg-brandCyan/10 transition-colors duration-500 group fade-in-up delay-300">
+                    <div class="value-card bg-white p-10 rounded-xl hover:bg-brandCyan/10 transition-colors duration-500 group fade-in-up delay-300">
                         <div class="w-12 h-12 bg-brandNavy rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-white">psychology</span>
                         </div>
@@ -371,58 +371,58 @@
         </section>
 
         <!-- Werkgebied Section -->
-        <section class="bg-brandCream py-20 px-6">
+        <section class="bg-white py-20 px-6">
             <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
                 <div class="fade-in-left">
                     <h2 class="font-headline text-4xl font-bold mb-6 text-brandNavy">Werkgebied</h2>
                     <p class="text-gray-600 mb-6 leading-relaxed">Ik ben actief in Tilburg en alle omliggende gemeenten. Staat uw locatie er niet bij? Neem gerust contact op, dan kijken we samen naar de mogelijkheden.</p>
                     <div class="grid grid-cols-2 gap-3 mb-6">
                         <div class="location-badge flex items-center gap-2 p-2 rounded-lg cursor-pointer">
-                            <span class="material-symbols-outlined text-brandGreen">location_on</span>
+                            <span class="material-symbols-outlined text-brandCyan">location_on</span>
                             <span class="text-brandNavy font-medium">Tilburg Centrum</span>
                         </div>
                         <div class="location-badge flex items-center gap-2 p-2 rounded-lg cursor-pointer">
-                            <span class="material-symbols-outlined text-brandGreen">location_on</span>
+                            <span class="material-symbols-outlined text-brandCyan">location_on</span>
                             <span class="text-brandNavy font-medium">Tilburg Noord</span>
                         </div>
                         <div class="location-badge flex items-center gap-2 p-2 rounded-lg cursor-pointer">
-                            <span class="material-symbols-outlined text-brandGreen">location_on</span>
+                            <span class="material-symbols-outlined text-brandCyan">location_on</span>
                             <span class="text-brandNavy font-medium">Tilburg Oost</span>
                         </div>
                         <div class="location-badge flex items-center gap-2 p-2 rounded-lg cursor-pointer">
-                            <span class="material-symbols-outlined text-brandGreen">location_on</span>
+                            <span class="material-symbols-outlined text-brandCyan">location_on</span>
                             <span class="text-brandNavy font-medium">Tilburg Zuid</span>
                         </div>
                         <div class="location-badge flex items-center gap-2 p-2 rounded-lg cursor-pointer">
-                            <span class="material-symbols-outlined text-brandGreen">location_on</span>
+                            <span class="material-symbols-outlined text-brandCyan">location_on</span>
                             <span class="text-brandNavy font-medium">Tilburg West</span>
                         </div>
                         <div class="location-badge flex items-center gap-2 p-2 rounded-lg cursor-pointer">
-                            <span class="material-symbols-outlined text-brandGreen">location_on</span>
+                            <span class="material-symbols-outlined text-brandCyan">location_on</span>
                             <span class="text-brandNavy font-medium">Reeshof</span>
                         </div>
                         <div class="location-badge flex items-center gap-2 p-2 rounded-lg cursor-pointer">
-                            <span class="material-symbols-outlined text-brandGreen">location_on</span>
+                            <span class="material-symbols-outlined text-brandCyan">location_on</span>
                             <span class="text-brandNavy font-medium">Breda</span>
                         </div>
                         <div class="location-badge flex items-center gap-2 p-2 rounded-lg cursor-pointer">
-                            <span class="material-symbols-outlined text-brandGreen">location_on</span>
+                            <span class="material-symbols-outlined text-brandCyan">location_on</span>
                             <span class="text-brandNavy font-medium">Waalwijk</span>
                         </div>
                         <div class="location-badge flex items-center gap-2 p-2 rounded-lg cursor-pointer">
-                            <span class="material-symbols-outlined text-brandGreen">location_on</span>
+                            <span class="material-symbols-outlined text-brandCyan">location_on</span>
                             <span class="text-brandNavy font-medium">Oisterwijk</span>
                         </div>
                         <div class="location-badge flex items-center gap-2 p-2 rounded-lg cursor-pointer">
-                            <span class="material-symbols-outlined text-brandGreen">location_on</span>
+                            <span class="material-symbols-outlined text-brandCyan">location_on</span>
                             <span class="text-brandNavy font-medium">Goirle</span>
                         </div>
                         <div class="location-badge flex items-center gap-2 p-2 rounded-lg cursor-pointer">
-                            <span class="material-symbols-outlined text-brandGreen">location_on</span>
+                            <span class="material-symbols-outlined text-brandCyan">location_on</span>
                             <span class="text-brandNavy font-medium">Den Bosch</span>
                         </div>
                         <div class="location-badge flex items-center gap-2 p-2 rounded-lg cursor-pointer">
-                            <span class="material-symbols-outlined text-brandGreen">location_on</span>
+                            <span class="material-symbols-outlined text-brandCyan">location_on</span>
                             <span class="text-brandNavy font-medium">Eindhoven</span>
                         </div>
                     </div>
