@@ -6,11 +6,15 @@ $instellingen = laad_json('instellingen.json');
 $toon_fotos   = $instellingen['toon_fotos_menu'] ?? true;
 $p            = $teksten['diensten'] ?? [];
 
-$telefoon = t($contact, 'telefoon', '06 13 94 31 86');
-$tel_href = tel_link($contact);
-$wa_url   = whatsapp_url($contact);
-$email    = htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl', ENT_QUOTES, 'UTF-8');
-$adres    = t($contact, 'adres', 'Tilburg');
+$telefoon   = t($contact, 'telefoon', '06 13 94 31 86');
+$tel_href   = tel_link($contact);
+$wa_url     = whatsapp_url($contact);
+$email      = htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl', ENT_QUOTES, 'UTF-8');
+$adres      = t($contact, 'adres', 'Tilburg');
+$hero_kop   = t($p, 'hero_kop', 'Woningontruiming in Tilburg');
+$hero_sub   = t($p, 'hero_subtekst', 'Van complete woningontruiming tot zorgeloos afscheid — praktisch ontzorgd, emotioneel begeleid. Actief in Tilburg en omstreken.');
+$intro_kop  = t($p, 'intro_kop', 'Alles wat we voor u kunnen doen');
+$intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontruiming, van seniorenverhuizing tot zorgeloos afscheid. Jim regelt het.');
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -138,10 +142,8 @@ $adres    = t($contact, 'adres', 'Tilburg');
     <main>
         <section class="bg-brandNavy text-white py-20 px-6">
             <div class="max-w-4xl mx-auto text-center fade-in-up">
-                <span class="font-script text-brandCyan text-3xl mb-4 block">Alles wat u nodig heeft</span>
-                <h1 class="font-headline text-5xl md:text-6xl font-bold mb-4 break-words">Woningontruiming in Tilburg</h1>
-                <h2 class="font-headline text-2xl font-normal mb-6 text-white/80">Onze Diensten &amp; Pakketten</h2>
-                <p class="text-xl text-white/80 max-w-2xl mx-auto">Van complete woningontruiming tot zorgeloos afscheid — praktisch ontzorgd, emotioneel begeleid. Actief in Tilburg en omstreken.</p>
+                <h1 class="font-headline text-5xl md:text-6xl font-bold mb-4 break-words"><?= $hero_kop ?></h1>
+                <p class="text-xl text-white/80 max-w-2xl mx-auto"><?= $hero_sub ?></p>
             </div>
         </section>
 

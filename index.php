@@ -10,11 +10,8 @@ $p            = $teksten['index'] ?? [];
 $telefoon        = t($contact, 'telefoon', '06 13 94 31 86');
 $tel_href        = tel_link($contact);
 $wa_url          = whatsapp_url($contact);
-$hero_script     = t($p, 'hero_script', 'Woningontruiming Tilburg');
-$hero_regel1     = t($p, 'hero_kop_regel1', 'Van Chaos naar Rust,');
-$hero_regel2     = t($p, 'hero_kop_regel2', 'Uw Zorgeloze Afronding');
-$hero_regel3     = t($p, 'hero_kop_regel3', 'Begint Hier.');
-$hero_sub        = t_html($p, 'hero_subtekst', 'Geen gewoon ontruimingsbedrijf — maar een <strong>afscheids- en ontzorgservice</strong> voor senioren en nabestaanden in Tilburg en omstreken. Praktisch geregeld, emotioneel begeleid.');
+$hero_kop        = t($p, 'hero_kop', 'Jim Ruimt Op');
+$hero_tagline    = t($p, 'hero_tagline', 'Zorgeloos geregeld!');
 $hero_quote      = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren in het hoofd.');
 $diensten_kop    = t($p, 'diensten_kop', 'Woningontruiming in Tilburg');
 $diensten_sub    = t($p, 'diensten_subtekst', 'Professionele ondersteuning voor alle ontruimingswerkzaamheden in regio Tilburg — van garage tot complete woning.');
@@ -389,8 +386,8 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
         <section class="relative overflow-visible pt-10 pb-16 md:pt-16 md:pb-32 px-6 max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 items-center gap-16">
                 <div class="z-10 fade-in-right">
-                    <h2 class="font-headline text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-4 text-brandNavy break-words" style="letter-spacing:-0.02em">Jim Ruimt Op</h2>
-                    <p class="text-brandCyan text-2xl sm:text-3xl md:text-5xl mb-8 md:mb-10" style="font-family:'Playfair Display',serif;font-style:italic;font-weight:600;letter-spacing:-0.01em">Zorgeloos geregeld!</p>
+                    <h2 class="font-headline text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-4 text-brandNavy break-words" style="letter-spacing:-0.02em"><?= $hero_kop ?></h2>
+                    <p class="text-brandCyan text-2xl sm:text-3xl md:text-5xl mb-8 md:mb-10" style="font-family:'Playfair Display',serif;font-style:italic;font-weight:600;letter-spacing:-0.01em"><?= $hero_tagline ?></p>
                     <div class="flex flex-wrap gap-4">
                         <a href="contact.php" class="inline-block bg-brandCyan text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-lg pulse-glow">
                             Kennismakingsgesprek
@@ -423,7 +420,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                         <img src="herofoto.jpg" alt="Jim, woningontruiming specialist Tilburg" class="w-full object-cover" style="max-height:520px;"/>
                     </div>
                     <div class="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl cloud-shadow max-w-xs hidden md:block scale-in delay-400">
-                        <p class="text-sm font-semibold text-brandNavy italic">"Ruimte creëren in huis is ruimte creëren in het hoofd."</p>
+                        <p class="text-sm font-semibold text-brandNavy italic">"<?= $hero_quote ?>"</p>
                         <p class="text-xs text-gray-500 mt-1">— Jim</p>
                     </div>
                 </div>

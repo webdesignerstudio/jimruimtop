@@ -265,11 +265,8 @@ $csrf = csrf_token();
                     <div class="space-y-4">
                         <?php
                         $velden = [
-                            'hero_script'       => ['Hero — script tekst (klein cursief)', 'text'],
-                            'hero_kop_regel1'   => ['Hero — kop regel 1', 'text'],
-                            'hero_kop_regel2'   => ['Hero — kop regel 2 (blauw)', 'text'],
-                            'hero_kop_regel3'   => ['Hero — kop regel 3', 'text'],
-                            'hero_subtekst'     => ['Hero — subtekst (mag <strong>, <em>)', 'textarea'],
+                            'hero_kop'          => ['Hero — bedrijfsnaam / kop', 'text'],
+                            'hero_tagline'      => ['Hero — tagline (cursief onder kop)', 'text'],
                             'hero_quote'        => ['Hero — citaat onderaan foto', 'text'],
                             'diensten_kop'      => ['Diensten sectie — kop', 'text'],
                             'diensten_subtekst' => ['Diensten sectie — subtekst', 'textarea'],
@@ -304,11 +301,8 @@ $csrf = csrf_token();
                 <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Live preview</p>
                 <!-- Hero preview -->
                 <div class="preview-panel">
-                    <span class="pv-script-text pv-script" id="pv-hero_script"><?= htmlspecialchars($v['hero_script'] ?? '') ?></span>
-                    <div class="pv-kop pv-headline" id="pv-hero_kop_regel1"><?= htmlspecialchars($v['hero_kop_regel1'] ?? '') ?></div>
-                    <div class="pv-kop pv-headline" style="color:#5BCEFF" id="pv-hero_kop_regel2"><?= htmlspecialchars($v['hero_kop_regel2'] ?? '') ?></div>
-                    <div class="pv-kop pv-headline" id="pv-hero_kop_regel3"><?= htmlspecialchars($v['hero_kop_regel3'] ?? '') ?></div>
-                    <div class="pv-sub mt-2" id="pv-hero_subtekst"><?= $v['hero_subtekst'] ?? '' ?></div>
+                    <div class="pv-kop pv-headline" id="pv-hero_kop"><?= htmlspecialchars($v['hero_kop'] ?? '') ?></div>
+                    <div class="mt-1 mb-2" style="font-family:'Dancing Script',cursive;font-size:1.1rem;color:#5BCEFF" id="pv-hero_tagline"><?= htmlspecialchars($v['hero_tagline'] ?? '') ?></div>
                     <div class="mt-3 text-xs italic text-white/50" id="pv-hero_quote">"<?= htmlspecialchars($v['hero_quote'] ?? '') ?>"</div>
                 </div>
                 <!-- Diensten preview -->

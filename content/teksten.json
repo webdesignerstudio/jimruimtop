@@ -1,10 +1,7 @@
 {
     "index": {
-        "hero_script": "Woningontruiming Tilburg",
-        "hero_kop_regel1": "Van Chaos naar Rust,",
-        "hero_kop_regel2": "Uw Zorgeloze Afronding",
-        "hero_kop_regel3": "Begint Hier.",
-        "hero_subtekst": "Geen gewoon ontruimingsbedrijf — maar een <strong>afscheids- en ontzorgservice</strong> voor senioren en nabestaanden in Tilburg en omstreken. Praktisch geregeld, emotioneel begeleid.",
+        "hero_kop": "Jim Ruimt Op",
+        "hero_tagline": "Zorgeloos geregeld!",
         "hero_quote": "Ruimte creëren in huis is ruimte creëren in het hoofd.",
         "diensten_kop": "Woningontruiming in Tilburg",
         "diensten_subtekst": "Professionele ondersteuning voor alle ontruimingswerkzaamheden in regio Tilburg — van garage tot complete woning.",
@@ -18,8 +15,8 @@
         "stap3_tekst": "Van inboedel sorteren tot bezemschoon opleveren. U hoeft er niet bij te zijn als u dat niet wilt."
     },
     "diensten": {
-        "hero_kop": "Diensten",
-        "hero_subtekst": "Professionele woningontruiming in Tilburg en omstreken.",
+        "hero_kop": "Woningontruiming in Tilburg",
+        "hero_subtekst": "Van complete woningontruiming tot zorgeloos afscheid — praktisch ontzorgd, emotioneel begeleid. Actief in Tilburg en omstreken.",
         "intro_kop": "Alles wat we voor u kunnen doen",
         "intro_tekst": "Van complete woningontruiming tot garageontruiming, van seniorenverhuizing tot zorgeloos afscheid. Jim regelt het."
     },
