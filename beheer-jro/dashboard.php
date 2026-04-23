@@ -1,9 +1,10 @@
 <?php
 require_once __DIR__ . '/auth.php';
 
-$contact  = laad_json_admin('contact.json');
-$teksten  = laad_json_admin('teksten.json');
-$locaties = laad_json_admin('locaties.json');
+$contact      = laad_json_admin('contact.json');
+$teksten      = laad_json_admin('teksten.json');
+$locaties     = laad_json_admin('locaties.json');
+$instellingen = laad_json_admin('instellingen.json');
 
 $melding = '';
 $melding_type = 'groen';
@@ -31,6 +32,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $melding = 'Contactgegevens opgeslagen.';
             } else {
                 $melding = 'Fout bij opslaan. Controleer de schrijfrechten op /content/.';
+                $melding_type = 'rood';
+            }
+        }
+
+        elseif ($actie === 'sla_instellingen_op') {
+            $instellingen['toon_fotos_menu'] = isset($_POST['toon_fotos_menu']);
+            if (sla_json_op_admin('instellingen.json', $instellingen)) {
+                $melding = 'Instellingen opgeslagen.';
+            } else {
+                $melding = 'Fout bij opslaan. Controleer schrijfrechten op /content/.';
                 $melding_type = 'rood';
             }
         }
@@ -134,6 +145,7 @@ $csrf = csrf_token();
                 'contact_teksten' => 'Contact pagina',
                 'fotos_teksten'   => "Foto's pagina",
                 'locaties'        => 'Locatiepagina\'s',
+                'instellingen'    => 'Instellingen',
             ];
             foreach ($tabs as $sleutel => $naam):
             ?>
@@ -425,6 +437,32 @@ $csrf = csrf_token();
             </form>
         </div>
         <!-- TAB: Locatiepagina's -->
+        <!-- TAB: Instellingen -->
+        <?php elseif ($tab === 'instellingen'): ?>
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <h2 class="text-lg font-bold text-navy mb-2">Instellingen</h2>
+            <p class="text-sm text-gray-500 mb-6">Beheer de zichtbaarheid van menu-items en andere website-opties.</p>
+            <form method="POST">
+                <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
+                <input type="hidden" name="actie" value="sla_instellingen_op"/>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between p-4 border border-gray-200 rounded-xl">
+                        <div>
+                            <p class="font-semibold text-gray-800 text-sm">Foto's pagina tonen in menu</p>
+                            <p class="text-xs text-gray-500 mt-0.5">Als uitgeschakeld verdwijnt "Foto's" uit de navigatie op alle pagina's.</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer ml-4">
+                            <input type="checkbox" name="toon_fotos_menu" value="1" <?= !empty($instellingen['toon_fotos_menu']) ? 'checked' : '' ?> class="sr-only peer"/>
+                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:bg-navy after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="mt-6 bg-navy text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all">
+                    Instellingen opslaan
+                </button>
+            </form>
+        </div>
+
         <?php elseif ($tab === 'locaties'): ?>
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <h2 class="text-lg font-bold text-navy mb-2">Locatiepagina's — intro-teksten</h2>

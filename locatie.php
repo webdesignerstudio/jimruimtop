@@ -1,9 +1,11 @@
 <?php
 require_once __DIR__ . '/includes/functions.php';
 
-$contact  = laad_json('contact.json');
-$teksten  = laad_json('teksten.json');
-$locaties = laad_json('locaties.json');
+$contact      = laad_json('contact.json');
+$teksten      = laad_json('teksten.json');
+$locaties     = laad_json('locaties.json');
+$instellingen = laad_json('instellingen.json');
+$toon_fotos   = $instellingen['toon_fotos_menu'] ?? true;
 
 $slug = trim($_GET['locatie'] ?? '');
 $slug = preg_replace('/[^a-z0-9\-]/', '', strtolower($slug));
@@ -133,7 +135,7 @@ $wa_url     = whatsapp_url($contact);
             <div class="hidden md:flex items-center space-x-8">
                 <a href="index.php" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Home</a>
                 <a href="diensten.php" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Diensten</a>
-                <a href="fotos.php" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Foto's</a>
+                <?php if ($toon_fotos): ?><a href="fotos.php" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Foto's</a><?php endif; ?>
                 <a href="over-mij.php" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Over Mij</a>
                 <a href="contact.php" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Contact</a>
             </div>
@@ -152,7 +154,7 @@ $wa_url     = whatsapp_url($contact);
             <div class="flex flex-col px-6 py-4 space-y-4">
                 <a href="index.php" class="font-headline font-bold text-white/70 hover:text-brandCyan">Home</a>
                 <a href="diensten.php" class="font-headline font-bold text-white/70 hover:text-brandCyan">Diensten</a>
-                <a href="fotos.php" class="font-headline font-bold text-white/70 hover:text-brandCyan">Foto's</a>
+                <?php if ($toon_fotos): ?><a href="fotos.php" class="font-headline font-bold text-white/70 hover:text-brandCyan">Foto's</a><?php endif; ?>
                 <a href="over-mij.php" class="font-headline font-bold text-white/70 hover:text-brandCyan">Over Mij</a>
                 <a href="contact.php" class="font-headline font-bold text-white/70 hover:text-brandCyan">Contact</a>
                 <a href="<?= $tel_href ?>" class="flex items-center gap-2 text-white font-bold text-sm"><span class="material-symbols-outlined text-lg">call</span><?= $telefoon ?></a>
@@ -361,7 +363,7 @@ $wa_url     = whatsapp_url($contact);
                     <ul class="space-y-2 text-white/70 text-sm">
                         <li><a href="index.php" class="hover:text-white transition-colors">Home</a></li>
                         <li><a href="diensten.php" class="hover:text-white transition-colors">Diensten</a></li>
-                        <li><a href="fotos.php" class="hover:text-white transition-colors">Foto's</a></li>
+                        <?php if ($toon_fotos): ?><li><a href="fotos.php" class="hover:text-white transition-colors">Foto's</a></li><?php endif; ?>
                         <li><a href="over-mij.php" class="hover:text-white transition-colors">Over Mij</a></li>
                         <li><a href="contact.php" class="hover:text-white transition-colors">Contact</a></li>
                     </ul>

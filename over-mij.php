@@ -1,8 +1,10 @@
 <?php
 require_once __DIR__ . '/includes/functions.php';
-$contact = laad_json('contact.json');
-$teksten = laad_json('teksten.json');
-$p       = $teksten['over_mij'] ?? [];
+$contact      = laad_json('contact.json');
+$teksten      = laad_json('teksten.json');
+$instellingen = laad_json('instellingen.json');
+$toon_fotos   = $instellingen['toon_fotos_menu'] ?? true;
+$p            = $teksten['over_mij'] ?? [];
 
 $telefoon     = t($contact, 'telefoon', '06 12 34 56 78');
 $tel_href     = tel_link($contact);
@@ -114,7 +116,7 @@ $kvk          = t($p, 'kvk_nummer', '87654321');
             <div class="hidden md:flex items-center space-x-8">
                 <a href="index.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Home</a>
                 <a href="diensten.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Diensten</a>
-                <a href="fotos.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Foto's</a>
+                <?php if ($toon_fotos): ?><a href="fotos.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Foto's</a><?php endif; ?>
                 <a href="over-mij.php" class="font-headline font-bold text-white border-b-2 border-brandCyan pb-1">Over Mij</a>
                 <a href="contact.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Contact</a>
             </div>
@@ -133,7 +135,7 @@ $kvk          = t($p, 'kvk_nummer', '87654321');
             <div class="flex flex-col px-6 py-4 space-y-4">
                 <a href="index.php" class="font-headline font-bold text-white/70">Home</a>
                 <a href="diensten.php" class="font-headline font-bold text-white/70">Diensten</a>
-                <a href="fotos.php" class="font-headline font-bold text-white/70">Foto's</a>
+                <?php if ($toon_fotos): ?><a href="fotos.php" class="font-headline font-bold text-white/70">Foto's</a><?php endif; ?>
                 <a href="over-mij.php" class="font-headline font-bold text-white">Over Mij</a>
                 <a href="contact.php" class="font-headline font-bold text-white/70">Contact</a>
                 <a href="<?= $tel_href ?>" class="flex items-center gap-2 text-white font-bold text-sm">
@@ -293,7 +295,7 @@ $kvk          = t($p, 'kvk_nummer', '87654321');
                     <ul class="space-y-2 text-white/70 text-sm">
                         <li><a href="index.php" class="hover:text-white transition-colors">Home</a></li>
                         <li><a href="diensten.php" class="hover:text-white transition-colors">Diensten</a></li>
-                        <li><a href="fotos.php" class="hover:text-white transition-colors">Foto's</a></li>
+                        <?php if ($toon_fotos): ?><li><a href="fotos.php" class="hover:text-white transition-colors">Foto's</a></li><?php endif; ?>
                         <li><a href="over-mij.php" class="hover:text-white transition-colors">Over Mij</a></li>
                         <li><a href="contact.php" class="hover:text-white transition-colors">Contact</a></li>
                     </ul>

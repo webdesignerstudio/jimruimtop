@@ -1,8 +1,10 @@
 <?php
 require_once __DIR__ . '/includes/functions.php';
-$contact  = laad_json('contact.json');
-$teksten  = laad_json('teksten.json');
-$p        = $teksten['index'] ?? [];
+$contact      = laad_json('contact.json');
+$teksten      = laad_json('teksten.json');
+$instellingen = laad_json('instellingen.json');
+$toon_fotos   = $instellingen['toon_fotos_menu'] ?? true;
+$p            = $teksten['index'] ?? [];
 
 // Fallbacks
 $telefoon        = t($contact, 'telefoon', '06 12 34 56 78');
@@ -329,7 +331,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
             <div class="hidden md:flex items-center space-x-8">
                 <a href="index.php" class="font-headline font-bold text-white border-b-2 border-brandCyan pb-1 hover:text-brandCyan transition-colors">Home</a>
                 <a href="diensten.php" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Diensten</a>
-                <a href="fotos.php" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Foto's</a>
+                <?php if ($toon_fotos): ?><a href="fotos.php" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Foto's</a><?php endif; ?>
                 <a href="over-mij.php" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Over Mij</a>
                 <a href="contact.php" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Contact</a>
             </div>
@@ -350,7 +352,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
             <div class="flex flex-col px-6 py-4 space-y-4">
                 <a href="index.php" class="font-headline font-bold text-white">Home</a>
                 <a href="diensten.php" class="font-headline font-bold text-white/70 hover:text-brandCyan">Diensten</a>
-                <a href="fotos.php" class="font-headline font-bold text-white/70 hover:text-brandCyan">Foto's</a>
+                <?php if ($toon_fotos): ?><a href="fotos.php" class="font-headline font-bold text-white/70 hover:text-brandCyan">Foto's</a><?php endif; ?>
                 <a href="over-mij.php" class="font-headline font-bold text-white/70 hover:text-brandCyan">Over Mij</a>
                 <a href="contact.php" class="font-headline font-bold text-white/70 hover:text-brandCyan">Contact</a>
                 <a href="<?= $tel_href ?>" class="flex items-center gap-2 text-white font-bold text-sm">
@@ -667,7 +669,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                     <ul class="space-y-2 text-white/70 text-sm">
                         <li><a href="index.php" class="hover:text-white transition-colors">Home</a></li>
                         <li><a href="diensten.php" class="hover:text-white transition-colors">Diensten</a></li>
-                        <li><a href="fotos.php" class="hover:text-white transition-colors">Foto's</a></li>
+                        <?php if ($toon_fotos): ?><li><a href="fotos.php" class="hover:text-white transition-colors">Foto's</a></li><?php endif; ?>
                         <li><a href="over-mij.php" class="hover:text-white transition-colors">Over Mij</a></li>
                         <li><a href="contact.php" class="hover:text-white transition-colors">Contact</a></li>
                     </ul>
