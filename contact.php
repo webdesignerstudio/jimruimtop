@@ -87,6 +87,12 @@ $jim_quote     = t($p, 'jim_quote', 'Geen ingewikkelde procedures of lange wacht
 <html lang="nl">
 <head>
     <meta charset="utf-8"/>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+    <link rel="manifest" href="/site.webmanifest"/>
+    <meta name="theme-color" content="#1A436D"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Contact | Jim Ruimt Op — Woningontruiming Tilburg</title>
     <meta name="description" content="Neem contact op met Jim voor een gratis intake. Woningontruiming in Tilburg — binnen 48 uur teruggebeld. Bel, WhatsApp of vul het formulier in."/>
@@ -215,7 +221,7 @@ $jim_quote     = t($p, 'jim_quote', 'Geen ingewikkelde procedures of lange wacht
             </div>
         </section>
 
-        <section class="max-w-7xl mx-auto px-6 py-20 -mt-16 relative z-20">
+        <section id="formulier" class="max-w-7xl mx-auto px-6 py-20 -mt-16 relative z-20">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                 <div class="lg:col-span-7 bg-white p-8 md:p-12 rounded-2xl cloud-shadow relative overflow-hidden fade-in-up">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-brandCyan/10 rounded-bl-full"></div>

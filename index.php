@@ -28,6 +28,12 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
 <html lang="nl">
 <head>
     <meta charset="utf-8"/>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+    <link rel="manifest" href="/site.webmanifest"/>
+    <meta name="theme-color" content="#1A436D"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Ontruimingsbedrijf Tilburg | Jim Ruimt Op — Woningontruiming & Ontzorging</title>
     <meta name="description" content="Professionele woningontruiming in Tilburg door Jim. Persoonlijk, empathisch en bezemschoon. Gratis intake binnen 48 uur. Specialist voor senioren & nabestaanden."/>
@@ -389,7 +395,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                     <h2 class="font-headline text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-4 text-brandNavy break-words" style="letter-spacing:-0.02em"><?= $hero_kop ?></h2>
                     <p class="text-brandCyan text-2xl sm:text-3xl md:text-5xl mb-8 md:mb-10" style="font-family:'Playfair Display',serif;font-style:italic;font-weight:600;letter-spacing:-0.01em"><?= $hero_tagline ?></p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="contact.php" class="inline-block bg-brandCyan text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-lg pulse-glow">
+                        <a href="contact.php#formulier" class="inline-block bg-brandCyan text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-lg pulse-glow">
                             Kennismakingsgesprek
                         </a>
                         <a href="diensten.php" class="inline-block border-2 border-brandNavy text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-brandNavy hover:text-white transition-all">
@@ -444,7 +450,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                         <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Schoonmaak & bezemschoon oplevering</li>
                         <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Coördinatie met woningcorporaties</li>
                     </ul>
-                    <a href="contact.php?onderwerp=core" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
+                    <a href="contact.php?onderwerp=core#formulier" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
                         Intake aanvragen
                     </a>
                 </div>
@@ -468,7 +474,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                         <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Familiegesprekken faciliteren</li>
                         <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Waardevolle items verkopen / doneren</li>
                     </ul>
-                    <a href="contact.php?onderwerp=premium" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold hover:bg-brandCyan hover:text-brandNavy transition-colors text-sm">
+                    <a href="contact.php?onderwerp=premium#formulier" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold hover:bg-brandCyan hover:text-brandNavy transition-colors text-sm">
                         Begeleiding bespreken
                     </a>
                 </div>
@@ -488,7 +494,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                         <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Keuzes vooraf vastleggen</li>
                         <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Kinderen worden niet belast</li>
                     </ul>
-                    <a href="contact.php?onderwerp=senior" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
+                    <a href="contact.php?onderwerp=senior#formulier" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
                         Plan vooruit maken
                     </a>
                 </div>
@@ -498,7 +504,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
         <!-- Maatwerk pill -->
         <div class="px-6 pb-2" style="background-color:#f0f7ff">
             <div class="max-w-5xl mx-auto flex justify-center">
-                <a href="contact.php" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-500 text-xs font-medium px-5 py-2 rounded-full cloud-shadow hover:border-brandNavy hover:text-brandNavy transition-all">
+                <a href="contact.php#formulier" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-500 text-xs font-medium px-5 py-2 rounded-full cloud-shadow hover:border-brandNavy hover:text-brandNavy transition-all">
                     <span class="material-symbols-outlined text-gray-400" style="font-size:14px">handshake</span>
                     Andere situatie? Jim maakt een offerte op maat.
                     <span class="material-symbols-outlined text-gray-400" style="font-size:14px">arrow_forward</span>
