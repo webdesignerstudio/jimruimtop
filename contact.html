@@ -283,7 +283,7 @@
             <div class="max-w-7xl mx-auto px-6 relative z-10">
                 <div class="max-w-2xl fade-in-left">
                     <span class="font-script text-brandCyan text-3xl mb-4 block">Laten we kennismaken</span>
-                    <h1 class="font-headline text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-6">Een schone lei begint met een gesprek.</h1>
+                    <h1 class="font-headline text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-6">Een schone lei begint met een goed gesprek.</h1>
                     <p class="text-white/80 text-lg md:text-xl font-medium leading-relaxed mb-8">
                         Zet vandaag de eerste stap naar rust en overzicht. Mijn kennismaking is altijd vrijblijvend en op uw tempo.
                     </p>
@@ -330,10 +330,15 @@
                         <div class="space-y-2">
                             <label for="subject" class="block font-headline text-sm font-bold text-gray-600">Onderwerp</label>
                             <select id="subject" name="subject" class="form-input w-full bg-white border border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-brandNavy">
-                                <option>Gratis Intake Inplannen</option>
-                                <option>Vraag over Diensten</option>
-                                <option>Offerte Aanvraag</option>
-                                <option>Anders</option>
+                                <option value="" disabled selected>Kies een onderwerp...</option>
+                                <option value="intake">Gratis intake inplannen</option>
+                                <option value="core">Pakket CORE — Complete woningontruiming</option>
+                                <option value="premium">Pakket PREMIUM — Zorgeloos Afscheid Begeleiding</option>
+                                <option value="senior">Pakket SENIOR — Rust Vooraf Pakket</option>
+                                <option value="garage">Garage- of zolderontruiming</option>
+                                <option value="spoed">Spoedontruiming</option>
+                                <option value="maatwer">Maatwerk / andere situatie</option>
+                                <option value="vraag">Algemene vraag</option>
                             </select>
                         </div>
                         <div class="space-y-2">

@@ -329,16 +329,65 @@ $adres    = t($contact, 'adres', 'Tilburg');
         document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .scale-in').forEach(el => observer.observe(el));
 
         const serviceData = {
-            1: { title:'Volledige ontruiming', icon:'cleaning_services', description:'Complete ontruiming van uw woning, garage of bedrijfspand. Alles wordt zorgvuldig verwijderd en de ruimte wordt veegschoon achtergelaten.', details:'Onze volledige ontruimingsdienst is ideaal als u een ruimte volledig leeg wilt hebben. Wij nemen alle zorg uit handen, van het verzamelen en sorteren tot het afvoeren van alle spullen.', features:['Alle ruimtes ontruimd','Veegschoon achtergelaten','Snelle service','Inclusief afvalafvoer','Geen verborgen kosten'], time:'1-2 dagen', price:'Vanaf €195' },
-            2: { title:'Woningontruiming', icon:'home', description:'Specialist in het ontruimen van woningen bij verhuizing, overlijden of verkoop. Met respect voor uw bezittingen en herinneringen.', details:'Een woningontruiming is vaak emotioneel en tijdrovend. Wij begrijpen dit en werken met respect en zorgvuldigheid.', features:['Emotionele ondersteuning','Sorteren & herbestemmen','Discrete service','Waardebepaling meubels','Fotodocumentatie'], time:'1-3 dagen', price:'Vanaf €495' },
-            3: { title:'Garage & Zolder', icon:'garage', description:'Opruiming van garage, zolder, berging of schuur. Ruimte creëren voor wat echt belangrijk is.', details:'Garages en zolders zijn vaak de meest verwaarloosde ruimtes. Wij maken ze weer gebruiksklaar.', features:['Complete leegmaking','Afval scheiden','Hergebruik waar mogelijk','Stofvrij opleveren','Recycling certificaat'], time:'4-8 uur', price:'Vanaf €295' },
-            4: { title:'Zorgeloos Afscheid', icon:'diversity_1', description:'Bij overlijden van een dierbare nemen wij u alle zorg uit handen. Discreet, empathisch en professioneel.', details:'Het verlies van een dierbare is al zwaar genoeg. Laat de praktische zaken aan ons over.', features:['Volledige ontzorging','Herbestemming spullen','Coördinatie verhuizing','Contact makelaar/notaris','24/7 bereikbaar'], time:'In overleg', price:'Op aanvraag' },
-            5: { title:'Sorteren & Herbestemmen', icon:'swap_horiz', description:'Vakkundige sortering en herbestemming van uw bezittingen.', details:'Samen bepalen we wat er bewaard, verkocht, gedoneerd of afgevoerd wordt.', features:['Bewaren, verkopen, doneren of afvoeren','Waardevolle items verkocht of gedoneerd','Circulair & milieubewust'], time:'1-4 uur', price:'Vanaf €125' },
-            6: { title:'Schoonmaak & Oplevering', icon:'cleaning_services', description:'Na de ontruiming wordt de woning bezemschoon opgeleverd.', details:'Coördinatie met woningcorporaties en verhuurders inbegrepen.', features:['Bezemschoon opleveren','Coördinatie met corporaties','Geen boetes achteraf'], time:'1-2 dagen', price:'Vanaf €350' }
+            1: {
+                title: 'Volledige ontruiming',
+                icon: 'cleaning_services',
+                description: 'Complete ontruiming van uw woning, garage of bedrijfspand. Alles wordt zorgvuldig verwijderd en de ruimte wordt veegschoon achtergelaten.',
+                extra: 'Dit pakket is geschikt als u een ruimte in één keer volledig leeg wilt hebben — bij verhuizing, verkoop of gewoon omdat het tijd is. Jim sorteert alles: wat bewaard wordt, gaat mee; wat weg kan, wordt verantwoord afgevoerd of gedoneerd. U hoeft er niet bij te zijn als u dat liever niet wilt.',
+                features: ['Alle ruimtes volledig ontruimd', 'Veegschoon achtergelaten', 'Snelle uitvoering mogelijk', 'Inclusief afvoer & recycling', 'Geen verborgen kosten'],
+                time: '1-2 dagen',
+                price: 'Vanaf €195'
+            },
+            2: {
+                title: 'Woningontruiming',
+                icon: 'home',
+                description: 'Specialist in het ontruimen van woningen bij verhuizing, overlijden of verkoop. Met respect voor uw bezittingen en herinneringen.',
+                extra: 'Een woning ontruimen is meer dan spullen weggooien. Of het nu gaat om een huurwoning die opgeleverd moet worden, een ouderlijk huis na overlijden of een eigen woning voor de verkoop — Jim werkt discreet, op uw tempo en met oog voor wat waarde heeft. Waardevolle meubels of spullen kunnen worden verkocht of gedoneerd.',
+                features: ['Emotionele ondersteuning inbegrepen', 'Sorteren: bewaren / verkopen / doneren / afvoeren', 'Discrete en respectvolle service', 'Waardebepaling meubels mogelijk', 'Fotodocumentatie voor uw administratie'],
+                time: '1-3 dagen',
+                price: 'Vanaf €495'
+            },
+            3: {
+                title: 'Garage & Zolder',
+                icon: 'garage',
+                description: 'Opruiming van garage, zolder, berging of schuur. Ruimte creëren voor wat echt belangrijk is.',
+                extra: 'Garages en zolders lopen vaak jarenlang vol zonder dat u er erg in heeft. Denk aan oude meubels, gereedschap, dozen met spullen die "ooit nog eens" handig zijn. Jim maakt de ruimte in een dag volledig leeg, scheidt afval van bruikbare spullen en levert stofvrij op. Ideaal ook als voorbereiding op een verbouwing of woningverkoop.',
+                features: ['Complete leegmaking in één dag', 'Afval scheiden & recyclen', 'Bruikbare spullen naar kringloop of verkoop', 'Stofvrij opleveren', 'Recyclingcertificaat op aanvraag'],
+                time: '4-8 uur',
+                price: 'Vanaf €295'
+            },
+            4: {
+                title: 'Zorgeloos Afscheid',
+                icon: 'diversity_1',
+                description: 'Bij overlijden van een dierbare nemen wij u alle zorg uit handen. Discreet, empathisch en professioneel.',
+                extra: 'Na het verlies van een dierbare heeft u al genoeg aan uw hoofd. Jim neemt het volledige praktische traject over: van het inventariseren van de inboedel tot het regelen van contact met de makelaar, notaris of woningcorporatie. Er is alle tijd om samen te kijken wat er bewaard moet blijven — voor u of andere familieleden. Geen haast, geen oordeel.',
+                features: ['Volledige ontzorging op uw tempo', 'Persoonlijke begeleiding bij keuzes', 'Waardevolle items veiliggesteld', 'Coördinatie met makelaar / notaris / corporatie', 'Beschikbaar ook in het weekend'],
+                time: 'In overleg',
+                price: 'Op aanvraag'
+            },
+            5: {
+                title: 'Sorteren & Herbestemmen',
+                icon: 'swap_horiz',
+                description: 'Vakkundige sortering en herbestemming van uw bezittingen.',
+                extra: 'Soms hoeft een ruimte niet volledig leeg, maar weet u niet meer waar te beginnen. Jim helpt u gestructureerd te sorteren: wat gaat mee naar het nieuwe huis, wat kan via Marktplaats of kringloop een tweede leven krijgen, en wat wordt verantwoord afgevoerd? Circulair en milieubewust — zo min mogelijk naar het stort.',
+                features: ['Samen beslissen wat er mee gaat', 'Regelen van verkoop via Marktplaats of kringloop', 'Spullen ophalen bij kringloopwinkels', 'Afvoer van restafval inbegrepen', 'Milieubewuste aanpak'],
+                time: '1-4 uur',
+                price: 'Vanaf €125'
+            },
+            6: {
+                title: 'Schoonmaak & Oplevering',
+                icon: 'cleaning_services',
+                description: 'Na de ontruiming wordt de woning bezemschoon opgeleverd, klaar voor inspectie.',
+                extra: 'Een woning bezemschoon opleveren is vaak een verplichting bij het einde van een huurcontract. Jim zorgt dat de woning voldoet aan de opleveringseisen van de woningcorporatie of verhuurder, zodat u uw borg terugkrijgt en geen extra kosten maakt. Inclusief afstemming met de corporatie over de opleverdatum.',
+                features: ['Bezemschoon opleveren volgens norm', 'Afstemming met woningcorporatie of verhuurder', 'Geen onverwachte aftrekposten op borg', 'Opleverdatum in overleg', 'Gecombineerd met ontruiming mogelijk'],
+                time: '1-2 dagen',
+                price: 'Vanaf €350'
+            }
         };
 
         function openServiceModal(id) {
             const data = serviceData[id];
+            const telNummer = '<?= htmlspecialchars($contact['telefoon_link'] ?? '+31612345678') ?>';
             const content = `
                 <div class="bg-brandNavy text-white p-6 rounded-t-xl">
                     <div class="flex items-center gap-4">
@@ -347,24 +396,30 @@ $adres    = t($contact, 'adres', 'Tilburg');
                         </div>
                         <div>
                             <h3 class="font-headline text-2xl font-bold">${data.title}</h3>
-                            <p class="text-white/70">${data.time}</p>
+                            <p class="text-white/70 text-sm">${data.time} &nbsp;·&nbsp; ${data.price}</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6">
-                    <p class="text-gray-600 mb-4">${data.description}</p>
-                    <p class="text-gray-500 text-sm mb-6">${data.details}</p>
-                    <h4 class="font-bold text-brandNavy mb-3">Wat is inbegrepen:</h4>
+                    <p class="text-gray-700 font-medium mb-3">${data.description}</p>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">${data.extra}</p>
+                    <h4 class="font-bold text-brandNavy mb-3 text-sm uppercase tracking-wide">Wat is inbegrepen:</h4>
                     <ul class="space-y-2 mb-6">
-                        ${data.features.map(f => `<li class="flex items-center gap-2 text-gray-600"><span class="material-symbols-outlined text-brandCyan text-sm">check</span>${f}</li>`).join('')}
+                        ${data.features.map(f => `<li class="flex items-center gap-2 text-gray-600 text-sm"><span class="material-symbols-outlined text-brandGreen text-base" style="font-size:18px">check_circle</span>${f}</li>`).join('')}
                     </ul>
-                    <div class="bg-brandNavy/5 p-4 rounded-xl mb-6">
-                        <p class="text-sm text-gray-500">Prijs indicatie</p>
-                        <p class="text-2xl font-bold text-brandNavy">${data.price}</p>
+                    <div class="border-t border-gray-100 pt-5 mt-2">
+                        <p class="text-xs text-gray-400 mb-4 text-center">Gratis intake — geen verplichtingen, Jim denkt graag vrijblijvend mee.</p>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="contact.php" class="flex-1 text-center bg-brandNavy text-white py-3 rounded-xl font-bold hover:bg-brandCyan hover:text-brandNavy transition-all flex items-center justify-center gap-2 text-sm">
+                                <span class="material-symbols-outlined text-lg">calendar_today</span>
+                                Gratis intake aanvragen
+                            </a>
+                            <a href="tel:${telNummer}" class="flex-1 text-center border-2 border-brandNavy text-brandNavy py-3 rounded-xl font-bold hover:bg-brandNavy hover:text-white transition-all flex items-center justify-center gap-2 text-sm">
+                                <span class="material-symbols-outlined text-lg">call</span>
+                                Bel direct
+                            </a>
+                        </div>
                     </div>
-                    <a href="contact.php" class="block w-full text-center bg-brandCyan text-brandNavy py-4 rounded-xl font-bold hover:bg-brandNavy hover:text-white transition-all">
-                        Offerte aanvragen
-                    </a>
                 </div>
             `;
             document.getElementById('service-modal-content').innerHTML = content;

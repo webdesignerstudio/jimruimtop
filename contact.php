@@ -14,7 +14,7 @@ $ma_vr         = t($contact['openingstijden'] ?? [], 'maandag_vrijdag', '08:00 -
 $zat           = t($contact['openingstijden'] ?? [], 'zaterdag', '09:00 - 14:00');
 $zon           = t($contact['openingstijden'] ?? [], 'zondag', 'Gesloten');
 $hero_script   = t($p, 'hero_script', 'Laten we kennismaken');
-$hero_kop      = t($p, 'hero_kop', 'Een schone lei begint met een gesprek.');
+$hero_kop      = t($p, 'hero_kop', 'Een schone lei begint met een goed gesprek.');
 $hero_sub      = t($p, 'hero_subtekst', 'Zet vandaag de eerste stap naar rust en overzicht. Mijn kennismaking is altijd vrijblijvend en op uw tempo.');
 $jim_quote     = t($p, 'jim_quote', 'Geen ingewikkelde procedures of lange wachtlijsten. Ik sta u graag persoonlijk te woord om te kijken hoe ik weer ruimte kan maken in uw leven.');
 ?>
@@ -180,10 +180,15 @@ $jim_quote     = t($p, 'jim_quote', 'Geen ingewikkelde procedures of lange wacht
                         <div class="space-y-2">
                             <label for="subject" class="block font-headline text-sm font-bold text-gray-600">Onderwerp</label>
                             <select id="subject" name="subject" class="form-input w-full bg-white border border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-brandNavy">
-                                <option>Gratis Intake Inplannen</option>
-                                <option>Vraag over Diensten</option>
-                                <option>Offerte Aanvraag</option>
-                                <option>Anders</option>
+                                <option value="" disabled selected>Kies een onderwerp...</option>
+                                <option value="intake">Gratis intake inplannen</option>
+                                <option value="core">Pakket CORE — Complete woningontruiming</option>
+                                <option value="premium">Pakket PREMIUM — Zorgeloos Afscheid Begeleiding</option>
+                                <option value="senior">Pakket SENIOR — Rust Vooraf Pakket</option>
+                                <option value="garage">Garage- of zolderontruiming</option>
+                                <option value="spoed">Spoedontruiming</option>
+                                <option value="maatwerk">Maatwerk / andere situatie</option>
+                                <option value="vraag">Algemene vraag</option>
                             </select>
                         </div>
                         <div class="space-y-2">
