@@ -1,8 +1,9 @@
 <?php
 require_once __DIR__ . '/auth.php';
 
-$contact = laad_json_admin('contact.json');
-$teksten = laad_json_admin('teksten.json');
+$contact  = laad_json_admin('contact.json');
+$teksten  = laad_json_admin('teksten.json');
+$locaties = laad_json_admin('locaties.json');
 
 $melding = '';
 $melding_type = 'groen';
@@ -31,6 +32,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 $melding = 'Fout bij opslaan. Controleer de schrijfrechten op /content/.';
                 $melding_type = 'rood';
+            }
+        }
+
+        elseif ($actie === 'sla_locatie_op') {
+            $slug_loc = preg_replace('/[^a-z0-9\-]/', '', strtolower(trim($_POST['slug'] ?? '')));
+            $toegestane_slugs = ['berkel-enschot','oisterwijk','goirle','hilvarenbeek','udenhout'];
+            if (in_array($slug_loc, $toegestane_slugs, true)) {
+                $locaties[$slug_loc]['intro'] = trim($_POST['intro'] ?? '');
+                if (sla_json_op_admin('locaties.json', $locaties)) {
+                    $melding = 'Intro-tekst voor ' . htmlspecialchars($locaties[$slug_loc]['naam']) . ' opgeslagen.';
+                } else {
+                    $melding = 'Fout bij opslaan. Controleer schrijfrechten op /content/.';
+                    $melding_type = 'rood';
+                }
             }
         }
 
@@ -118,6 +133,7 @@ $csrf = csrf_token();
                 'over_mij' => 'Over Mij',
                 'contact_teksten' => 'Contact pagina',
                 'fotos_teksten'   => "Foto's pagina",
+                'locaties'        => 'Locatiepagina\'s',
             ];
             foreach ($tabs as $sleutel => $naam):
             ?>
@@ -407,6 +423,39 @@ $csrf = csrf_token();
                     Diensten teksten opslaan
                 </button>
             </form>
+        </div>
+        <!-- TAB: Locatiepagina's -->
+        <?php elseif ($tab === 'locaties'): ?>
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <h2 class="text-lg font-bold text-navy mb-2">Locatiepagina's — intro-teksten</h2>
+            <p class="text-sm text-gray-500 mb-6">Pas de unieke intro-tekst per locatiepagina aan. Deze tekst verschijnt bovenaan de pagina en is belangrijk voor SEO.</p>
+            <?php
+            $loc_namen = [
+                'berkel-enschot' => 'Berkel-Enschot',
+                'oisterwijk'     => 'Oisterwijk',
+                'goirle'         => 'Goirle',
+                'hilvarenbeek'   => 'Hilvarenbeek',
+                'udenhout'       => 'Udenhout',
+            ];
+            foreach ($loc_namen as $slug_l => $naam_l):
+                $intro_huidig = $locaties[$slug_l]['intro'] ?? '';
+            ?>
+            <div class="mb-6 border border-gray-100 rounded-xl p-5">
+                <h3 class="font-bold text-navy mb-3"><?= htmlspecialchars($naam_l) ?></h3>
+                <form method="POST">
+                    <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
+                    <input type="hidden" name="actie" value="sla_locatie_op"/>
+                    <input type="hidden" name="slug" value="<?= $slug_l ?>"/>
+                    <div class="mb-3">
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Intro-tekst (zichtbaar op de pagina)</label>
+                        <textarea name="intro" rows="4" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy resize-y"><?= htmlspecialchars($intro_huidig) ?></textarea>
+                    </div>
+                    <button type="submit" class="bg-navy text-white px-5 py-2 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all">
+                        <?= htmlspecialchars($naam_l) ?> opslaan
+                    </button>
+                </form>
+            </div>
+            <?php endforeach; ?>
         </div>
         <?php endif; ?>
 
