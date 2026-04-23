@@ -38,10 +38,10 @@ if (empty($sliders)) {
     <title>Foto's & Resultaten | Jim Ruimt Op — Woningontruiming Tilburg</title>
     <meta name="description" content="Bekijk foto's van woningontruimingen in Tilburg door Jim Ruimt Op. Voor- en nafoto's tonen het verschil — van vol naar leeg en bezemschoon."/>
     <meta name="robots" content="index, follow"/>
-    <link rel="canonical" href="https://www.jimruimtop.nl/fotos.html"/>
+    <link rel="canonical" href="https://www.jimruimtop.nl/fotos.php"/>
     <meta property="og:title" content="Foto's & Resultaten | Jim Ruimt Op"/>
     <meta property="og:description" content="Voor- en nafoto's van woningontruimingen in Tilburg. Zie het verschil dat Jim maakt."/>
-    <meta property="og:url" content="https://www.jimruimtop.nl/fotos.html"/>
+    <meta property="og:url" content="https://www.jimruimtop.nl/fotos.php"/>
     <meta property="og:type" content="website"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&family=Dancing+Script:wght@500&display=swap" rel="stylesheet"/>
@@ -73,9 +73,10 @@ if (empty($sliders)) {
             z-index: 9999; transition: width 0.1s ease;
         }
         .floating-cta {
-            position: fixed; bottom: 30px; right: 30px; z-index: 40;
+            position: fixed; bottom: 24px; right: 16px; z-index: 40;
             animation: float 3s ease-in-out infinite;
         }
+        @media (min-width: 640px) { .floating-cta { bottom: 30px; right: 30px; } }
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
@@ -86,12 +87,13 @@ if (empty($sliders)) {
             50% { box-shadow: 0 0 20px 10px rgba(91,206,255,0.2); }
         }
         .whatsapp-btn {
-            position: fixed; bottom: 170px; right: 30px; z-index: 41;
-            background: #25D366; color: white; width: 56px; height: 56px;
+            position: fixed; bottom: 90px; right: 16px; z-index: 41;
+            background: #25D366; color: white; width: 52px; height: 52px;
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
             box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.2s ease;
         }
         .whatsapp-btn:hover { transform: scale(1.1); }
+        @media (min-width: 640px) { .whatsapp-btn { bottom: 100px; right: 30px; width: 56px; height: 56px; } }
         .cloud-shadow { box-shadow: 0 8px 32px rgba(26,67,109,0.10); }
 
         /* Voor/Na Slider */
@@ -209,6 +211,10 @@ if (empty($sliders)) {
         <nav class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
             <a href="index.php" class="flex items-center gap-2 hover:scale-105 transition-transform">
                 <img src="logo.png" alt="Jim Ruimt Op" class="w-14 h-14 object-contain"/>
+                <div class="hidden sm:block">
+                    <p class="text-xl font-bold leading-tight text-white font-headline">Jim Ruimt Op</p>
+                    <p class="text-brandCyan italic text-sm">Zorgeloos geregeld!</p>
+                </div>
             </a>
             <div class="hidden md:flex items-center space-x-8">
                 <a href="index.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Home</a>
