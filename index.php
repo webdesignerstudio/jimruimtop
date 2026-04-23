@@ -389,7 +389,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
         <section class="relative overflow-visible pt-10 pb-16 md:pt-16 md:pb-32 px-6 max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 items-center gap-16">
                 <div class="z-10 fade-in-right">
-                    <h2 class="font-headline text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-4 text-brandNavy" style="letter-spacing:-0.02em">Jim Ruimt Op</h2>
+                    <h2 class="font-headline text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-4 text-brandNavy break-words" style="letter-spacing:-0.02em">Jim Ruimt Op</h2>
                     <p class="text-brandCyan text-2xl sm:text-3xl md:text-5xl mb-8 md:mb-10" style="font-family:'Playfair Display',serif;font-style:italic;font-weight:600;letter-spacing:-0.01em">Zorgeloos geregeld!</p>
                     <div class="flex flex-wrap gap-4">
                         <a href="contact.php" class="inline-block bg-brandCyan text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-lg pulse-glow">

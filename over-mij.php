@@ -155,7 +155,7 @@ $kvk          = t($p, 'kvk_nummer', '87654321');
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
                 <div class="w-full md:w-1/2 z-10 fade-in-left">
                     <span class="font-script text-brandCyan text-3xl mb-4 block"><?= $hero_script ?></span>
-                    <h1 class="font-headline text-5xl md:text-6xl font-bold text-brandNavy leading-tight mb-6">
+                    <h1 class="font-headline text-5xl md:text-6xl font-bold text-brandNavy leading-tight mb-6 break-words">
                         <?= $hero_kop ?>
                     </h1>
                     <p class="text-lg text-gray-600 max-w-xl leading-relaxed mb-8"><?= $hero_sub ?></p>

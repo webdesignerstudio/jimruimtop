@@ -173,7 +173,7 @@ $wa_url     = whatsapp_url($contact);
             <div class="grid md:grid-cols-2 items-center gap-16">
                 <div class="z-10 fade-in-right">
                     <p class="text-xs font-bold tracking-widest text-brandCyan uppercase mb-3">Werkgebied</p>
-                    <h1 class="font-headline text-5xl md:text-6xl font-extrabold leading-tight mb-4 text-brandNavy" style="letter-spacing:-0.02em"><?= $h1 ?></h1>
+                    <h1 class="font-headline text-5xl md:text-6xl font-extrabold leading-tight mb-4 text-brandNavy break-words" style="letter-spacing:-0.02em"><?= $h1 ?></h1>
                     <p class="text-brandCyan text-3xl md:text-4xl mb-6" style="font-family:'Playfair Display',serif;font-style:italic;font-weight:600;letter-spacing:-0.01em">Zorgeloos geregeld!</p>
                     <p class="text-gray-600 leading-relaxed mb-8 text-base max-w-lg"><?= $intro ?></p>
                     <div class="flex flex-wrap gap-4">

@@ -139,7 +139,7 @@ $adres    = t($contact, 'adres', 'Tilburg');
         <section class="bg-brandNavy text-white py-20 px-6">
             <div class="max-w-4xl mx-auto text-center fade-in-up">
                 <span class="font-script text-brandCyan text-3xl mb-4 block">Alles wat u nodig heeft</span>
-                <h1 class="font-headline text-5xl md:text-6xl font-bold mb-4">Woningontruiming in Tilburg</h1>
+                <h1 class="font-headline text-5xl md:text-6xl font-bold mb-4 break-words">Woningontruiming in Tilburg</h1>
                 <h2 class="font-headline text-2xl font-normal mb-6 text-white/80">Onze Diensten &amp; Pakketten</h2>
                 <p class="text-xl text-white/80 max-w-2xl mx-auto">Van complete woningontruiming tot zorgeloos afscheid — praktisch ontzorgd, emotioneel begeleid. Actief in Tilburg en omstreken.</p>
             </div>

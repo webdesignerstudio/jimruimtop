@@ -250,7 +250,7 @@ if (empty($sliders)) {
         <section class="bg-brandNavy text-white py-20 px-6">
             <div class="max-w-4xl mx-auto text-center fade-in-up">
                 <span class="font-script text-brandCyan text-3xl mb-4 block"><?= $hero_script ?></span>
-                <h1 class="font-headline text-5xl md:text-6xl font-bold mb-4"><?= $hero_kop ?></h1>
+                <h1 class="font-headline text-5xl md:text-6xl font-bold mb-4 break-words"><?= $hero_kop ?></h1>
                 <p class="text-xl text-white/80 max-w-2xl mx-auto"><?= $hero_sub ?></p>
             </div>
         </section>

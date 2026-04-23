@@ -206,7 +206,7 @@ $jim_quote     = t($p, 'jim_quote', 'Geen ingewikkelde procedures of lange wacht
             <div class="max-w-7xl mx-auto px-6 relative z-10">
                 <div class="max-w-2xl fade-in-left">
                     <span class="font-script text-brandCyan text-3xl mb-4 block"><?= $hero_script ?></span>
-                    <h1 class="font-headline text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-6"><?= $hero_kop ?></h1>
+                    <h1 class="font-headline text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-6 break-words"><?= $hero_kop ?></h1>
                     <p class="text-white/80 text-lg md:text-xl font-medium leading-relaxed mb-8"><?= $hero_sub ?></p>
                 </div>
             </div>

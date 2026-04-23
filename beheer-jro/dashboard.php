@@ -65,9 +65,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $toegestane_paginas = ['index', 'diensten', 'over_mij', 'contact', 'fotos'];
             if (in_array($pagina, $toegestane_paginas, true)) {
                 if (!isset($teksten[$pagina])) $teksten[$pagina] = [];
+                $html_velden = ['hero_subtekst', 'verhaal_tekst_1', 'verhaal_tekst_2', 'intro_tekst'];
                 foreach ($_POST as $sleutel => $waarde) {
                     if ($sleutel === 'actie' || $sleutel === 'pagina' || $sleutel === 'csrf_token') continue;
-                    $teksten[$pagina][$sleutel] = trim($waarde);
+                    $waarde = trim($waarde);
+                    if (in_array($sleutel, $html_velden, true)) {
+                        $waarde = strip_tags($waarde, '<strong><em><br><a>');
+                    } else {
+                        $waarde = strip_tags($waarde);
+                    }
+                    $teksten[$pagina][$sleutel] = $waarde;
                 }
                 if (sla_json_op_admin('teksten.json', $teksten)) {
                     $melding = 'Teksten voor pagina "' . htmlspecialchars($pagina) . '" opgeslagen.';
@@ -96,6 +103,7 @@ $csrf = csrf_token();
             theme: { extend: { colors: { navy:'#1A436D', cyan:'#5BCEFF', green:'#7CC19D', cream:'#F4F0E6' } } }
         }
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&family=Dancing+Script:wght@500&display=swap" rel="stylesheet"/>
     <style>
         .tab-btn.actief { background-color: #1A436D; color: white; }
         .tab-inhoud { display: none; }
@@ -103,6 +111,19 @@ $csrf = csrf_token();
         .veld-label { @apply block text-sm font-semibold text-gray-700 mb-1; }
         .veld-input { @apply w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy; }
         .veld-textarea { @apply w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy resize-y; }
+        /* Live preview */
+        .preview-panel { font-family: 'Inter', sans-serif; }
+        .preview-panel .pv-headline { font-family: 'Manrope', sans-serif; }
+        .preview-panel .pv-script { font-family: 'Dancing Script', cursive; }
+        .preview-panel { background: #1A436D; border-radius: 0.75rem; padding: 1.5rem; color: white; }
+        .pv-kop { font-size: 1.5rem; font-weight: 800; line-height: 1.2; color: white; word-break: break-word; margin-bottom: 0.5rem; }
+        .pv-sub { font-size: 0.9rem; color: rgba(255,255,255,0.75); line-height: 1.5; margin-bottom: 0.75rem; }
+        .pv-script-text { font-size: 1.25rem; color: #5BCEFF; margin-bottom: 0.5rem; display: block; }
+        .pv-stap-titel { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 0.9rem; color: #1A436D; }
+        .pv-stap-tekst { font-size: 0.8rem; color: #555; }
+        .pv-stap-nr { width: 2rem; height: 2rem; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.875rem; }
+        .preview-sticky { position: sticky; top: 5rem; }
+        .pv-changed { outline: 2px solid #5BCEFF; border-radius: 0.375rem; }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
@@ -121,7 +142,7 @@ $csrf = csrf_token();
         </nav>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 py-8">
+    <main class="max-w-7xl mx-auto px-6 py-8">
 
         <?php if ($melding): ?>
         <div class="mb-6 px-4 py-3 rounded-lg text-sm font-medium <?= $melding_type === 'rood' ? 'bg-red-50 border border-red-200 text-red-700' : 'bg-green-50 border border-green-200 text-green-700' ?>">
@@ -232,209 +253,317 @@ $csrf = csrf_token();
 
         <!-- TAB: Home teksten -->
         <?php elseif ($tab === 'index'): ?>
-        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-            <h2 class="text-lg font-bold text-navy mb-4">Home pagina — teksten</h2>
-            <form method="POST">
-                <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
-                <input type="hidden" name="actie" value="sla_teksten_op"/>
-                <input type="hidden" name="pagina" value="index"/>
-                <?php $v = $teksten['index'] ?? []; ?>
-                <div class="space-y-4">
-                    <?php
-                    $velden = [
-                        'hero_script'       => ['Hero — script tekst (klein cursief)', 'text'],
-                        'hero_kop_regel1'   => ['Hero — kop regel 1', 'text'],
-                        'hero_kop_regel2'   => ['Hero — kop regel 2 (blauw)', 'text'],
-                        'hero_kop_regel3'   => ['Hero — kop regel 3', 'text'],
-                        'hero_subtekst'     => ['Hero — subtekst (mag HTML)', 'textarea'],
-                        'hero_quote'        => ['Hero — citaat onderaan foto', 'text'],
-                        'diensten_kop'      => ['Diensten sectie — kop', 'text'],
-                        'diensten_subtekst' => ['Diensten sectie — subtekst', 'textarea'],
-                        'hoe_werkt_kop'     => ['Hoe werkt het — kop', 'text'],
-                        'hoe_werkt_subtekst'=> ['Hoe werkt het — subtekst', 'text'],
-                        'stap1_kop'         => ['Stap 1 — kop', 'text'],
-                        'stap1_tekst'       => ['Stap 1 — tekst', 'textarea'],
-                        'stap2_kop'         => ['Stap 2 — kop', 'text'],
-                        'stap2_tekst'       => ['Stap 2 — tekst', 'textarea'],
-                        'stap3_kop'         => ['Stap 3 — kop', 'text'],
-                        'stap3_tekst'       => ['Stap 3 — tekst', 'textarea'],
-                    ];
-                    foreach ($velden as $sleutel => [$label, $type]):
-                    ?>
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-1"><?= htmlspecialchars($label) ?></label>
-                        <?php if ($type === 'textarea'): ?>
-                        <textarea name="<?= $sleutel ?>" rows="2" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy resize-y"><?= htmlspecialchars($v[$sleutel] ?? '') ?></textarea>
-                        <?php else: ?>
-                        <input type="text" name="<?= $sleutel ?>" value="<?= htmlspecialchars($v[$sleutel] ?? '') ?>" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"/>
-                        <?php endif; ?>
+        <?php $v = $teksten['index'] ?? []; ?>
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
+            <!-- Editor kolom -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h2 class="text-lg font-bold text-navy mb-4">Home pagina — teksten</h2>
+                <form method="POST" id="form-index">
+                    <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
+                    <input type="hidden" name="actie" value="sla_teksten_op"/>
+                    <input type="hidden" name="pagina" value="index"/>
+                    <div class="space-y-4">
+                        <?php
+                        $velden = [
+                            'hero_script'       => ['Hero — script tekst (klein cursief)', 'text'],
+                            'hero_kop_regel1'   => ['Hero — kop regel 1', 'text'],
+                            'hero_kop_regel2'   => ['Hero — kop regel 2 (blauw)', 'text'],
+                            'hero_kop_regel3'   => ['Hero — kop regel 3', 'text'],
+                            'hero_subtekst'     => ['Hero — subtekst (mag <strong>, <em>)', 'textarea'],
+                            'hero_quote'        => ['Hero — citaat onderaan foto', 'text'],
+                            'diensten_kop'      => ['Diensten sectie — kop', 'text'],
+                            'diensten_subtekst' => ['Diensten sectie — subtekst', 'textarea'],
+                            'hoe_werkt_kop'     => ['Hoe werkt het — kop', 'text'],
+                            'hoe_werkt_subtekst'=> ['Hoe werkt het — subtekst', 'text'],
+                            'stap1_kop'         => ['Stap 1 — kop', 'text'],
+                            'stap1_tekst'       => ['Stap 1 — tekst', 'textarea'],
+                            'stap2_kop'         => ['Stap 2 — kop', 'text'],
+                            'stap2_tekst'       => ['Stap 2 — tekst', 'textarea'],
+                            'stap3_kop'         => ['Stap 3 — kop', 'text'],
+                            'stap3_tekst'       => ['Stap 3 — tekst', 'textarea'],
+                        ];
+                        foreach ($velden as $sleutel => [$label, $type]):
+                        ?>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1"><?= htmlspecialchars($label) ?></label>
+                            <?php if ($type === 'textarea'): ?>
+                            <textarea name="<?= $sleutel ?>" data-preview="<?= $sleutel ?>" rows="2" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy resize-y"><?= htmlspecialchars($v[$sleutel] ?? '') ?></textarea>
+                            <?php else: ?>
+                            <input type="text" name="<?= $sleutel ?>" data-preview="<?= $sleutel ?>" value="<?= htmlspecialchars($v[$sleutel] ?? '') ?>" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"/>
+                            <?php endif; ?>
+                        </div>
+                        <?php endforeach; ?>
                     </div>
-                    <?php endforeach; ?>
+                    <button type="submit" class="mt-6 bg-navy text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all">
+                        Home teksten opslaan
+                    </button>
+                </form>
+            </div>
+            <!-- Preview kolom -->
+            <div class="preview-sticky space-y-4">
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Live preview</p>
+                <!-- Hero preview -->
+                <div class="preview-panel">
+                    <span class="pv-script-text pv-script" id="pv-hero_script"><?= htmlspecialchars($v['hero_script'] ?? '') ?></span>
+                    <div class="pv-kop pv-headline" id="pv-hero_kop_regel1"><?= htmlspecialchars($v['hero_kop_regel1'] ?? '') ?></div>
+                    <div class="pv-kop pv-headline" style="color:#5BCEFF" id="pv-hero_kop_regel2"><?= htmlspecialchars($v['hero_kop_regel2'] ?? '') ?></div>
+                    <div class="pv-kop pv-headline" id="pv-hero_kop_regel3"><?= htmlspecialchars($v['hero_kop_regel3'] ?? '') ?></div>
+                    <div class="pv-sub mt-2" id="pv-hero_subtekst"><?= $v['hero_subtekst'] ?? '' ?></div>
+                    <div class="mt-3 text-xs italic text-white/50" id="pv-hero_quote">"<?= htmlspecialchars($v['hero_quote'] ?? '') ?>"</div>
                 </div>
-                <button type="submit" class="mt-6 bg-navy text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all">
-                    Home teksten opslaan
-                </button>
-            </form>
+                <!-- Diensten preview -->
+                <div class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+                    <div class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Diensten sectie</div>
+                    <div class="font-bold text-navy text-base pv-headline" id="pv-diensten_kop"><?= htmlspecialchars($v['diensten_kop'] ?? '') ?></div>
+                    <div class="text-sm text-gray-500 mt-1" id="pv-diensten_subtekst"><?= htmlspecialchars($v['diensten_subtekst'] ?? '') ?></div>
+                </div>
+                <!-- Stappen preview -->
+                <div class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+                    <div class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Stappenplan</div>
+                    <div class="space-y-3">
+                        <?php foreach ([1,2,3] as $i): $kleur = $i===2 ? '#5BCEFF' : '#1A436D'; $tc = $i===2 ? '#1A436D' : 'white'; ?>
+                        <div class="flex items-start gap-3">
+                            <span class="pv-stap-nr flex-shrink-0" style="background:<?= $kleur ?>;color:<?= $tc ?>"><?= $i ?></span>
+                            <div>
+                                <div class="pv-stap-titel" id="pv-stap<?= $i ?>_kop"><?= htmlspecialchars($v["stap{$i}_kop"] ?? '') ?></div>
+                                <div class="pv-stap-tekst" id="pv-stap<?= $i ?>_tekst"><?= htmlspecialchars($v["stap{$i}_tekst"] ?? '') ?></div>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- TAB: Over Mij teksten -->
         <?php elseif ($tab === 'over_mij'): ?>
-        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-            <h2 class="text-lg font-bold text-navy mb-4">Over Mij pagina — teksten</h2>
-            <form method="POST">
-                <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
-                <input type="hidden" name="actie" value="sla_teksten_op"/>
-                <input type="hidden" name="pagina" value="over_mij"/>
-                <?php $v = $teksten['over_mij'] ?? []; ?>
-                <div class="space-y-4">
-                    <?php
-                    $velden = [
-                        'hero_script'        => ['Hero — script tekst', 'text'],
-                        'hero_kop'           => ['Hero — kop', 'text'],
-                        'hero_subtekst'      => ['Hero — subtekst', 'textarea'],
-                        'verhaal_kop'        => ['Verhaal — kop', 'text'],
-                        'verhaal_tekst_1'    => ['Verhaal — eerste alinea', 'textarea'],
-                        'verhaal_tekst_2'    => ['Verhaal — tweede alinea', 'textarea'],
-                        'belofte_kop'        => ['Beloften — kop', 'text'],
-                        'belofte_1'          => ['Belofte 1', 'text'],
-                        'belofte_2'          => ['Belofte 2', 'text'],
-                        'belofte_3'          => ['Belofte 3', 'text'],
-                        'werkwijze_kop'      => ['Werkwijze — kop', 'text'],
-                        'werkwijze_subtekst' => ['Werkwijze — subtekst', 'textarea'],
-                        'waarde1_kop'        => ['Waarde 1 — kop', 'text'],
-                        'waarde1_tekst'      => ['Waarde 1 — tekst', 'textarea'],
-                        'waarde2_kop'        => ['Waarde 2 — kop', 'text'],
-                        'waarde2_tekst'      => ['Waarde 2 — tekst', 'textarea'],
-                        'waarde3_kop'        => ['Waarde 3 — kop', 'text'],
-                        'waarde3_tekst'      => ['Waarde 3 — tekst', 'textarea'],
-                        'quote_jim'          => ['Citaat van Jim', 'text'],
-                        'kvk_nummer'         => ['KvK nummer', 'text'],
-                    ];
-                    foreach ($velden as $sleutel => [$label, $type]):
-                    ?>
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-1"><?= htmlspecialchars($label) ?></label>
-                        <?php if ($type === 'textarea'): ?>
-                        <textarea name="<?= $sleutel ?>" rows="2" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy resize-y"><?= htmlspecialchars($v[$sleutel] ?? '') ?></textarea>
-                        <?php else: ?>
-                        <input type="text" name="<?= $sleutel ?>" value="<?= htmlspecialchars($v[$sleutel] ?? '') ?>" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"/>
-                        <?php endif; ?>
+        <?php $v = $teksten['over_mij'] ?? []; ?>
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h2 class="text-lg font-bold text-navy mb-4">Over Mij pagina — teksten</h2>
+                <form method="POST">
+                    <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
+                    <input type="hidden" name="actie" value="sla_teksten_op"/>
+                    <input type="hidden" name="pagina" value="over_mij"/>
+                    <div class="space-y-4">
+                        <?php
+                        $velden = [
+                            'hero_script'        => ['Hero — script tekst', 'text'],
+                            'hero_kop'           => ['Hero — kop', 'text'],
+                            'hero_subtekst'      => ['Hero — subtekst', 'textarea'],
+                            'verhaal_kop'        => ['Verhaal — kop', 'text'],
+                            'verhaal_tekst_1'    => ['Verhaal — eerste alinea', 'textarea'],
+                            'verhaal_tekst_2'    => ['Verhaal — tweede alinea', 'textarea'],
+                            'belofte_kop'        => ['Beloften — kop', 'text'],
+                            'belofte_1'          => ['Belofte 1', 'text'],
+                            'belofte_2'          => ['Belofte 2', 'text'],
+                            'belofte_3'          => ['Belofte 3', 'text'],
+                            'werkwijze_kop'      => ['Werkwijze — kop', 'text'],
+                            'werkwijze_subtekst' => ['Werkwijze — subtekst', 'textarea'],
+                            'waarde1_kop'        => ['Waarde 1 — kop', 'text'],
+                            'waarde1_tekst'      => ['Waarde 1 — tekst', 'textarea'],
+                            'waarde2_kop'        => ['Waarde 2 — kop', 'text'],
+                            'waarde2_tekst'      => ['Waarde 2 — tekst', 'textarea'],
+                            'waarde3_kop'        => ['Waarde 3 — kop', 'text'],
+                            'waarde3_tekst'      => ['Waarde 3 — tekst', 'textarea'],
+                            'quote_jim'          => ['Citaat van Jim', 'text'],
+                            'kvk_nummer'         => ['KvK nummer', 'text'],
+                        ];
+                        foreach ($velden as $sleutel => [$label, $type]):
+                        ?>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1"><?= htmlspecialchars($label) ?></label>
+                            <?php if ($type === 'textarea'): ?>
+                            <textarea name="<?= $sleutel ?>" data-preview="<?= $sleutel ?>" rows="2" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy resize-y"><?= htmlspecialchars($v[$sleutel] ?? '') ?></textarea>
+                            <?php else: ?>
+                            <input type="text" name="<?= $sleutel ?>" data-preview="<?= $sleutel ?>" value="<?= htmlspecialchars($v[$sleutel] ?? '') ?>" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"/>
+                            <?php endif; ?>
+                        </div>
+                        <?php endforeach; ?>
                     </div>
-                    <?php endforeach; ?>
+                    <button type="submit" class="mt-6 bg-navy text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all">
+                        Over Mij teksten opslaan
+                    </button>
+                </form>
+            </div>
+            <div class="preview-sticky space-y-4">
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Live preview</p>
+                <div class="preview-panel">
+                    <span class="pv-script-text pv-script" id="pv-hero_script"><?= htmlspecialchars($v['hero_script'] ?? '') ?></span>
+                    <div class="pv-kop pv-headline" id="pv-hero_kop"><?= htmlspecialchars($v['hero_kop'] ?? '') ?></div>
+                    <div class="pv-sub mt-2" id="pv-hero_subtekst"><?= htmlspecialchars($v['hero_subtekst'] ?? '') ?></div>
                 </div>
-                <button type="submit" class="mt-6 bg-navy text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all">
-                    Over Mij teksten opslaan
-                </button>
-            </form>
+                <div class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+                    <div class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Verhaal</div>
+                    <div class="font-bold text-navy text-sm pv-headline mb-2" id="pv-verhaal_kop"><?= htmlspecialchars($v['verhaal_kop'] ?? '') ?></div>
+                    <div class="text-sm text-gray-600 mb-2" id="pv-verhaal_tekst_1"><?= htmlspecialchars($v['verhaal_tekst_1'] ?? '') ?></div>
+                    <div class="text-sm text-gray-600" id="pv-verhaal_tekst_2"><?= htmlspecialchars($v['verhaal_tekst_2'] ?? '') ?></div>
+                </div>
+                <div class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+                    <div class="font-bold text-navy text-sm pv-headline mb-2" id="pv-belofte_kop"><?= htmlspecialchars($v['belofte_kop'] ?? '') ?></div>
+                    <ul class="space-y-1 text-sm text-gray-600">
+                        <li class="flex items-start gap-2"><span class="text-cyan font-bold mt-0.5">&#10003;</span><span id="pv-belofte_1"><?= htmlspecialchars($v['belofte_1'] ?? '') ?></span></li>
+                        <li class="flex items-start gap-2"><span class="text-cyan font-bold mt-0.5">&#10003;</span><span id="pv-belofte_2"><?= htmlspecialchars($v['belofte_2'] ?? '') ?></span></li>
+                        <li class="flex items-start gap-2"><span class="text-cyan font-bold mt-0.5">&#10003;</span><span id="pv-belofte_3"><?= htmlspecialchars($v['belofte_3'] ?? '') ?></span></li>
+                    </ul>
+                </div>
+                <div class="bg-navy rounded-xl p-4 text-white text-sm italic text-center" id="pv-quote_jim">"<?= htmlspecialchars($v['quote_jim'] ?? '') ?>"</div>
+            </div>
         </div>
 
         <!-- TAB: Contact pagina teksten -->
         <?php elseif ($tab === 'contact_teksten'): ?>
-        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-            <h2 class="text-lg font-bold text-navy mb-4">Contact pagina — teksten</h2>
-            <form method="POST">
-                <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
-                <input type="hidden" name="actie" value="sla_teksten_op"/>
-                <input type="hidden" name="pagina" value="contact"/>
-                <?php $v = $teksten['contact'] ?? []; ?>
-                <div class="space-y-4">
-                    <?php
-                    $velden = [
-                        'hero_script'  => ['Hero — script tekst', 'text'],
-                        'hero_kop'     => ['Hero — kop', 'text'],
-                        'hero_subtekst'=> ['Hero — subtekst', 'textarea'],
-                        'jim_quote'    => ['Jim zijn citaat op de contactpagina', 'textarea'],
-                    ];
-                    foreach ($velden as $sleutel => [$label, $type]):
-                    ?>
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-1"><?= htmlspecialchars($label) ?></label>
-                        <?php if ($type === 'textarea'): ?>
-                        <textarea name="<?= $sleutel ?>" rows="3" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy resize-y"><?= htmlspecialchars($v[$sleutel] ?? '') ?></textarea>
-                        <?php else: ?>
-                        <input type="text" name="<?= $sleutel ?>" value="<?= htmlspecialchars($v[$sleutel] ?? '') ?>" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"/>
-                        <?php endif; ?>
+        <?php $v = $teksten['contact'] ?? []; ?>
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h2 class="text-lg font-bold text-navy mb-4">Contact pagina — teksten</h2>
+                <form method="POST">
+                    <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
+                    <input type="hidden" name="actie" value="sla_teksten_op"/>
+                    <input type="hidden" name="pagina" value="contact"/>
+                    <div class="space-y-4">
+                        <?php
+                        $velden = [
+                            'hero_script'  => ['Hero — script tekst', 'text'],
+                            'hero_kop'     => ['Hero — kop', 'text'],
+                            'hero_subtekst'=> ['Hero — subtekst', 'textarea'],
+                            'jim_quote'    => ['Jim zijn citaat op de contactpagina', 'textarea'],
+                        ];
+                        foreach ($velden as $sleutel => [$label, $type]):
+                        ?>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1"><?= htmlspecialchars($label) ?></label>
+                            <?php if ($type === 'textarea'): ?>
+                            <textarea name="<?= $sleutel ?>" data-preview="<?= $sleutel ?>" rows="3" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy resize-y"><?= htmlspecialchars($v[$sleutel] ?? '') ?></textarea>
+                            <?php else: ?>
+                            <input type="text" name="<?= $sleutel ?>" data-preview="<?= $sleutel ?>" value="<?= htmlspecialchars($v[$sleutel] ?? '') ?>" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"/>
+                            <?php endif; ?>
+                        </div>
+                        <?php endforeach; ?>
                     </div>
-                    <?php endforeach; ?>
+                    <button type="submit" class="mt-6 bg-navy text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all">
+                        Contact teksten opslaan
+                    </button>
+                </form>
+            </div>
+            <div class="preview-sticky space-y-4">
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Live preview</p>
+                <div class="preview-panel">
+                    <span class="pv-script-text pv-script" id="pv-hero_script"><?= htmlspecialchars($v['hero_script'] ?? '') ?></span>
+                    <div class="pv-kop pv-headline" id="pv-hero_kop"><?= htmlspecialchars($v['hero_kop'] ?? '') ?></div>
+                    <div class="pv-sub mt-2" id="pv-hero_subtekst"><?= htmlspecialchars($v['hero_subtekst'] ?? '') ?></div>
                 </div>
-                <button type="submit" class="mt-6 bg-navy text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all">
-                    Contact teksten opslaan
-                </button>
-            </form>
+                <div class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+                    <div class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Jim zijn citaat</div>
+                    <p class="text-sm text-gray-600 italic" id="pv-jim_quote">"<?= htmlspecialchars($v['jim_quote'] ?? '') ?>"</p>
+                </div>
+            </div>
         </div>
 
         <!-- TAB: Foto's pagina teksten -->
         <?php elseif ($tab === 'fotos_teksten'): ?>
-        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-            <h2 class="text-lg font-bold text-navy mb-4">Foto's pagina — teksten</h2>
-            <form method="POST">
-                <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
-                <input type="hidden" name="actie" value="sla_teksten_op"/>
-                <input type="hidden" name="pagina" value="fotos"/>
-                <?php $v = $teksten['fotos'] ?? []; ?>
-                <div class="space-y-4">
-                    <?php
-                    $velden = [
-                        'hero_script'     => ['Hero — script tekst', 'text'],
-                        'hero_kop'        => ['Hero — kop', 'text'],
-                        'hero_subtekst'   => ['Hero — subtekst', 'textarea'],
-                        'gallerij_kop'    => ['Galerij — kop', 'text'],
-                        'gallerij_subtekst'=> ['Galerij — subtekst', 'text'],
-                        'cta_script'      => ['CTA — script tekst', 'text'],
-                        'cta_kop'         => ['CTA — kop', 'text'],
-                        'cta_tekst'       => ['CTA — tekst', 'textarea'],
-                    ];
-                    foreach ($velden as $sleutel => [$label, $type]):
-                    ?>
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-1"><?= htmlspecialchars($label) ?></label>
-                        <?php if ($type === 'textarea'): ?>
-                        <textarea name="<?= $sleutel ?>" rows="2" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy resize-y"><?= htmlspecialchars($v[$sleutel] ?? '') ?></textarea>
-                        <?php else: ?>
-                        <input type="text" name="<?= $sleutel ?>" value="<?= htmlspecialchars($v[$sleutel] ?? '') ?>" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"/>
-                        <?php endif; ?>
+        <?php $v = $teksten['fotos'] ?? []; ?>
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h2 class="text-lg font-bold text-navy mb-4">Foto's pagina — teksten</h2>
+                <form method="POST">
+                    <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
+                    <input type="hidden" name="actie" value="sla_teksten_op"/>
+                    <input type="hidden" name="pagina" value="fotos"/>
+                    <div class="space-y-4">
+                        <?php
+                        $velden = [
+                            'hero_script'      => ['Hero — script tekst', 'text'],
+                            'hero_kop'         => ['Hero — kop', 'text'],
+                            'hero_subtekst'    => ['Hero — subtekst', 'textarea'],
+                            'gallerij_kop'     => ['Galerij — kop', 'text'],
+                            'gallerij_subtekst'=> ['Galerij — subtekst', 'text'],
+                            'cta_script'       => ['CTA — script tekst', 'text'],
+                            'cta_kop'          => ['CTA — kop', 'text'],
+                            'cta_tekst'        => ['CTA — tekst', 'textarea'],
+                        ];
+                        foreach ($velden as $sleutel => [$label, $type]):
+                        ?>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1"><?= htmlspecialchars($label) ?></label>
+                            <?php if ($type === 'textarea'): ?>
+                            <textarea name="<?= $sleutel ?>" data-preview="<?= $sleutel ?>" rows="2" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy resize-y"><?= htmlspecialchars($v[$sleutel] ?? '') ?></textarea>
+                            <?php else: ?>
+                            <input type="text" name="<?= $sleutel ?>" data-preview="<?= $sleutel ?>" value="<?= htmlspecialchars($v[$sleutel] ?? '') ?>" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"/>
+                            <?php endif; ?>
+                        </div>
+                        <?php endforeach; ?>
                     </div>
-                    <?php endforeach; ?>
+                    <button type="submit" class="mt-6 bg-navy text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all">
+                        Foto's pagina teksten opslaan
+                    </button>
+                </form>
+            </div>
+            <div class="preview-sticky space-y-4">
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Live preview</p>
+                <div class="preview-panel">
+                    <span class="pv-script-text pv-script" id="pv-hero_script"><?= htmlspecialchars($v['hero_script'] ?? '') ?></span>
+                    <div class="pv-kop pv-headline" id="pv-hero_kop"><?= htmlspecialchars($v['hero_kop'] ?? '') ?></div>
+                    <div class="pv-sub mt-2" id="pv-hero_subtekst"><?= htmlspecialchars($v['hero_subtekst'] ?? '') ?></div>
                 </div>
-                <button type="submit" class="mt-6 bg-navy text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all">
-                    Foto's pagina teksten opslaan
-                </button>
-            </form>
+                <div class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+                    <div class="font-bold text-navy text-sm pv-headline" id="pv-gallerij_kop"><?= htmlspecialchars($v['gallerij_kop'] ?? '') ?></div>
+                    <div class="text-xs text-gray-500 mt-1" id="pv-gallerij_subtekst"><?= htmlspecialchars($v['gallerij_subtekst'] ?? '') ?></div>
+                </div>
+                <div class="bg-navy rounded-xl p-4 text-white">
+                    <span class="pv-script-text pv-script text-sm" id="pv-cta_script"><?= htmlspecialchars($v['cta_script'] ?? '') ?></span>
+                    <div class="font-bold text-base pv-headline" id="pv-cta_kop"><?= htmlspecialchars($v['cta_kop'] ?? '') ?></div>
+                    <div class="text-sm text-white/75 mt-1" id="pv-cta_tekst"><?= htmlspecialchars($v['cta_tekst'] ?? '') ?></div>
+                </div>
+            </div>
         </div>
 
         <!-- TAB: Diensten teksten -->
         <?php elseif ($tab === 'diensten'): ?>
-        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-            <h2 class="text-lg font-bold text-navy mb-4">Diensten pagina — teksten</h2>
-            <form method="POST">
-                <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
-                <input type="hidden" name="actie" value="sla_teksten_op"/>
-                <input type="hidden" name="pagina" value="diensten"/>
-                <?php $v = $teksten['diensten'] ?? []; ?>
-                <div class="space-y-4">
-                    <?php
-                    $velden = [
-                        'hero_kop'     => ['Hero — kop', 'text'],
-                        'hero_subtekst'=> ['Hero — subtekst', 'textarea'],
-                        'intro_kop'    => ['Intro — kop', 'text'],
-                        'intro_tekst'  => ['Intro — tekst', 'textarea'],
-                    ];
-                    foreach ($velden as $sleutel => [$label, $type]):
-                    ?>
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-1"><?= htmlspecialchars($label) ?></label>
-                        <?php if ($type === 'textarea'): ?>
-                        <textarea name="<?= $sleutel ?>" rows="2" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy resize-y"><?= htmlspecialchars($v[$sleutel] ?? '') ?></textarea>
-                        <?php else: ?>
-                        <input type="text" name="<?= $sleutel ?>" value="<?= htmlspecialchars($v[$sleutel] ?? '') ?>" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"/>
-                        <?php endif; ?>
+        <?php $v = $teksten['diensten'] ?? []; ?>
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h2 class="text-lg font-bold text-navy mb-4">Diensten pagina — teksten</h2>
+                <form method="POST">
+                    <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
+                    <input type="hidden" name="actie" value="sla_teksten_op"/>
+                    <input type="hidden" name="pagina" value="diensten"/>
+                    <div class="space-y-4">
+                        <?php
+                        $velden = [
+                            'hero_kop'     => ['Hero — kop', 'text'],
+                            'hero_subtekst'=> ['Hero — subtekst', 'textarea'],
+                            'intro_kop'    => ['Intro — kop', 'text'],
+                            'intro_tekst'  => ['Intro — tekst', 'textarea'],
+                        ];
+                        foreach ($velden as $sleutel => [$label, $type]):
+                        ?>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1"><?= htmlspecialchars($label) ?></label>
+                            <?php if ($type === 'textarea'): ?>
+                            <textarea name="<?= $sleutel ?>" data-preview="<?= $sleutel ?>" rows="2" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy resize-y"><?= htmlspecialchars($v[$sleutel] ?? '') ?></textarea>
+                            <?php else: ?>
+                            <input type="text" name="<?= $sleutel ?>" data-preview="<?= $sleutel ?>" value="<?= htmlspecialchars($v[$sleutel] ?? '') ?>" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"/>
+                            <?php endif; ?>
+                        </div>
+                        <?php endforeach; ?>
                     </div>
-                    <?php endforeach; ?>
+                    <button type="submit" class="mt-6 bg-navy text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all">
+                        Diensten teksten opslaan
+                    </button>
+                </form>
+            </div>
+            <div class="preview-sticky space-y-4">
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Live preview</p>
+                <div class="preview-panel">
+                    <div class="pv-kop pv-headline" id="pv-hero_kop"><?= htmlspecialchars($v['hero_kop'] ?? '') ?></div>
+                    <div class="pv-sub mt-2" id="pv-hero_subtekst"><?= htmlspecialchars($v['hero_subtekst'] ?? '') ?></div>
                 </div>
-                <button type="submit" class="mt-6 bg-navy text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all">
-                    Diensten teksten opslaan
-                </button>
-            </form>
+                <div class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+                    <div class="font-bold text-navy text-sm pv-headline mb-1" id="pv-intro_kop"><?= htmlspecialchars($v['intro_kop'] ?? '') ?></div>
+                    <div class="text-sm text-gray-600" id="pv-intro_tekst"><?= htmlspecialchars($v['intro_tekst'] ?? '') ?></div>
+                </div>
+            </div>
         </div>
         <!-- TAB: Locatiepagina's -->
         <!-- TAB: Instellingen -->
@@ -502,5 +631,45 @@ $csrf = csrf_token();
     <footer class="text-center py-6 text-xs text-gray-400 mt-8">
         Jim Ruimt Op — Beheer | <a href="uitloggen.php" class="hover:text-gray-600">Uitloggen</a>
     </footer>
+
+    <script>
+    (function () {
+        const HTML_VELDEN = ['hero_subtekst', 'verhaal_tekst_1', 'verhaal_tekst_2', 'intro_tekst'];
+
+        function stripDangerous(html) {
+            const tmp = document.createElement('div');
+            tmp.innerHTML = html;
+            tmp.querySelectorAll('script,style,iframe,object,embed,form').forEach(el => el.remove());
+            return tmp.innerHTML;
+        }
+
+        function updatePreview(el) {
+            const key = el.dataset.preview;
+            if (!key) return;
+            const target = document.getElementById('pv-' + key);
+            if (!target) return;
+
+            let val = el.value;
+
+            if (HTML_VELDEN.includes(key)) {
+                target.innerHTML = stripDangerous(val);
+            } else {
+                if (key === 'hero_quote' || key === 'jim_quote' || key === 'quote_jim') {
+                    target.textContent = '"' + val + '"';
+                } else {
+                    target.textContent = val;
+                }
+            }
+
+            target.classList.add('pv-changed');
+            clearTimeout(target._pvTimer);
+            target._pvTimer = setTimeout(() => target.classList.remove('pv-changed'), 1200);
+        }
+
+        document.querySelectorAll('[data-preview]').forEach(el => {
+            el.addEventListener('input', () => updatePreview(el));
+        });
+    })();
+    </script>
 </body>
 </html>
