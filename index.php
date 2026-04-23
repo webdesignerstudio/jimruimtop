@@ -512,55 +512,6 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
             </div>
         </div>
 
-        <!-- Diensten Sectie -->
-        <section class="bg-brandCream py-20 px-6">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16 fade-in-up">
-                    <h2 class="font-headline text-4xl font-bold mb-4 text-brandNavy"><?= $diensten_kop ?></h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto"><?= $diensten_sub ?></p>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white rounded-xl cloud-shadow cursor-pointer fade-in-up delay-100">
-                        <span class="material-symbols-outlined text-brandNavy text-3xl transition-colors">home_work</span>
-                        <span class="service-text text-lg font-medium text-brandNavy transition-colors">Volledige ontruiming</span>
-                    </div>
-                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white rounded-xl cloud-shadow cursor-pointer fade-in-up delay-200">
-                        <span class="material-symbols-outlined text-brandNavy text-3xl transition-colors">garage</span>
-                        <span class="service-text text-lg font-medium text-brandNavy transition-colors">Garageontruiming</span>
-                    </div>
-                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white rounded-xl cloud-shadow cursor-pointer fade-in-up delay-300">
-                        <span class="material-symbols-outlined text-brandNavy text-3xl transition-colors">home</span>
-                        <span class="service-text text-lg font-medium text-brandNavy transition-colors">Woningontruiming</span>
-                    </div>
-                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white rounded-xl cloud-shadow cursor-pointer fade-in-up delay-400">
-                        <span class="material-symbols-outlined text-brandNavy text-3xl transition-colors">sentiment_calm</span>
-                        <span class="service-text text-lg font-medium text-brandNavy transition-colors">Emotionele Begeleiding</span>
-                    </div>
-                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white rounded-xl cloud-shadow cursor-pointer fade-in-up delay-100">
-                        <span class="material-symbols-outlined text-brandNavy text-3xl transition-colors">swap_horiz</span>
-                        <span class="service-text text-lg font-medium text-brandNavy transition-colors">Sorteren & Herbestemmen</span>
-                    </div>
-                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white rounded-xl cloud-shadow cursor-pointer fade-in-up delay-200">
-                        <span class="material-symbols-outlined text-brandNavy text-3xl transition-colors">roofing</span>
-                        <span class="service-text text-lg font-medium text-brandNavy transition-colors">Zolderontruiming</span>
-                    </div>
-                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white rounded-xl cloud-shadow cursor-pointer fade-in-up delay-300">
-                        <span class="material-symbols-outlined text-brandNavy text-3xl transition-colors">favorite</span>
-                        <span class="service-text text-lg font-medium text-brandNavy transition-colors">Zorgeloos Afscheid</span>
-                    </div>
-                    <div class="service-card flex items-center gap-4 py-4 px-6 bg-white rounded-xl cloud-shadow cursor-pointer fade-in-up delay-400">
-                        <span class="material-symbols-outlined text-brandNavy text-3xl transition-colors">mop</span>
-                        <span class="service-text text-lg font-medium text-brandNavy transition-colors">Schoonmaak & Oplevering</span>
-                    </div>
-                </div>
-                <div class="text-center mt-12 fade-in-up">
-                    <a href="diensten.php" class="inline-block border-2 border-brandNavy text-brandNavy px-8 py-3 rounded-full font-bold hover:bg-brandNavy hover:text-white transition-all hover:scale-105">
-                        Bekijk alle diensten
-                    </a>
-                </div>
-            </div>
-        </section>
-
         <!-- Hoe werkt het sectie -->
         <section class="py-20 px-6">
             <div class="max-w-5xl mx-auto">
