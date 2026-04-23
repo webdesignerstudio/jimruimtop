@@ -75,7 +75,7 @@ $adres    = t($contact, 'adres', 'Tilburg');
         @keyframes featured-pulse { 0%,100%{box-shadow:0 20px 40px rgba(26,67,109,0.2);}50%{box-shadow:0 30px 60px rgba(91,206,255,0.3);} }
         .modal { display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:100;align-items:center;justify-content:center;padding:20px; }
         .modal.active { display:flex; }
-        .modal-content { background:white;border-radius:1rem;max-width:500px;width:100%;max-height:90vh;overflow-y:auto;animation:modal-in 0.3s ease; }
+        .modal-content { background:white;border-radius:1rem;max-width:720px;width:100%;max-height:92vh;overflow-y:auto;animation:modal-in 0.3s ease; }
         @keyframes modal-in { from{opacity:0;transform:scale(0.9) translateY(20px);}to{opacity:1;transform:scale(1) translateY(0);} }
     </style>
 </head>
@@ -396,15 +396,15 @@ $adres    = t($contact, 'adres', 'Tilburg');
                         </div>
                         <div>
                             <h3 class="font-headline text-2xl font-bold">${data.title}</h3>
-                            <p class="text-white/70 text-sm">${data.time} &nbsp;·&nbsp; ${data.price}</p>
+                            <p class="text-white/70 text-sm">${data.time}</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6">
-                    <p class="text-gray-700 font-medium mb-3">${data.description}</p>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-6">${data.extra}</p>
-                    <h4 class="font-bold text-brandNavy mb-3 text-sm uppercase tracking-wide">Wat is inbegrepen:</h4>
-                    <ul class="space-y-2 mb-6">
+                    <p class="text-gray-700 font-medium mb-2">${data.description}</p>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">${data.extra}</p>
+                    <h4 class="font-bold text-brandNavy mb-2 text-sm uppercase tracking-wide">Wat is inbegrepen:</h4>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 mb-4">
                         ${data.features.map(f => `<li class="flex items-center gap-2 text-gray-600 text-sm"><span class="material-symbols-outlined text-brandGreen text-base" style="font-size:18px">check_circle</span>${f}</li>`).join('')}
                     </ul>
                     <div class="border-t border-gray-100 pt-5 mt-2">
