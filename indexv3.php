@@ -513,7 +513,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
         <div class="px-6 pb-10" style="background-color:#f0f7ff">
             <div class="max-w-5xl mx-auto flex justify-center">
                 <a href="contact.php" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-500 text-xs font-medium px-5 py-2 rounded-full cloud-shadow hover:border-brandNavy hover:text-brandNavy transition-all">
-                    <span class="material-symbols-outlined text-gray-400" style="font-size:14px">tune</span>
+                    <span class="material-symbols-outlined text-gray-400" style="font-size:14px">handshake</span>
                     Andere situatie? Jim maakt een offerte op maat.
                     <span class="material-symbols-outlined text-gray-400" style="font-size:14px">arrow_forward</span>
                 </a>
