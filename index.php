@@ -348,10 +348,6 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
         <nav class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
             <a href="index.php" class="flex items-center gap-2 hover:scale-105 transition-transform">
                 <img src="logo.png" alt="Jim Ruimt Op" class="w-14 h-14 object-contain"/>
-                <div>
-                    <h1 class="text-xl font-bold leading-tight text-white font-headline">Jim Ruimt Op</h1>
-                    <p class="text-brandCyan italic text-sm">Zorgeloos geregeld!</p>
-                </div>
             </a>
             <div class="hidden md:flex items-center space-x-8">
                 <a href="index.php" class="font-headline font-bold text-white border-b-2 border-brandCyan pb-1 hover:text-brandCyan transition-colors">Home</a>
@@ -632,44 +628,28 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                     </div>
                 </div>
 
-                <!-- Contact Column -->
+                <!-- Contact Form Column -->
                 <div class="fade-in-right delay-200">
-                    <h2 class="font-headline text-3xl font-bold mb-6 text-brandNavy">Direct contact</h2>
-                    <div class="bg-white p-8 rounded-2xl cloud-shadow">
-                        <div class="space-y-4">
-                            <a href="<?= $tel_href ?>" class="flex items-center gap-4 p-4 rounded-xl hover:bg-brandCyan/10 transition-colors group">
-                                <div class="w-12 h-12 bg-brandNavy rounded-full flex items-center justify-center group-hover:bg-brandCyan transition-colors">
-                                    <span class="material-symbols-outlined text-white text-xl">call</span>
-                                </div>
-                                <div>
-                                    <p class="text-xs text-gray-500 font-medium uppercase tracking-wide">Bel direct</p>
-                                    <p class="font-bold text-brandNavy"><?= $telefoon ?></p>
-                                </div>
-                            </a>
-                            <a href="<?= $wa_url ?>" target="_blank" rel="noopener" class="flex items-center gap-4 p-4 rounded-xl hover:bg-green-50 transition-colors group">
-                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                                </div>
-                                <div>
-                                    <p class="text-xs text-gray-500 font-medium uppercase tracking-wide">WhatsApp</p>
-                                    <p class="font-bold text-brandNavy">Stuur een bericht</p>
-                                </div>
-                            </a>
-                            <a href="mailto:<?= htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl') ?>" class="flex items-center gap-4 p-4 rounded-xl hover:bg-brandCyan/10 transition-colors group">
-                                <div class="w-12 h-12 bg-brandNavy rounded-full flex items-center justify-center group-hover:bg-brandCyan transition-colors">
-                                    <span class="material-symbols-outlined text-white text-xl">mail</span>
-                                </div>
-                                <div>
-                                    <p class="text-xs text-gray-500 font-medium uppercase tracking-wide">E-mail</p>
-                                    <p class="font-bold text-brandNavy"><?= htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl') ?></p>
-                                </div>
-                            </a>
+                    <h2 class="font-headline text-3xl font-bold mb-2 text-brandNavy">Contact of bel terug</h2>
+                    <p class="text-gray-500 mb-6 text-sm flex items-center gap-1"><span class="material-symbols-outlined text-brandCyan text-base">verified</span> Ik reageer binnen 48 uur</p>
+                    <div class="mt-4 bg-white p-6 rounded-xl cloud-shadow">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="flex text-brandCyan">
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                            </div>
+                            <span class="text-sm text-gray-500">2 dagen geleden</span>
                         </div>
-                        <div class="mt-6 pt-6 border-t border-gray-100">
-                            <a href="contact.php" class="w-full bg-brandNavy text-white px-8 py-4 rounded-full font-bold text-center hover:bg-brandCyan hover:text-brandNavy transition-all block">
-                                Gratis Intake Aanvragen
-                            </a>
-                        </div>
+                        <p class="text-gray-700 italic">"Jim heeft ons enorm geholpen bij het ontruimen van het huis van onze overleden vader. Met respect en empathie. Een aanrader!"</p>
+                        <p class="text-sm text-brandNavy font-semibold mt-3">— Familie de Vries</p>
+                    </div>
+                    <div class="mt-6">
+                        <a href="contact.php" class="w-full bg-brandNavy text-white px-8 py-4 rounded-full font-bold text-center hover:bg-brandCyan hover:text-brandNavy transition-all block">
+                            Gratis Intake Aanvragen
+                        </a>
                     </div>
                 </div>
             </div>

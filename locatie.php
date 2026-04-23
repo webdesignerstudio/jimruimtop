@@ -135,10 +135,6 @@ $wa_url     = whatsapp_url($contact);
         <nav class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
             <a href="index.php" class="flex items-center gap-2 hover:scale-105 transition-transform">
                 <img src="logo.png" alt="Jim Ruimt Op" class="w-14 h-14 object-contain"/>
-                <div class="hidden sm:block">
-                    <p class="text-xl font-bold leading-tight text-white font-headline">Jim Ruimt Op</p>
-                    <p class="text-brandCyan italic text-sm">Zorgeloos geregeld!</p>
-                </div>
             </a>
             <div class="hidden md:flex items-center space-x-8">
                 <a href="index.php" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Home</a>
