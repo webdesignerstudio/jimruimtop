@@ -511,14 +511,11 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
             <p class="text-xs font-bold tracking-widest text-gray-300 uppercase mb-4">▲ VARIANT C — Kleine kaart / pill</p>
         </div>
         <div class="px-6 pb-10" style="background-color:#f0f7ff">
-            <div class="max-w-xs mx-auto pricing-card bg-white border-2 border-gray-100 p-8 rounded-2xl cloud-shadow flex flex-col items-center text-center">
-                <div class="mb-4 text-brandNavy">
-                    <span class="material-symbols-outlined text-5xl">tune</span>
-                </div>
-                <h3 class="text-2xl font-bold mb-1 text-brandNavy font-headline">MAATWERK</h3>
-                <p class="text-sm text-gray-500 mb-6">Andere situatie? Jim denkt mee.</p>
-                <a href="contact.php" class="mt-auto bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
-                    Vraag op maat aan
+            <div class="max-w-5xl mx-auto flex justify-center">
+                <a href="contact.php" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-500 text-xs font-medium px-5 py-2 rounded-full cloud-shadow hover:border-brandNavy hover:text-brandNavy transition-all">
+                    <span class="material-symbols-outlined text-gray-400" style="font-size:14px">tune</span>
+                    Andere situatie? Jim maakt een offerte op maat.
+                    <span class="material-symbols-outlined text-gray-400" style="font-size:14px">arrow_forward</span>
                 </a>
             </div>
         </div>
