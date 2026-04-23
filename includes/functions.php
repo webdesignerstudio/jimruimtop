@@ -80,7 +80,7 @@ function afbeelding_url(string $bestandsnaam): string {
  * Genereer WhatsApp URL
  */
 function whatsapp_url(array $contact): string {
-    $nummer = $contact['whatsapp_nummer'] ?? '31612345678';
+    $nummer = $contact['whatsapp_nummer'] ?? '31613943186';
     $bericht = $contact['whatsapp_bericht'] ?? 'Hallo%20Jim%2C%20ik%20heb%20een%20vraag%20over%20woningontruiming';
     return 'https://wa.me/' . htmlspecialchars($nummer, ENT_QUOTES, 'UTF-8') . '?text=' . $bericht;
 }
@@ -89,5 +89,5 @@ function whatsapp_url(array $contact): string {
  * Genereer tel: link
  */
 function tel_link(array $contact): string {
-    return 'tel:' . htmlspecialchars($contact['telefoon_link'] ?? '+31612345678', ENT_QUOTES, 'UTF-8');
+    return 'tel:' . htmlspecialchars($contact['telefoon_link'] ?? '+31613943186', ENT_QUOTES, 'UTF-8');
 }

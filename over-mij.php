@@ -6,7 +6,7 @@ $instellingen = laad_json('instellingen.json');
 $toon_fotos   = $instellingen['toon_fotos_menu'] ?? true;
 $p            = $teksten['over_mij'] ?? [];
 
-$telefoon     = t($contact, 'telefoon', '06 12 34 56 78');
+$telefoon     = t($contact, 'telefoon', '06 13 94 31 86');
 $tel_href     = tel_link($contact);
 $wa_url       = whatsapp_url($contact);
 $hero_script  = t($p, 'hero_script', 'Gedreven door zorg');
@@ -306,7 +306,7 @@ $kvk          = t($p, 'kvk_nummer', '87654321');
                 </div>
                 <div>
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Contact</h4>
-                    <p class="text-white/70 text-sm"><?= t($contact, 'adres', 'Tilburg') ?><br/><?= htmlspecialchars($contact['email'] ?? 'info@jimruimtop.nl') ?><br/>Bel: <?= $telefoon ?></p>
+                    <p class="text-white/70 text-sm"><?= t($contact, 'adres', 'Tilburg') ?><br/><?= htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl') ?><br/>Bel: <?= $telefoon ?></p>
                 </div>
                 <div class="flex flex-col items-start sm:items-end">
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Direct contact</h4>

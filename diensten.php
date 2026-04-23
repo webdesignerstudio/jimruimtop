@@ -6,10 +6,10 @@ $instellingen = laad_json('instellingen.json');
 $toon_fotos   = $instellingen['toon_fotos_menu'] ?? true;
 $p            = $teksten['diensten'] ?? [];
 
-$telefoon = t($contact, 'telefoon', '06 12 34 56 78');
+$telefoon = t($contact, 'telefoon', '06 13 94 31 86');
 $tel_href = tel_link($contact);
 $wa_url   = whatsapp_url($contact);
-$email    = htmlspecialchars($contact['email'] ?? 'info@jimruimtop.nl', ENT_QUOTES, 'UTF-8');
+$email    = htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl', ENT_QUOTES, 'UTF-8');
 $adres    = t($contact, 'adres', 'Tilburg');
 ?>
 <!DOCTYPE html>
@@ -389,7 +389,7 @@ $adres    = t($contact, 'adres', 'Tilburg');
 
         function openServiceModal(id) {
             const data = serviceData[id];
-            const telNummer = '<?= htmlspecialchars($contact['telefoon_link'] ?? '+31612345678') ?>';
+            const telNummer = '<?= htmlspecialchars($contact['telefoon_link'] ?? '+31613943186') ?>';
             const content = `
                 <div class="bg-brandNavy text-white p-6 rounded-t-xl">
                     <div class="flex items-center gap-4">

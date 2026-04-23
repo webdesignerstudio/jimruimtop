@@ -24,7 +24,7 @@ $h1         = htmlspecialchars($loc['h1']               ?? 'Woningontruiming ' .
 $intro      = htmlspecialchars($loc['intro']            ?? '', ENT_QUOTES, 'UTF-8');
 $canonical  = 'https://www.jimruimtop.nl/woningontruiming-' . $slug . '.html';
 
-$telefoon   = t($contact, 'telefoon', '06 12 34 56 78');
+$telefoon   = t($contact, 'telefoon', '06 13 94 31 86');
 $tel_href   = tel_link($contact);
 $wa_url     = whatsapp_url($contact);
 ?>
@@ -49,8 +49,8 @@ $wa_url     = whatsapp_url($contact);
       "name": "Jim Ruimt Op",
       "description": "Woningontruiming in <?= $naam ?> — empathisch, discreet en professioneel.",
       "url": "<?= $canonical ?>",
-      "telephone": "<?= htmlspecialchars($contact['telefoon'] ?? '06 12 34 56 78') ?>",
-      "email": "info@jimruimtop.nl",
+      "telephone": "<?= htmlspecialchars($contact['telefoon'] ?? '06 13 94 31 86') ?>",
+      "email": "info@jimruimt-op.nl",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Tilburg",
@@ -381,7 +381,7 @@ $wa_url     = whatsapp_url($contact);
                 </div>
                 <div>
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Contact</h4>
-                    <p class="text-white/70 text-sm">Tilburg<br/>info@jimruimtop.nl<br/>Bel: <?= $telefoon ?></p>
+                    <p class="text-white/70 text-sm">Tilburg<br/>info@jimruimt-op.nl<br/>Bel: <?= $telefoon ?></p>
                 </div>
                 <div class="flex flex-col items-start sm:items-end">
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Direct contact</h4>

@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (!filter_var($van_email, FILTER_VALIDATE_EMAIL)) {
         $form_error = 'Vul een geldig e-mailadres in.';
     } else {
-        $naar        = 'info@jimruimtop.nl';
+        $naar        = 'info@jimruimt-op.nl';
         $onderwerp_labels = [
             'intake'   => 'Gratis intake inplannen',
             'core'     => 'Pakket CORE — Complete woningontruiming',
@@ -69,10 +69,10 @@ $url_onderwerp = in_array($_GET['onderwerp'] ?? '', ['intake','core','premium','
     ? $_GET['onderwerp']
     : '';
 
-$telefoon      = t($contact, 'telefoon', '06 12 34 56 78');
+$telefoon      = t($contact, 'telefoon', '06 13 94 31 86');
 $tel_href      = tel_link($contact);
 $wa_url        = whatsapp_url($contact);
-$email         = htmlspecialchars($contact['email'] ?? 'info@jimruimtop.nl', ENT_QUOTES, 'UTF-8');
+$email         = htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl', ENT_QUOTES, 'UTF-8');
 $adres         = t($contact, 'adres', 'Tilburg');
 $werkgebied    = t($contact, 'werkgebied', 'Tilburg & omstreken');
 $ma_vr         = t($contact['openingstijden'] ?? [], 'maandag_vrijdag', '08:00 - 18:00');

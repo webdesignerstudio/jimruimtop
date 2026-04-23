@@ -168,25 +168,25 @@ $csrf = csrf_token();
                         <label class="block text-sm font-semibold text-gray-700 mb-1">Telefoonnummer (weergave)</label>
                         <input type="text" name="telefoon" value="<?= htmlspecialchars($contact['telefoon'] ?? '') ?>"
                             class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"
-                            placeholder="06 12 34 56 78"/>
+                            placeholder="06 13 94 31 86"/>
                     </div>
                     <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-1">Telefoonnummer (link, bijv. +31612345678)</label>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Telefoonnummer (link, bijv. +31613943186)</label>
                         <input type="text" name="telefoon_link" value="<?= htmlspecialchars($contact['telefoon_link'] ?? '') ?>"
                             class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"
-                            placeholder="+31612345678"/>
+                            placeholder="+31613943186"/>
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-1">E-mailadres</label>
                         <input type="email" name="email" value="<?= htmlspecialchars($contact['email'] ?? '') ?>"
                             class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"
-                            placeholder="info@jimruimtop.nl"/>
+                            placeholder="info@jimruimt-op.nl"/>
                     </div>
                     <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-1">WhatsApp nummer (bijv. 31612345678)</label>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">WhatsApp nummer (bijv. 31613943186)</label>
                         <input type="text" name="whatsapp_nummer" value="<?= htmlspecialchars($contact['whatsapp_nummer'] ?? '') ?>"
                             class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"
-                            placeholder="31612345678"/>
+                            placeholder="31613943186"/>
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-1">Adres / Stad</label>

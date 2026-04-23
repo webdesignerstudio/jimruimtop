@@ -5,7 +5,7 @@ $teksten  = laad_json('teksten.json');
 $p        = $teksten['index'] ?? [];
 
 // Fallbacks
-$telefoon        = t($contact, 'telefoon', '06 12 34 56 78');
+$telefoon        = t($contact, 'telefoon', '06 13 94 31 86');
 $tel_href        = tel_link($contact);
 $wa_url          = whatsapp_url($contact);
 $hero_script     = t($p, 'hero_script', 'Woningontruiming Tilburg');
@@ -46,8 +46,8 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
       "name": "Jim Ruimt Op",
       "description": "Ontruimingsbedrijf in Tilburg gespecialiseerd in woningontruiming, seniorenverhuizing en zorgeloos afscheid. Empathisch, discreet en professioneel.",
       "url": "https://www.jimruimtop.nl",
-      "telephone": "<?= htmlspecialchars($contact['telefoon'] ?? '06 12 34 56 78') ?>",
-      "email": "<?= htmlspecialchars($contact['email'] ?? 'info@jimruimtop.nl') ?>",
+      "telephone": "<?= htmlspecialchars($contact['telefoon'] ?? '06 13 94 31 86') ?>",
+      "email": "<?= htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl') ?>",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Tilburg",
@@ -711,13 +711,13 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                                     <p class="font-bold text-brandNavy">Stuur een bericht</p>
                                 </div>
                             </a>
-                            <a href="mailto:<?= htmlspecialchars($contact['email'] ?? 'info@jimruimtop.nl') ?>" class="flex items-center gap-4 p-4 rounded-xl hover:bg-brandCyan/10 transition-colors group">
+                            <a href="mailto:<?= htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl') ?>" class="flex items-center gap-4 p-4 rounded-xl hover:bg-brandCyan/10 transition-colors group">
                                 <div class="w-12 h-12 bg-brandNavy rounded-full flex items-center justify-center group-hover:bg-brandCyan transition-colors">
                                     <span class="material-symbols-outlined text-white text-xl">mail</span>
                                 </div>
                                 <div>
                                     <p class="text-xs text-gray-500 font-medium uppercase tracking-wide">E-mail</p>
-                                    <p class="font-bold text-brandNavy"><?= htmlspecialchars($contact['email'] ?? 'info@jimruimtop.nl') ?></p>
+                                    <p class="font-bold text-brandNavy"><?= htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl') ?></p>
                                 </div>
                             </a>
                         </div>
@@ -757,7 +757,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                 </div>
                 <div>
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Contact</h4>
-                    <p class="text-white/70 text-sm"><?= t($contact, 'adres', 'Tilburg') ?><br/><?= htmlspecialchars($contact['email'] ?? 'info@jimruimtop.nl') ?><br/>Bel: <?= $telefoon ?></p>
+                    <p class="text-white/70 text-sm"><?= t($contact, 'adres', 'Tilburg') ?><br/><?= htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl') ?><br/>Bel: <?= $telefoon ?></p>
                 </div>
                 <div class="flex flex-col items-start sm:items-end">
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Direct contact</h4>
