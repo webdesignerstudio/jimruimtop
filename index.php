@@ -363,11 +363,11 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
 
     <main>
         <!-- Hero Section -->
-        <section class="relative overflow-visible pt-12 pb-32 px-6 max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 items-center gap-12">
+        <section class="relative overflow-visible pt-16 pb-32 px-6 max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 items-center gap-16">
                 <div class="z-10 fade-in-right">
-                    <h2 class="font-headline text-5xl md:text-7xl font-bold leading-tight mb-4 text-brandNavy">Jim Ruimt Op</h2>
-                    <p class="font-script text-brandCyan text-3xl md:text-4xl mb-8">Zorgeloos geregeld!</p>
+                    <h2 class="font-headline text-6xl md:text-8xl font-bold leading-tight mb-6 text-brandNavy">Jim Ruimt Op</h2>
+                    <p class="font-script text-brandCyan text-4xl md:text-5xl mb-10">Zorgeloos geregeld!</p>
                     <div class="flex flex-wrap gap-4">
                         <a href="contact.php" class="inline-block bg-brandCyan text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-lg pulse-glow">
                             Kennismakingsgesprek
@@ -396,8 +396,8 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                     </div>
                 </div>
                 <div class="relative fade-in-left delay-200">
-                    <div class="img-zoom-container cloud-shadow">
-                        <img src="herofoto.jpg" alt="Jim, woningontruiming specialist Tilburg" class="w-full h-auto object-cover"/>
+                    <div class="img-zoom-container cloud-shadow rounded-2xl overflow-hidden">
+                        <img src="herofoto.jpg" alt="Jim, woningontruiming specialist Tilburg" class="w-full object-cover" style="max-height:520px;"/>
                     </div>
                     <div class="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl cloud-shadow max-w-xs hidden md:block scale-in delay-400">
                         <p class="text-sm font-semibold text-brandNavy italic">"Ruimte creëren in huis is ruimte creëren in het hoofd."</p>
