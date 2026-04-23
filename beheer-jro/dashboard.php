@@ -94,6 +94,8 @@ $csrf = csrf_token();
 <html lang="nl">
 <head>
     <meta charset="utf-8"/>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Dashboard — Jim Ruimt Op Beheer</title>
     <meta name="robots" content="noindex, nofollow"/>

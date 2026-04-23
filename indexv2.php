@@ -29,6 +29,12 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
 <html lang="nl">
 <head>
     <meta charset="utf-8"/>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+    <link rel="manifest" href="/site.webmanifest"/>
+    <meta name="theme-color" content="#1A436D"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Ontruimingsbedrijf Tilburg | Jim Ruimt Op — Woningontruiming & Ontzorging</title>
     <meta name="description" content="Professionele woningontruiming in Tilburg door Jim. Persoonlijk, empathisch en bezemschoon. Gratis intake binnen 48 uur. Specialist voor senioren & nabestaanden."/>
