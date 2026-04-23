@@ -310,7 +310,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
         }
         .wa-float-btn:hover { transform: scale(1.1); }
         @media (min-width: 640px) {
-            .wa-float-btn { bottom: 100px; right: 30px; width: 56px; height: 56px; }
+            .wa-float-btn { bottom: 110px; right: 30px; width: 56px; height: 56px; }
         }
 
         /* Play button pulse */

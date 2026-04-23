@@ -86,7 +86,7 @@ $kvk          = t($p, 'kvk_nummer', '87654321');
         @media (min-width: 640px) { .floating-cta { bottom: 30px; right: 30px; } }
         .wa-float-btn { position:fixed;bottom:90px;right:16px;z-index:41;background:#25D366;color:white;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.2s ease; }
         .wa-float-btn:hover { transform:scale(1.1); }
-        @media (min-width: 640px) { .wa-float-btn { bottom:100px;right:30px;width:56px;height:56px; } }
+        @media (min-width: 640px) { .wa-float-btn { bottom:110px;right:30px;width:56px;height:56px; } }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
         @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(91,206,255,0.4); } 50% { box-shadow: 0 0 20px 10px rgba(91,206,255,0.2); } }

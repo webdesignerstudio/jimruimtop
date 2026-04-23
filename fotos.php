@@ -93,7 +93,7 @@ if (empty($sliders)) {
             box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.2s ease;
         }
         .whatsapp-btn:hover { transform: scale(1.1); }
-        @media (min-width: 640px) { .whatsapp-btn { bottom: 100px; right: 30px; width: 56px; height: 56px; } }
+        @media (min-width: 640px) { .whatsapp-btn { bottom: 110px; right: 30px; width: 56px; height: 56px; } }
         .cloud-shadow { box-shadow: 0 8px 32px rgba(26,67,109,0.10); }
 
         /* Voor/Na Slider */
