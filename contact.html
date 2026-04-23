@@ -559,6 +559,19 @@
             observer.observe(el);
         });
 
+        // Voorinvullen dropdown via URL-parameter ?onderwerp=
+        (function() {
+            const params = new URLSearchParams(window.location.search);
+            const onderwerp = params.get('onderwerp');
+            if (onderwerp) {
+                const select = document.getElementById('subject');
+                if (select) {
+                    const opt = select.querySelector('option[value="' + onderwerp + '"]');
+                    if (opt) { opt.selected = true; }
+                }
+            }
+        })();
+
         // FAQ Toggle
         function toggleFaq(item) {
             const isActive = item.classList.contains('active');

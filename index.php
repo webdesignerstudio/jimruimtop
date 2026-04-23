@@ -424,8 +424,8 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                         <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Schoonmaak & bezemschoon oplevering</li>
                         <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Coördinatie met woningcorporaties</li>
                     </ul>
-                    <a href="diensten.php#pakket-core" class="mt-auto text-brandNavy font-bold hover:text-brandCyan transition-colors flex items-center gap-1 text-sm">
-                        Bekijk pakket <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    <a href="contact.php?onderwerp=core" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
+                        Intake aanvragen
                     </a>
                 </div>
 
@@ -448,8 +448,8 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                         <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Familiegesprekken faciliteren</li>
                         <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Waardevolle items verkopen / doneren</li>
                     </ul>
-                    <a href="diensten.php#pakket-premium" class="mt-auto bg-brandGreen text-white px-6 py-2 rounded-full font-bold hover:bg-brandNavy transition-colors text-sm">
-                        Bekijk pakket
+                    <a href="contact.php?onderwerp=premium" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold hover:bg-brandCyan hover:text-brandNavy transition-colors text-sm">
+                        Begeleiding bespreken
                     </a>
                 </div>
 
@@ -468,8 +468,8 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                         <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Keuzes vooraf vastleggen</li>
                         <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Kinderen worden niet belast</li>
                     </ul>
-                    <a href="diensten.php#pakket-senior" class="mt-auto bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
-                        Bekijk pakket
+                    <a href="contact.php?onderwerp=senior" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
+                        Plan vooruit maken
                     </a>
                 </div>
             </div>

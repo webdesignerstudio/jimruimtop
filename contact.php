@@ -63,6 +63,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+$url_onderwerp = in_array($_GET['onderwerp'] ?? '', ['intake','core','premium','senior','garage','spoed','maatwerk','vraag'], true)
+    ? $_GET['onderwerp']
+    : '';
+
 $telefoon      = t($contact, 'telefoon', '06 12 34 56 78');
 $tel_href      = tel_link($contact);
 $wa_url        = whatsapp_url($contact);
@@ -254,7 +258,7 @@ $jim_quote     = t($p, 'jim_quote', 'Geen ingewikkelde procedures of lange wacht
                         </div>
                         <div class="space-y-2">
                             <label for="subject" class="block font-headline text-sm font-bold text-gray-600">Onderwerp</label>
-                            <?php $sel = $form_data['subject'] ?? ''; ?>
+                            <?php $sel = $form_data['subject'] ?? $url_onderwerp; ?>
                             <select id="subject" name="subject" class="form-input w-full bg-white border border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-brandNavy">
                                 <option value="" disabled <?= $sel===''?'selected':'' ?>>Kies een onderwerp...</option>
                                 <option value="intake"   <?= $sel==='intake'  ?'selected':'' ?>>Gratis intake inplannen</option>
