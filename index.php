@@ -320,7 +320,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
     <header class="w-full bg-brandNavy sticky top-0 z-50 shadow-sm">
         <nav class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
             <a href="index.php" class="flex items-center gap-2 hover:scale-105 transition-transform">
-                <img src="file_25---53b04ee2-5183-4b2a-88a1-877f480030a6.jpg" alt="Jim Ruimt Op logo, ontruimingsbedrijf Tilburg" class="w-14 h-14 object-contain" style="background:transparent;"/>
+                <img src="file_25---53b04ee2-5183-4b2a-88a1-877f480030a6.jpg" alt="Jim Ruimt Op logo, ontruimingsbedrijf Tilburg" class="w-14 h-14 object-contain" style="mix-blend-mode:multiply;"/>
                 <div>
                     <h1 class="text-xl font-bold leading-tight text-white font-headline">Jim Ruimt Op</h1>
                     <p class="text-brandCyan italic text-sm">Zorgeloos geregeld!</p>
@@ -366,8 +366,8 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
         <section class="relative overflow-visible pt-16 pb-32 px-6 max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 items-center gap-16">
                 <div class="z-10 fade-in-right">
-                    <h2 class="font-headline text-6xl md:text-8xl font-bold leading-tight mb-6 text-brandNavy">Jim Ruimt Op</h2>
-                    <p class="font-script text-brandCyan text-4xl md:text-5xl mb-10">Zorgeloos geregeld!</p>
+                    <h2 class="font-headline text-4xl md:text-5xl font-bold leading-tight mb-4 text-brandNavy whitespace-nowrap">Jim Ruimt Op</h2>
+                    <p class="font-script text-brandCyan text-5xl md:text-7xl mb-10">Zorgeloos geregeld!</p>
                     <div class="flex flex-wrap gap-4">
                         <a href="contact.php" class="inline-block bg-brandCyan text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-lg pulse-glow">
                             Kennismakingsgesprek
