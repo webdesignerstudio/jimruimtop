@@ -20,6 +20,12 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
 <html lang="nl">
 <head>
     <meta charset="utf-8"/>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+    <link rel="manifest" href="/site.webmanifest"/>
+    <meta name="theme-color" content="#1A436D"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Diensten Woningontruiming Tilburg | Jim Ruimt Op</title>
     <meta name="description" content="Woningontruiming, garage opruimen, zorgeloos afscheid en spoedontruiming in Tilburg. Vaste prijzen, gratis intake. Jim Ruimt Op — specialist in Tilburg en omgeving."/>
@@ -350,7 +356,6 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                 description: 'Complete ontruiming van uw woning, garage of bedrijfspand. Alles wordt zorgvuldig verwijderd en de ruimte wordt veegschoon achtergelaten.',
                 extra: 'Dit pakket is geschikt als u een ruimte in één keer volledig leeg wilt hebben — bij verhuizing, verkoop of gewoon omdat het tijd is. Jim sorteert alles: wat bewaard wordt, gaat mee; wat weg kan, wordt verantwoord afgevoerd of gedoneerd. U hoeft er niet bij te zijn als u dat liever niet wilt.',
                 features: ['Alle ruimtes volledig ontruimd', 'Veegschoon achtergelaten', 'Snelle uitvoering mogelijk', 'Inclusief afvoer & recycling', 'Geen verborgen kosten'],
-                time: '1-2 dagen',
                 price: 'Vanaf €195'
             },
             2: {
@@ -359,7 +364,6 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                 description: 'Specialist in het ontruimen van woningen bij verhuizing, overlijden of verkoop. Met respect voor uw bezittingen en herinneringen.',
                 extra: 'Een woning ontruimen is meer dan spullen weggooien. Of het nu gaat om een huurwoning die opgeleverd moet worden, een ouderlijk huis na overlijden of een eigen woning voor de verkoop — Jim werkt discreet, op uw tempo en met oog voor wat waarde heeft. Waardevolle meubels of spullen kunnen worden verkocht of gedoneerd.',
                 features: ['Emotionele ondersteuning inbegrepen', 'Sorteren: bewaren / verkopen / doneren / afvoeren', 'Discrete en respectvolle service', 'Waardebepaling meubels mogelijk', 'Fotodocumentatie voor uw administratie'],
-                time: '1-3 dagen',
                 price: 'Vanaf €495'
             },
             3: {
@@ -368,7 +372,6 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                 description: 'Opruiming van garage, zolder, berging of schuur. Ruimte creëren voor wat echt belangrijk is.',
                 extra: 'Garages en zolders lopen vaak jarenlang vol zonder dat u er erg in heeft. Denk aan oude meubels, gereedschap, dozen met spullen die "ooit nog eens" handig zijn. Jim maakt de ruimte in een dag volledig leeg, scheidt afval van bruikbare spullen en levert stofvrij op. Ideaal ook als voorbereiding op een verbouwing of woningverkoop.',
                 features: ['Complete leegmaking in één dag', 'Afval scheiden & recyclen', 'Bruikbare spullen naar kringloop of verkoop', 'Stofvrij opleveren', 'Recyclingcertificaat op aanvraag'],
-                time: '4-8 uur',
                 price: 'Vanaf €295'
             },
             4: {
@@ -377,7 +380,6 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                 description: 'Bij overlijden van een dierbare nemen wij u alle zorg uit handen. Discreet, empathisch en professioneel.',
                 extra: 'Na het verlies van een dierbare heeft u al genoeg aan uw hoofd. Jim neemt het volledige praktische traject over: van het inventariseren van de inboedel tot het regelen van contact met de makelaar, notaris of woningcorporatie. Er is alle tijd om samen te kijken wat er bewaard moet blijven — voor u of andere familieleden. Geen haast, geen oordeel.',
                 features: ['Volledige ontzorging op uw tempo', 'Persoonlijke begeleiding bij keuzes', 'Waardevolle items veiliggesteld', 'Coördinatie met makelaar / notaris / corporatie', 'Beschikbaar ook in het weekend'],
-                time: 'In overleg',
                 price: 'Op aanvraag'
             },
             5: {
@@ -386,7 +388,6 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                 description: 'Vakkundige sortering en herbestemming van uw bezittingen.',
                 extra: 'Soms hoeft een ruimte niet volledig leeg, maar weet u niet meer waar te beginnen. Jim helpt u gestructureerd te sorteren: wat gaat mee naar het nieuwe huis, wat kan via Marktplaats of kringloop een tweede leven krijgen, en wat wordt verantwoord afgevoerd? Circulair en milieubewust — zo min mogelijk naar het stort.',
                 features: ['Samen beslissen wat er mee gaat', 'Regelen van verkoop via Marktplaats of kringloop', 'Spullen ophalen bij kringloopwinkels', 'Afvoer van restafval inbegrepen', 'Milieubewuste aanpak'],
-                time: '1-4 uur',
                 price: 'Vanaf €125'
             },
             6: {
@@ -395,7 +396,6 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                 description: 'Na de ontruiming wordt de woning bezemschoon opgeleverd, klaar voor inspectie.',
                 extra: 'Een woning bezemschoon opleveren is vaak een verplichting bij het einde van een huurcontract. Jim zorgt dat de woning voldoet aan de opleveringseisen van de woningcorporatie of verhuurder, zodat u uw borg terugkrijgt en geen extra kosten maakt. Inclusief afstemming met de corporatie over de opleverdatum.',
                 features: ['Bezemschoon opleveren volgens norm', 'Afstemming met woningcorporatie of verhuurder', 'Geen onverwachte aftrekposten op borg', 'Opleverdatum in overleg', 'Gecombineerd met ontruiming mogelijk'],
-                time: '1-2 dagen',
                 price: 'Vanaf €350'
             }
         };
@@ -411,7 +411,6 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                         </div>
                         <div>
                             <h3 class="font-headline text-2xl font-bold">${data.title}</h3>
-                            <p class="text-white/70 text-sm">${data.time}</p>
                         </div>
                     </div>
                 </div>
