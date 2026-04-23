@@ -363,36 +363,45 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
 
     <main>
         <!-- Hero Section -->
-        <section class="relative overflow-visible pt-16 pb-20 px-6 max-w-7xl mx-auto">
-            <div class="text-center fade-in-up">
-                <h2 class="font-headline text-6xl md:text-8xl font-bold leading-tight mb-4 text-brandNavy">
-                    Jim Ruimt Op
-                </h2>
-                <p class="font-script text-brandCyan text-4xl md:text-5xl mb-10">Zorgeloos geregeld!</p>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="contact.php" class="inline-block bg-brandGreen text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brandNavy transition-all shadow-lg pulse-glow">
-                        Kennismakingsgesprek
-                    </a>
-                    <a href="diensten.php" class="inline-block border-2 border-brandNavy text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-brandNavy hover:text-white transition-all">
-                        Bekijk Diensten
-                    </a>
+        <section class="relative overflow-visible pt-12 pb-32 px-6 max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 items-center gap-12">
+                <div class="z-10 fade-in-right">
+                    <h2 class="font-headline text-5xl md:text-7xl font-bold leading-tight mb-4 text-brandNavy">Jim Ruimt Op</h2>
+                    <p class="font-script text-brandCyan text-3xl md:text-4xl mb-8">Zorgeloos geregeld!</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="contact.php" class="inline-block bg-brandCyan text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-lg pulse-glow">
+                            Kennismakingsgesprek
+                        </a>
+                        <a href="diensten.php" class="inline-block border-2 border-brandNavy text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-brandNavy hover:text-white transition-all">
+                            Bekijk Diensten
+                        </a>
+                    </div>
+                    <!-- Beloften balk -->
+                    <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-200">
+                        <div class="text-center">
+                            <span class="material-symbols-outlined text-brandCyan text-4xl mb-1 block">handshake</span>
+                            <p class="text-sm font-bold text-brandNavy">Gratis intake</p>
+                            <p class="text-xs text-gray-500">Altijd vrijblijvend</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="material-symbols-outlined text-brandCyan text-4xl mb-1 block">request_quote</span>
+                            <p class="text-sm font-bold text-brandNavy">Vaste prijs</p>
+                            <p class="text-xs text-gray-500">Geen verrassingen</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="material-symbols-outlined text-brandCyan text-4xl mb-1 block">verified</span>
+                            <p class="text-sm font-bold text-brandNavy">Bezemschoon</p>
+                            <p class="text-xs text-gray-500">Gegarandeerd</p>
+                        </div>
+                    </div>
                 </div>
-                <!-- Beloften balk -->
-                <div class="grid grid-cols-3 gap-6 max-w-xl mx-auto mt-12 pt-8 border-t border-gray-200">
-                    <div class="text-center">
-                        <span class="material-symbols-outlined text-brandCyan text-4xl mb-1 block">handshake</span>
-                        <p class="text-sm font-bold text-brandNavy">Gratis intake</p>
-                        <p class="text-xs text-gray-500">Altijd vrijblijvend</p>
+                <div class="relative fade-in-left delay-200">
+                    <div class="img-zoom-container cloud-shadow">
+                        <img src="herofoto.jpg" alt="Jim, woningontruiming specialist Tilburg" class="w-full h-auto object-cover"/>
                     </div>
-                    <div class="text-center">
-                        <span class="material-symbols-outlined text-brandCyan text-4xl mb-1 block">request_quote</span>
-                        <p class="text-sm font-bold text-brandNavy">Vaste prijs</p>
-                        <p class="text-xs text-gray-500">Geen verrassingen</p>
-                    </div>
-                    <div class="text-center">
-                        <span class="material-symbols-outlined text-brandCyan text-4xl mb-1 block">verified</span>
-                        <p class="text-sm font-bold text-brandNavy">Bezemschoon</p>
-                        <p class="text-xs text-gray-500">Gegarandeerd</p>
+                    <div class="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl cloud-shadow max-w-xs hidden md:block scale-in delay-400">
+                        <p class="text-sm font-semibold text-brandNavy italic">"Ruimte creëren in huis is ruimte creëren in het hoofd."</p>
+                        <p class="text-xs text-gray-500 mt-1">— Jim</p>
                     </div>
                 </div>
             </div>
