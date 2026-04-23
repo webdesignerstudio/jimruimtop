@@ -24,7 +24,7 @@ $stap1_kop       = t($p, 'stap1_kop', 'Gratis Intake');
 $stap1_tekst     = t($p, 'stap1_tekst', 'Jim komt langs voor een vrijblijvende inspectie op locatie. Geen kosten, geen verplichtingen.');
 $stap2_kop       = t($p, 'stap2_kop', 'Duidelijke Offerte');
 $stap2_tekst     = t($p, 'stap2_tekst', 'Binnen 48 uur ontvangt u een vaste prijs. Transparant, eerlijk, zonder verborgen kosten.');
-$stap3_kop       = t($p, 'stap3_kop', 'Wij Regelen Alles');
+$stap3_kop       = t($p, 'stap3_kop', 'Ik Regel Alles');
 $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon opleveren. U hoeft er niet bij te zijn als u dat niet wilt.');
 ?>
 <!DOCTYPE html>
@@ -75,7 +75,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
     }
     </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&family=Dancing+Script:wght@500&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&family=Dancing+Script:wght@500&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script>
         tailwind.config = {
@@ -368,8 +368,8 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
         <section class="relative overflow-visible pt-16 pb-32 px-6 max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 items-center gap-16">
                 <div class="z-10 fade-in-right">
-                    <h2 class="font-headline text-4xl md:text-5xl font-bold leading-tight mb-4 text-brandNavy whitespace-nowrap">Jim Ruimt Op</h2>
-                    <p class="font-script text-brandCyan text-5xl md:text-7xl mb-10">Zorgeloos geregeld!</p>
+                    <h2 class="font-headline text-5xl md:text-6xl font-extrabold leading-tight mb-4 text-brandNavy whitespace-nowrap" style="letter-spacing:-0.02em">Jim Ruimt Op</h2>
+                    <p class="text-brandCyan text-4xl md:text-5xl mb-10" style="font-family:'Playfair Display',serif;font-style:italic;font-weight:600;letter-spacing:-0.01em">Zorgeloos geregeld!</p>
                     <div class="flex flex-wrap gap-4">
                         <a href="contact.php" class="inline-block bg-brandCyan text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-lg pulse-glow">
                             Kennismakingsgesprek
@@ -412,7 +412,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto relative px-4 mt-16">
 
                 <!-- Core Aanbod Card -->
-                <div class="pricing-card card-tilted-left bg-white border-2 border-gray-100 p-8 rounded-2xl cloud-shadow flex flex-col items-center text-center">
+                <div class="pricing-card card-tilted-left bg-white border-2 border-brandCyan/30 p-8 rounded-2xl cloud-shadow flex flex-col items-center text-center">
                     <div class="mb-4 text-brandNavy">
                         <span class="material-symbols-outlined text-5xl">home</span>
                     </div>
@@ -421,10 +421,10 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                     <div class="text-2xl font-bold text-brandNavy mb-1">Op aanvraag</div>
                     <p class="text-xs text-gray-400 mb-4">Gratis intake — vaste prijs achteraf</p>
                     <ul class="text-left space-y-2 mb-6 text-sm w-full">
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Complete woningontruiming</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Sorteren: bewaren / verkopen / doneren / afvoeren</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Schoonmaak & bezemschoon oplevering</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Coördinatie met woningcorporaties</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Complete woningontruiming</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Sorteren: bewaren / verkopen / doneren / afvoeren</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Schoonmaak & bezemschoon oplevering</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Coördinatie met woningcorporaties</li>
                     </ul>
                     <a href="contact.php?onderwerp=core" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
                         Intake aanvragen
@@ -444,11 +444,11 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                     <div class="text-2xl font-bold text-brandNavy mb-1">Op aanvraag</div>
                     <p class="text-xs text-gray-500 mb-4">Inclusief begeleiding & familiegesprekken</p>
                     <ul class="text-left space-y-2 mb-6 text-sm w-full">
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Alles van Core aanbod</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Rustige begeleiding bij keuzes</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Tijd nemen voor herinneringen</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Familiegesprekken faciliteren</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Waardevolle items verkopen / doneren</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Alles van Core aanbod</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Rustige begeleiding bij keuzes</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Tijd nemen voor herinneringen</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Familiegesprekken faciliteren</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Waardevolle items verkopen / doneren</li>
                     </ul>
                     <a href="contact.php?onderwerp=premium" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold hover:bg-brandCyan hover:text-brandNavy transition-colors text-sm">
                         Begeleiding bespreken
@@ -456,7 +456,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                 </div>
 
                 <!-- Senior Vooruit-planning Card -->
-                <div class="pricing-card card-tilted-right bg-white border-2 border-gray-100 p-8 rounded-2xl cloud-shadow flex flex-col items-center text-center">
+                <div class="pricing-card card-tilted-right bg-white border-2 border-brandCyan/30 p-8 rounded-2xl cloud-shadow flex flex-col items-center text-center">
                     <div class="mb-4 text-brandNavy">
                         <span class="material-symbols-outlined text-5xl">elderly</span>
                     </div>
@@ -465,10 +465,10 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                     <div class="text-2xl font-bold text-brandNavy mb-1">Op aanvraag</div>
                     <p class="text-xs text-gray-400 mb-4">Vooruit plannen zonder stress</p>
                     <ul class="text-left space-y-2 mb-6 text-sm w-full">
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Inventarisatie van de woning</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Persoonlijk plan op maat</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Keuzes vooraf vastleggen</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandGreen text-base mt-0.5">check_circle</span> Kinderen worden niet belast</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Inventarisatie van de woning</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Persoonlijk plan op maat</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Keuzes vooraf vastleggen</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Kinderen worden niet belast</li>
                     </ul>
                     <a href="contact.php?onderwerp=senior" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
                         Plan vooruit maken
@@ -556,7 +556,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                         <p class="text-gray-600"><?= $stap2_tekst ?></p>
                     </div>
                     <div class="text-center fade-in-up delay-300">
-                        <div class="w-16 h-16 bg-brandGreen text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 cloud-shadow">3</div>
+                        <div class="w-16 h-16 bg-brandNavy text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 cloud-shadow border-2 border-brandCyan">3</div>
                         <h3 class="font-headline text-xl font-bold text-brandNavy mb-3"><?= $stap3_kop ?></h3>
                         <p class="text-gray-600"><?= $stap3_tekst ?></p>
                     </div>
@@ -567,16 +567,12 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
         <!-- Trust badges balk -->
         <section class="bg-brandNavy py-8 px-6">
             <div class="max-w-5xl mx-auto">
-                <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center text-white">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
                     <div class="fade-in-up">
                         <span class="material-symbols-outlined text-brandCyan text-3xl mb-1 block">store</span>
                         <p class="text-xs font-bold uppercase tracking-wide text-white/80">KvK geregistreerd</p>
                     </div>
                     <div class="fade-in-up delay-100">
-                        <span class="material-symbols-outlined text-brandCyan text-3xl mb-1 block">shield</span>
-                        <p class="text-xs font-bold uppercase tracking-wide text-white/80">Verzekerd</p>
-                    </div>
-                    <div class="fade-in-up delay-200">
                         <span class="material-symbols-outlined text-brandCyan text-3xl mb-1 block">recycling</span>
                         <p class="text-xs font-bold uppercase tracking-wide text-white/80">Milieubewuste afvoer</p>
                     </div>
@@ -675,8 +671,15 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Locatie</h4>
-                    <p class="text-white/70 text-sm"><?= t($contact, 'adres', 'Tilburg') ?></p>
+                    <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Werkgebied</h4>
+                    <ul class="space-y-2 text-white/70 text-sm">
+                        <li><span class="text-white/50">Tilburg</span></li>
+                        <li><a href="woningontruiming-berkel-enschot.html" class="hover:text-white transition-colors">Berkel-Enschot</a></li>
+                        <li><a href="woningontruiming-oisterwijk.html" class="hover:text-white transition-colors">Oisterwijk</a></li>
+                        <li><a href="woningontruiming-goirle.html" class="hover:text-white transition-colors">Goirle</a></li>
+                        <li><a href="woningontruiming-hilvarenbeek.html" class="hover:text-white transition-colors">Hilvarenbeek</a></li>
+                        <li><a href="woningontruiming-udenhout.html" class="hover:text-white transition-colors">Udenhout</a></li>
+                    </ul>
                 </div>
                 <div>
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Contact</h4>

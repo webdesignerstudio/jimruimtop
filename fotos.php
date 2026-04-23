@@ -344,7 +344,7 @@ if (empty($sliders)) {
                 <h3 class="text-xl font-bold mb-4 font-headline">Ruimt Op</h3>
                 <p class="text-white/70 text-sm max-w-xs">Specialist in ontruiming & ontzorging in regio Tilburg.</p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-12 w-full md:w-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-10 w-full md:w-auto">
                 <div>
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Navigatie</h4>
                     <ul class="space-y-2 text-white/70 text-sm">
@@ -353,6 +353,17 @@ if (empty($sliders)) {
                         <?php if ($toon_fotos): ?><li><a href="fotos.php" class="hover:text-white transition-colors">Foto's</a></li><?php endif; ?>
                         <li><a href="over-mij.php" class="hover:text-white transition-colors">Over Mij</a></li>
                         <li><a href="contact.php" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Werkgebied</h4>
+                    <ul class="space-y-2 text-white/70 text-sm">
+                        <li><span class="text-white/50">Tilburg</span></li>
+                        <li><a href="woningontruiming-berkel-enschot.html" class="hover:text-white transition-colors">Berkel-Enschot</a></li>
+                        <li><a href="woningontruiming-oisterwijk.html" class="hover:text-white transition-colors">Oisterwijk</a></li>
+                        <li><a href="woningontruiming-goirle.html" class="hover:text-white transition-colors">Goirle</a></li>
+                        <li><a href="woningontruiming-hilvarenbeek.html" class="hover:text-white transition-colors">Hilvarenbeek</a></li>
+                        <li><a href="woningontruiming-udenhout.html" class="hover:text-white transition-colors">Udenhout</a></li>
                     </ul>
                 </div>
                 <div>
