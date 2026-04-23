@@ -511,16 +511,14 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
             <p class="text-xs font-bold tracking-widest text-gray-300 uppercase mb-4">▲ VARIANT C — Kleine kaart / pill</p>
         </div>
         <div class="px-6 pb-10" style="background-color:#f0f7ff">
-            <div class="max-w-lg mx-auto bg-white border border-gray-100 rounded-2xl cloud-shadow px-8 py-6 flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
-                <div class="w-12 h-12 rounded-full bg-brandCyan/20 flex items-center justify-center flex-shrink-0">
-                    <span class="material-symbols-outlined text-brandNavy text-2xl">tune</span>
+            <div class="max-w-xs mx-auto pricing-card bg-white border-2 border-gray-100 p-8 rounded-2xl cloud-shadow flex flex-col items-center text-center">
+                <div class="mb-4 text-brandNavy">
+                    <span class="material-symbols-outlined text-5xl">tune</span>
                 </div>
-                <div class="flex-1">
-                    <p class="font-headline font-bold text-brandNavy text-base mb-0.5">Andere situatie?</p>
-                    <p class="text-sm text-gray-500">Jim maakt altijd een offerte op maat — voor elke situatie.</p>
-                </div>
-                <a href="contact.php" class="flex-shrink-0 border-2 border-brandNavy text-brandNavy text-sm font-bold px-5 py-2 rounded-full hover:bg-brandNavy hover:text-white transition-all whitespace-nowrap">
-                    Op maat
+                <h3 class="text-2xl font-bold mb-1 text-brandNavy font-headline">MAATWERK</h3>
+                <p class="text-sm text-gray-500 mb-6">Andere situatie? Jim denkt mee.</p>
+                <a href="contact.php" class="mt-auto bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
+                    Vraag op maat aan
                 </a>
             </div>
         </div>
