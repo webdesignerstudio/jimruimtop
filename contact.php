@@ -4,6 +4,65 @@ $contact  = laad_json('contact.json');
 $teksten  = laad_json('teksten.json');
 $p        = $teksten['contact'] ?? [];
 
+$form_success = false;
+$form_error   = '';
+$form_data    = [];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $naam      = trim(strip_tags($_POST['name']    ?? ''));
+    $van_email = trim(strip_tags($_POST['email']   ?? ''));
+    $telefoon_i= trim(strip_tags($_POST['phone']   ?? ''));
+    $onderwerp = trim(strip_tags($_POST['subject'] ?? ''));
+    $bericht   = trim(strip_tags($_POST['message'] ?? ''));
+    $honeypot  = $_POST['website'] ?? '';
+
+    $form_data = ['name'=>$naam,'email'=>$van_email,'phone'=>$telefoon_i,'subject'=>$onderwerp,'message'=>$bericht];
+
+    if (!empty($honeypot)) {
+        $form_success = true;
+    } elseif (empty($naam) || empty($van_email) || empty($bericht)) {
+        $form_error = 'Vul alle verplichte velden in.';
+    } elseif (!filter_var($van_email, FILTER_VALIDATE_EMAIL)) {
+        $form_error = 'Vul een geldig e-mailadres in.';
+    } else {
+        $naar        = 'info@jimruimtop.nl';
+        $onderwerp_labels = [
+            'intake'   => 'Gratis intake inplannen',
+            'core'     => 'Pakket CORE — Complete woningontruiming',
+            'premium'  => 'Pakket PREMIUM — Zorgeloos Afscheid Begeleiding',
+            'senior'   => 'Pakket SENIOR — Rust Vooraf Pakket',
+            'garage'   => 'Garage- of zolderontruiming',
+            'spoed'    => 'Spoedontruiming',
+            'maatwerk' => 'Maatwerk / andere situatie',
+            'vraag'    => 'Algemene vraag',
+        ];
+        $onderwerp_label = $onderwerp_labels[$onderwerp] ?? $onderwerp;
+        $mail_onderwerp  = '=?UTF-8?B?' . base64_encode('Nieuw bericht via website — ' . $onderwerp_label) . '?=';
+
+        $mail_body  = "Nieuw contactverzoek via jimruimtop.nl\n";
+        $mail_body .= str_repeat('=', 50) . "\n\n";
+        $mail_body .= "Naam:          {$naam}\n";
+        $mail_body .= "E-mail:        {$van_email}\n";
+        $mail_body .= "Telefoon:      " . ($telefoon_i ?: '—') . "\n";
+        $mail_body .= "Onderwerp:     {$onderwerp_label}\n\n";
+        $mail_body .= "Bericht:\n{$bericht}\n\n";
+        $mail_body .= str_repeat('=', 50) . "\n";
+        $mail_body .= "Verzonden via: jimruimtop.nl/contact.php\n";
+
+        $headers  = "From: no-reply@jimruimtop.nl\r\n";
+        $headers .= "Reply-To: {$van_email}\r\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+
+        if (mail($naar, $mail_onderwerp, $mail_body, $headers)) {
+            $form_success = true;
+            $form_data    = [];
+        } else {
+            $form_error = 'Er is iets misgegaan bij het verzenden. Bel ons gerust direct.';
+        }
+    }
+}
+
 $telefoon      = t($contact, 'telefoon', '06 12 34 56 78');
 $tel_href      = tel_link($contact);
 $wa_url        = whatsapp_url($contact);
@@ -162,44 +221,62 @@ $jim_quote     = t($p, 'jim_quote', 'Geen ingewikkelde procedures of lange wacht
                             Gratis &amp; vrijblijvend
                         </span>
                     </div>
-                    <form id="contact-form" class="space-y-6" action="#" method="POST">
+                    <?php if ($form_success): ?>
+                    <div class="bg-brandGreen/10 border border-brandGreen rounded-2xl p-8 text-center">
+                        <span class="material-symbols-outlined text-5xl text-brandGreen mb-4 block">check_circle</span>
+                        <h3 class="font-headline text-2xl font-bold text-brandNavy mb-2">Bericht verzonden!</h3>
+                        <p class="text-gray-600">Jim neemt zo snel mogelijk contact met u op, uiterlijk binnen 24 uur.</p>
+                    </div>
+                    <?php else: ?>
+                    <?php if ($form_error): ?>
+                    <div class="bg-red-50 border border-red-200 rounded-xl p-4 mb-4 flex items-center gap-3">
+                        <span class="material-symbols-outlined text-red-400">error</span>
+                        <p class="text-red-600 text-sm font-medium"><?= htmlspecialchars($form_error) ?></p>
+                    </div>
+                    <?php endif; ?>
+                    <form id="contact-form" class="space-y-6" action="contact.php" method="POST">
+                        <div style="display:none">
+                            <input type="text" name="website" value="" autocomplete="off" tabindex="-1"/>
+                        </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="space-y-2">
                                 <label for="name" class="block font-headline text-sm font-bold text-gray-600">Volledige Naam *</label>
-                                <input type="text" id="name" name="name" placeholder="Uw naam" required class="form-input w-full bg-white border border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-brandNavy"/>
+                                <input type="text" id="name" name="name" placeholder="Uw naam" required value="<?= htmlspecialchars($form_data['name'] ?? '', ENT_QUOTES) ?>" class="form-input w-full bg-white border border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-brandNavy"/>
                             </div>
                             <div class="space-y-2">
-                                <label for="email" class="block font-headline text-sm font-bold text-gray-600">E-mailadres *</label>
-                                <input type="email" id="email" name="email" placeholder="uw@email.nl" required class="form-input w-full bg-white border border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-brandNavy"/>
+                                <label for="email_field" class="block font-headline text-sm font-bold text-gray-600">E-mailadres *</label>
+                                <input type="email" id="email_field" name="email" placeholder="uw@email.nl" required value="<?= htmlspecialchars($form_data['email'] ?? '', ENT_QUOTES) ?>" class="form-input w-full bg-white border border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-brandNavy"/>
                             </div>
                         </div>
                         <div class="space-y-2">
                             <label for="phone" class="block font-headline text-sm font-bold text-gray-600">Telefoonnummer</label>
-                            <input type="tel" id="phone" name="phone" placeholder="06 1234 5678" class="form-input w-full bg-white border border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-brandNavy"/>
+                            <input type="tel" id="phone" name="phone" placeholder="06 1234 5678" value="<?= htmlspecialchars($form_data['phone'] ?? '', ENT_QUOTES) ?>" class="form-input w-full bg-white border border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-brandNavy"/>
                         </div>
                         <div class="space-y-2">
                             <label for="subject" class="block font-headline text-sm font-bold text-gray-600">Onderwerp</label>
+                            <?php $sel = $form_data['subject'] ?? ''; ?>
                             <select id="subject" name="subject" class="form-input w-full bg-white border border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-brandNavy">
-                                <option value="" disabled selected>Kies een onderwerp...</option>
-                                <option value="intake">Gratis intake inplannen</option>
-                                <option value="core">Pakket CORE — Complete woningontruiming</option>
-                                <option value="premium">Pakket PREMIUM — Zorgeloos Afscheid Begeleiding</option>
-                                <option value="senior">Pakket SENIOR — Rust Vooraf Pakket</option>
-                                <option value="garage">Garage- of zolderontruiming</option>
-                                <option value="spoed">Spoedontruiming</option>
-                                <option value="maatwerk">Maatwerk / andere situatie</option>
-                                <option value="vraag">Algemene vraag</option>
+                                <option value="" disabled <?= $sel===''?'selected':'' ?>>Kies een onderwerp...</option>
+                                <option value="intake"   <?= $sel==='intake'  ?'selected':'' ?>>Gratis intake inplannen</option>
+                                <option value="core"     <?= $sel==='core'    ?'selected':'' ?>>Pakket CORE — Complete woningontruiming</option>
+                                <option value="premium"  <?= $sel==='premium' ?'selected':'' ?>>Pakket PREMIUM — Zorgeloos Afscheid Begeleiding</option>
+                                <option value="senior"   <?= $sel==='senior'  ?'selected':'' ?>>Pakket SENIOR — Rust Vooraf Pakket</option>
+                                <option value="garage"   <?= $sel==='garage'  ?'selected':'' ?>>Garage- of zolderontruiming</option>
+                                <option value="spoed"    <?= $sel==='spoed'   ?'selected':'' ?>>Spoedontruiming</option>
+                                <option value="maatwerk" <?= $sel==='maatwerk'?'selected':'' ?>>Maatwerk / andere situatie</option>
+                                <option value="vraag"    <?= $sel==='vraag'   ?'selected':'' ?>>Algemene vraag</option>
                             </select>
                         </div>
                         <div class="space-y-2">
                             <label for="message" class="block font-headline text-sm font-bold text-gray-600">Bericht *</label>
-                            <textarea id="message" name="message" placeholder="Vertel kort waarmee Jim u kan helpen..." rows="5" required class="form-input w-full bg-white border border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-brandNavy"></textarea>
+                            <textarea id="message" name="message" placeholder="Vertel kort waarmee Jim u kan helpen..." rows="5" required class="form-input w-full bg-white border border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-brandNavy"><?= htmlspecialchars($form_data['message'] ?? '', ENT_QUOTES) ?></textarea>
                         </div>
                         <button type="submit" id="submit-btn" class="submit-btn w-full md:w-auto bg-brandNavy text-white px-12 py-4 rounded-xl font-headline font-bold uppercase tracking-widest text-sm hover:bg-brandCyan hover:text-brandNavy transition-all shadow-lg flex items-center justify-center gap-2">
                             <span>Bericht Verzenden</span>
                             <span class="material-symbols-outlined">send</span>
                         </button>
                     </form>
+                    <?php endif; ?>
                 </div>
 
                 <div class="lg:col-span-5 space-y-8 fade-in-right delay-200">
