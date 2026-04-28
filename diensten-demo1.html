@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Demo 1: Minimaal - Alleen tekst | Jim Ruimt Op</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandNavy: '#1A436D',
+                        brandCyan: '#5BCEFF',
+                        brandCream: '#F4F0E6',
+                        brandGreen: '#7CC19D',
+                    },
+                    fontFamily: {
+                        headline: ['Manrope', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .cloud-shadow {
+            box-shadow: 0 20px 40px rgba(26, 67, 109, 0.12);
+        }
+    </style>
+</head>
+<body class="font-body bg-brandCream">
+
+    <!-- VARIATIE 1: MINIMAAL - Alleen tekst, geen icons -->
+    <section class="bg-brandNavy text-white py-20 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <h1 class="font-headline text-4xl md:text-5xl font-bold mb-6">Woningontruiming in Tilburg</h1>
+            
+            <!-- Subtiele tekst only -->
+            <p class="text-white/80 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+                Een woning opruimen is meer dan spullen weghalen. 
+                Wij helpen senioren, nabestaanden en families met aandacht voor wat praktisch én persoonlijk belangrijk is.
+            </p>
+            
+            <a href="#" class="inline-flex items-center gap-2 bg-brandCyan text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-lg">
+                Plan een kennismaking
+            </a>
+        </div>
+    </section>
+
+    <!-- Visual indicator -->
+    <div class="py-8 px-6 bg-white">
+        <div class="max-w-3xl mx-auto">
+            <p class="text-sm text-gray-500 uppercase tracking-wider mb-2">Variatie 1: Minimaal</p>
+            <p class="text-gray-700">Geen icons, geen kaarten, alleen pure tekst. De focus ligt volledig op de boodschap zonder visuele afleiding.</p>
+        </div>
+    </div>
+
+</body>
+</html>

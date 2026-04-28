@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Demo 4: Eén subtiel icon | Jim Ruimt Op</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandNavy: '#1A436D',
+                        brandCyan: '#5BCEFF',
+                        brandCream: '#F4F0E6',
+                        brandGreen: '#7CC19D',
+                    },
+                    fontFamily: {
+                        headline: ['Manrope', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .cloud-shadow {
+            box-shadow: 0 20px 40px rgba(26, 67, 109, 0.12);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body bg-brandCream">
+
+    <!-- VARIATIE 4: ÉÉN SUBTIEL ICON - Hart als visueel anker -->
+    <section class="bg-brandNavy text-white py-20 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <h1 class="font-headline text-4xl md:text-5xl font-bold mb-6">Woningontruiming in Tilburg</h1>
+            
+            <!-- Één subtiel hart icoon als visueel anker -->
+            <span class="material-symbols-outlined text-4xl text-brandCyan/40 mb-4 block">heart_check</span>
+            
+            <p class="text-white/80 text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+                Een woning opruimen is meer dan spullen weghalen. 
+                Wij helpen senioren, nabestaanden en families met aandacht voor wat praktisch én persoonlijk belangrijk is.
+            </p>
+            
+            <a href="#" class="inline-flex items-center gap-2 bg-brandCyan text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-lg">
+                Plan een kennismaking
+            </a>
+        </div>
+    </section>
+
+    <!-- Visual indicator -->
+    <div class="py-8 px-6 bg-white">
+        <div class="max-w-3xl mx-auto">
+            <p class="text-sm text-gray-500 uppercase tracking-wider mb-2">Variatie 4: Één subtiel icon</p>
+            <p class="text-gray-700">Slechts één licht icon (heart_check) als visueel anker. De icon is subtiel (wght 200, 40% opacity) en dient als decoratief element zonder afleiding.</p>
+        </div>
+    </div>
+
+</body>
+</html>
