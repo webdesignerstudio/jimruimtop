@@ -222,7 +222,7 @@ if (empty($sliders)) {
                 <a href="index.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Home</a>
                 <a href="diensten.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Diensten</a>
                 <?php if ($toon_fotos): ?><a href="fotos.php" class="font-headline font-bold text-white border-b-2 border-brandCyan pb-1">Foto's</a><?php endif; ?>
-                <a href="over-mij.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Over Mij</a>
+                <a href="over-mij.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Over Ons</a>
                 <a href="contact.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Contact</a>
             </div>
             <div class="hidden md:flex items-center gap-4">
@@ -230,7 +230,7 @@ if (empty($sliders)) {
                     <span class="material-symbols-outlined text-lg">call</span>
                     <span><?= $telefoon ?></span>
                 </a>
-                <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all text-sm">Gratis Intake</a>
+                <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all text-sm">Plan een kennismaking</a>
             </div>
             <button id="mobile-menu-btn" class="md:hidden text-white">
                 <span class="material-symbols-outlined text-3xl">menu</span>
@@ -338,7 +338,7 @@ if (empty($sliders)) {
                 <h2 class="font-headline text-4xl font-bold text-brandNavy mb-6"><?= $cta_kop ?></h2>
                 <p class="text-gray-600 mb-8 max-w-xl mx-auto"><?= $cta_tekst ?></p>
                 <a href="contact.php" class="inline-block bg-brandGreen text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-brandNavy transition-all shadow-lg">
-                    Gratis Intake Aanvragen
+                    Kennismaking Aanvragen
                 </a>
             </div>
         </section>
@@ -346,20 +346,22 @@ if (empty($sliders)) {
 
     <!-- Footer -->
     <footer class="bg-brandNavy text-white py-12 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-            <div>
-                <h2 class="text-3xl font-bold mb-1 font-headline">Jim</h2>
-                <h3 class="text-xl font-bold mb-4 font-headline">Ruimt Op</h3>
-                <p class="text-white/70 text-sm max-w-xs">Specialist in ontruiming & ontzorging in regio Tilburg.</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-4 gap-10 w-full md:w-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+                <div class="col-span-2 md:col-span-1">
+                    <a href="index.php" class="flex items-center gap-3 mb-3 hover:opacity-90 transition-opacity">
+                        <img src="logo.png" alt="Jim Ruimt Op" class="w-14 h-14 object-contain"/>
+                        <span class="font-headline text-2xl font-bold text-white">Jim Ruimt Op</span>
+                    </a>
+                    <p class="text-white/70 text-sm">Specialist in ontruiming &amp; ontzorging in regio Tilburg.</p>
+                </div>
                 <div>
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Navigatie</h4>
                     <ul class="space-y-2 text-white/70 text-sm">
                         <li><a href="index.php" class="hover:text-white transition-colors">Home</a></li>
                         <li><a href="diensten.php" class="hover:text-white transition-colors">Diensten</a></li>
                         <?php if ($toon_fotos): ?><li><a href="fotos.php" class="hover:text-white transition-colors">Foto's</a></li><?php endif; ?>
-                        <li><a href="over-mij.php" class="hover:text-white transition-colors">Over Mij</a></li>
+                        <li><a href="over-mij.php" class="hover:text-white transition-colors">Over Ons</a></li>
                         <li><a href="contact.php" class="hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
@@ -367,20 +369,20 @@ if (empty($sliders)) {
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Werkgebied</h4>
                     <ul class="space-y-2 text-white/70 text-sm">
                         <li><span class="text-white/50">Tilburg</span></li>
-                        <li><a href="woningontruiming-berkel-enschot.html" class="hover:text-white transition-colors">Berkel-Enschot</a></li>
-                        <li><a href="woningontruiming-oisterwijk.html" class="hover:text-white transition-colors">Oisterwijk</a></li>
-                        <li><a href="woningontruiming-goirle.html" class="hover:text-white transition-colors">Goirle</a></li>
-                        <li><a href="woningontruiming-hilvarenbeek.html" class="hover:text-white transition-colors">Hilvarenbeek</a></li>
-                        <li><a href="woningontruiming-udenhout.html" class="hover:text-white transition-colors">Udenhout</a></li>
+                        <li><a href="locatie.php?loc=berkel-enschot" class="hover:text-white transition-colors">Berkel-Enschot</a></li>
+                        <li><a href="locatie.php?loc=oisterwijk" class="hover:text-white transition-colors">Oisterwijk</a></li>
+                        <li><a href="locatie.php?loc=goirle" class="hover:text-white transition-colors">Goirle</a></li>
+                        <li><a href="locatie.php?loc=hilvarenbeek" class="hover:text-white transition-colors">Hilvarenbeek</a></li>
+                        <li><a href="locatie.php?loc=udenhout" class="hover:text-white transition-colors">Udenhout</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Contact</h4>
                     <p class="text-white/70 text-sm"><?= t($contact, 'adres', 'Tilburg') ?><br/><?= htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl') ?><br/>Bel: <?= $telefoon ?></p>
                 </div>
-                <div class="flex flex-col items-start sm:items-end">
+                <div class="flex flex-col items-start md:items-end">
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Direct contact</h4>
-                    <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all">Contact Aanvragen</a>
+                    <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all text-sm md:text-base whitespace-nowrap">Contact Aanvragen</a>
                 </div>
             </div>
         </div>

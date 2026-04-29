@@ -100,7 +100,7 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
 
     <a href="contact.php" class="floating-cta bg-brandNavy text-white px-6 py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all flex items-center gap-2 pulse-glow">
         <span class="material-symbols-outlined">calendar_today</span>
-        <span class="hidden sm:inline">Gratis Intake</span>
+        <span class="hidden sm:inline">Plan een kennismaking</span>
     </a>
 
     <a href="<?= $wa_url ?>" target="_blank" rel="noopener" class="wa-float-btn" aria-label="WhatsApp Jim Ruimt Op">
@@ -116,7 +116,7 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                 <a href="index.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Home</a>
                 <a href="diensten.php" class="font-headline font-bold text-white border-b-2 border-brandCyan pb-1">Diensten</a>
                 <?php if ($toon_fotos): ?><a href="fotos.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Foto's</a><?php endif; ?>
-                <a href="over-mij.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Over Mij</a>
+                <a href="over-mij.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Over Ons</a>
                 <a href="contact.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Contact</a>
             </div>
             <div class="hidden md:flex items-center gap-4">
@@ -124,7 +124,6 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                     <span class="material-symbols-outlined text-lg">call</span>
                     <span><?= $telefoon ?></span>
                 </a>
-                <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all text-sm">Gratis Intake</a>
             </div>
             <button id="mobile-menu-btn" class="md:hidden text-white">
                 <span class="material-symbols-outlined text-3xl">menu</span>
@@ -135,12 +134,12 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                 <a href="index.php" class="font-headline font-bold text-white/70">Home</a>
                 <a href="diensten.php" class="font-headline font-bold text-white">Diensten</a>
                 <?php if ($toon_fotos): ?><a href="fotos.php" class="font-headline font-bold text-white/70">Foto's</a><?php endif; ?>
-                <a href="over-mij.php" class="font-headline font-bold text-white/70">Over Mij</a>
+                <a href="over-mij.php" class="font-headline font-bold text-white/70">Over Ons</a>
                 <a href="contact.php" class="font-headline font-bold text-white/70">Contact</a>
                 <a href="<?= $tel_href ?>" class="flex items-center gap-2 text-white font-bold text-sm">
                     <span class="material-symbols-outlined text-lg">call</span><?= $telefoon ?>
                 </a>
-                <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold text-center text-sm">Gratis Intake</a>
+                <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold text-center text-sm">Plan een kennismaking</a>
             </div>
         </div>
     </header>
@@ -275,27 +274,29 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                 <h2 class="font-headline text-4xl font-bold mb-6 text-brandNavy">Laten we samen kijken wat u nodig heeft</h2>
                 <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Elke situatie is uniek. Neem contact op voor een vrijblijvend gesprek en een passende offerte.</p>
                 <a href="contact.php" class="inline-block bg-brandCyan text-brandNavy px-10 py-4 rounded-full font-bold text-lg hover:bg-brandNavy hover:text-white transition-all shadow-lg pulse-glow">
-                    Gratis Intake Aanvragen
+                    Kennismaking Aanvragen
                 </a>
             </div>
         </section>
     </main>
 
     <footer class="bg-brandNavy text-white py-12 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-            <div>
-                <h2 class="text-3xl font-bold mb-1 font-headline">Jim</h2>
-                <h3 class="text-xl font-bold mb-4 font-headline">Ruimt Op</h3>
-                <p class="text-white/70 text-sm max-w-xs">Specialist in ontruiming & ontzorging in regio Tilburg.</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-4 gap-10 w-full md:w-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+                <div class="col-span-2 md:col-span-1">
+                    <a href="index.php" class="flex items-center gap-3 mb-3 hover:opacity-90 transition-opacity">
+                        <img src="logo.png" alt="Jim Ruimt Op" class="w-14 h-14 object-contain"/>
+                        <span class="font-headline text-2xl font-bold text-white">Jim Ruimt Op</span>
+                    </a>
+                    <p class="text-white/70 text-sm">Specialist in ontruiming &amp; ontzorging in regio Tilburg.</p>
+                </div>
                 <div>
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Navigatie</h4>
                     <ul class="space-y-2 text-white/70 text-sm">
                         <li><a href="index.php" class="hover:text-white transition-colors">Home</a></li>
                         <li><a href="diensten.php" class="hover:text-white transition-colors">Diensten</a></li>
                         <?php if ($toon_fotos): ?><li><a href="fotos.php" class="hover:text-white transition-colors">Foto's</a></li><?php endif; ?>
-                        <li><a href="over-mij.php" class="hover:text-white transition-colors">Over Mij</a></li>
+                        <li><a href="over-mij.php" class="hover:text-white transition-colors">Over Ons</a></li>
                         <li><a href="contact.php" class="hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
@@ -303,20 +304,20 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Werkgebied</h4>
                     <ul class="space-y-2 text-white/70 text-sm">
                         <li><span class="text-white/50">Tilburg</span></li>
-                        <li><a href="woningontruiming-berkel-enschot.html" class="hover:text-white transition-colors">Berkel-Enschot</a></li>
-                        <li><a href="woningontruiming-oisterwijk.html" class="hover:text-white transition-colors">Oisterwijk</a></li>
-                        <li><a href="woningontruiming-goirle.html" class="hover:text-white transition-colors">Goirle</a></li>
-                        <li><a href="woningontruiming-hilvarenbeek.html" class="hover:text-white transition-colors">Hilvarenbeek</a></li>
-                        <li><a href="woningontruiming-udenhout.html" class="hover:text-white transition-colors">Udenhout</a></li>
+                        <li><a href="locatie.php?loc=berkel-enschot" class="hover:text-white transition-colors">Berkel-Enschot</a></li>
+                        <li><a href="locatie.php?loc=oisterwijk" class="hover:text-white transition-colors">Oisterwijk</a></li>
+                        <li><a href="locatie.php?loc=goirle" class="hover:text-white transition-colors">Goirle</a></li>
+                        <li><a href="locatie.php?loc=hilvarenbeek" class="hover:text-white transition-colors">Hilvarenbeek</a></li>
+                        <li><a href="locatie.php?loc=udenhout" class="hover:text-white transition-colors">Udenhout</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Contact</h4>
                     <p class="text-white/70 text-sm"><?= $adres ?><br/><?= $email ?><br/>Bel: <?= $telefoon ?></p>
                 </div>
-                <div class="flex flex-col items-start sm:items-end">
+                <div class="flex flex-col items-start md:items-end">
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Direct contact</h4>
-                    <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all">Contact Aanvragen</a>
+                    <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all text-sm md:text-base whitespace-nowrap">Contact Aanvragen</a>
                 </div>
             </div>
         </div>
@@ -422,11 +423,11 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                         ${data.features.map(f => `<li class="flex items-center gap-2 text-gray-600 text-sm"><span class="material-symbols-outlined text-brandGreen text-base" style="font-size:18px">check_circle</span>${f}</li>`).join('')}
                     </ul>
                     <div class="border-t border-gray-100 pt-5 mt-2">
-                        <p class="text-xs text-gray-400 mb-4 text-center">Gratis intake — geen verplichtingen, Jim denkt graag vrijblijvend mee.</p>
+                        <p class="text-xs text-gray-400 mb-4 text-center">Gratis kennismaking — geen verplichtingen, Jim denkt graag vrijblijvend mee.</p>
                         <div class="flex flex-col sm:flex-row gap-3">
                             <a href="contact.php" class="flex-1 text-center bg-brandNavy text-white py-3 rounded-xl font-bold hover:bg-brandCyan hover:text-brandNavy transition-all flex items-center justify-center gap-2 text-sm">
                                 <span class="material-symbols-outlined text-lg">calendar_today</span>
-                                Gratis intake aanvragen
+                                Kennismaking aanvragen
                             </a>
                             <a href="tel:${telNummer}" class="flex-1 text-center border-2 border-brandNavy text-brandNavy py-3 rounded-xl font-bold hover:bg-brandNavy hover:text-white transition-all flex items-center justify-center gap-2 text-sm">
                                 <span class="material-symbols-outlined text-lg">call</span>

@@ -17,7 +17,7 @@ $diensten_kop    = t($p, 'diensten_kop', 'Woningontruiming in Tilburg');
 $diensten_sub    = t($p, 'diensten_subtekst', 'Professionele ondersteuning voor alle ontruimingswerkzaamheden in regio Tilburg — van garage tot complete woning.');
 $hoe_kop         = t($p, 'hoe_werkt_kop', 'Hoe werkt het?');
 $hoe_sub         = t($p, 'hoe_werkt_subtekst', 'In drie eenvoudige stappen regelen we alles voor u.');
-$stap1_kop       = t($p, 'stap1_kop', 'Gratis Intake');
+$stap1_kop       = t($p, 'stap1_kop', 'Gratis Kennismaking');
 $stap1_tekst     = t($p, 'stap1_tekst', 'Jim komt langs voor een vrijblijvende inspectie op locatie. Geen kosten, geen verplichtingen.');
 $stap2_kop       = t($p, 'stap2_kop', 'Duidelijke Offerte');
 $stap2_tekst     = t($p, 'stap2_tekst', 'Binnen 48 uur ontvangt u een vaste prijs. Transparant, eerlijk, zonder verborgen kosten.');
@@ -36,7 +36,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
     <meta name="theme-color" content="#1A436D"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Ontruimingsbedrijf Tilburg | Jim Ruimt Op — Woningontruiming & Ontzorging</title>
-    <meta name="description" content="Professionele woningontruiming in Tilburg door Jim. Persoonlijk, empathisch en bezemschoon. Gratis intake binnen 48 uur. Specialist voor senioren & nabestaanden."/>
+    <meta name="description" content="Professionele woningontruiming in Tilburg door Jim. Persoonlijk, empathisch en bezemschoon. Plan een kennismaking binnen 48 uur. Specialist voor senioren & nabestaanden."/>
     <meta name="robots" content="index, follow"/>
     <link rel="canonical" href="https://www.jimruimtop.nl/"/>
     <meta property="og:title" content="Jim Ruimt Op — Woningontruiming Tilburg"/>
@@ -338,7 +338,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
     <!-- Floating CTA Button -->
     <a href="contact.php" class="floating-cta bg-brandNavy text-white px-6 py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all flex items-center gap-2 pulse-glow">
         <span class="material-symbols-outlined">calendar_today</span>
-        <span class="hidden sm:inline">Gratis Intake</span>
+        <span class="hidden sm:inline">Plan een kennismaking</span>
     </a>
 
     <!-- WhatsApp Floating Button -->
@@ -356,7 +356,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                 <a href="index.php" class="font-headline font-bold text-white border-b-2 border-brandCyan pb-1 hover:text-brandCyan transition-colors">Home</a>
                 <a href="diensten.php" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Diensten</a>
                 <?php if ($toon_fotos): ?><a href="fotos.php" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Foto's</a><?php endif; ?>
-                <a href="over-mij.php" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Over Mij</a>
+                <a href="over-mij.php" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Over Ons</a>
                 <a href="contact.php" class="font-headline font-bold text-white/70 hover:text-brandCyan pb-1 transition-all">Contact</a>
             </div>
             <div class="hidden md:flex items-center gap-4">
@@ -365,7 +365,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                     <span><?= $telefoon ?></span>
                 </a>
                 <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all text-sm shadow-md">
-                    Gratis Intake
+                    Plan een kennismaking
                 </a>
             </div>
             <button id="mobile-menu-btn" class="md:hidden text-white hover:text-brandCyan transition-colors">
@@ -377,12 +377,12 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                 <a href="index.php" class="font-headline font-bold text-white">Home</a>
                 <a href="diensten.php" class="font-headline font-bold text-white/70 hover:text-brandCyan">Diensten</a>
                 <?php if ($toon_fotos): ?><a href="fotos.php" class="font-headline font-bold text-white/70 hover:text-brandCyan">Foto's</a><?php endif; ?>
-                <a href="over-mij.php" class="font-headline font-bold text-white/70 hover:text-brandCyan">Over Mij</a>
+                <a href="over-mij.php" class="font-headline font-bold text-white/70 hover:text-brandCyan">Over Ons</a>
                 <a href="contact.php" class="font-headline font-bold text-white/70 hover:text-brandCyan">Contact</a>
                 <a href="<?= $tel_href ?>" class="flex items-center gap-2 text-white font-bold text-sm">
                     <span class="material-symbols-outlined text-lg">call</span><?= $telefoon ?>
                 </a>
-                <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold text-center text-sm hover:opacity-90 transition-all">Gratis Intake</a>
+                <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold text-center text-sm hover:opacity-90 transition-all">Plan een kennismaking</a>
             </div>
         </div>
     </header>
@@ -406,7 +406,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                     <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-200">
                         <div class="text-center">
                             <span class="material-symbols-outlined text-brandCyan text-4xl mb-1 block">handshake</span>
-                            <p class="text-sm font-bold text-brandNavy">Gratis intake</p>
+                            <p class="text-sm font-bold text-brandNavy">Gratis kennismaking</p>
                             <p class="text-xs text-gray-500">Altijd vrijblijvend</p>
                         </div>
                         <div class="text-center">
@@ -432,85 +432,86 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                 </div>
             </div>
 
-            <!-- Overlapping Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto relative px-4 mt-16">
-
-                <!-- Core Aanbod Card -->
-                <div class="pricing-card card-tilted-left bg-white border-2 border-brandCyan/30 p-8 rounded-2xl cloud-shadow flex flex-col items-center text-center">
-                    <div class="mb-4 text-brandNavy">
-                        <span class="material-symbols-outlined text-5xl">home</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-1 text-brandNavy font-headline">CORE</h3>
-                    <p class="text-sm text-gray-500 mb-4">All-in ontruiming</p>
-                    <div class="text-2xl font-bold text-brandNavy mb-1">Op aanvraag</div>
-                    <p class="text-xs text-gray-400 mb-4">Gratis intake — vaste prijs achteraf</p>
-                    <ul class="text-left space-y-2 mb-6 text-sm w-full">
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Complete woningontruiming</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Sorteren: bewaren / verkopen / doneren / afvoeren</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Schoonmaak & bezemschoon oplevering</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Coördinatie met woningcorporaties</li>
-                    </ul>
-                    <a href="contact.php?onderwerp=core#formulier" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
-                        Intake aanvragen
-                    </a>
+                <div class="text-center mb-10 fade-in-up">
+                    <h2 class="font-headline text-3xl md:text-4xl font-bold mb-3 text-brandNavy">Welke vorm van hulp past bij u?</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Elke situatie is anders. Daarom werken wij met duidelijke pakketten van een complete ontruiming tot persoonlijke begeleiding.</p>
                 </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
 
-                <!-- Zorgeloos Afscheid Card (Featured) -->
-                <div class="pricing-card card-center bg-brandCyan/20 border-2 border-brandCyan p-8 rounded-2xl cloud-shadow flex flex-col items-center text-center relative">
-                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brandNavy text-white px-4 py-1 rounded-full text-xs font-bold">
-                        MEEST GEVRAAGD
+                    <!-- OPRUIMEN & OVERZICHT -->
+                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-7 rounded-2xl cloud-shadow flex flex-col h-full">
+                        <div class="mb-4 text-brandNavy">
+                            <span class="material-symbols-outlined text-5xl">home_work</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">OPRUIMEN &amp; OVERZICHT</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Voor wie meer rust en ruimte in huis wil, zonder te verhuizen. Stap voor stap opruimen en organiseren in uw eigen tempo.</p>
+                        <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Opruimen van één of meerdere ruimtes</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Samen keuzes maken over spullen</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Structuur en overzicht creëren</li>
+                        </ul>
+                        <a href="contact.php#formulier" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
+                            Kennismaking aanvragen
+                        </a>
                     </div>
-                    <div class="mb-4 text-brandNavy">
-                        <span class="material-symbols-outlined text-5xl">favorite</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-1 text-brandNavy font-headline">PREMIUM</h3>
-                    <p class="text-sm text-gray-600 mb-4">Zorgeloos Afscheid Begeleiding</p>
-                    <div class="text-2xl font-bold text-brandNavy mb-1">Op aanvraag</div>
-                    <p class="text-xs text-gray-500 mb-4">Inclusief begeleiding & familiegesprekken</p>
-                    <ul class="text-left space-y-2 mb-6 text-sm w-full">
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Alles van Core aanbod</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Rustige begeleiding bij keuzes</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Tijd nemen voor herinneringen</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Familiegesprekken faciliteren</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Waardevolle items verkopen / doneren</li>
-                    </ul>
-                    <a href="contact.php?onderwerp=premium#formulier" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold hover:bg-brandCyan hover:text-brandNavy transition-colors text-sm">
-                        Begeleiding bespreken
-                    </a>
-                </div>
 
-                <!-- Senior Vooruit-planning Card -->
-                <div class="pricing-card card-tilted-right bg-white border-2 border-brandCyan/30 p-8 rounded-2xl cloud-shadow flex flex-col items-center text-center">
-                    <div class="mb-4 text-brandNavy">
-                        <span class="material-symbols-outlined text-5xl">elderly</span>
+                    <!-- BASIS -->
+                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-7 rounded-2xl cloud-shadow flex flex-col h-full">
+                        <div class="mb-4 text-brandNavy">
+                            <span class="material-symbols-outlined text-5xl">home</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">BASIS</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Complete ontruiming voor een snelle en duidelijke afhandeling.</p>
+                        <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Woningontruiming</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Afvoer van inboedel</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Bezemschoon oplevering</li>
+                        </ul>
+                        <a href="contact.php?onderwerp=core#formulier" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
+                            Kennismaking aanvragen
+                        </a>
                     </div>
-                    <h3 class="text-2xl font-bold mb-1 text-brandNavy font-headline">SENIOR</h3>
-                    <p class="text-sm text-gray-500 mb-4">Rust Vooraf Pakket</p>
-                    <div class="text-2xl font-bold text-brandNavy mb-1">Op aanvraag</div>
-                    <p class="text-xs text-gray-400 mb-4">Vooruit plannen zonder stress</p>
-                    <ul class="text-left space-y-2 mb-6 text-sm w-full">
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Inventarisatie van de woning</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Persoonlijk plan op maat</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Keuzes vooraf vastleggen</li>
-                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Kinderen worden niet belast</li>
-                    </ul>
-                    <a href="contact.php?onderwerp=senior#formulier" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
-                        Plan vooruit maken
-                    </a>
+
+                    <!-- BEGELEID (featured) -->
+                    <div class="pricing-card bg-brandCyan/20 border-2 border-brandCyan p-7 rounded-2xl cloud-shadow flex flex-col relative h-full">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brandNavy text-white px-4 py-1 rounded-full text-xs font-bold whitespace-nowrap">
+                            MEEST GEVRAAGD
+                        </div>
+                        <div class="mb-4 text-brandNavy">
+                            <span class="material-symbols-outlined text-5xl">favorite</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">BEGELEID</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Met aandacht en rust. Voor wie behoefte heeft aan ondersteuning en overzicht.</p>
+                        <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Alles uit basis</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Hulp bij sorteren &amp; keuzes maken</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Rustige begeleiding tijdens het proces</li>
+                        </ul>
+                        <a href="contact.php?onderwerp=premium#formulier" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold hover:bg-brandCyan hover:text-brandNavy transition-colors text-sm">
+                            Begeleiding bespreken
+                        </a>
+                    </div>
+
+                    <!-- VOORBEREID & GEREGELD -->
+                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-7 rounded-2xl cloud-shadow flex flex-col h-full">
+                        <div class="mb-4 text-brandNavy">
+                            <span class="material-symbols-outlined text-5xl">elderly</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">VOORBEREID &amp; GEREGELD</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Voor wie op tijd overzicht en duidelijkheid wil creëren.</p>
+                        <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Inventarisatie van de woning</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Persoonlijk plan</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Familie ontlasten</li>
+                        </ul>
+                        <a href="contact.php?onderwerp=senior#formulier" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
+                            Plan vooruit maken
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </section>
-
-        <!-- Maatwerk pill -->
-        <div class="px-6 pb-2" style="background-color:#f0f7ff">
-            <div class="max-w-5xl mx-auto flex justify-center">
-                <a href="contact.php#formulier" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-500 text-xs font-medium px-5 py-2 rounded-full cloud-shadow hover:border-brandNavy hover:text-brandNavy transition-all">
-                    <span class="material-symbols-outlined text-gray-400" style="font-size:14px">handshake</span>
-                    Andere situatie? Jim maakt een offerte op maat.
-                    <span class="material-symbols-outlined text-gray-400" style="font-size:14px">arrow_forward</span>
-                </a>
-            </div>
-        </div>
 
         <!-- Hoe werkt het sectie -->
         <section class="py-20 px-6">
@@ -602,7 +603,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                     </div>
                     <div class="mt-6">
                         <a href="contact.php" class="w-full bg-brandNavy text-white px-8 py-4 rounded-full font-bold text-center hover:bg-brandCyan hover:text-brandNavy transition-all block">
-                            Gratis Intake Aanvragen
+                            Kennismaking Aanvragen
                         </a>
                     </div>
                 </div>
@@ -612,41 +613,49 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
 
     <!-- Footer -->
     <footer class="bg-brandNavy text-white py-12 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-            <div>
-                <h2 class="text-3xl font-bold mb-1 font-headline">Jim</h2>
-                <h3 class="text-xl font-bold mb-4 font-headline">Ruimt Op</h3>
-                <p class="text-white/70 text-sm max-w-xs">Specialist in ontruiming & ontzorging in regio Tilburg.</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-4 gap-10 w-full md:w-auto">
+        <div class="max-w-7xl mx-auto">
+            <!-- Grid: 5 kolommen op desktop, 2 op mobiel -->
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+                <!-- Kolom 1: Logo -->
+                <div class="col-span-2 md:col-span-1">
+                    <a href="index.php" class="flex items-center gap-3 mb-3 hover:opacity-90 transition-opacity">
+                        <img src="logo.png" alt="Jim Ruimt Op" class="w-14 h-14 object-contain"/>
+                        <span class="font-headline text-2xl font-bold text-white">Jim Ruimt Op</span>
+                    </a>
+                    <p class="text-white/70 text-sm">Specialist in ontruiming &amp; ontzorging in regio Tilburg.</p>
+                </div>
+                <!-- Kolom 2: Navigatie -->
                 <div>
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Navigatie</h4>
                     <ul class="space-y-2 text-white/70 text-sm">
                         <li><a href="index.php" class="hover:text-white transition-colors">Home</a></li>
                         <li><a href="diensten.php" class="hover:text-white transition-colors">Diensten</a></li>
                         <?php if ($toon_fotos): ?><li><a href="fotos.php" class="hover:text-white transition-colors">Foto's</a></li><?php endif; ?>
-                        <li><a href="over-mij.php" class="hover:text-white transition-colors">Over Mij</a></li>
+                        <li><a href="over-mij.php" class="hover:text-white transition-colors">Over Ons</a></li>
                         <li><a href="contact.php" class="hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
+                <!-- Kolom 3: Werkgebied -->
                 <div>
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Werkgebied</h4>
                     <ul class="space-y-2 text-white/70 text-sm">
                         <li><span class="text-white/50">Tilburg</span></li>
-                        <li><a href="woningontruiming-berkel-enschot.html" class="hover:text-white transition-colors">Berkel-Enschot</a></li>
-                        <li><a href="woningontruiming-oisterwijk.html" class="hover:text-white transition-colors">Oisterwijk</a></li>
-                        <li><a href="woningontruiming-goirle.html" class="hover:text-white transition-colors">Goirle</a></li>
-                        <li><a href="woningontruiming-hilvarenbeek.html" class="hover:text-white transition-colors">Hilvarenbeek</a></li>
-                        <li><a href="woningontruiming-udenhout.html" class="hover:text-white transition-colors">Udenhout</a></li>
+                        <li><a href="locatie.php?loc=berkel-enschot" class="hover:text-white transition-colors">Berkel-Enschot</a></li>
+                        <li><a href="locatie.php?loc=oisterwijk" class="hover:text-white transition-colors">Oisterwijk</a></li>
+                        <li><a href="locatie.php?loc=goirle" class="hover:text-white transition-colors">Goirle</a></li>
+                        <li><a href="locatie.php?loc=hilvarenbeek" class="hover:text-white transition-colors">Hilvarenbeek</a></li>
+                        <li><a href="locatie.php?loc=udenhout" class="hover:text-white transition-colors">Udenhout</a></li>
                     </ul>
                 </div>
+                <!-- Kolom 4: Contact -->
                 <div>
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Contact</h4>
                     <p class="text-white/70 text-sm"><?= t($contact, 'adres', 'Tilburg') ?><br/><?= htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl') ?><br/>Bel: <?= $telefoon ?></p>
                 </div>
-                <div class="flex flex-col items-start sm:items-end">
+                <!-- Kolom 5: Direct contact -->
+                <div class="flex flex-col items-start md:items-end">
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Direct contact</h4>
-                    <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all">
+                    <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all text-sm md:text-base whitespace-nowrap">
                         Contact Aanvragen
                     </a>
                 </div>
