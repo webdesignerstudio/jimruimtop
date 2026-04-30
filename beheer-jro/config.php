@@ -6,9 +6,8 @@
  * en vervang dan de hash hieronder.
  */
 
-// Wachtwoord-hash (genereer via set_wachtwoord.php)
-// Huidig wachtwoord: jimruimtop2025  ← VERANDER DIT NA INSTALLATIE
-define('ADMIN_WACHTWOORD_HASH', '$2y$12$bKsht6hO2aFClclO0sKt2.F8UpJgJAfRg9BB0rINn6dbmj2EJN8w.');
+// Wachtwoord-hash
+define('ADMIN_WACHTWOORD_HASH', '$2y$12$SBzQ988j4NBws09CeBb1oeOrXwA51NmR8B61foQStseekR.C2/2T6');
 
 // Session naam (voorkomt conflicten)
 define('SESSION_NAAM', 'jro_beheer_sessie');
