@@ -4,25 +4,17 @@ $contact      = laad_json('contact.json');
 $teksten      = laad_json('teksten.json');
 $instellingen = laad_json('instellingen.json');
 $toon_fotos   = $instellingen['toon_fotos_menu'] ?? true;
-$p            = $teksten['index'] ?? [];
-
-// Fallbacks
-$telefoon        = t($contact, 'telefoon', '06 13 94 31 86');
-$tel_href        = tel_link($contact);
-$wa_url          = whatsapp_url($contact);
-$hero_kop        = t($p, 'hero_kop', 'Jim Ruimt Op');
-$hero_tagline    = t($p, 'hero_tagline', 'Zorgeloos geregeld!');
-$hero_quote      = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren in het hoofd.');
-$diensten_kop    = t($p, 'diensten_kop', 'Woningontruiming in Tilburg');
-$diensten_sub    = t($p, 'diensten_subtekst', 'Professionele ondersteuning voor alle ontruimingswerkzaamheden in regio Tilburg — van garage tot complete woning.');
-$hoe_kop         = t($p, 'hoe_werkt_kop', 'Hoe werkt het?');
-$hoe_sub         = t($p, 'hoe_werkt_subtekst', 'In drie eenvoudige stappen regelen we alles voor u.');
-$stap1_kop       = t($p, 'stap1_kop', 'Gratis Kennismaking');
-$stap1_tekst     = t($p, 'stap1_tekst', 'Jim komt langs voor een vrijblijvende inspectie op locatie. Geen kosten, geen verplichtingen.');
-$stap2_kop       = t($p, 'stap2_kop', 'Duidelijke Offerte');
-$stap2_tekst     = t($p, 'stap2_tekst', 'Binnen 48 uur ontvangt u een vaste prijs. Transparant, eerlijk, zonder verborgen kosten.');
-$stap3_kop       = t($p, 'stap3_kop', 'Ik Regel Alles');
-$stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon opleveren. U hoeft er niet bij te zijn als u dat niet wilt.');
+$p            = $teksten['home'] ?? [];
+$telefoon     = t($contact, 'telefoon', '06 13 94 31 86');
+$tel_href     = tel_link($contact);
+$wa_url       = whatsapp_url($contact);
+$email        = htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl', ENT_QUOTES, 'UTF-8');
+$adres        = t($contact, 'adres', 'Tilburg');
+$hero_kop     = t($p, 'hero_kop', 'Jim Ruimt Op');
+$hero_tagline = t($p, 'hero_tagline', 'Zorgeloos geregeld!');
+$hero_sub     = t($p, 'hero_subtitel', 'Woningontruiming zonder zorgen');
+$hero_tekst   = t($p, 'hero_tekst', 'Wij ontzorgen senioren en nabestaanden bij woningontruiming, met aandacht voor wat praktisch nodig is én wat emotioneel belangrijk is.');
+$hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren in het hoofd.');
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -42,7 +34,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
     <meta property="og:title" content="Jim Ruimt Op — Woningontruiming Tilburg"/>
     <meta property="og:description" content="Persoonlijk ontruimingsbedrijf in Tilburg. Empathisch, discreet, bezemschoon. Specialist voor senioren en nabestaanden."/>
     <meta property="og:image" content="https://www.jimruimtop.nl/jim-ruimt-op-logo.jpg"/>
-    <meta property="og:url" content="https://www.jimruimtop.nl/"/>
+    <meta property="og:url" content="https://www.jimruimtop.nl"/>
     <meta property="og:type" content="website"/>
     <script type="application/ld+json">
     {
@@ -51,8 +43,8 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
       "name": "Jim Ruimt Op",
       "description": "Ontruimingsbedrijf in Tilburg gespecialiseerd in woningontruiming, seniorenverhuizing en zorgeloos afscheid. Empathisch, discreet en professioneel.",
       "url": "https://www.jimruimtop.nl",
-      "telephone": "<?= htmlspecialchars($contact['telefoon'] ?? '06 13 94 31 86') ?>",
-      "email": "<?= htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl') ?>",
+      "telephone": "06 13 94 31 86",
+      "email": "info@jimruimt-op.nl",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Tilburg",
@@ -212,13 +204,10 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
         /* Floating CTA button */
         .floating-cta {
             position: fixed;
-            bottom: 24px;
-            right: 16px;
+            bottom: 30px;
+            right: 30px;
             z-index: 40;
             animation: float 3s ease-in-out infinite;
-        }
-        @media (min-width: 640px) {
-            .floating-cta { bottom: 30px; right: 30px; }
         }
         
         @keyframes float {
@@ -294,28 +283,6 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
             to { opacity: 1; transform: scale(1) translateY(0); }
         }
         
-        /* WhatsApp floating button */
-        .wa-float-btn {
-            position: fixed;
-            bottom: 90px;
-            right: 16px;
-            z-index: 41;
-            background: #25D366;
-            color: white;
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-            transition: transform 0.2s ease;
-        }
-        .wa-float-btn:hover { transform: scale(1.1); }
-        @media (min-width: 640px) {
-            .wa-float-btn { bottom: 110px; right: 30px; width: 56px; height: 56px; }
-        }
-
         /* Play button pulse */
         .play-btn {
             animation: play-pulse 2s ease-in-out infinite;
@@ -342,7 +309,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
     </a>
 
     <!-- WhatsApp Floating Button -->
-    <a href="<?= $wa_url ?>" target="_blank" rel="noopener" class="wa-float-btn" aria-label="WhatsApp Jim Ruimt Op">
+    <a href="<?= $wa_url ?>" target="_blank" rel="noopener" style="position:fixed;bottom:170px;right:30px;z-index:41;background:#25D366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" aria-label="WhatsApp Jim Ruimt Op">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 
@@ -364,7 +331,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                     <span class="material-symbols-outlined text-lg">call</span>
                     <span><?= $telefoon ?></span>
                 </a>
-                <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all text-sm shadow-md">
+                <a href="contact.php#formulier" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all text-sm shadow-md">
                     Plan een kennismaking
                 </a>
             </div>
@@ -382,20 +349,22 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                 <a href="<?= $tel_href ?>" class="flex items-center gap-2 text-white font-bold text-sm">
                     <span class="material-symbols-outlined text-lg">call</span><?= $telefoon ?>
                 </a>
-                <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold text-center text-sm hover:opacity-90 transition-all">Plan een kennismaking</a>
+                <a href="contact.php#formulier" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold text-center text-sm hover:opacity-90 transition-all">Plan een kennismaking</a>
             </div>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section class="relative overflow-visible pt-10 pb-16 md:pt-16 md:pb-32 px-6 max-w-7xl mx-auto">
+        <section class="relative overflow-visible pt-16 pb-32 px-6 max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 items-center gap-16">
                 <div class="z-10 fade-in-right">
-                    <h2 class="font-headline text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-4 text-brandNavy break-words" style="letter-spacing:-0.02em"><?= $hero_kop ?></h2>
-                    <p class="text-brandCyan text-2xl sm:text-3xl md:text-5xl mb-8 md:mb-10" style="font-family:'Playfair Display',serif;font-style:italic;font-weight:600;letter-spacing:-0.01em"><?= $hero_tagline ?></p>
+                    <h2 class="font-headline text-5xl md:text-6xl font-extrabold leading-tight mb-4 text-brandNavy whitespace-nowrap" style="letter-spacing:-0.02em"><?= $hero_kop ?></h2>
+                    <p class="text-brandCyan text-4xl md:text-5xl mb-4" style="font-family:'Playfair Display',serif;font-style:italic;font-weight:600;letter-spacing:-0.01em"><?= $hero_tagline ?></p>
+                    <h3 class="font-headline text-2xl md:text-3xl font-bold text-brandNavy mb-2"><?= $hero_sub ?></h3>
+                    <p class="text-gray-600 text-lg mb-6 max-w-lg"><?= $hero_tekst ?></p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="contact.php#formulier" class="inline-block bg-brandCyan text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-lg pulse-glow">
+                        <a href="contact.php" class="inline-block bg-brandCyan text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-lg pulse-glow">
                             Kennismakingsgesprek
                         </a>
                         <a href="diensten.php" class="inline-block border-2 border-brandNavy text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-brandNavy hover:text-white transition-all">
@@ -406,7 +375,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                     <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-200">
                         <div class="text-center">
                             <span class="material-symbols-outlined text-brandCyan text-4xl mb-1 block">handshake</span>
-                            <p class="text-sm font-bold text-brandNavy">Gratis kennismaking</p>
+                            <p class="text-sm font-bold text-brandNavy">Kennismaking</p>
                             <p class="text-xs text-gray-500">Altijd vrijblijvend</p>
                         </div>
                         <div class="text-center">
@@ -432,6 +401,11 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                 </div>
             </div>
 
+        </section>
+
+        <!-- Pakketten sectie -->
+        <section class="py-16 px-6" style="background-color:#f0f7ff">
+            <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-10 fade-in-up">
                     <h2 class="font-headline text-3xl md:text-4xl font-bold mb-3 text-brandNavy">Welke vorm van hulp past bij u?</h2>
                     <p class="text-gray-600 max-w-2xl mx-auto">Elke situatie is anders. Daarom werken wij met duidelijke pakketten van een complete ontruiming tot persoonlijke begeleiding.</p>
@@ -439,13 +413,13 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                 <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
 
                     <!-- OPRUIMEN & OVERZICHT -->
-                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-7 rounded-2xl cloud-shadow flex flex-col">
+                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-7 rounded-2xl cloud-shadow flex flex-col h-full">
                         <div class="mb-4 text-brandNavy">
                             <span class="material-symbols-outlined text-5xl">home_work</span>
                         </div>
-                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">OPRUIMEN &amp; OVERZICHT</h3>
+                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy min-h-[64px] flex items-end">OPRUIMEN &amp; OVERZICHT</h3>
                         <p class="text-gray-600 mb-6" style="min-height:120px">Voor wie meer rust en ruimte in huis wil, zonder te verhuizen. Stap voor stap opruimen en organiseren in uw eigen tempo.</p>
-                        <ul class="text-left space-y-2 mb-6 text-sm w-full">
+                        <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Opruimen van één of meerdere ruimtes</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Samen keuzes maken over spullen</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Structuur en overzicht creëren</li>
@@ -456,13 +430,13 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                     </div>
 
                     <!-- BASIS -->
-                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-7 rounded-2xl cloud-shadow flex flex-col">
+                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-7 rounded-2xl cloud-shadow flex flex-col h-full">
                         <div class="mb-4 text-brandNavy">
                             <span class="material-symbols-outlined text-5xl">home</span>
                         </div>
-                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">BASIS</h3>
+                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy min-h-[64px] flex items-end">BASIS</h3>
                         <p class="text-gray-600 mb-6" style="min-height:120px">Complete ontruiming voor een snelle en duidelijke afhandeling.</p>
-                        <ul class="text-left space-y-2 mb-6 text-sm w-full">
+                        <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Woningontruiming</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Afvoer van inboedel</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Bezemschoon oplevering</li>
@@ -473,16 +447,16 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                     </div>
 
                     <!-- BEGELEID (featured) -->
-                    <div class="pricing-card bg-brandCyan/20 border-2 border-brandCyan p-7 rounded-2xl cloud-shadow flex flex-col relative">
+                    <div class="pricing-card bg-brandCyan/20 border-2 border-brandCyan p-7 rounded-2xl cloud-shadow flex flex-col relative h-full">
                         <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brandNavy text-white px-4 py-1 rounded-full text-xs font-bold whitespace-nowrap">
                             MEEST GEVRAAGD
                         </div>
                         <div class="mb-4 text-brandNavy">
                             <span class="material-symbols-outlined text-5xl">favorite</span>
                         </div>
-                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">BEGELEID</h3>
+                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy min-h-[64px] flex items-end">BEGELEID</h3>
                         <p class="text-gray-600 mb-6" style="min-height:120px">Met aandacht en rust. Voor wie behoefte heeft aan ondersteuning en overzicht.</p>
-                        <ul class="text-left space-y-2 mb-6 text-sm w-full">
+                        <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Alles uit basis</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Hulp bij sorteren &amp; keuzes maken</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Rustige begeleiding tijdens het proces</li>
@@ -493,13 +467,13 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                     </div>
 
                     <!-- VOORBEREID & GEREGELD -->
-                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-7 rounded-2xl cloud-shadow flex flex-col">
+                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-7 rounded-2xl cloud-shadow flex flex-col h-full">
                         <div class="mb-4 text-brandNavy">
                             <span class="material-symbols-outlined text-5xl">elderly</span>
                         </div>
-                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">VOORBEREID &amp; GEREGELD</h3>
+                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy min-h-[64px] flex items-end">VOORBEREID &amp; GEREGELD</h3>
                         <p class="text-gray-600 mb-6" style="min-height:120px">Voor wie op tijd overzicht en duidelijkheid wil creëren.</p>
-                        <ul class="text-left space-y-2 mb-6 text-sm w-full">
+                        <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Inventarisatie van de woning</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Persoonlijk plan</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Familie ontlasten</li>
@@ -513,28 +487,39 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
             </div>
         </section>
 
+        <!-- Maatwerk pill -->
+        <div class="px-6 pb-8" style="background-color:#f0f7ff">
+            <div class="max-w-5xl mx-auto flex justify-center">
+                <a href="contact.php#formulier" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-500 text-xs font-medium px-5 py-2 rounded-full cloud-shadow hover:border-brandNavy hover:text-brandNavy transition-all">
+                    <span class="material-symbols-outlined text-gray-400" style="font-size:14px">handshake</span>
+                    Andere situatie? Neem contact op, we denken graag mee.
+                    <span class="material-symbols-outlined text-gray-400" style="font-size:14px">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+
         <!-- Hoe werkt het sectie -->
         <section class="py-20 px-6">
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-14 fade-in-up">
-                    <h2 class="font-headline text-4xl font-bold mb-4 text-brandNavy"><?= $hoe_kop ?></h2>
-                    <p class="text-gray-600 max-w-xl mx-auto"><?= $hoe_sub ?></p>
+                    <h2 class="font-headline text-4xl font-bold mb-4 text-brandNavy">Hoe werkt het?</h2>
+                    <p class="text-gray-600 max-w-xl mx-auto">In drie eenvoudige stappen regelen we alles voor u.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="text-center fade-in-up delay-100">
                         <div class="w-16 h-16 bg-brandNavy text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 cloud-shadow">1</div>
-                        <h3 class="font-headline text-xl font-bold text-brandNavy mb-3"><?= $stap1_kop ?></h3>
-                        <p class="text-gray-600"><?= $stap1_tekst ?></p>
+                        <h3 class="font-headline text-xl font-bold text-brandNavy mb-3">Kennismaking</h3>
+                        <p class="text-gray-600">Wij komen langs en bespreken uw situatie. Vrijblijvend en zonder verplichtingen.</p>
                     </div>
                     <div class="text-center fade-in-up delay-200">
                         <div class="w-16 h-16 bg-brandCyan text-brandNavy rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 cloud-shadow">2</div>
-                        <h3 class="font-headline text-xl font-bold text-brandNavy mb-3"><?= $stap2_kop ?></h3>
-                        <p class="text-gray-600"><?= $stap2_tekst ?></p>
+                        <h3 class="font-headline text-xl font-bold text-brandNavy mb-3">Duidelijke afspraken</h3>
+                        <p class="text-gray-600">U ontvangt een heldere offerte, zonder verrassingen.</p>
                     </div>
                     <div class="text-center fade-in-up delay-300">
                         <div class="w-16 h-16 bg-brandNavy text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 cloud-shadow border-2 border-brandCyan">3</div>
-                        <h3 class="font-headline text-xl font-bold text-brandNavy mb-3"><?= $stap3_kop ?></h3>
-                        <p class="text-gray-600"><?= $stap3_tekst ?></p>
+                        <h3 class="font-headline text-xl font-bold text-brandNavy mb-3">Wij ontzorgen u.</h3>
+                        <p class="text-gray-600">Van opruimen tot oplevering.</p>
                     </div>
                 </div>
             </div>
@@ -564,6 +549,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
             </div>
         </section>
 
+
         <!-- Review & Contact Section -->
         <section class="bg-brandCyan/10 py-16 px-6">
             <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
@@ -581,13 +567,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                             <p class="text-sm font-semibold text-brandNavy">Bekijk de bedrijfsvideo</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- Contact Form Column -->
-                <div class="fade-in-right delay-200">
-                    <h2 class="font-headline text-3xl font-bold mb-2 text-brandNavy">Contact of bel terug</h2>
-                    <p class="text-gray-500 mb-6 text-sm flex items-center gap-1"><span class="material-symbols-outlined text-brandCyan text-base">verified</span> Ik reageer binnen 48 uur</p>
-                    <div class="mt-4 bg-white p-6 rounded-xl cloud-shadow">
+                    <div class="mt-6 bg-white p-6 rounded-xl cloud-shadow hover:shadow-lg transition-shadow">
                         <div class="flex items-center gap-4 mb-4">
                             <div class="flex text-brandCyan">
                                 <span class="material-symbols-outlined">star</span>
@@ -601,14 +581,40 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                         <p class="text-gray-700 italic">"Jim heeft ons enorm geholpen bij het ontruimen van het huis van onze overleden vader. Met respect en empathie. Een aanrader!"</p>
                         <p class="text-sm text-brandNavy font-semibold mt-3">— Familie de Vries</p>
                     </div>
-                    <div class="mt-6">
-                        <a href="contact.php" class="w-full bg-brandNavy text-white px-8 py-4 rounded-full font-bold text-center hover:bg-brandCyan hover:text-brandNavy transition-all block">
-                            Kennismaking Aanvragen
-                        </a>
-                    </div>
+                </div>
+
+                <!-- Contact Form Column -->
+                <div class="fade-in-right delay-200">
+                    <h2 class="font-headline text-3xl font-bold mb-2 text-brandNavy">Contact of bel terug</h2>
+                    <p class="text-gray-500 mb-6 text-sm flex items-center gap-1"><span class="material-symbols-outlined text-brandCyan text-base">verified</span> Ik reageer binnen 48 uur</p>
+                    <form id="contact-form" action="#" method="POST" class="space-y-4 bg-white p-6 rounded-xl cloud-shadow">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="first-name" class="sr-only">Naam</label>
+                                <input type="text" id="first-name" name="first-name" placeholder="Naam" class="w-full border-none rounded-xl bg-white p-4 focus:ring-2 focus:ring-brandNavy shadow-sm"/>
+                            </div>
+                            <div>
+                                <label for="last-name" class="sr-only">Achternaam</label>
+                                <input type="text" id="last-name" name="last-name" placeholder="Achternaam" class="w-full border-none rounded-xl bg-white p-4 focus:ring-2 focus:ring-brandNavy shadow-sm"/>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="sr-only">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="E-mail" class="w-full border-none rounded-xl bg-white p-4 focus:ring-2 focus:ring-brandNavy shadow-sm"/>
+                        </div>
+                        <div>
+                            <label for="message" class="sr-only">Bericht</label>
+                            <textarea id="message" name="message" placeholder="Bericht" rows="5" class="w-full border-none rounded-xl bg-white p-4 focus:ring-2 focus:ring-brandNavy shadow-sm min-h-[120px]"></textarea>
+                        </div>
+                        <button type="submit" id="submit-btn" class="w-full bg-brandNavy text-white py-4 rounded-xl font-bold text-lg hover:bg-brandCyan hover:text-brandNavy transition-all shadow-md flex items-center justify-center gap-2">
+                            <span>Verstuur</span>
+                            <span class="material-symbols-outlined">send</span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
+
     </main>
 
     <!-- Footer -->
@@ -650,7 +656,7 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                 <!-- Kolom 4: Contact -->
                 <div>
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Contact</h4>
-                    <p class="text-white/70 text-sm"><?= t($contact, 'adres', 'Tilburg') ?><br/><?= htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl') ?><br/>Bel: <?= $telefoon ?></p>
+                    <p class="text-white/70 text-sm"><?= $adres ?><br/><?= $email ?><br/>Bel: <?= $telefoon ?></p>
                 </div>
                 <!-- Kolom 5: Direct contact -->
                 <div class="flex flex-col items-start md:items-end">
@@ -685,11 +691,14 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
         </div>
     </div>
 
+
     <script>
+        // Mobile menu toggle
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
+        // Scroll Progress Bar
         function updateProgressBar() {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -698,18 +707,51 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
         }
         window.addEventListener('scroll', updateProgressBar);
 
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    // Start counter animation if counter
+                    if (entry.target.querySelector('.counter')) {
+                        startCounters(entry.target);
+                    }
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        }, observerOptions);
 
         document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .scale-in').forEach(el => {
             observer.observe(el);
         });
 
+        // Counter Animation
+        function startCounters(container) {
+            const counters = container.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.textContent = Math.floor(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target + (target === 100 ? '%' : '+');
+                    }
+                };
+                updateCounter();
+            });
+        }
+
+        // Modal Functions
         function openVideoModal() {
             document.getElementById('video-modal').classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -720,10 +762,14 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
             document.body.style.overflow = '';
         }
 
+        // Close modals on escape key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeVideoModal();
+            if (e.key === 'Escape') {
+                closeVideoModal();
+            }
         });
 
+        // Close modals on background click
         document.querySelectorAll('.modal').forEach(modal => {
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
@@ -733,15 +779,48 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
             });
         });
 
+        // Form handling with validation
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span> Verzenden...';
+            btn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                btn.innerHTML = '<span class="material-symbols-outlined">check</span> Verzonden!';
+                btn.classList.remove('bg-brandNavy');
+                btn.classList.add('bg-brandCyan');
+                btn.classList.add('text-brandNavy');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('bg-brandCyan');
+                    btn.classList.remove('text-brandNavy');
+                    btn.classList.add('bg-brandNavy');
+                    btn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
 
-        document.addEventListener('DOMContentLoaded', () => { updateProgressBar(); });
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateProgressBar();
+        });
     </script>
 </body>
 </html>

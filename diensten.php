@@ -5,16 +5,11 @@ $teksten      = laad_json('teksten.json');
 $instellingen = laad_json('instellingen.json');
 $toon_fotos   = $instellingen['toon_fotos_menu'] ?? true;
 $p            = $teksten['diensten'] ?? [];
-
-$telefoon   = t($contact, 'telefoon', '06 13 94 31 86');
-$tel_href   = tel_link($contact);
-$wa_url     = whatsapp_url($contact);
-$email      = htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl', ENT_QUOTES, 'UTF-8');
-$adres      = t($contact, 'adres', 'Tilburg');
-$hero_kop   = t($p, 'hero_kop', 'Woningontruiming in Tilburg');
-$hero_sub   = t($p, 'hero_subtekst', 'Van complete woningontruiming tot zorgeloos afscheid — praktisch ontzorgd, emotioneel begeleid. Actief in Tilburg en omstreken.');
-$intro_kop  = t($p, 'intro_kop', 'Alles wat we voor u kunnen doen');
-$intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontruiming, van seniorenverhuizing tot zorgeloos afscheid. Jim regelt het.');
+$telefoon     = t($contact, 'telefoon', '06 13 94 31 86');
+$tel_href     = tel_link($contact);
+$wa_url       = whatsapp_url($contact);
+$email        = htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl', ENT_QUOTES, 'UTF-8');
+$adres        = t($contact, 'adres', 'Tilburg');
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -28,11 +23,11 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
     <meta name="theme-color" content="#1A436D"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Diensten Woningontruiming Tilburg | Jim Ruimt Op</title>
-    <meta name="description" content="Woningontruiming, garage opruimen, zorgeloos afscheid en spoedontruiming in Tilburg. Vaste prijzen, gratis intake. Jim Ruimt Op — specialist in Tilburg en omgeving."/>
+    <meta name="description" content="Woningontruiming, opruimen & overzicht, en spoedontruiming in Tilburg. Vaste prijzen, plan een kennismaking. Jim Ruimt Op — specialist in Tilburg en omgeving."/>
     <meta name="robots" content="index, follow"/>
     <link rel="canonical" href="https://www.jimruimtop.nl/diensten.php"/>
     <meta property="og:title" content="Diensten Woningontruiming Tilburg | Jim Ruimt Op"/>
-    <meta property="og:description" content="Complete woningontruiming, garage opruimen, seniorenverhuizing en zorgeloos afscheid in Tilburg. Transparante prijzen, gratis intake."/>
+    <meta property="og:description" content="Complete woningontruiming, opruimen & overzicht, en begeleid ontruimen in Tilburg. Transparante prijzen, plan een kennismaking."/>
     <meta property="og:url" content="https://www.jimruimtop.nl/diensten.php"/>
     <meta property="og:type" content="website"/>
     <script type="application/ld+json">
@@ -40,9 +35,30 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type":"Question","name":"Wat kost een woningontruiming in Tilburg?","acceptedAnswer":{"@type":"Answer","text":"De kosten variëren van €295 voor een garage of zolder tot €695 en meer voor een complete woning. Na een gratis intake ontvangt u een vaste prijs."}},
-        {"@type":"Question","name":"Hoe snel kan Jim Ruimt Op starten met een ontruiming?","acceptedAnswer":{"@type":"Answer","text":"Meestal kan Jim binnen 48 uur een gratis intake inplannen. Voor spoedontruimingen in Tilburg is snellere inzet mogelijk."}},
-        {"@type":"Question","name":"Wat gebeurt er met waardevolle spullen bij een ontruiming?","acceptedAnswer":{"@type":"Answer","text":"Samen met Jim wordt besproken wat er bewaard, verkocht of gedoneerd wordt. Waardevolle items krijgen een passende bestemming."}}
+        {
+          "@type": "Question",
+          "name": "Wat kost een woningontruiming in Tilburg?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "De kosten variëren van €295 voor een kamer tot €695 en meer voor een complete woning. Factoren zijn: grootte, hoeveelheid inboedel, eventuele extra werkzaamheden. Na een kennismaking ontvangt u een vaste prijs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe snel kan Jim Ruimt Op starten met een ontruiming?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Meestal kan Jim binnen 48 uur een kennismaking inplannen. Voor spoedontruimingen in Tilburg is snellere inzet mogelijk."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat gebeurt er met waardevolle spullen bij een ontruiming?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Samen met Jim wordt besproken wat er bewaard, verkocht of gedoneerd wordt. Waardevolle items krijgen een passende bestemming via verkoop of donatie aan goede doelen."
+          }
+        }
       ]
     }
     </script>
@@ -53,60 +69,196 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { brandNavy:'#1A436D', brandCyan:'#5BCEFF', brandCream:'#F4F0E6', brandGreen:'#7CC19D' },
-                    fontFamily: { headline:['Manrope','sans-serif'], body:['Inter','sans-serif'], script:['Dancing Script','cursive'] }
+                    colors: {
+                        brandNavy: '#1A436D',
+                        brandCyan: '#5BCEFF',
+                        brandCream: '#F4F0E6',
+                        brandGreen: '#7CC19D',
+                    },
+                    fontFamily: {
+                        headline: ['Manrope', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                        script: ['Dancing Script', 'cursive'],
+                    }
                 }
             }
         }
     </script>
     <style>
-        #progress-bar { position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#5BCEFF,#1A436D);z-index:9999;transition:width 0.1s ease; }
-        html { scroll-behavior:smooth; }
-        .cloud-shadow { box-shadow:0 20px 40px rgba(26,67,109,0.12); }
-        .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
-        .fade-in-up { opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease; }
-        .fade-in-up.visible { opacity:1;transform:translateY(0); }
-        .fade-in-left { opacity:0;transform:translateX(-30px);transition:opacity 0.6s ease,transform 0.6s ease; }
-        .fade-in-left.visible { opacity:1;transform:translateX(0); }
-        .fade-in-right { opacity:0;transform:translateX(30px);transition:opacity 0.6s ease,transform 0.6s ease; }
-        .fade-in-right.visible { opacity:1;transform:translateX(0); }
-        .scale-in { opacity:0;transform:scale(0.9);transition:opacity 0.5s ease,transform 0.5s ease; }
-        .scale-in.visible { opacity:1;transform:scale(1); }
-        .delay-100{transition-delay:0.1s;} .delay-200{transition-delay:0.2s;} .delay-300{transition-delay:0.3s;} .delay-400{transition-delay:0.4s;} .delay-500{transition-delay:0.5s;}
-        .floating-cta { position:fixed;bottom:24px;right:16px;z-index:40;animation:float 3s ease-in-out infinite; }
-        @media (min-width:640px) { .floating-cta { bottom:30px;right:30px; } }
-        .wa-float-btn { position:fixed;bottom:90px;right:16px;z-index:41;background:#25D366;color:white;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.2s ease; }
-        .wa-float-btn:hover { transform:scale(1.1); }
-        @media (min-width:640px) { .wa-float-btn { bottom:110px;right:30px;width:56px;height:56px; } }
-        @keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);} }
-        .pulse-glow { animation:pulse-glow 2s ease-in-out infinite; }
-        @keyframes pulse-glow { 0%,100%{box-shadow:0 0 0 0 rgba(91,206,255,0.4);}50%{box-shadow:0 0 20px 10px rgba(91,206,255,0.2);} }
-        .service-card { transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275); }
-        .service-card:hover { transform:translateY(-10px) scale(1.02);box-shadow:0 25px 50px rgba(26,67,109,0.2); }
-        .service-card:hover .icon-container { background-color:#1A436D; }
-        .service-card:hover .icon-container span { color:white; }
-        .pricing-card { transition:all 0.4s ease; }
-        .pricing-card:hover { transform:translateY(-10px);box-shadow:0 30px 60px rgba(26,67,109,0.25); }
-        .pricing-featured { animation:featured-pulse 3s ease-in-out infinite; }
-        @keyframes featured-pulse { 0%,100%{box-shadow:0 20px 40px rgba(26,67,109,0.2);}50%{box-shadow:0 30px 60px rgba(91,206,255,0.3);} }
-        .modal { display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:100;align-items:center;justify-content:center;padding:20px; }
-        .modal.active { display:flex; }
-        .modal-content { background:white;border-radius:1rem;max-width:720px;width:100%;max-height:92vh;overflow-y:auto;animation:modal-in 0.3s ease; }
-        @keyframes modal-in { from{opacity:0;transform:scale(0.9) translateY(20px);}to{opacity:1;transform:scale(1) translateY(0);} }
+        /* Scroll Progress Bar */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #5BCEFF, #1A436D);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .cloud-shadow {
+            box-shadow: 0 20px 40px rgba(26, 67, 109, 0.12);
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Animation classes */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Stagger delays */
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
+        .delay-500 { transition-delay: 0.5s; }
+        
+        /* Floating CTA button */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 40;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Pulse animation for CTA */
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(91, 206, 255, 0.4); }
+            50% { box-shadow: 0 0 20px 10px rgba(91, 206, 255, 0.2); }
+        }
+        
+        /* Service card hover effects */
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(26, 67, 109, 0.2);
+        }
+        .service-card:hover .icon-container {
+            background-color: #1A436D;
+        }
+        .service-card:hover .icon-container span {
+            color: white;
+        }
+        
+        /* Pricing card effects */
+        .pricing-card {
+            transition: all 0.4s ease;
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(26, 67, 109, 0.25);
+        }
+        
+        .pricing-featured {
+            animation: featured-pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes featured-pulse {
+            0%, 100% { box-shadow: 0 20px 40px rgba(26, 67, 109, 0.2); }
+            50% { box-shadow: 0 30px 60px rgba(91, 206, 255, 0.3); }
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 1rem;
+            max-width: 720px;
+            width: 100%;
+            max-height: 92vh;
+            overflow-y: auto;
+            animation: modal-in 0.3s ease;
+        }
+        @keyframes modal-in {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
     </style>
 </head>
 <body class="bg-white font-body" style="background-color:#f0f7ff">
+    <!-- Scroll Progress Bar -->
     <div id="progress-bar" style="width: 0%"></div>
-
+    
+    <!-- Floating CTA Button -->
     <a href="contact.php" class="floating-cta bg-brandNavy text-white px-6 py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all flex items-center gap-2 pulse-glow">
         <span class="material-symbols-outlined">calendar_today</span>
         <span class="hidden sm:inline">Plan een kennismaking</span>
     </a>
 
-    <a href="<?= $wa_url ?>" target="_blank" rel="noopener" class="wa-float-btn" aria-label="WhatsApp Jim Ruimt Op">
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/31613943186?text=Hallo%20Jim%2C%20ik%20heb%20een%20vraag%20over%20woningontruiming" target="_blank" rel="noopener" style="position:fixed;bottom:170px;right:30px;z-index:41;background:#25D366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" aria-label="WhatsApp Jim Ruimt Op">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 
+    <!-- Header -->
     <header class="w-full bg-brandNavy sticky top-0 z-50 shadow-sm">
         <nav class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
             <a href="index.php" class="flex items-center gap-2 hover:scale-105 transition-transform">
@@ -115,14 +267,14 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
             <div class="hidden md:flex items-center space-x-8">
                 <a href="index.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Home</a>
                 <a href="diensten.php" class="font-headline font-bold text-white border-b-2 border-brandCyan pb-1">Diensten</a>
-                <?php if ($toon_fotos): ?><a href="fotos.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Foto's</a><?php endif; ?>
+                <a href="fotos.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Foto's</a>
                 <a href="over-mij.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Over Ons</a>
                 <a href="contact.php" class="font-headline font-bold text-white/70 hover:text-brandCyan transition-colors">Contact</a>
             </div>
             <div class="hidden md:flex items-center gap-4">
                 <a href="<?= $tel_href ?>" class="flex items-center gap-2 text-white font-bold hover:text-brandCyan transition-colors text-sm">
                     <span class="material-symbols-outlined text-lg">call</span>
-                    <span><?= $telefoon ?></span>
+                    <span>06 13 94 31 86</span>
                 </a>
             </div>
             <button id="mobile-menu-btn" class="md:hidden text-white">
@@ -133,156 +285,344 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
             <div class="flex flex-col px-6 py-4 space-y-4">
                 <a href="index.php" class="font-headline font-bold text-white/70">Home</a>
                 <a href="diensten.php" class="font-headline font-bold text-white">Diensten</a>
-                <?php if ($toon_fotos): ?><a href="fotos.php" class="font-headline font-bold text-white/70">Foto's</a><?php endif; ?>
+                <a href="fotos.php" class="font-headline font-bold text-white/70">Foto's</a>
                 <a href="over-mij.php" class="font-headline font-bold text-white/70">Over Ons</a>
                 <a href="contact.php" class="font-headline font-bold text-white/70">Contact</a>
                 <a href="<?= $tel_href ?>" class="flex items-center gap-2 text-white font-bold text-sm">
-                    <span class="material-symbols-outlined text-lg">call</span><?= $telefoon ?>
+                    <span class="material-symbols-outlined text-lg">call</span>06 13 94 31 86
                 </a>
-                <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold text-center text-sm">Plan een kennismaking</a>
+                <a href="contact.php#formulier" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold text-center text-sm">Plan een kennismaking</a>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="bg-brandNavy text-white py-20 px-6">
-            <div class="max-w-4xl mx-auto text-center fade-in-up">
-                <h1 class="font-headline text-5xl md:text-6xl font-bold mb-4 break-words"><?= $hero_kop ?></h1>
-                <p class="text-xl text-white/80 max-w-2xl mx-auto"><?= $hero_sub ?></p>
+        <!-- Hero Section -->
+        <section class="bg-brandNavy text-white py-16 px-6">
+            <div class="max-w-5xl mx-auto">
+                <!-- Hoofd titel -->
+                <div class="text-center mb-10 fade-in-up">
+                    <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-bold mb-3">Woningontruiming in Tilburg en omgeving</h1>
+                    <p class="text-lg text-white/70 mb-2">Bij verhuizing, opruimen of een ingrijpende situatie.</p>
+                    <p class="text-lg text-white/80">Wij helpen u met het leegmaken of overzichtelijk maken van uw woning — rustig, zorgvuldig en met respect.</p>
+                </div>
+
+                <!-- Call to action -->
+                <div class="text-center fade-in-up delay-300">
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="contact.php#formulier" class="inline-flex items-center gap-2 bg-brandCyan text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-lg">
+                            <span class="material-symbols-outlined">calendar_today</span>
+                            Plan een kennismaking
+                        </a>
+                        <a href="<?= $tel_href ?>" class="inline-flex items-center gap-2 bg-white/10 border-2 border-white/30 text-white px-6 py-4 rounded-full font-bold hover:bg-white hover:text-brandNavy transition-all">
+                            <span class="material-symbols-outlined">call</span>
+                            Bel direct: 06 13 94 31 86
+                        </a>
+                    </div>
+                    <p class="text-white/50 text-sm mt-4">Heeft u een andere vraag? We denken graag met u mee.</p>
+                </div>
             </div>
         </section>
 
+        <!-- Diensten Grid -->
         <section class="py-20 px-6 -mt-10">
-            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="service-card bg-white p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-100" onclick="openServiceModal(1)">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+                <!-- Dienst 1 -->
+                <div class="service-card bg-white p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-100 flex flex-col h-full" onclick="openServiceModal(1)">
                     <div class="icon-container w-16 h-16 bg-brandNavy/10 rounded-full flex items-center justify-center mb-6 transition-colors">
                         <span class="material-symbols-outlined text-4xl text-brandNavy transition-colors">cleaning_services</span>
                     </div>
                     <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">Volledige ontruiming</h3>
-                    <p class="text-gray-600 mb-6">Complete ontruiming van uw woning, garage of bedrijfspand. Alles wordt zorgvuldig verwijderd en de ruimte wordt veegschoon achtergelaten.</p>
-                    <ul class="space-y-2 text-sm text-gray-500">
+                    <p class="text-gray-600 mb-6 flex-grow">Complete ontruiming van uw woning, garage of bedrijfspand. Alles wordt zorgvuldig verwijderd en de ruimte wordt veegschoon achtergelaten.</p>
+                    <ul class="space-y-2 text-sm text-gray-500 mb-6">
                         <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Alle ruimtes</li>
                         <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Veegschoon</li>
                         <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Snelle service</li>
                     </ul>
-                    <div class="mt-6 pt-4 border-t border-gray-100">
-                        <span class="text-brandCyan font-semibold text-sm flex items-center gap-1">Meer info <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                    <div class="mt-auto pt-4 border-t border-gray-100">
+                        <span class="text-brandCyan font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Meer info <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
                     </div>
                 </div>
 
-                <div class="service-card bg-white p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-200" onclick="openServiceModal(2)">
+                <!-- Dienst 2 -->
+                <div class="service-card bg-white p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-200 flex flex-col h-full" onclick="openServiceModal(2)">
                     <div class="icon-container w-16 h-16 bg-brandNavy/10 rounded-full flex items-center justify-center mb-6 transition-colors">
                         <span class="material-symbols-outlined text-4xl text-brandNavy transition-colors">home</span>
                     </div>
                     <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">Woningontruiming</h3>
-                    <p class="text-gray-600 mb-6">Specialist in het ontruimen van woningen bij verhuizing, overlijden of verkoop. Met respect voor uw bezittingen en herinneringen.</p>
-                    <ul class="space-y-2 text-sm text-gray-500">
+                    <p class="text-gray-600 mb-6 flex-grow">Specialist in het ontruimen van woningen bij verhuizing, overlijden of verkoop. Met respect voor uw bezittingen en herinneringen.</p>
+                    <ul class="space-y-2 text-sm text-gray-500 mb-6">
                         <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Emotionele support</li>
                         <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Sorteren & herbestemmen</li>
                         <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Discrete service</li>
                     </ul>
-                    <div class="mt-6 pt-4 border-t border-gray-100">
-                        <span class="text-brandCyan font-semibold text-sm flex items-center gap-1">Meer info <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                    <div class="mt-auto pt-4 border-t border-gray-100">
+                        <span class="text-brandCyan font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Meer info <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
                     </div>
                 </div>
 
-                <div class="service-card bg-white p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-300" onclick="openServiceModal(3)">
+                <!-- Dienst 3 -->
+                <div class="service-card bg-white p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-300 flex flex-col h-full" onclick="openServiceModal(3)">
                     <div class="icon-container w-16 h-16 bg-brandNavy/10 rounded-full flex items-center justify-center mb-6 transition-colors">
-                        <span class="material-symbols-outlined text-4xl text-brandNavy transition-colors">garage</span>
+                        <span class="material-symbols-outlined text-4xl text-brandNavy transition-colors">home_work</span>
                     </div>
-                    <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">Garage & Zolder</h3>
-                    <p class="text-gray-600 mb-6">Opruiming van garage, zolder, berging of schuur. Ruimte creëren voor wat echt belangrijk is.</p>
-                    <ul class="space-y-2 text-sm text-gray-500">
-                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Complete leegmaking</li>
-                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Afval scheiden</li>
-                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Hergebruik waar mogelijk</li>
+                    <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">Opruimen & overzicht creëren</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">Voor wie meer rust en ruimte in huis wil, zonder te verhuizen. Stap voor stap, in uw eigen tempo.</p>
+                    <ul class="space-y-2 text-sm text-gray-500 mb-6">
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Opruimen van één of meerdere ruimtes</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Samen keuzes maken over spullen</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Structuur en overzicht creëren</li>
                     </ul>
-                    <div class="mt-6 pt-4 border-t border-gray-100">
-                        <span class="text-brandCyan font-semibold text-sm flex items-center gap-1">Meer info <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                    <div class="mt-auto pt-4 border-t border-gray-100">
+                        <span class="text-brandCyan font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Meer info <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
                     </div>
                 </div>
 
-                <div class="service-card bg-white p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-100" onclick="openServiceModal(4)">
-                    <div class="icon-container w-16 h-16 bg-brandNavy/10 rounded-full flex items-center justify-center mb-6 transition-colors">
-                        <span class="material-symbols-outlined text-4xl text-brandNavy transition-colors">diversity_1</span>
-                    </div>
-                    <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">Zorgeloos Afscheid</h3>
-                    <p class="text-gray-600 mb-6">Bij overlijden van een dierbare nemen wij u alle zorg uit handen. Discreet, empathisch en professioneel.</p>
-                    <ul class="space-y-2 text-sm text-gray-500">
-                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Volledige ontzorging</li>
-                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Herbestemming spullen</li>
-                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Coördinatie verhuizing</li>
-                    </ul>
-                    <div class="mt-6 pt-4 border-t border-gray-100">
-                        <span class="text-brandCyan font-semibold text-sm flex items-center gap-1">Meer info <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
-                    </div>
-                </div>
-
-                <div class="service-card bg-white p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-200" onclick="openServiceModal(5)">
+                <!-- Dienst 4 -->
+                <div class="service-card bg-white p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-100 flex flex-col h-full" onclick="openServiceModal(4)">
                     <div class="icon-container w-16 h-16 bg-brandNavy/10 rounded-full flex items-center justify-center mb-6 transition-colors">
                         <span class="material-symbols-outlined text-4xl text-brandNavy transition-colors">swap_horiz</span>
                     </div>
                     <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">Sorteren & Herbestemmen</h3>
-                    <p class="text-gray-600 mb-6">Samen bepalen wat er bewaard, verkocht, gedoneerd of afgevoerd wordt. Waardevolle items krijgen een passende bestemming — via verkoop, donatie aan goede doelen of hergebruik.</p>
-                    <ul class="space-y-2 text-sm text-gray-500">
+                    <p class="text-gray-600 mb-6 flex-grow">Samen bepalen wat er bewaard, verkocht, gedoneerd of afgevoerd wordt. Waardevolle items krijgen een passende bestemming.</p>
+                    <ul class="space-y-2 text-sm text-gray-500 mb-6">
                         <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Bewaren, verkopen, doneren of afvoeren</li>
                         <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Waardevolle items verkocht of gedoneerd</li>
                         <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Circulair & milieubewust</li>
                     </ul>
-                    <div class="mt-6 pt-4 border-t border-gray-100">
-                        <a href="contact.php" class="text-brandCyan font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">Meer info <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+                    <div class="mt-auto pt-4 border-t border-gray-100">
+                        <span class="text-brandCyan font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Meer info <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
                     </div>
                 </div>
 
-                <div class="service-card bg-white p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-300" onclick="openServiceModal(6)">
+                <!-- Dienst 5 -->
+                <div class="service-card bg-white p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-300 flex flex-col h-full" onclick="openServiceModal(5)">
                     <div class="icon-container w-16 h-16 bg-brandNavy/10 rounded-full flex items-center justify-center mb-6 transition-colors">
                         <span class="material-symbols-outlined text-4xl text-brandNavy transition-colors">cleaning_services</span>
                     </div>
                     <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">Schoonmaak & Oplevering</h3>
-                    <p class="text-gray-600 mb-6">Na de ontruiming wordt de woning bezemschoon opgeleverd. Coördinatie met woningcorporaties en verhuurders inbegrepen.</p>
-                    <ul class="space-y-2 text-sm text-gray-500">
+                    <p class="text-gray-600 mb-6 flex-grow">Na de ontruiming wordt de woning bezemschoon opgeleverd. Coördinatie met woningcorporaties en verhuurders inbegrepen.</p>
+                    <ul class="space-y-2 text-sm text-gray-500 mb-6">
                         <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Bezemschoon opleveren</li>
                         <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Coördinatie met corporaties</li>
                         <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Geen boetes achteraf</li>
                     </ul>
-                    <div class="mt-6 pt-4 border-t border-gray-100">
-                        <a href="contact.php" class="text-brandCyan font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">Meer info <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+                    <div class="mt-auto pt-4 border-t border-gray-100">
+                        <span class="text-brandCyan font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Meer info <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
                     </div>
                 </div>
 
-                <div class="service-card bg-brandCyan/10 border-2 border-brandCyan p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-100">
+                <!-- Dienst 7: Spoedontruiming -->
+                <div class="service-card bg-brandCyan/10 border-2 border-brandCyan p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-100 flex flex-col h-full">
                     <div class="icon-container w-16 h-16 bg-brandNavy/10 rounded-full flex items-center justify-center mb-6 transition-colors">
                         <span class="material-symbols-outlined text-4xl text-brandNavy transition-colors">bolt</span>
                     </div>
                     <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">Spoedontruiming</h3>
-                    <p class="text-gray-600 mb-6">Woning moet snel leeg? Jim staat klaar voor spoedklussen in regio Tilburg. Snel, professioneel en betrouwbaar.</p>
-                    <ul class="space-y-2 text-sm text-gray-500">
+                    <p class="text-gray-600 mb-6 flex-grow">Woning moet snel leeg? Jim staat klaar voor spoedklussen in regio Tilburg. Snel, professioneel en betrouwbaar.</p>
+                    <ul class="space-y-2 text-sm text-gray-500 mb-6">
                         <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Snelle inzet mogelijk</li>
                         <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Ook buiten kantoortijden</li>
                         <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Vaste prijs, geen verrassingen</li>
                     </ul>
-                    <div class="mt-6 pt-4 border-t border-brandCyan/30">
-                        <a href="contact.php" class="text-brandNavy font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">Direct contact <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+                    <div class="mt-auto pt-4 border-t border-brandCyan/30">
+                        <span class="text-brandNavy font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Direct contact <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
                     </div>
                 </div>
             </div>
         </section>
 
+
+        <!-- CTA Section -->
+        <section class="bg-brandNavy py-20 px-6" style="display:none">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 fade-in-up">
+                    <h2 class="font-headline text-4xl font-bold mb-4 text-white">Onze Pakketten</h2>
+                    <p class="text-white/70 max-w-2xl mx-auto">Kies het pakket dat bij uw situatie past. Alle prijzen zijn inclusief transport en arbeid. Na een kennismaking ontvangt u een vaste prijs.</p>
+                </div>
+
+                <!-- Prijstabel per woningtype -->
+                <div class="bg-white rounded-2xl cloud-shadow overflow-hidden mb-12 fade-in-up">
+                    <div class="bg-brandNavy text-white px-8 py-4 border-b border-white/20">
+                        <h3 class="font-headline text-xl font-bold">Prijsindicaties per woningtype</h3>
+                        <p class="text-white/70 text-sm">* Richtprijzen incl. btw. Exacte prijs na kennismaking op locatie.</p>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead class="bg-brandNavy/5">
+                                <tr>
+                                    <th class="text-left px-6 py-3 font-headline font-bold text-brandNavy">Type</th>
+                                    <th class="text-left px-6 py-3 font-headline font-bold text-brandNavy">Prijs vanaf</th>
+                                    <th class="text-left px-6 py-3 font-headline font-bold text-brandNavy hidden md:table-cell">Inbegrepen</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                                <tr class="hover:bg-brandNavy/5 transition-colors">
+                                    <td class="px-6 py-4 font-medium text-brandNavy"><span class="material-symbols-outlined text-sm align-middle mr-1 text-brandNavy">home_work</span> Opruimen & Overzicht (per dagdeel)</td>
+                                    <td class="px-6 py-4 font-bold text-brandCyan">Op aanvraag</td>
+                                    <td class="px-6 py-4 text-gray-500 hidden md:table-cell">Opruimen, structuur creëren, afvoer</td>
+                                </tr>
+                                <tr class="hover:bg-brandNavy/5 transition-colors">
+                                    <td class="px-6 py-4 font-medium text-brandNavy"><span class="material-symbols-outlined text-sm align-middle mr-1 text-brandNavy">bed</span> Seniorenkamer (ca. 35m²)</td>
+                                    <td class="px-6 py-4 font-bold text-brandCyan">Vanaf €395</td>
+                                    <td class="px-6 py-4 text-gray-500 hidden md:table-cell">Ontruiming, sortering, bezemschoon</td>
+                                </tr>
+                                <tr class="hover:bg-brandNavy/5 transition-colors">
+                                    <td class="px-6 py-4 font-medium text-brandNavy"><span class="material-symbols-outlined text-sm align-middle mr-1 text-brandNavy">apartment</span> Appartement (2–3 kamers)</td>
+                                    <td class="px-6 py-4 font-bold text-brandCyan">Vanaf €595</td>
+                                    <td class="px-6 py-4 text-gray-500 hidden md:table-cell">Complete ontruiming, afvoer</td>
+                                </tr>
+                                <tr class="hover:bg-brandNavy/5 transition-colors">
+                                    <td class="px-6 py-4 font-medium text-brandNavy"><span class="material-symbols-outlined text-sm align-middle mr-1 text-brandNavy">home</span> Eengezinswoning</td>
+                                    <td class="px-6 py-4 font-bold text-brandCyan">Vanaf €695</td>
+                                    <td class="px-6 py-4 text-gray-500 hidden md:table-cell">Volledige woning, bezemschoon</td>
+                                </tr>
+                                <tr class="hover:bg-brandNavy/5 transition-colors">
+                                    <td class="px-6 py-4 font-medium text-brandNavy"><span class="material-symbols-outlined text-sm align-middle mr-1 text-brandNavy">favorite</span> BEGELEID — Met aandacht en rust</td>
+                                    <td class="px-6 py-4 font-bold text-brandNavy">Op aanvraag</td>
+                                    <td class="px-6 py-4 text-gray-500 hidden md:table-cell">Volledig maatwerk, incl. begeleiding</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="px-8 py-4 bg-brandNavy/5 text-xs text-gray-500">
+                        Prijzen zijn incl. transport en arbeid. Exacte prijs na kennismaking op locatie.
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                    <!-- BASIS -->
+                    <div id="pakket-core" class="pricing-card bg-white p-8 rounded-2xl cloud-shadow text-center fade-in-up delay-100 scroll-mt-24">
+                        <div class="w-14 h-14 bg-brandNavy/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="material-symbols-outlined text-3xl text-brandNavy">home</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-bold text-brandNavy mb-1">BASIS</h3>
+                        <p class="text-gray-500 text-sm mb-2">Complete ontruiming</p>
+                        <div class="text-3xl font-bold text-brandNavy mb-1">Op aanvraag</div>
+                        <p class="text-xs text-gray-400 mb-6">Voor een snelle en duidelijke afhandeling</p>
+                        <ul class="space-y-3 text-left mb-8 text-sm">
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Complete woningontruiming</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Sorteren: bewaren / verkopen / doneren / afvoeren</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Schoonmaak &amp; bezemschoon oplevering</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Coördinatie met woningcorporaties</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Waardevolle items krijgen een goede bestemming</li>
+                        </ul>
+                        <a href="contact.php#formulier" class="block w-full border-2 border-brandNavy text-brandNavy py-3 rounded-full font-bold hover:bg-brandNavy hover:text-white transition-all text-sm">
+                            Kennismaking aanvragen
+                        </a>
+                    </div>
+
+                    <!-- BEGELEID (Featured) -->
+                    <div id="pakket-premium" class="pricing-card pricing-featured bg-brandNavy text-white p-8 rounded-2xl cloud-shadow transform md:scale-105 text-center relative fade-in-up delay-200 scroll-mt-24">
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brandCyan text-brandNavy px-4 py-1 rounded-full text-sm font-bold shadow-lg">
+                            Meest gevraagd
+                        </div>
+                        <div class="w-14 h-14 bg-brandCyan/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="material-symbols-outlined text-3xl text-brandCyan">favorite</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-bold mb-1">BEGELEID</h3>
+                        <p class="text-white/70 text-sm mb-2">Met aandacht en rust</p>
+                        <div class="text-3xl font-bold text-brandCyan mb-1">Op aanvraag</div>
+                        <p class="text-xs text-white/50 mb-6">Voor wie behoefte heeft aan ondersteuning</p>
+                        <ul class="space-y-3 text-left mb-8 text-sm">
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Alles uit BASIS</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Rustige begeleiding bij keuzes</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Tijd nemen voor herinneringen</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Familiegesprekken faciliteren</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Waardevolle items verkopen / doneren</li>
+                        </ul>
+                        <a href="contact.php#formulier" class="block w-full bg-brandCyan text-brandNavy py-3 rounded-full font-bold hover:bg-white transition-all text-sm">
+                            Begeleiding bespreken
+                        </a>
+                    </div>
+
+                    <!-- VOORBEREID & GEREGELD -->
+                    <div id="pakket-senior" class="pricing-card bg-white p-8 rounded-2xl cloud-shadow text-center fade-in-up delay-300 scroll-mt-24">
+                        <div class="w-14 h-14 bg-brandNavy/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="material-symbols-outlined text-3xl text-brandNavy">elderly</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-bold text-brandNavy mb-1">VOORBEREID &amp; GEREGELD</h3>
+                        <p class="text-gray-500 text-sm mb-2">Voor wie op tijd overzicht wil creëren</p>
+                        <div class="text-3xl font-bold text-brandNavy mb-1">Op aanvraag</div>
+                        <p class="text-xs text-gray-400 mb-6">Vooruit plannen zonder stress voor uzelf of uw kinderen</p>
+                        <ul class="space-y-3 text-left mb-8 text-sm">
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Inventarisatie van de woning</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Persoonlijk plan op maat</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Keuzes rustig vooraf vastleggen</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Kinderen worden niet belast</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Documentatie &amp; overzicht</li>
+                        </ul>
+                        <a href="contact.php#formulier" class="block w-full border-2 border-brandNavy text-brandNavy py-3 rounded-full font-bold hover:bg-brandNavy hover:text-white transition-all text-sm">
+                            Plan vooruit maken
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Extra sectie: Meer dan spullen weghalen -->
+        <section class="bg-brandNavy py-20 px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <!-- Linker kolom: Tekst -->
+                    <div class="fade-in-up">
+                        <p class="text-lg text-white/80 leading-relaxed mb-4">
+                            Een woning opruimen of ontruimen is vaak meer dan alleen spullen weghalen. Of u nu gaat verhuizen, kleiner wilt wonen of te maken heeft met een ingrijpende gebeurtenis — wij begrijpen dat dit veel kan vragen.
+                        </p>
+                        <p class="text-brandCyan font-medium text-lg">
+                            Jim Ruimt Op helpt u stap voor stap. Met aandacht voor wat praktisch nodig is én wat voor u belangrijk voelt.
+                        </p>
+                    </div>
+                    
+                    <!-- Rechter kolom: Doelgroepen -->
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 fade-in-up delay-100">
+                        <p class="font-headline font-bold text-brandCyan mb-6 flex items-center gap-2">
+                            <span class="material-symbols-outlined">diversity_3</span>
+                            Wij helpen vooral:
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3">
+                                <span class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="material-symbols-outlined text-white">elderly</span>
+                                </span>
+                                <span class="text-white/90">Senioren die willen opruimen of kleiner gaan wonen</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="material-symbols-outlined text-white">favorite</span>
+                                </span>
+                                <span class="text-white/90">Nabestaanden die een woning moeten ontruimen</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="material-symbols-outlined text-white">family_restroom</span>
+                                </span>
+                                <span class="text-white/90">Families die ontzorgd willen worden</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
         <section class="py-20 px-6">
             <div class="max-w-4xl mx-auto text-center fade-in-up">
                 <span class="font-script text-brandCyan text-3xl mb-4 block">Heeft u vragen?</span>
                 <h2 class="font-headline text-4xl font-bold mb-6 text-brandNavy">Laten we samen kijken wat u nodig heeft</h2>
                 <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Elke situatie is uniek. Neem contact op voor een vrijblijvend gesprek en een passende offerte.</p>
                 <a href="contact.php" class="inline-block bg-brandCyan text-brandNavy px-10 py-4 rounded-full font-bold text-lg hover:bg-brandNavy hover:text-white transition-all shadow-lg pulse-glow">
-                    Kennismaking Aanvragen
+                    Plan een kennismaking
                 </a>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-brandNavy text-white py-12 px-6">
         <div class="max-w-7xl mx-auto">
+            <!-- Grid: 5 kolommen op desktop, 2 op mobiel -->
             <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+                <!-- Kolom 1: Logo -->
                 <div class="col-span-2 md:col-span-1">
                     <a href="index.php" class="flex items-center gap-3 mb-3 hover:opacity-90 transition-opacity">
                         <img src="logo.png" alt="Jim Ruimt Op" class="w-14 h-14 object-contain"/>
@@ -290,6 +630,7 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                     </a>
                     <p class="text-white/70 text-sm">Specialist in ontruiming &amp; ontzorging in regio Tilburg.</p>
                 </div>
+                <!-- Kolom 2: Navigatie -->
                 <div>
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Navigatie</h4>
                     <ul class="space-y-2 text-white/70 text-sm">
@@ -300,6 +641,7 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                         <li><a href="contact.php" class="hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
+                <!-- Kolom 3: Werkgebied -->
                 <div>
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Werkgebied</h4>
                     <ul class="space-y-2 text-white/70 text-sm">
@@ -311,13 +653,17 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                         <li><a href="locatie.php?loc=udenhout" class="hover:text-white transition-colors">Udenhout</a></li>
                     </ul>
                 </div>
+                <!-- Kolom 4: Contact -->
                 <div>
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Contact</h4>
                     <p class="text-white/70 text-sm"><?= $adres ?><br/><?= $email ?><br/>Bel: <?= $telefoon ?></p>
                 </div>
+                <!-- Kolom 5: Direct contact -->
                 <div class="flex flex-col items-start md:items-end">
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Direct contact</h4>
-                    <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all text-sm md:text-base whitespace-nowrap">Contact Aanvragen</a>
+                    <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all text-sm md:text-base whitespace-nowrap">
+                        Contact Aanvragen
+                    </a>
                 </div>
             </div>
         </div>
@@ -326,6 +672,7 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
         </div>
     </footer>
 
+    <!-- Service Modal -->
     <div id="service-modal" class="modal">
         <div class="modal-content relative">
             <button onclick="closeServiceModal()" class="absolute top-4 right-4 w-10 h-10 bg-brandNavy text-white rounded-full flex items-center justify-center hover:bg-brandCyan hover:text-brandNavy transition-colors z-10">
@@ -336,20 +683,39 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
     </div>
 
     <script>
+        // Mobile menu toggle
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
+
+        // Scroll Progress Bar
         function updateProgressBar() {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            document.getElementById('progress-bar').style.width = ((scrollTop / docHeight) * 100) + '%';
+            const progress = (scrollTop / docHeight) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
         }
         window.addEventListener('scroll', updateProgressBar);
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .scale-in').forEach(el => observer.observe(el));
 
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .scale-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Service Modal Data
         const serviceData = {
             1: {
                 title: 'Volledige ontruiming',
@@ -368,22 +734,14 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                 price: 'Vanaf €495'
             },
             3: {
-                title: 'Garage & Zolder',
-                icon: 'garage',
-                description: 'Opruiming van garage, zolder, berging of schuur. Ruimte creëren voor wat echt belangrijk is.',
-                extra: 'Garages en zolders lopen vaak jarenlang vol zonder dat u er erg in heeft. Denk aan oude meubels, gereedschap, dozen met spullen die "ooit nog eens" handig zijn. Jim maakt de ruimte in een dag volledig leeg, scheidt afval van bruikbare spullen en levert stofvrij op. Ideaal ook als voorbereiding op een verbouwing of woningverkoop.',
-                features: ['Complete leegmaking in één dag', 'Afval scheiden & recyclen', 'Bruikbare spullen naar kringloop of verkoop', 'Stofvrij opleveren', 'Recyclingcertificaat op aanvraag'],
-                price: 'Vanaf €295'
-            },
-            4: {
-                title: 'Zorgeloos Afscheid',
-                icon: 'diversity_1',
-                description: 'Bij overlijden van een dierbare nemen wij u alle zorg uit handen. Discreet, empathisch en professioneel.',
-                extra: 'Na het verlies van een dierbare heeft u al genoeg aan uw hoofd. Jim neemt het volledige praktische traject over: van het inventariseren van de inboedel tot het regelen van contact met de makelaar, notaris of woningcorporatie. Er is alle tijd om samen te kijken wat er bewaard moet blijven — voor u of andere familieleden. Geen haast, geen oordeel.',
-                features: ['Volledige ontzorging op uw tempo', 'Persoonlijke begeleiding bij keuzes', 'Waardevolle items veiliggesteld', 'Coördinatie met makelaar / notaris / corporatie', 'Beschikbaar ook in het weekend'],
+                title: 'Opruimen & overzicht creëren',
+                icon: 'home_work',
+                description: 'Voor wie meer rust en ruimte in huis wil, zonder te verhuizen.',
+                extra: 'Wij helpen u stap voor stap met het opruimen en organiseren van uw woning, in uw eigen tempo en met aandacht voor wat belangrijk is. U hoeft niet alles in één keer te doen — wij plannen op uw ritme.',
+                features: ['Opruimen van één of meerdere ruimtes', 'Samen keuzes maken over spullen', 'Structuur en overzicht creëren', 'Afvoer van overtollige spullen'],
                 price: 'Op aanvraag'
             },
-            5: {
+            4: {
                 title: 'Sorteren & Herbestemmen',
                 icon: 'swap_horiz',
                 description: 'Vakkundige sortering en herbestemming van uw bezittingen.',
@@ -391,7 +749,7 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                 features: ['Samen beslissen wat er mee gaat', 'Regelen van verkoop via Marktplaats of kringloop', 'Spullen ophalen bij kringloopwinkels', 'Afvoer van restafval inbegrepen', 'Milieubewuste aanpak'],
                 price: 'Vanaf €125'
             },
-            6: {
+            5: {
                 title: 'Schoonmaak & Oplevering',
                 icon: 'cleaning_services',
                 description: 'Na de ontruiming wordt de woning bezemschoon opgeleverd, klaar voor inspectie.',
@@ -403,7 +761,6 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
 
         function openServiceModal(id) {
             const data = serviceData[id];
-            const telNummer = '<?= htmlspecialchars($contact['telefoon_link'] ?? '+31613943186') ?>';
             const content = `
                 <div class="bg-brandNavy text-white p-6 rounded-t-xl">
                     <div class="flex items-center gap-4">
@@ -423,13 +780,13 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
                         ${data.features.map(f => `<li class="flex items-center gap-2 text-gray-600 text-sm"><span class="material-symbols-outlined text-brandGreen text-base" style="font-size:18px">check_circle</span>${f}</li>`).join('')}
                     </ul>
                     <div class="border-t border-gray-100 pt-5 mt-2">
-                        <p class="text-xs text-gray-400 mb-4 text-center">Gratis kennismaking — geen verplichtingen, Jim denkt graag vrijblijvend mee.</p>
+                        <p class="text-xs text-gray-400 mb-4 text-center">Vrijblijvende kennismaking — geen verplichtingen, Jim denkt graag met u mee.</p>
                         <div class="flex flex-col sm:flex-row gap-3">
                             <a href="contact.php" class="flex-1 text-center bg-brandNavy text-white py-3 rounded-xl font-bold hover:bg-brandCyan hover:text-brandNavy transition-all flex items-center justify-center gap-2 text-sm">
                                 <span class="material-symbols-outlined text-lg">calendar_today</span>
                                 Kennismaking aanvragen
                             </a>
-                            <a href="tel:${telNummer}" class="flex-1 text-center border-2 border-brandNavy text-brandNavy py-3 rounded-xl font-bold hover:bg-brandNavy hover:text-white transition-all flex items-center justify-center gap-2 text-sm">
+                            <a href="<?= $tel_href ?>" class="flex-1 text-center border-2 border-brandNavy text-brandNavy py-3 rounded-xl font-bold hover:bg-brandNavy hover:text-white transition-all flex items-center justify-center gap-2 text-sm">
                                 <span class="material-symbols-outlined text-lg">call</span>
                                 Bel direct
                             </a>
@@ -447,14 +804,27 @@ $intro_tekst= t($p, 'intro_tekst', 'Van complete woningontruiming tot garageontr
             document.body.style.overflow = '';
         }
 
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeServiceModal(); });
+        // Close modals on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeServiceModal();
+            }
+        });
+
+        // Close modals on background click
         document.querySelectorAll('.modal').forEach(modal => {
             modal.addEventListener('click', (e) => {
-                if (e.target === modal) { modal.classList.remove('active'); document.body.style.overflow = ''; }
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
             });
         });
 
-        document.addEventListener('DOMContentLoaded', () => { updateProgressBar(); });
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateProgressBar();
+        });
     </script>
 </body>
 </html>
