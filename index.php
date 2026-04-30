@@ -595,8 +595,8 @@ $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren 
                 <div class="fade-in-right delay-200">
                     <h2 class="font-headline text-3xl font-bold mb-2 text-brandNavy">Contact of bel terug</h2>
                     <p class="text-gray-500 mb-6 text-sm flex items-center gap-1"><span class="material-symbols-outlined text-brandCyan text-base">verified</span> Ik reageer binnen 48 uur</p>
-                    <form id="contact-form" action="#" method="POST" class="space-y-4 bg-white p-6 rounded-xl cloud-shadow">
-                        <div class="grid grid-cols-2 gap-4">
+                    <form id="contact-form" action="#" method="POST" class="space-y-4 bg-white p-5 md:p-6 rounded-xl cloud-shadow">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label for="first-name" class="sr-only">Naam</label>
                                 <input type="text" id="first-name" name="first-name" placeholder="Naam" class="w-full border-none rounded-xl bg-white p-4 focus:ring-2 focus:ring-brandNavy shadow-sm"/>

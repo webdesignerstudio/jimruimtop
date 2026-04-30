@@ -239,16 +239,16 @@ $adres        = t($contact, 'adres', 'Tilburg');
 
     <main>
         <!-- Hero -->
-        <section class="bg-brandNavy text-white py-20 px-6">
+        <section class="bg-brandNavy text-white py-10 md:py-20 px-4 md:px-6">
             <div class="max-w-4xl mx-auto text-center fade-in-up">
                 <span class="font-script text-brandCyan text-3xl mb-4 block"><?= t($p, 'hero_script', 'Het resultaat spreekt voor zich') ?></span>
-                <h1 class="font-headline text-5xl md:text-6xl font-bold mb-4"><?= t($p, 'hero_kop', "Foto's &amp; Resultaten") ?></h1>
+                <h1 class="font-headline text-3xl md:text-5xl lg:text-6xl font-bold mb-4"><?= t($p, 'hero_kop', "Foto's &amp; Resultaten") ?></h1>
                 <p class="text-xl text-white/80 max-w-2xl mx-auto"><?= t($p, 'hero_subtekst', 'Van vol en overweldigend naar leeg en bezemschoon. Bekijk het verschil dat Jim maakt — in woningen door heel Tilburg en omstreken.') ?></p>
             </div>
         </section>
 
         <!-- Voor / Na Sliders -->
-        <section class="py-20 px-6">
+        <section class="py-10 md:py-20 px-4 md:px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12 fade-in-up">
                     <h2 class="font-headline text-4xl font-bold text-brandNavy mb-3">Voor & Na</h2>
@@ -324,7 +324,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
         </section>
 
         <!-- Fotogalerij -->
-        <section class="bg-brandCream py-20 px-6">
+        <section class="bg-brandCream py-10 md:py-20 px-4 md:px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12 fade-in-up">
                     <h2 class="font-headline text-4xl font-bold text-brandNavy mb-3"><?= t($p, 'gallerij_kop', 'Galerij') ?></h2>
@@ -350,7 +350,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
         </section>
 
         <!-- CTA -->
-        <section class="py-20 px-6">
+        <section class="py-10 md:py-20 px-4 md:px-6">
             <div class="max-w-4xl mx-auto text-center fade-in-up">
                 <span class="font-script text-brandCyan text-3xl mb-4 block"><?= t($p, 'cta_script', 'Zo kan uw woning er ook uitzien') ?></span>
                 <h2 class="font-headline text-4xl font-bold text-brandNavy mb-6"><?= t($p, 'cta_kop', 'Klaar voor een frisse start?') ?></h2>
@@ -363,7 +363,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brandNavy text-white py-12 px-6">
+    <footer class="bg-brandNavy text-white py-10 md:py-12 px-4 md:px-6">
         <div class="max-w-7xl mx-auto">
             <!-- Grid: 5 kolommen op desktop, 2 op mobiel -->
             <div class="grid grid-cols-2 md:grid-cols-5 gap-8">

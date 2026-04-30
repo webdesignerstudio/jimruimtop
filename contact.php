@@ -306,11 +306,11 @@ $adres        = t($contact, 'adres', 'Tilburg');
 
     <main class="flex-grow">
         <!-- Hero Section -->
-        <section class="relative bg-gradient-to-br from-brandNavy to-brandNavy/80 text-white py-24 overflow-hidden">
-            <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <section class="relative bg-gradient-to-br from-brandNavy to-brandNavy/80 text-white py-12 md:py-24 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
                 <div class="max-w-2xl fade-in-left">
                     <span class="font-script text-brandCyan text-3xl mb-4 block"><?= t($p, 'hero_script', 'Laten we kennismaken') ?></span>
-                    <h1 class="font-headline text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-6"><?= t($p, 'hero_kop', 'Een schone lei begint met een goed gesprek.') ?></h1>
+                    <h1 class="font-headline text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-4 md:mb-6"><?= t($p, 'hero_kop', 'Een schone lei begint met een goed gesprek.') ?></h1>
                     <p class="text-white/80 text-lg md:text-xl font-medium leading-relaxed mb-8">
                         <?= t($p, 'hero_subtekst', 'Zet vandaag de eerste stap naar rust en overzicht. Mijn kennismaking is altijd vrijblijvend en op uw tempo.') ?>
                     </p>
@@ -323,10 +323,10 @@ $adres        = t($contact, 'adres', 'Tilburg');
         </section>
 
         <!-- Main Contact Canvas -->
-        <section class="max-w-7xl mx-auto px-6 py-20 -mt-16 relative z-20">
+        <section class="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-20 mt-0 md:-mt-16 relative z-20">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                 <!-- Contact Form Card -->
-                <div class="lg:col-span-7 bg-white p-8 md:p-12 rounded-2xl cloud-shadow relative overflow-hidden fade-in-up">
+                <div class="lg:col-span-7 bg-white p-5 md:p-8 lg:p-12 rounded-2xl cloud-shadow relative overflow-hidden fade-in-up">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-brandCyan/10 rounded-bl-full"></div>
                     <h2 class="font-headline text-3xl font-bold text-brandNavy mb-2">Stuur een bericht</h2>
                     <div class="flex items-center gap-2 mb-8">
@@ -340,7 +340,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
                         </span>
                     </div>
                     <form id="contact-form" class="space-y-6" action="#" method="POST">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                             <div class="space-y-2">
                                 <label for="name" class="block font-headline text-sm font-bold text-gray-600">Volledige Naam *</label>
                                 <input type="text" id="name" name="name" placeholder="Uw naam" required class="form-input w-full bg-white border border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-brandNavy"/>
@@ -457,7 +457,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
         </section>
 
         <!-- FAQ / Call to Action -->
-        <section class="bg-brandNavy/5 py-20 px-6">
+        <section class="bg-brandNavy/5 py-10 md:py-20 px-4 md:px-6">
             <div class="max-w-3xl mx-auto">
                 <h2 class="font-headline text-3xl font-bold text-brandNavy mb-8 text-center fade-in-up">Veelgestelde vragen</h2>
                 <div class="space-y-4">
@@ -502,7 +502,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
         </section>
 
         <!-- Emergency CTA -->
-        <section class="py-16 px-6">
+        <section class="py-8 md:py-16 px-4 md:px-6">
             <div class="max-w-4xl mx-auto text-center bg-brandNavy text-white p-12 rounded-2xl fade-in-up">
                 <span class="material-symbols-outlined text-5xl text-brandCyan mb-4 pulse-emergency inline-block">emergency</span>
                 <h2 class="font-headline text-3xl font-bold mb-4">Spoed? Bel direct!</h2>
@@ -515,7 +515,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brandNavy text-white py-12 px-6">
+    <footer class="bg-brandNavy text-white py-10 md:py-12 px-4 md:px-6">
         <div class="max-w-7xl mx-auto">
             <!-- Grid: 5 kolommen op desktop, 2 op mobiel -->
             <div class="grid grid-cols-2 md:grid-cols-5 gap-8">

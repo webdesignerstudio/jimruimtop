@@ -306,7 +306,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
 
     <main>
         <!-- Hero Section -->
-        <section class="bg-brandNavy text-white py-16 px-6">
+        <section class="bg-brandNavy text-white py-10 md:py-16 px-4 md:px-6">
             <div class="max-w-5xl mx-auto">
                 <!-- Hoofd titel -->
                 <div class="text-center mb-10 fade-in-up">
@@ -333,7 +333,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
         </section>
 
         <!-- Diensten Grid -->
-        <section class="py-20 px-6 -mt-10">
+        <section class="py-10 md:py-20 px-4 md:px-6 mt-0 md:-mt-10">
             <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
                 <!-- Dienst 1 -->
                 <div class="service-card bg-white p-8 rounded-2xl cloud-shadow cursor-pointer fade-in-up delay-100 flex flex-col h-full" onclick="openServiceModal(1)">
@@ -568,7 +568,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
         </section>
 
         <!-- Extra sectie: Meer dan spullen weghalen -->
-        <section class="bg-brandNavy py-20 px-6">
+        <section class="bg-brandNavy py-10 md:py-20 px-4 md:px-6">
             <div class="max-w-4xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-12 items-start">
                     <!-- Linker kolom: Tekst -->
@@ -613,7 +613,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
         </section>
 
         <!-- CTA Section -->
-        <section class="py-20 px-6">
+        <section class="py-10 md:py-20 px-4 md:px-6">
             <div class="max-w-4xl mx-auto text-center fade-in-up">
                 <span class="font-script text-brandCyan text-3xl mb-4 block">Heeft u vragen?</span>
                 <h2 class="font-headline text-4xl font-bold mb-6 text-brandNavy">Laten we samen kijken wat u nodig heeft</h2>
@@ -626,7 +626,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brandNavy text-white py-12 px-6">
+    <footer class="bg-brandNavy text-white py-10 md:py-12 px-4 md:px-6">
         <div class="max-w-7xl mx-auto">
             <!-- Grid: 5 kolommen op desktop, 2 op mobiel -->
             <div class="grid grid-cols-2 md:grid-cols-5 gap-8">

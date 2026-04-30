@@ -258,11 +258,11 @@ $adres        = t($contact, 'adres', 'Tilburg');
 
     <main>
         <!-- Hero Section -->
-        <section class="relative overflow-hidden pt-20 pb-32 px-6">
-            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+        <section class="relative overflow-hidden pt-10 pb-12 md:pb-24 px-4 md:px-6">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16">
                 <div class="w-full md:w-1/2 z-10 fade-in-left">
                     <span class="font-script text-brandCyan text-3xl mb-4 block"><?= t($p, 'hero_script', 'Gedreven door zorg') ?></span>
-                    <h1 class="font-headline text-5xl md:text-6xl font-bold text-brandNavy leading-tight mb-6">
+                    <h1 class="font-headline text-3xl md:text-5xl lg:text-6xl font-bold text-brandNavy leading-tight mb-4 md:mb-6">
                         <?= t($p, 'hero_kop', 'Het Gezicht Achter De Rust.') ?>
                     </h1>
                     <p class="text-lg text-gray-600 max-w-xl leading-relaxed mb-8">
@@ -290,7 +290,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
         </section>
 
         <!-- Story Section -->
-        <section class="bg-brandNavy py-24 px-6">
+        <section class="bg-brandNavy py-12 md:py-24 px-4 md:px-6">
             <div class="max-w-7xl mx-auto">
 
                 <!-- Feitenbalk -->
@@ -343,7 +343,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
                             </div>
                         </div>
                     </div>
-                    <div class="md:col-span-7 order-1 md:order-2 relative h-[400px] md:h-[500px] fade-in-right delay-200">
+                    <div class="md:col-span-7 order-1 md:order-2 relative h-[220px] md:h-[500px] fade-in-right delay-200">
                         <img src="herofoto.jpg" alt="Jim helpt bij het zorgvuldig sorteren van inboedel na overlijden" class="w-full h-full object-cover rounded-xl grayscale-[20%] img-hover-zoom"/>
                     </div>
                 </div>
@@ -351,7 +351,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
         </section>
 
         <!-- Values: Bento Grid -->
-        <section class="py-24 px-6">
+        <section class="py-12 md:py-24 px-4 md:px-6">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16 fade-in-up">
                     <h2 class="font-headline text-4xl font-bold text-brandNavy mb-4"><?= t($p, 'werkwijze_kop', 'Mijn Werkwijze in Tilburg') ?></h2>
@@ -389,7 +389,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
         </section>
 
         <!-- Final CTA -->
-        <section class="py-24 px-6">
+        <section class="py-12 md:py-24 px-4 md:px-6">
             <div class="max-w-4xl mx-auto text-center fade-in-up">
                 <span class="font-script text-brandCyan text-4xl mb-6 block">Klaar voor een schone start?</span>
                 <h2 class="font-headline text-4xl font-bold text-brandNavy mb-8">Laten we samen die eerste stap zetten.</h2>
@@ -410,7 +410,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brandNavy text-white py-12 px-6">
+    <footer class="bg-brandNavy text-white py-10 md:py-12 px-4 md:px-6">
         <div class="max-w-7xl mx-auto">
             <!-- Grid: 5 kolommen op desktop, 2 op mobiel -->
             <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
