@@ -59,7 +59,8 @@ $adres        = t($contact, 'adres', 'Tilburg');
         }
     </script>
     <style>
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { overflow-x: hidden; }
         #progress-bar {
             position: fixed; top: 0; left: 0; height: 3px;
             background: linear-gradient(90deg, #5BCEFF, #1A436D);
@@ -403,9 +404,9 @@ $adres        = t($contact, 'adres', 'Tilburg');
                     <p class="text-white/70 text-sm"><?= $adres ?><br/><?= $email ?><br/>Bel: <?= $telefoon ?></p>
                 </div>
                 <!-- Kolom 5: Direct contact -->
-                <div class="flex flex-col items-start md:items-end">
+                <div class="col-span-2 md:col-span-1 flex flex-col items-start md:items-end">
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Direct contact</h4>
-                    <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all text-sm md:text-base whitespace-nowrap">
+                    <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all text-sm md:text-base text-center w-full md:w-auto">
                         Contact Aanvragen
                     </a>
                 </div>

@@ -95,7 +95,8 @@ $wa_url     = whatsapp_url($contact);
     </script>
     <style>
         #progress-bar { position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#5BCEFF,#1A436D);z-index:9999;transition:width 0.1s ease; }
-        html { scroll-behavior:smooth; }
+        html { scroll-behavior:smooth; overflow-x:hidden; }
+        body { overflow-x:hidden; }
         .card-tilted-left { transform:rotate(-5deg) translateY(20px);transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275); }
         .card-center { transform:translateY(-20px);z-index:20;transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275); }
         .card-tilted-right { transform:rotate(5deg) translateY(20px);transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275); }
@@ -179,12 +180,12 @@ $wa_url     = whatsapp_url($contact);
 
     <main>
         <!-- Hero Section -->
-        <section class="relative overflow-visible pt-16 pb-32 px-6 max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 items-center gap-16">
+        <section class="relative overflow-hidden pt-10 pb-12 md:pb-32 px-4 md:px-6 max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 items-center gap-8 md:gap-16">
                 <div class="z-10 fade-in-right">
                     <p class="text-xs font-bold tracking-widest text-brandCyan uppercase mb-3">Werkgebied</p>
-                    <h1 class="font-headline text-5xl md:text-6xl font-extrabold leading-tight mb-4 text-brandNavy break-words" style="letter-spacing:-0.02em"><?= $h1 ?></h1>
-                    <p class="text-brandCyan text-3xl md:text-4xl mb-6" style="font-family:'Playfair Display',serif;font-style:italic;font-weight:600;letter-spacing:-0.01em">Zorgeloos geregeld!</p>
+                    <h1 class="font-headline text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 text-brandNavy break-words" style="letter-spacing:-0.02em"><?= $h1 ?></h1>
+                    <p class="text-brandCyan text-2xl md:text-3xl lg:text-4xl mb-6" style="font-family:'Playfair Display',serif;font-style:italic;font-weight:600;letter-spacing:-0.01em">Zorgeloos geregeld!</p>
                     <p class="text-gray-600 leading-relaxed mb-8 text-base max-w-lg"><?= $intro ?></p>
                     <div class="flex flex-wrap gap-4">
                         <a href="contact.php" class="inline-block bg-brandCyan text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-lg pulse-glow">
@@ -231,11 +232,11 @@ $wa_url     = whatsapp_url($contact);
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
                     <!-- OPRUIMEN & OVERZICHT -->
-                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-7 rounded-2xl cloud-shadow flex flex-col h-full">
-                        <div class="mb-4 text-brandNavy"><span class="material-symbols-outlined text-5xl">home_work</span></div>
-                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy min-h-[64px] flex items-end">OPRUIMEN &amp; OVERZICHT</h3>
-                        <p class="text-gray-600 mb-6" style="min-height:120px">Voor wie meer rust en ruimte in huis wil, zonder te verhuizen. Stap voor stap opruimen en organiseren in uw eigen tempo.</p>
-                        <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
+                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-4 md:p-7 rounded-2xl cloud-shadow flex flex-col h-full">
+                        <div class="mb-3 md:mb-4 text-brandNavy"><span class="material-symbols-outlined text-4xl md:text-5xl">home_work</span></div>
+                        <h3 class="font-headline text-xl md:text-2xl font-bold mb-2 md:mb-4 text-brandNavy md:min-h-[64px] md:flex md:items-end">OPRUIMEN &amp; OVERZICHT</h3>
+                        <p class="text-gray-600 mb-3 md:mb-6 text-sm md:text-base">Voor wie meer rust en ruimte in huis wil, zonder te verhuizen. Stap voor stap opruimen en organiseren in uw eigen tempo.</p>
+                        <ul class="text-left space-y-2 mb-3 md:mb-6 text-sm w-full flex-grow">
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Opruimen van één of meerdere ruimtes</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Samen keuzes maken over spullen</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Structuur en overzicht creëren</li>
@@ -243,11 +244,11 @@ $wa_url     = whatsapp_url($contact);
                         <a href="contact.php#formulier" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">Kennismaking aanvragen</a>
                     </div>
                     <!-- BASIS -->
-                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-7 rounded-2xl cloud-shadow flex flex-col h-full">
-                        <div class="mb-4 text-brandNavy"><span class="material-symbols-outlined text-5xl">home</span></div>
-                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy min-h-[64px] flex items-end">BASIS</h3>
-                        <p class="text-gray-600 mb-6" style="min-height:120px">Complete ontruiming voor een snelle en duidelijke afhandeling.</p>
-                        <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
+                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-4 md:p-7 rounded-2xl cloud-shadow flex flex-col h-full">
+                        <div class="mb-3 md:mb-4 text-brandNavy"><span class="material-symbols-outlined text-4xl md:text-5xl">home</span></div>
+                        <h3 class="font-headline text-xl md:text-2xl font-bold mb-2 md:mb-4 text-brandNavy md:min-h-[64px] md:flex md:items-end">BASIS</h3>
+                        <p class="text-gray-600 mb-3 md:mb-6 text-sm md:text-base">Complete ontruiming voor een snelle en duidelijke afhandeling.</p>
+                        <ul class="text-left space-y-2 mb-3 md:mb-6 text-sm w-full flex-grow">
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Woningontruiming</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Afvoer van inboedel</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Bezemschoon oplevering</li>
@@ -255,12 +256,12 @@ $wa_url     = whatsapp_url($contact);
                         <a href="contact.php?onderwerp=core#formulier" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">Kennismaking aanvragen</a>
                     </div>
                     <!-- BEGELEID (featured) -->
-                    <div class="pricing-card bg-brandCyan/20 border-2 border-brandCyan p-7 rounded-2xl cloud-shadow flex flex-col relative h-full">
+                    <div class="pricing-card bg-brandCyan/20 border-2 border-brandCyan p-4 md:p-7 rounded-2xl cloud-shadow flex flex-col relative h-full">
                         <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brandNavy text-white px-4 py-1 rounded-full text-xs font-bold whitespace-nowrap">MEEST GEVRAAGD</div>
-                        <div class="mb-4 text-brandNavy"><span class="material-symbols-outlined text-5xl">favorite</span></div>
-                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy min-h-[64px] flex items-end">BEGELEID</h3>
-                        <p class="text-gray-600 mb-6" style="min-height:120px">Met aandacht en rust. Voor wie behoefte heeft aan ondersteuning en overzicht.</p>
-                        <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
+                        <div class="mb-3 md:mb-4 text-brandNavy"><span class="material-symbols-outlined text-4xl md:text-5xl">favorite</span></div>
+                        <h3 class="font-headline text-xl md:text-2xl font-bold mb-2 md:mb-4 text-brandNavy md:min-h-[64px] md:flex md:items-end">BEGELEID</h3>
+                        <p class="text-gray-600 mb-3 md:mb-6 text-sm md:text-base">Met aandacht en rust. Voor wie behoefte heeft aan ondersteuning en overzicht.</p>
+                        <ul class="text-left space-y-2 mb-3 md:mb-6 text-sm w-full flex-grow">
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Alles uit basis</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Hulp bij sorteren &amp; keuzes maken</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Rustige begeleiding tijdens het proces</li>
@@ -268,11 +269,11 @@ $wa_url     = whatsapp_url($contact);
                         <a href="contact.php?onderwerp=premium#formulier" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold hover:bg-brandCyan hover:text-brandNavy transition-all text-sm">Begeleiding bespreken</a>
                     </div>
                     <!-- VOORBEREID & GEREGELD -->
-                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-7 rounded-2xl cloud-shadow flex flex-col h-full">
-                        <div class="mb-4 text-brandNavy"><span class="material-symbols-outlined text-5xl">elderly</span></div>
-                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy min-h-[64px] flex items-end">VOORBEREID &amp; GEREGELD</h3>
-                        <p class="text-gray-600 mb-6" style="min-height:120px">Voor wie op tijd overzicht en duidelijkheid wil creëren.</p>
-                        <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
+                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-4 md:p-7 rounded-2xl cloud-shadow flex flex-col h-full">
+                        <div class="mb-3 md:mb-4 text-brandNavy"><span class="material-symbols-outlined text-4xl md:text-5xl">elderly</span></div>
+                        <h3 class="font-headline text-xl md:text-2xl font-bold mb-2 md:mb-4 text-brandNavy md:min-h-[64px] md:flex md:items-end">VOORBEREID &amp; GEREGELD</h3>
+                        <p class="text-gray-600 mb-3 md:mb-6 text-sm md:text-base">Voor wie op tijd overzicht en duidelijkheid wil creëren.</p>
+                        <ul class="text-left space-y-2 mb-3 md:mb-6 text-sm w-full flex-grow">
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Inventarisatie van de woning</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Persoonlijk plan</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Familie ontlasten</li>
@@ -292,7 +293,7 @@ $wa_url     = whatsapp_url($contact);
         </section>
 
         <!-- Hoe werkt het -->
-        <section class="py-20 px-6">
+        <section class="py-12 md:py-20 px-4 md:px-6">
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-14 fade-in-up">
                     <h2 class="font-headline text-4xl font-bold mb-4 text-brandNavy">Hoe werkt het?</h2>
@@ -319,7 +320,7 @@ $wa_url     = whatsapp_url($contact);
         </section>
 
         <!-- Trust badges -->
-        <section class="bg-brandNavy py-8 px-6">
+        <section class="bg-brandNavy py-8 px-4 md:px-6">
             <div class="max-w-5xl mx-auto">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
                     <div class="fade-in-up"><span class="material-symbols-outlined text-brandCyan text-3xl mb-1 block">store</span><p class="text-xs font-bold uppercase tracking-wide text-white/80">KvK geregistreerd</p></div>
@@ -331,7 +332,7 @@ $wa_url     = whatsapp_url($contact);
         </section>
 
         <!-- Review & Contact -->
-        <section class="bg-brandCyan/10 py-16 px-6">
+        <section class="bg-brandCyan/10 py-10 md:py-16 px-4 md:px-6">
             <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
                 <div class="fade-in-left">
                     <h2 class="font-headline text-3xl font-bold mb-6 text-brandNavy">Wat klanten zeggen</h2>
@@ -372,7 +373,7 @@ $wa_url     = whatsapp_url($contact);
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brandNavy text-white py-12 px-6">
+    <footer class="bg-brandNavy text-white py-10 md:py-12 px-4 md:px-6">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
                 <!-- Kolom 1: Logo -->
@@ -412,9 +413,9 @@ $wa_url     = whatsapp_url($contact);
                     <p class="text-white/70 text-sm">Tilburg<br/>info@jimruimt-op.nl<br/>Bel: <?= $telefoon ?></p>
                 </div>
                 <!-- Kolom 5: Direct contact -->
-                <div class="flex flex-col items-start md:items-end">
+                <div class="col-span-2 md:col-span-1 flex flex-col items-start md:items-end">
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Direct contact</h4>
-                    <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all">Contact Aanvragen</a>
+                    <a href="contact.php" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all text-center w-full md:w-auto">Contact Aanvragen</a>
                 </div>
             </div>
         </div>
