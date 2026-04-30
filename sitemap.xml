@@ -1,74 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+
   <!-- Homepage -->
   <url>
     <loc>https://www.jimruimtop.nl/</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
-  <!-- Diensten Page -->
+
+  <!-- Diensten -->
   <url>
-    <loc>https://www.jimruimtop.nl/diensten.html</loc>
-    <lastmod>2025-07-10</lastmod>
+    <loc>https://www.jimruimtop.nl/diensten.php</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  
-  <!-- Over Mij Page -->
+
+  <!-- Over Ons -->
   <url>
-    <loc>https://www.jimruimtop.nl/over-mij.html</loc>
-    <lastmod>2025-07-10</lastmod>
+    <loc>https://www.jimruimtop.nl/over-mij.php</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- Contact Page -->
+
+  <!-- Contact -->
   <url>
-    <loc>https://www.jimruimtop.nl/contact.html</loc>
-    <lastmod>2025-07-10</lastmod>
+    <loc>https://www.jimruimtop.nl/contact.php</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  
-  <!-- Foto's Page -->
+
+  <!-- Foto's -->
   <url>
-    <loc>https://www.jimruimtop.nl/fotos.html</loc>
-    <lastmod>2025-04-15</lastmod>
+    <loc>https://www.jimruimtop.nl/fotos.php</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Locatiepagina's -->
+  <!-- Locatiepagina's (schone SEO-URLs) -->
   <url>
-    <loc>https://www.jimruimtop.nl/woningontruiming-berkel-enschot.html</loc>
-    <lastmod>2026-04-23</lastmod>
+    <loc>https://www.jimruimtop.nl/woningontruiming-berkel-enschot</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.jimruimtop.nl/woningontruiming-oisterwijk.html</loc>
-    <lastmod>2026-04-23</lastmod>
+    <loc>https://www.jimruimtop.nl/woningontruiming-oisterwijk</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.jimruimtop.nl/woningontruiming-goirle.html</loc>
-    <lastmod>2026-04-23</lastmod>
+    <loc>https://www.jimruimtop.nl/woningontruiming-goirle</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.jimruimtop.nl/woningontruiming-hilvarenbeek.html</loc>
-    <lastmod>2026-04-23</lastmod>
+    <loc>https://www.jimruimtop.nl/woningontruiming-hilvarenbeek</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.jimruimtop.nl/woningontruiming-udenhout.html</loc>
-    <lastmod>2026-04-23</lastmod>
+    <loc>https://www.jimruimtop.nl/woningontruiming-udenhout</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
