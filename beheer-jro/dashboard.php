@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $toegestane_paginas = ['index', 'diensten', 'over_mij', 'contact', 'fotos'];
             if (in_array($pagina, $toegestane_paginas, true)) {
                 if (!isset($teksten[$pagina])) $teksten[$pagina] = [];
-                $html_velden = ['hero_subtekst', 'verhaal_tekst_1', 'verhaal_tekst_2', 'intro_tekst'];
+                $html_velden = ['hero_subtekst', 'hero_tekst', 'verhaal_tekst_1', 'verhaal_tekst_2', 'intro_tekst'];
                 foreach ($_POST as $sleutel => $waarde) {
                     if ($sleutel === 'actie' || $sleutel === 'pagina' || $sleutel === 'csrf_token') continue;
                     $waarde = trim($waarde);
@@ -269,6 +269,8 @@ $csrf = csrf_token();
                         $velden = [
                             'hero_kop'          => ['Hero — bedrijfsnaam / kop', 'text'],
                             'hero_tagline'      => ['Hero — tagline (cursief onder kop)', 'text'],
+                            'hero_sub'          => ['Hero — subtitel (h3)', 'text'],
+                            'hero_tekst'        => ['Hero — bodytekst onder subtitel', 'textarea'],
                             'hero_quote'        => ['Hero — citaat onderaan foto', 'text'],
                             'diensten_kop'      => ['Diensten sectie — kop', 'text'],
                             'diensten_subtekst' => ['Diensten sectie — subtekst', 'textarea'],
@@ -305,6 +307,8 @@ $csrf = csrf_token();
                 <div class="preview-panel">
                     <div class="pv-kop pv-headline" id="pv-hero_kop"><?= htmlspecialchars($v['hero_kop'] ?? '') ?></div>
                     <div class="mt-1 mb-2" style="font-family:'Dancing Script',cursive;font-size:1.1rem;color:#5BCEFF" id="pv-hero_tagline"><?= htmlspecialchars($v['hero_tagline'] ?? '') ?></div>
+                    <div class="mt-2 font-bold text-white text-sm" id="pv-hero_sub"><?= htmlspecialchars($v['hero_sub'] ?? '') ?></div>
+                    <div class="mt-1 text-xs text-white/70" id="pv-hero_tekst"><?= htmlspecialchars($v['hero_tekst'] ?? '') ?></div>
                     <div class="mt-3 text-xs italic text-white/50" id="pv-hero_quote">"<?= htmlspecialchars($v['hero_quote'] ?? '') ?>"</div>
                 </div>
                 <!-- Diensten preview -->

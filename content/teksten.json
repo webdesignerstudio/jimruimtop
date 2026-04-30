@@ -2,23 +2,25 @@
     "index": {
         "hero_kop": "Jim Ruimt Op",
         "hero_tagline": "Zorgeloos geregeld!",
+        "hero_sub": "Woningontruiming zonder zorgen",
+        "hero_tekst": "Wij ontzorgen senioren en nabestaanden bij woningontruiming, met aandacht voor wat praktisch nodig is én wat emotioneel belangrijk is.",
         "hero_quote": "Ruimte creëren in huis is ruimte creëren in het hoofd.",
         "diensten_kop": "Woningontruiming in Tilburg",
         "diensten_subtekst": "Professionele ondersteuning voor alle ontruimingswerkzaamheden in regio Tilburg — van garage tot complete woning.",
         "hoe_werkt_kop": "Hoe werkt het?",
         "hoe_werkt_subtekst": "In drie eenvoudige stappen regelen we alles voor u.",
-        "stap1_kop": "Gratis Intake",
-        "stap1_tekst": "Jim komt langs voor een vrijblijvende inspectie op locatie. Geen kosten, geen verplichtingen.",
-        "stap2_kop": "Duidelijke Offerte",
-        "stap2_tekst": "Binnen 48 uur ontvangt u een vaste prijs. Transparant, eerlijk, zonder verborgen kosten.",
-        "stap3_kop": "Ik Regel Alles",
-        "stap3_tekst": "Van inboedel sorteren tot bezemschoon opleveren. U hoeft er niet bij te zijn als u dat niet wilt."
+        "stap1_kop": "Kennismaking",
+        "stap1_tekst": "Wij komen langs en bespreken uw situatie. Vrijblijvend en zonder verplichtingen.",
+        "stap2_kop": "Duidelijke afspraken",
+        "stap2_tekst": "U ontvangt een heldere offerte, zonder verrassingen.",
+        "stap3_kop": "Wij ontzorgen u.",
+        "stap3_tekst": "Van opruimen tot oplevering."
     },
     "diensten": {
-        "hero_kop": "Woningontruiming in Tilburg",
-        "hero_subtekst": "Van complete woningontruiming tot zorgeloos afscheid — praktisch ontzorgd, emotioneel begeleid. Actief in Tilburg en omstreken.",
-        "intro_kop": "Alles wat we voor u kunnen doen",
-        "intro_tekst": "Van complete woningontruiming tot garageontruiming, van seniorenverhuizing tot zorgeloos afscheid. Jim regelt het."
+        "hero_kop": "Woningontruiming in Tilburg en omgeving",
+        "hero_subtekst": "Bij verhuizing, opruimen of een ingrijpende situatie.",
+        "intro_tekst": "Wij helpen u met het leegmaken of overzichtelijk maken van uw woning — rustig, zorgvuldig en met respect.",
+        "intro_kop": "Alles wat we voor u kunnen doen"
     },
     "over_mij": {
         "hero_script": "Gedreven door zorg",

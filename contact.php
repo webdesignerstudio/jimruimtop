@@ -301,10 +301,10 @@ $adres        = t($contact, 'adres', 'Tilburg');
         <section class="relative bg-gradient-to-br from-brandNavy to-brandNavy/80 text-white py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 relative z-10">
                 <div class="max-w-2xl fade-in-left">
-                    <span class="font-script text-brandCyan text-3xl mb-4 block">Laten we kennismaken</span>
-                    <h1 class="font-headline text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-6">Een schone lei begint met een goed gesprek.</h1>
+                    <span class="font-script text-brandCyan text-3xl mb-4 block"><?= t($p, 'hero_script', 'Laten we kennismaken') ?></span>
+                    <h1 class="font-headline text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-6"><?= t($p, 'hero_kop', 'Een schone lei begint met een goed gesprek.') ?></h1>
                     <p class="text-white/80 text-lg md:text-xl font-medium leading-relaxed mb-8">
-                        Zet vandaag de eerste stap naar rust en overzicht. Mijn kennismaking is altijd vrijblijvend en op uw tempo.
+                        <?= t($p, 'hero_subtekst', 'Zet vandaag de eerste stap naar rust en overzicht. Mijn kennismaking is altijd vrijblijvend en op uw tempo.') ?>
                     </p>
                 </div>
             </div>
@@ -378,7 +378,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
                         <span class="material-symbols-outlined text-4xl text-brandNavy mb-4">forum</span>
                         <h3 class="font-headline text-2xl font-bold text-brandNavy mb-4">Direct contact met Jim</h3>
                         <p class="text-gray-600 leading-relaxed mb-6">
-                            "Geen ingewikkelde procedures of lange wachtlijsten. Ik sta u graag persoonlijk te woord om te kijken hoe ik weer ruimte kan maken in uw leven."
+                            "<?= t($p, 'jim_quote', 'Geen ingewikkelde procedures of lange wachtlijsten. Ik sta u graag persoonlijk te woord om te kijken hoe ik weer ruimte kan maken in uw leven.') ?>"
                         </p>
                         <div class="font-script text-2xl text-brandNavy">- Jim</div>
                     </div>
@@ -411,7 +411,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
                                 <span class="material-symbols-outlined text-2xl text-brandNavy transition-colors">location_on</span>
                             </div>
                             <div class="font-headline text-xs font-bold text-gray-400 uppercase tracking-tighter">Werkgebied</div>
-                            <div class="text-brandNavy font-bold">Tilburg &amp; omstreken</div>
+                            <div class="text-brandNavy font-bold"><?= t($contact, 'werkgebied', 'Tilburg &amp; omstreken') ?></div>
                         </div>
                     </div>
 
@@ -421,15 +421,15 @@ $adres        = t($contact, 'adres', 'Tilburg');
                         <div class="space-y-2 text-sm">
                             <div class="flex justify-between">
                                 <span class="text-white/70">Maandag - Vrijdag</span>
-                                <span>08:00 - 18:00</span>
+                                <span><?= htmlspecialchars($contact['openingstijden']['maandag_vrijdag'] ?? '08:00 - 18:00', ENT_QUOTES, 'UTF-8') ?></span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-white/70">Zaterdag</span>
-                                <span>09:00 - 14:00</span>
+                                <span><?= htmlspecialchars($contact['openingstijden']['zaterdag'] ?? '09:00 - 14:00', ENT_QUOTES, 'UTF-8') ?></span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-white/70">Zondag</span>
-                                <span>Gesloten</span>
+                                <span><?= htmlspecialchars($contact['openingstijden']['zondag'] ?? 'Gesloten', ENT_QUOTES, 'UTF-8') ?></span>
                             </div>
                         </div>
                         <p class="text-xs text-white/50 mt-4">* Ook buiten kantoortijden bereikbaar voor spoed</p>

@@ -274,7 +274,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
             <div class="hidden md:flex items-center gap-4">
                 <a href="<?= $tel_href ?>" class="flex items-center gap-2 text-white font-bold hover:text-brandCyan transition-colors text-sm">
                     <span class="material-symbols-outlined text-lg">call</span>
-                    <span>06 13 94 31 86</span>
+                    <span><?= $telefoon ?></span>
                 </a>
             </div>
             <button id="mobile-menu-btn" class="md:hidden text-white">
@@ -289,7 +289,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
                 <a href="over-mij.php" class="font-headline font-bold text-white/70">Over Ons</a>
                 <a href="contact.php" class="font-headline font-bold text-white/70">Contact</a>
                 <a href="<?= $tel_href ?>" class="flex items-center gap-2 text-white font-bold text-sm">
-                    <span class="material-symbols-outlined text-lg">call</span>06 13 94 31 86
+                    <span class="material-symbols-outlined text-lg">call</span><?= $telefoon ?>
                 </a>
                 <a href="contact.php#formulier" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold text-center text-sm">Plan een kennismaking</a>
             </div>
@@ -302,9 +302,9 @@ $adres        = t($contact, 'adres', 'Tilburg');
             <div class="max-w-5xl mx-auto">
                 <!-- Hoofd titel -->
                 <div class="text-center mb-10 fade-in-up">
-                    <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-bold mb-3">Woningontruiming in Tilburg en omgeving</h1>
-                    <p class="text-lg text-white/70 mb-2">Bij verhuizing, opruimen of een ingrijpende situatie.</p>
-                    <p class="text-lg text-white/80">Wij helpen u met het leegmaken of overzichtelijk maken van uw woning — rustig, zorgvuldig en met respect.</p>
+                    <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-bold mb-3"><?= t($p, 'hero_kop', 'Woningontruiming in Tilburg en omgeving') ?></h1>
+                    <p class="text-lg text-white/70 mb-2"><?= t($p, 'hero_subtekst', 'Bij verhuizing, opruimen of een ingrijpende situatie.') ?></p>
+                    <p class="text-lg text-white/80"><?= t($p, 'intro_tekst', 'Wij helpen u met het leegmaken of overzichtelijk maken van uw woning — rustig, zorgvuldig en met respect.') ?></p>
                 </div>
 
                 <!-- Call to action -->
@@ -316,7 +316,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
                         </a>
                         <a href="<?= $tel_href ?>" class="inline-flex items-center gap-2 bg-white/10 border-2 border-white/30 text-white px-6 py-4 rounded-full font-bold hover:bg-white hover:text-brandNavy transition-all">
                             <span class="material-symbols-outlined">call</span>
-                            Bel direct: 06 13 94 31 86
+                            Bel direct: <?= $telefoon ?>
                         </a>
                     </div>
                     <p class="text-white/50 text-sm mt-4">Heeft u een andere vraag? We denken graag met u mee.</p>

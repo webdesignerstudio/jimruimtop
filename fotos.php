@@ -236,9 +236,9 @@ $adres        = t($contact, 'adres', 'Tilburg');
         <!-- Hero -->
         <section class="bg-brandNavy text-white py-20 px-6">
             <div class="max-w-4xl mx-auto text-center fade-in-up">
-                <span class="font-script text-brandCyan text-3xl mb-4 block">Het resultaat spreekt voor zich</span>
-                <h1 class="font-headline text-5xl md:text-6xl font-bold mb-4">Foto's & Resultaten</h1>
-                <p class="text-xl text-white/80 max-w-2xl mx-auto">Van vol en overweldigend naar leeg en bezemschoon. Bekijk het verschil dat Jim maakt — in woningen door heel Tilburg en omstreken.</p>
+                <span class="font-script text-brandCyan text-3xl mb-4 block"><?= t($p, 'hero_script', 'Het resultaat spreekt voor zich') ?></span>
+                <h1 class="font-headline text-5xl md:text-6xl font-bold mb-4"><?= t($p, 'hero_kop', "Foto's &amp; Resultaten") ?></h1>
+                <p class="text-xl text-white/80 max-w-2xl mx-auto"><?= t($p, 'hero_subtekst', 'Van vol en overweldigend naar leeg en bezemschoon. Bekijk het verschil dat Jim maakt — in woningen door heel Tilburg en omstreken.') ?></p>
             </div>
         </section>
 
@@ -322,47 +322,23 @@ $adres        = t($contact, 'adres', 'Tilburg');
         <section class="bg-brandCream py-20 px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12 fade-in-up">
-                    <h2 class="font-headline text-4xl font-bold text-brandNavy mb-3">Galerij</h2>
-                    <p class="text-gray-600 max-w-xl mx-auto">Een selectie van uitgevoerde ontruimingen. Klik op een foto om te vergroten.</p>
+                    <h2 class="font-headline text-4xl font-bold text-brandNavy mb-3"><?= t($p, 'gallerij_kop', 'Galerij') ?></h2>
+                    <p class="text-gray-600 max-w-xl mx-auto"><?= t($p, 'gallerij_subtekst', 'Een selectie van uitgevoerde ontruimingen. Klik op een foto om te vergroten.') ?></p>
                 </div>
 
                 <div class="gallery-grid">
+                    <?php foreach ($fotos as $foto):
+                        $src = htmlspecialchars(afbeelding_url($foto['bestand'] ?? ''), ENT_QUOTES, 'UTF-8');
+                        $alt = htmlspecialchars($foto['alt'] ?? '', ENT_QUOTES, 'UTF-8');
+                        $label = htmlspecialchars($foto['label'] ?? '', ENT_QUOTES, 'UTF-8');
+                    ?>
                     <div class="gallery-item cloud-shadow" onclick="openLightbox(this)">
-                        <img src="file_24---f1a3f6be-ff29-4eb4-9169-64c58267bf1c.jpg" alt="Woningontruiming Tilburg — woonkamer na"/>
+                        <img src="<?= $src ?>" alt="<?= $alt ?>"/>
                         <div class="gallery-overlay">
-                            <p class="text-white text-sm font-bold">Woonkamer — Tilburg</p>
+                            <p class="text-white text-sm font-bold"><?= $label ?></p>
                         </div>
                     </div>
-                    <div class="gallery-item cloud-shadow" onclick="openLightbox(this)">
-                        <img src="file_26---05787c6d-5a2f-4a29-a396-a37570acc71c.jpg" alt="Woningontruiming Tilburg — hal voor"/>
-                        <div class="gallery-overlay">
-                            <p class="text-white text-sm font-bold">Hal — Tilburg Noord</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item cloud-shadow" onclick="openLightbox(this)">
-                        <img src="file_24---f1a3f6be-ff29-4eb4-9169-64c58267bf1c.jpg" alt="Garageontruiming Tilburg"/>
-                        <div class="gallery-overlay">
-                            <p class="text-white text-sm font-bold">Garage — Tilburg West</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item cloud-shadow" onclick="openLightbox(this)">
-                        <img src="file_26---05787c6d-5a2f-4a29-a396-a37570acc71c.jpg" alt="Zolderontruiming Oisterwijk"/>
-                        <div class="gallery-overlay">
-                            <p class="text-white text-sm font-bold">Zolder — Oisterwijk</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item cloud-shadow" onclick="openLightbox(this)">
-                        <img src="file_24---f1a3f6be-ff29-4eb4-9169-64c58267bf1c.jpg" alt="Slaapkamer ontruiming Tilburg"/>
-                        <div class="gallery-overlay">
-                            <p class="text-white text-sm font-bold">Slaapkamer — Tilburg Zuid</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item cloud-shadow" onclick="openLightbox(this)">
-                        <img src="file_26---05787c6d-5a2f-4a29-a396-a37570acc71c.jpg" alt="Kelder ontruiming Tilburg"/>
-                        <div class="gallery-overlay">
-                            <p class="text-white text-sm font-bold">Kelder — Goirle</p>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
 
             </div>
@@ -371,9 +347,9 @@ $adres        = t($contact, 'adres', 'Tilburg');
         <!-- CTA -->
         <section class="py-20 px-6">
             <div class="max-w-4xl mx-auto text-center fade-in-up">
-                <span class="font-script text-brandCyan text-3xl mb-4 block">Zo kan uw woning er ook uitzien</span>
-                <h2 class="font-headline text-4xl font-bold text-brandNavy mb-6">Klaar voor een frisse start?</h2>
-                <p class="text-gray-600 mb-8 max-w-xl mx-auto">Plan een kennismaking in en ontdek wat Jim voor uw situatie kan betekenen.</p>
+                <span class="font-script text-brandCyan text-3xl mb-4 block"><?= t($p, 'cta_script', 'Zo kan uw woning er ook uitzien') ?></span>
+                <h2 class="font-headline text-4xl font-bold text-brandNavy mb-6"><?= t($p, 'cta_kop', 'Klaar voor een frisse start?') ?></h2>
+                <p class="text-gray-600 mb-8 max-w-xl mx-auto"><?= t($p, 'cta_tekst', 'Plan een kennismaking in en ontdek wat Jim voor uw situatie kan betekenen.') ?></p>
                 <a href="contact.php#formulier" class="inline-block bg-brandGreen text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-brandNavy transition-all shadow-lg">
                     Kennismaking aanvragen
                 </a>

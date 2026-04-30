@@ -4,7 +4,7 @@ $contact      = laad_json('contact.json');
 $teksten      = laad_json('teksten.json');
 $instellingen = laad_json('instellingen.json');
 $toon_fotos   = $instellingen['toon_fotos_menu'] ?? true;
-$p            = $teksten['over'] ?? [];
+$p            = $teksten['over_mij'] ?? [];
 $telefoon     = t($contact, 'telefoon', '06 13 94 31 86');
 $tel_href     = tel_link($contact);
 $wa_url       = whatsapp_url($contact);
@@ -203,7 +203,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
     </a>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/31613943186?text=Hallo%20Jim%2C%20ik%20heb%20een%20vraag%20over%20woningontruiming" target="_blank" rel="noopener" style="position:fixed;bottom:170px;right:30px;z-index:41;background:#25D366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" aria-label="WhatsApp Jim Ruimt Op">
+    <a href="<?= $wa_url ?>" target="_blank" rel="noopener" style="position:fixed;bottom:170px;right:30px;z-index:41;background:#25D366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" aria-label="WhatsApp Jim Ruimt Op">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 
@@ -237,11 +237,11 @@ $adres        = t($contact, 'adres', 'Tilburg');
             <div class="flex flex-col px-6 py-4 space-y-4">
                 <a href="index.php" class="font-headline font-bold text-white/70">Home</a>
                 <a href="diensten.php" class="font-headline font-bold text-white/70">Diensten</a>
-                <a href="fotos.php" class="font-headline font-bold text-white/70">Foto's</a>
+                <?php if ($toon_fotos): ?><a href="fotos.php" class="font-headline font-bold text-white/70">Foto's</a><?php endif; ?>
                 <a href="over-mij.php" class="font-headline font-bold text-white">Over Ons</a>
                 <a href="contact.php" class="font-headline font-bold text-white/70">Contact</a>
                 <a href="<?= $tel_href ?>" class="flex items-center gap-2 text-white font-bold text-sm">
-                    <span class="material-symbols-outlined text-lg">call</span>06 13 94 31 86
+                    <span class="material-symbols-outlined text-lg">call</span><?= $telefoon ?>
                 </a>
                 <a href="contact.php#formulier" class="bg-brandCyan text-brandNavy px-6 py-3 rounded-full font-bold text-center text-sm">Plan een kennismaking</a>
             </div>
@@ -253,12 +253,12 @@ $adres        = t($contact, 'adres', 'Tilburg');
         <section class="relative overflow-hidden pt-20 pb-32 px-6">
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
                 <div class="w-full md:w-1/2 z-10 fade-in-left">
-                    <span class="font-script text-brandCyan text-3xl mb-4 block">Gedreven door zorg</span>
+                    <span class="font-script text-brandCyan text-3xl mb-4 block"><?= t($p, 'hero_script', 'Gedreven door zorg') ?></span>
                     <h1 class="font-headline text-5xl md:text-6xl font-bold text-brandNavy leading-tight mb-6">
-                        Het Gezicht Achter <br/><span class="text-brandCyan">De Rust.</span>
+                        <?= t($p, 'hero_kop', 'Het Gezicht Achter De Rust.') ?>
                     </h1>
                     <p class="text-lg text-gray-600 max-w-xl leading-relaxed mb-8">
-                        In Tilburg en omstreken help ik mensen bij de meest kwetsbare transities in hun leven. Geen haast, geen oordeel, maar oprechte aandacht voor wat echt waarde heeft.
+                        <?= t($p, 'hero_subtekst', 'In Tilburg en omstreken help ik mensen bij de meest kwetsbare transities in hun leven. Geen haast, geen oordeel, maar oprechte aandacht voor wat echt waarde heeft.') ?>
                     </p>
                     <div class="flex items-center gap-4">
                         <img src="herofoto.jpg" alt="Jim, oprichter Jim Ruimt Op Tilburg" class="w-16 h-16 rounded-full object-cover border-4 border-white"/>
@@ -290,7 +290,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
                     <div class="bg-white rounded-xl p-5 text-center cloud-shadow">
                         <span class="material-symbols-outlined text-brandNavy text-2xl mb-2">store</span>
                         <p class="text-xs font-bold text-gray-400 uppercase tracking-wide">KvK</p>
-                        <p class="text-brandNavy font-bold text-sm">87654321</p>
+                        <p class="text-brandNavy font-bold text-sm"><?= t($p, 'kvk_nummer', '87654321') ?></p>
                     </div>
                     <div class="bg-white rounded-xl p-5 text-center cloud-shadow">
                         <span class="material-symbols-outlined text-brandNavy text-2xl mb-2">location_on</span>
@@ -308,28 +308,28 @@ $adres        = t($contact, 'adres', 'Tilburg');
                     <div class="md:col-span-5 order-2 md:order-1 fade-in-left">
                         <div class="space-y-12">
                             <div>
-                                <h2 class="font-headline text-3xl font-bold text-white mb-6">Waarom dit bedrijf bestaat</h2>
+                                <h2 class="font-headline text-3xl font-bold text-white mb-6"><?= t($p, 'verhaal_kop', 'Waarom dit bedrijf bestaat') ?></h2>
                                 <p class="text-white/90 leading-relaxed mb-4">
-                                    Dit bedrijf is ontstaan vanuit een persoonlijke ervaring. Binnen één week moesten beide zorgwoningen van mijn opa's en oma's leeg — midden in een periode van rouw. Er was stress, druk en chaos, terwijl de familie juist ruimte nodig had om afscheid te nemen.
+                                    <?= t_html($p, 'verhaal_tekst_1', 'Dit bedrijf is ontstaan vanuit een persoonlijke ervaring. Binnen één week moesten beide zorgwoningen van mijn opa\'s en oma\'s leeg — midden in een periode van rouw. Er was stress, druk en chaos, terwijl de familie juist ruimte nodig had om afscheid te nemen.') ?>
                                 </p>
                                 <p class="text-white/90 leading-relaxed">
-                                    Dat moment maakte iets duidelijk: families verdienen ondersteuning die verder gaat dan alleen spullen weggooiën. Ze verdienen iemand die rust brengt, begrijpt wat er meespeelt en het praktische én emotionele aanpakt.
+                                    <?= t_html($p, 'verhaal_tekst_2', 'Dat moment maakte iets duidelijk: families verdienen ondersteuning die verder gaat dan alleen spullen weggooiën. Ze verdienen iemand die rust brengt, begrijpt wat er meespeelt en het praktische én emotionele aanpakt.') ?>
                                 </p>
                             </div>
                             <div class="bg-white p-8 rounded-xl cloud-shadow border-l-4 border-brandCyan">
-                                <h3 class="font-headline text-xl font-bold text-brandNavy mb-4">Mijn Belofte aan U</h3>
+                                <h3 class="font-headline text-xl font-bold text-brandNavy mb-4"><?= t($p, 'belofte_kop', 'Mijn Belofte aan U') ?></h3>
                                 <ul class="space-y-4">
                                     <li class="flex items-start gap-3">
                                         <span class="material-symbols-outlined text-brandCyan">check_circle</span>
-                                        <span class="text-sm text-gray-600">Altijd een luisterend oor voor uw verhaal.</span>
+                                        <span class="text-sm text-gray-600"><?= t($p, 'belofte_1', 'Altijd een luisterend oor voor uw verhaal.') ?></span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <span class="material-symbols-outlined text-brandCyan">check_circle</span>
-                                        <span class="text-sm text-gray-600">Zorgvuldige afhandeling van persoonlijke eigendommen.</span>
+                                        <span class="text-sm text-gray-600"><?= t($p, 'belofte_2', 'Zorgvuldige afhandeling van persoonlijke eigendommen.') ?></span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <span class="material-symbols-outlined text-brandCyan">check_circle</span>
-                                        <span class="text-sm text-gray-600">Een resultaat dat direct rust en overzicht geeft.</span>
+                                        <span class="text-sm text-gray-600"><?= t($p, 'belofte_3', 'Een resultaat dat direct rust en overzicht geeft.') ?></span>
                                     </li>
                                 </ul>
                             </div>
@@ -346,8 +346,8 @@ $adres        = t($contact, 'adres', 'Tilburg');
         <section class="py-24 px-6">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16 fade-in-up">
-                    <h2 class="font-headline text-4xl font-bold text-brandNavy mb-4">Mijn Werkwijze in Tilburg</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">De waarden die de basis vormen van elke woningontruiming en opruimsessie die ik onderneem.</p>
+                    <h2 class="font-headline text-4xl font-bold text-brandNavy mb-4"><?= t($p, 'werkwijze_kop', 'Mijn Werkwijze in Tilburg') ?></h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto"><?= t($p, 'werkwijze_subtekst', 'De waarden die de basis vormen van elke woningontruiming en opruimsessie die ik onderneem.') ?></p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <!-- Value 1 -->
@@ -355,8 +355,8 @@ $adres        = t($contact, 'adres', 'Tilburg');
                         <div class="w-12 h-12 bg-brandNavy rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-white">favorite</span>
                         </div>
-                        <h3 class="font-headline text-2xl font-bold text-brandNavy mb-4">Empathie</h3>
-                        <p class="text-gray-600 group-hover:text-brandNavy transition-colors">Ik begrijp de emotionele lading van een afscheid of verhuizing. Ik werk met mijn hart.</p>
+                        <h3 class="font-headline text-2xl font-bold text-brandNavy mb-4"><?= t($p, 'waarde1_kop', 'Empathie') ?></h3>
+                        <p class="text-gray-600 group-hover:text-brandNavy transition-colors"><?= t($p, 'waarde1_tekst', 'Ik begrijp de emotionele lading van een afscheid of verhuizing. Ik werk met mijn hart.') ?></p>
                     </div>
 
                     <!-- Value 2 -->
@@ -364,8 +364,8 @@ $adres        = t($contact, 'adres', 'Tilburg');
                         <div class="w-12 h-12 bg-brandCyan rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-brandNavy">shield_with_heart</span>
                         </div>
-                        <h3 class="font-headline text-2xl font-bold mb-4">Discretie</h3>
-                        <p class="text-white/80">Uw privacy is heilig. Wat er in huis gebeurt en wat we tegenkomen, blijft tussen ons.</p>
+                        <h3 class="font-headline text-2xl font-bold mb-4"><?= t($p, 'waarde2_kop', 'Discretie') ?></h3>
+                        <p class="text-white/80"><?= t($p, 'waarde2_tekst', 'Uw privacy is heilig. Wat er in huis gebeurt en wat we tegenkomen, blijft tussen ons.') ?></p>
                     </div>
 
                     <!-- Value 3 -->
@@ -373,8 +373,8 @@ $adres        = t($contact, 'adres', 'Tilburg');
                         <div class="w-12 h-12 bg-brandNavy rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-white">psychology</span>
                         </div>
-                        <h3 class="font-headline text-2xl font-bold text-brandNavy mb-4">Structuur</h3>
-                        <p class="text-gray-600 group-hover:text-brandNavy transition-colors">Waar anderen chaos zien, zie ik een logisch proces om orde en rust te herstellen.</p>
+                        <h3 class="font-headline text-2xl font-bold text-brandNavy mb-4"><?= t($p, 'waarde3_kop', 'Structuur') ?></h3>
+                        <p class="text-gray-600 group-hover:text-brandNavy transition-colors"><?= t($p, 'waarde3_tekst', 'Waar anderen chaos zien, zie ik een logisch proces om orde en rust te herstellen.') ?></p>
                     </div>
                 </div>
             </div>
@@ -394,7 +394,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
                     </a>
                 </div>
                 <div class="mt-16 border-t border-gray-200 pt-8 fade-in-up delay-200">
-                    <p class="text-sm italic text-gray-500">"Ik kijk ernaar uit om u te ontmoeten en samen een plan te maken dat bij u past."</p>
+                    <p class="text-sm italic text-gray-500">"<?= t($p, 'quote_jim', 'Ik kijk ernaar uit om u te ontmoeten en samen een plan te maken dat bij u past.') ?>"</p>
                     <p class="font-script text-2xl text-brandNavy mt-2">Jim</p>
                 </div>
             </div>

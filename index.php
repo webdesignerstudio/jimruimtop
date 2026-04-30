@@ -4,7 +4,7 @@ $contact      = laad_json('contact.json');
 $teksten      = laad_json('teksten.json');
 $instellingen = laad_json('instellingen.json');
 $toon_fotos   = $instellingen['toon_fotos_menu'] ?? true;
-$p            = $teksten['home'] ?? [];
+$p            = $teksten['index'] ?? [];
 $telefoon     = t($contact, 'telefoon', '06 13 94 31 86');
 $tel_href     = tel_link($contact);
 $wa_url       = whatsapp_url($contact);
@@ -12,7 +12,7 @@ $email        = htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl', ENT
 $adres        = t($contact, 'adres', 'Tilburg');
 $hero_kop     = t($p, 'hero_kop', 'Jim Ruimt Op');
 $hero_tagline = t($p, 'hero_tagline', 'Zorgeloos geregeld!');
-$hero_sub     = t($p, 'hero_subtitel', 'Woningontruiming zonder zorgen');
+$hero_sub     = t($p, 'hero_sub', 'Woningontruiming zonder zorgen');
 $hero_tekst   = t($p, 'hero_tekst', 'Wij ontzorgen senioren en nabestaanden bij woningontruiming, met aandacht voor wat praktisch nodig is én wat emotioneel belangrijk is.');
 $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren in het hoofd.');
 ?>
