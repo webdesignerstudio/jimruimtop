@@ -13,6 +13,10 @@
     # RewriteCond %{HTTP_HOST} !^www\. [NC]
     # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
     
+    # Locatiepagina's: schone SEO-URL /woningontruiming-[slug] → locatie.php?locatie=[slug]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^woningontruiming-([a-z0-9\-]+)/?$ /locatie.php?locatie=$1 [L,QSA]
+
     # Locatiepagina's: woningontruiming-[slug].html → locatie.php?locatie=[slug]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^woningontruiming-([a-z0-9\-]+)\.html$ /locatie.php?locatie=$1 [L,QSA]

@@ -646,11 +646,11 @@ $adres        = t($contact, 'adres', 'Tilburg');
                     <h4 class="font-bold mb-3 text-brandCyan uppercase text-sm tracking-wider">Werkgebied</h4>
                     <ul class="space-y-2 text-white/70 text-sm">
                         <li><span class="text-white/50">Tilburg</span></li>
-                        <li><a href="locatie.php?loc=berkel-enschot" class="hover:text-white transition-colors">Berkel-Enschot</a></li>
-                        <li><a href="locatie.php?loc=oisterwijk" class="hover:text-white transition-colors">Oisterwijk</a></li>
-                        <li><a href="locatie.php?loc=goirle" class="hover:text-white transition-colors">Goirle</a></li>
-                        <li><a href="locatie.php?loc=hilvarenbeek" class="hover:text-white transition-colors">Hilvarenbeek</a></li>
-                        <li><a href="locatie.php?loc=udenhout" class="hover:text-white transition-colors">Udenhout</a></li>
+                        <li><a href="/woningontruiming-berkel-enschot" class="hover:text-white transition-colors">Berkel-Enschot</a></li>
+                        <li><a href="/woningontruiming-oisterwijk" class="hover:text-white transition-colors">Oisterwijk</a></li>
+                        <li><a href="/woningontruiming-goirle" class="hover:text-white transition-colors">Goirle</a></li>
+                        <li><a href="/woningontruiming-hilvarenbeek" class="hover:text-white transition-colors">Hilvarenbeek</a></li>
+                        <li><a href="/woningontruiming-udenhout" class="hover:text-white transition-colors">Udenhout</a></li>
                     </ul>
                 </div>
                 <!-- Kolom 4: Contact -->
