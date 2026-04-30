@@ -110,6 +110,10 @@ $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren 
         /* Smooth scroll */
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        body {
+            overflow-x: hidden;
         }
         
         /* Card tilt effects */
@@ -360,12 +364,12 @@ $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren 
 
     <main>
         <!-- Hero Section -->
-        <section class="relative overflow-visible pt-16 pb-32 px-6 max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 items-center gap-16">
+        <section class="relative overflow-hidden pt-10 pb-12 md:pb-32 px-4 md:px-6 max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 items-center gap-8 md:gap-16">
                 <div class="z-10 fade-in-right">
-                    <h2 class="font-headline text-5xl md:text-6xl font-extrabold leading-tight mb-4 text-brandNavy whitespace-nowrap" style="letter-spacing:-0.02em"><?= $hero_kop ?></h2>
-                    <p class="text-brandCyan text-4xl md:text-5xl mb-4" style="font-family:'Playfair Display',serif;font-style:italic;font-weight:600;letter-spacing:-0.01em"><?= $hero_tagline ?></p>
-                    <h3 class="font-headline text-2xl md:text-3xl font-bold text-brandNavy mb-2"><?= $hero_sub ?></h3>
+                    <h2 class="font-headline text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 text-brandNavy" style="letter-spacing:-0.02em"><?= $hero_kop ?></h2>
+                    <p class="text-brandCyan text-2xl md:text-4xl lg:text-5xl mb-4" style="font-family:'Playfair Display',serif;font-style:italic;font-weight:600;letter-spacing:-0.01em"><?= $hero_tagline ?></p>
+                    <h3 class="font-headline text-xl md:text-2xl lg:text-3xl font-bold text-brandNavy mb-2"><?= $hero_sub ?></h3>
                     <p class="text-gray-600 text-lg mb-6 max-w-lg"><?= $hero_tekst ?></p>
                     <div class="flex flex-wrap gap-4">
                         <a href="contact.php" class="inline-block bg-brandCyan text-brandNavy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-lg pulse-glow">
@@ -376,7 +380,7 @@ $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren 
                         </a>
                     </div>
                     <!-- Beloften balk -->
-                    <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-200">
+                    <div class="grid grid-cols-3 gap-3 md:gap-6 mt-8 md:mt-12 pt-6 md:pt-8 border-t border-gray-200">
                         <div class="text-center">
                             <span class="material-symbols-outlined text-brandCyan text-4xl mb-1 block">handshake</span>
                             <p class="text-sm font-bold text-brandNavy">Kennismaking</p>
@@ -408,22 +412,22 @@ $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren 
         </section>
 
         <!-- Pakketten sectie -->
-        <section class="py-16 px-6" style="background-color:#f0f7ff">
+        <section class="py-10 md:py-16 px-4 md:px-6" style="background-color:#f0f7ff">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-10 fade-in-up">
+                <div class="text-center mb-6 md:mb-10 fade-in-up">
                     <h2 class="font-headline text-3xl md:text-4xl font-bold mb-3 text-brandNavy">Welke vorm van hulp past bij u?</h2>
                     <p class="text-gray-600 max-w-2xl mx-auto">Elke situatie is anders. Daarom werken wij met duidelijke pakketten van een complete ontruiming tot persoonlijke begeleiding.</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 items-stretch">
 
                     <!-- OPRUIMEN & OVERZICHT -->
-                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-7 rounded-2xl cloud-shadow flex flex-col h-full">
-                        <div class="mb-4 text-brandNavy">
-                            <span class="material-symbols-outlined text-5xl">home_work</span>
+                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-4 md:p-7 rounded-2xl cloud-shadow flex flex-col h-full">
+                        <div class="mb-3 md:mb-4 text-brandNavy">
+                            <span class="material-symbols-outlined text-4xl md:text-5xl">home_work</span>
                         </div>
-                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy min-h-[64px] flex items-end">OPRUIMEN &amp; OVERZICHT</h3>
-                        <p class="text-gray-600 mb-6" style="min-height:120px">Voor wie meer rust en ruimte in huis wil, zonder te verhuizen. Stap voor stap opruimen en organiseren in uw eigen tempo.</p>
-                        <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
+                        <h3 class="font-headline text-xl md:text-2xl font-bold mb-2 md:mb-4 text-brandNavy md:min-h-[64px] md:flex md:items-end">OPRUIMEN &amp; OVERZICHT</h3>
+                        <p class="text-gray-600 mb-3 md:mb-6 text-sm md:text-base">Voor wie meer rust en ruimte in huis wil, zonder te verhuizen. Stap voor stap opruimen en organiseren in uw eigen tempo.</p>
+                        <ul class="text-left space-y-2 mb-3 md:mb-6 text-sm w-full flex-grow">
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Opruimen van één of meerdere ruimtes</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Samen keuzes maken over spullen</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Structuur en overzicht creëren</li>
@@ -434,13 +438,13 @@ $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren 
                     </div>
 
                     <!-- BASIS -->
-                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-7 rounded-2xl cloud-shadow flex flex-col h-full">
-                        <div class="mb-4 text-brandNavy">
-                            <span class="material-symbols-outlined text-5xl">home</span>
+                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-4 md:p-7 rounded-2xl cloud-shadow flex flex-col h-full">
+                        <div class="mb-3 md:mb-4 text-brandNavy">
+                            <span class="material-symbols-outlined text-4xl md:text-5xl">home</span>
                         </div>
-                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy min-h-[64px] flex items-end">BASIS</h3>
-                        <p class="text-gray-600 mb-6" style="min-height:120px">Complete ontruiming voor een snelle en duidelijke afhandeling.</p>
-                        <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
+                        <h3 class="font-headline text-xl md:text-2xl font-bold mb-2 md:mb-4 text-brandNavy md:min-h-[64px] md:flex md:items-end">BASIS</h3>
+                        <p class="text-gray-600 mb-3 md:mb-6 text-sm md:text-base">Complete ontruiming voor een snelle en duidelijke afhandeling.</p>
+                        <ul class="text-left space-y-2 mb-3 md:mb-6 text-sm w-full flex-grow">
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Woningontruiming</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Afvoer van inboedel</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Bezemschoon oplevering</li>
@@ -451,16 +455,16 @@ $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren 
                     </div>
 
                     <!-- BEGELEID (featured) -->
-                    <div class="pricing-card bg-brandCyan/20 border-2 border-brandCyan p-7 rounded-2xl cloud-shadow flex flex-col relative h-full">
+                    <div class="pricing-card bg-brandCyan/20 border-2 border-brandCyan p-4 md:p-7 rounded-2xl cloud-shadow flex flex-col relative h-full">
                         <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brandNavy text-white px-4 py-1 rounded-full text-xs font-bold whitespace-nowrap">
                             MEEST GEVRAAGD
                         </div>
-                        <div class="mb-4 text-brandNavy">
-                            <span class="material-symbols-outlined text-5xl">favorite</span>
+                        <div class="mb-3 md:mb-4 text-brandNavy">
+                            <span class="material-symbols-outlined text-4xl md:text-5xl">favorite</span>
                         </div>
-                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy min-h-[64px] flex items-end">BEGELEID</h3>
-                        <p class="text-gray-600 mb-6" style="min-height:120px">Met aandacht en rust. Voor wie behoefte heeft aan ondersteuning en overzicht.</p>
-                        <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
+                        <h3 class="font-headline text-xl md:text-2xl font-bold mb-2 md:mb-4 text-brandNavy md:min-h-[64px] md:flex md:items-end">BEGELEID</h3>
+                        <p class="text-gray-600 mb-3 md:mb-6 text-sm md:text-base">Met aandacht en rust. Voor wie behoefte heeft aan ondersteuning en overzicht.</p>
+                        <ul class="text-left space-y-2 mb-3 md:mb-6 text-sm w-full flex-grow">
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Alles uit basis</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Hulp bij sorteren &amp; keuzes maken</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Rustige begeleiding tijdens het proces</li>
@@ -471,13 +475,13 @@ $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren 
                     </div>
 
                     <!-- VOORBEREID & GEREGELD -->
-                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-7 rounded-2xl cloud-shadow flex flex-col h-full">
-                        <div class="mb-4 text-brandNavy">
-                            <span class="material-symbols-outlined text-5xl">elderly</span>
+                    <div class="pricing-card bg-white border-2 border-brandCyan/30 p-4 md:p-7 rounded-2xl cloud-shadow flex flex-col h-full">
+                        <div class="mb-3 md:mb-4 text-brandNavy">
+                            <span class="material-symbols-outlined text-4xl md:text-5xl">elderly</span>
                         </div>
-                        <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy min-h-[64px] flex items-end">VOORBEREID &amp; GEREGELD</h3>
-                        <p class="text-gray-600 mb-6" style="min-height:120px">Voor wie op tijd overzicht en duidelijkheid wil creëren.</p>
-                        <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
+                        <h3 class="font-headline text-xl md:text-2xl font-bold mb-2 md:mb-4 text-brandNavy md:min-h-[64px] md:flex md:items-end">VOORBEREID &amp; GEREGELD</h3>
+                        <p class="text-gray-600 mb-3 md:mb-6 text-sm md:text-base">Voor wie op tijd overzicht en duidelijkheid wil creëren.</p>
+                        <ul class="text-left space-y-2 mb-3 md:mb-6 text-sm w-full flex-grow">
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Inventarisatie van de woning</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Persoonlijk plan</li>
                             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Familie ontlasten</li>
@@ -503,7 +507,7 @@ $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren 
         </div>
 
         <!-- Hoe werkt het sectie -->
-        <section class="py-20 px-6">
+        <section class="py-12 md:py-20 px-4 md:px-6">
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-14 fade-in-up">
                     <h2 class="font-headline text-4xl font-bold mb-4 text-brandNavy"><?= t($p, 'hoe_werkt_kop', 'Hoe werkt het?') ?></h2>
@@ -530,7 +534,7 @@ $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren 
         </section>
 
         <!-- Trust badges balk -->
-        <section class="bg-brandNavy py-8 px-6">
+        <section class="bg-brandNavy py-8 px-4 md:px-6">
             <div class="max-w-5xl mx-auto">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
                     <div class="fade-in-up">
@@ -555,7 +559,7 @@ $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren 
 
 
         <!-- Review & Contact Section -->
-        <section class="bg-brandCyan/10 py-16 px-6">
+        <section class="bg-brandCyan/10 py-10 md:py-16 px-4 md:px-6">
             <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
                 <!-- Review Column -->
                 <div class="fade-in-left">
@@ -622,7 +626,7 @@ $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren 
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brandNavy text-white py-12 px-6">
+    <footer class="bg-brandNavy text-white py-10 md:py-12 px-4 md:px-6">
         <div class="max-w-7xl mx-auto">
             <!-- Grid: 5 kolommen op desktop, 2 op mobiel -->
             <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
