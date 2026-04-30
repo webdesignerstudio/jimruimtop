@@ -8,10 +8,14 @@
     # Force HTTPS
     RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-    
-    # Force www (or remove www, choose one)
-    # RewriteCond %{HTTP_HOST} !^www\. [NC]
-    # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+    # Redirect jimruimtop.nl (oud) en www.jimruimtop.nl naar officieel domein jimruimt-op.nl
+    RewriteCond %{HTTP_HOST} ^(www\.)?jimruimtop\.nl$ [NC]
+    RewriteRule ^(.*)$ https://jimruimt-op.nl/$1 [R=301,L]
+
+    # Redirect www.jimruimt-op.nl naar jimruimt-op.nl (zonder www)
+    RewriteCond %{HTTP_HOST} ^www\.jimruimt-op\.nl$ [NC]
+    RewriteRule ^(.*)$ https://jimruimt-op.nl/$1 [R=301,L]
     
     # Locatiepagina's: schone SEO-URL /woningontruiming-[slug] → locatie.php?locatie=[slug]
     RewriteCond %{REQUEST_FILENAME} !-f
