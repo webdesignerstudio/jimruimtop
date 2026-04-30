@@ -446,9 +446,9 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                         <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">OPRUIMEN &amp; OVERZICHT</h3>
                         <p class="text-gray-600 mb-6 flex-grow">Voor wie meer rust en ruimte in huis wil, zonder te verhuizen. Stap voor stap opruimen en organiseren in uw eigen tempo.</p>
                         <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
-                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Opruimen van één of meerdere ruimtes</li>
-                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Samen keuzes maken over spullen</li>
-                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Structuur en overzicht creëren</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Opruimen van één of meerdere ruimtes</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Samen keuzes maken over spullen</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Structuur en overzicht creëren</li>
                         </ul>
                         <a href="contact.php#formulier" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
                             Kennismaking aanvragen
@@ -463,9 +463,9 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                         <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">BASIS</h3>
                         <p class="text-gray-600 mb-6 flex-grow">Complete ontruiming voor een snelle en duidelijke afhandeling.</p>
                         <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
-                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Woningontruiming</li>
-                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Afvoer van inboedel</li>
-                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Bezemschoon oplevering</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Woningontruiming</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Afvoer van inboedel</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Bezemschoon oplevering</li>
                         </ul>
                         <a href="contact.php?onderwerp=core#formulier" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
                             Kennismaking aanvragen
@@ -483,11 +483,11 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                         <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">BEGELEID</h3>
                         <p class="text-gray-600 mb-6 flex-grow">Met aandacht en rust. Voor wie behoefte heeft aan ondersteuning en overzicht.</p>
                         <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
-                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Alles uit basis</li>
-                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Hulp bij sorteren &amp; keuzes maken</li>
-                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Rustige begeleiding tijdens het proces</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Alles uit basis</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Hulp bij sorteren &amp; keuzes maken</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Rustige begeleiding tijdens het proces</li>
                         </ul>
-                        <a href="contact.php?onderwerp=premium#formulier" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold hover:bg-brandCyan hover:text-brandNavy transition-colors text-sm">
+                        <a href="contact.php?onderwerp=premium#formulier" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold hover:bg-brandCyan hover:text-brandNavy transition-all text-sm">
                             Begeleiding bespreken
                         </a>
                     </div>
@@ -500,9 +500,9 @@ $stap3_tekst     = t($p, 'stap3_tekst', 'Van inboedel sorteren tot bezemschoon o
                         <h3 class="font-headline text-2xl font-bold mb-4 text-brandNavy">VOORBEREID &amp; GEREGELD</h3>
                         <p class="text-gray-600 mb-6 flex-grow">Voor wie op tijd overzicht en duidelijkheid wil creëren.</p>
                         <ul class="text-left space-y-2 mb-6 text-sm w-full flex-grow">
-                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Inventarisatie van de woning</li>
-                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Persoonlijk plan</li>
-                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-brandCyan text-base mt-0.5">check_circle</span> Familie ontlasten</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Inventarisatie van de woning</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Persoonlijk plan</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-brandCyan text-base">check_circle</span> Familie ontlasten</li>
                         </ul>
                         <a href="contact.php?onderwerp=senior#formulier" class="mt-auto w-full text-center bg-brandNavy text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-brandCyan hover:text-brandNavy transition-all">
                             Plan vooruit maken
