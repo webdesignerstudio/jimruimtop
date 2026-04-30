@@ -9,10 +9,6 @@
     RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-    # Redirect jimruimtop.nl (oud) en www.jimruimtop.nl naar officieel domein jimruimt-op.nl
-    RewriteCond %{HTTP_HOST} ^(www\.)?jimruimtop\.nl$ [NC]
-    RewriteRule ^(.*)$ https://jimruimt-op.nl/$1 [R=301,L]
-
     # Redirect www.jimruimt-op.nl naar jimruimt-op.nl (zonder www)
     RewriteCond %{HTTP_HOST} ^www\.jimruimt-op\.nl$ [NC]
     RewriteRule ^(.*)$ https://jimruimt-op.nl/$1 [R=301,L]
