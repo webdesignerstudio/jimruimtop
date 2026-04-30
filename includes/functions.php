@@ -91,3 +91,73 @@ function whatsapp_url(array $contact): string {
 function tel_link(array $contact): string {
     return 'tel:' . htmlspecialchars($contact['telefoon_link'] ?? '+31613943186', ENT_QUOTES, 'UTF-8');
 }
+
+/**
+ * Controleer pincode-vergrendeling. Toon pincode-scherm als site vergrendeld is.
+ * Aanroepen bovenaan elke publieke pagina, vóór enige output.
+ */
+function check_site_vergrendeling(): void {
+    $instellingen = laad_json('instellingen.json');
+    if (empty($instellingen['site_vergrendeld'])) {
+        return;
+    }
+
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+
+    if (!empty($_SESSION['pincode_ok'])) {
+        return;
+    }
+
+    $fout = '';
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pincode'])) {
+        $ingevoerd = trim($_POST['pincode'] ?? '');
+        $correct   = (string)($instellingen['pincode'] ?? '1234');
+        if ($ingevoerd === $correct) {
+            $_SESSION['pincode_ok'] = true;
+            header('Location: ' . $_SERVER['REQUEST_URI']);
+            exit;
+        }
+        $fout = 'Ongeldige pincode. Probeer opnieuw.';
+    }
+
+    // Toon pincode-scherm en stop verdere uitvoer
+    http_response_code(403);
+    ?><!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Jim Ruimt Op — Niet openbaar</title>
+    <meta name="robots" content="noindex, nofollow"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { brandNavy: '#1A436D', brandCyan: '#5BBFEC' } } } }</script>
+</head>
+<body class="min-h-screen bg-brandNavy flex items-center justify-center px-4">
+    <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-sm text-center">
+        <img src="/favicon-96x96.png" alt="Jim Ruimt Op" class="w-16 h-16 mx-auto mb-4"/>
+        <h1 class="text-2xl font-bold text-brandNavy mb-1">Jim Ruimt Op</h1>
+        <p class="text-gray-500 text-sm mb-6">Deze website is nog niet openbaar.<br/>Voer de pincode in om verder te gaan.</p>
+        <?php if ($fout): ?>
+            <p class="text-red-500 text-sm mb-4 font-medium"><?= htmlspecialchars($fout) ?></p>
+        <?php endif; ?>
+        <form method="POST">
+            <input
+                type="password"
+                name="pincode"
+                placeholder="Pincode"
+                maxlength="20"
+                autofocus
+                class="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-center text-2xl tracking-widest font-bold text-brandNavy focus:outline-none focus:border-brandCyan mb-4"
+            />
+            <button type="submit" class="w-full bg-brandNavy text-white py-3 rounded-xl font-bold hover:bg-brandCyan hover:text-brandNavy transition-all">
+                Toegang
+            </button>
+        </form>
+    </div>
+</body>
+</html><?php
+    exit;
+}

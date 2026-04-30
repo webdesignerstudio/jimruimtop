@@ -38,6 +38,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         elseif ($actie === 'sla_instellingen_op') {
             $instellingen['toon_fotos_menu'] = isset($_POST['toon_fotos_menu']);
+            $instellingen['site_vergrendeld'] = isset($_POST['site_vergrendeld']);
+            $nieuwe_pincode = trim($_POST['pincode'] ?? '');
+            if ($nieuwe_pincode !== '') {
+                $instellingen['pincode'] = $nieuwe_pincode;
+            }
             if (sla_json_op_admin('instellingen.json', $instellingen)) {
                 $melding = 'Instellingen opgeslagen.';
             } else {
@@ -575,6 +580,28 @@ $csrf = csrf_token();
                 <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
                 <input type="hidden" name="actie" value="sla_instellingen_op"/>
                 <div class="space-y-4">
+
+                    <!-- Pincode vergrendeling -->
+                    <div class="flex items-center justify-between p-4 border-2 <?= !empty($instellingen['site_vergrendeld']) ? 'border-amber-400 bg-amber-50' : 'border-gray-200' ?> rounded-xl">
+                        <div>
+                            <p class="font-semibold text-gray-800 text-sm">🔒 Website vergrendeld met pincode</p>
+                            <p class="text-xs text-gray-500 mt-0.5">Als ingeschakeld moeten bezoekers een pincode invoeren om de website te zien.</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer ml-4">
+                            <input type="checkbox" name="site_vergrendeld" value="1" <?= !empty($instellingen['site_vergrendeld']) ? 'checked' : '' ?> class="sr-only peer"/>
+                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:bg-amber-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
+                        </label>
+                    </div>
+
+                    <!-- Pincode instellen -->
+                    <div class="p-4 border border-gray-200 rounded-xl">
+                        <p class="font-semibold text-gray-800 text-sm mb-1">Pincode wijzigen</p>
+                        <p class="text-xs text-gray-500 mb-3">Huidige pincode: <span class="font-mono font-bold text-gray-700"><?= str_repeat('●', strlen($instellingen['pincode'] ?? '1234')) ?></span> — laat leeg om te behouden.</p>
+                        <input type="text" name="pincode" placeholder="Nieuwe pincode (bijv. 4829)" maxlength="20"
+                            class="border border-gray-300 rounded-lg px-3 py-2 text-sm font-mono w-40 focus:outline-none focus:ring-2 focus:ring-navy"/>
+                    </div>
+
+                    <!-- Foto's menu -->
                     <div class="flex items-center justify-between p-4 border border-gray-200 rounded-xl">
                         <div>
                             <p class="font-semibold text-gray-800 text-sm">Foto's pagina tonen in menu</p>
@@ -585,6 +612,7 @@ $csrf = csrf_token();
                             <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:bg-navy after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
                         </label>
                     </div>
+
                 </div>
                 <button type="submit" class="mt-6 bg-navy text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all">
                     Instellingen opslaan

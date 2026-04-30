@@ -1,5 +1,7 @@
 <?php
+session_start();
 require_once __DIR__ . '/includes/functions.php';
+check_site_vergrendeling();
 
 $contact      = laad_json('contact.json');
 $teksten      = laad_json('teksten.json');
