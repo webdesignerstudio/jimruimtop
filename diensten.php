@@ -18,6 +18,8 @@ $adres        = t($contact, 'adres', 'Tilburg');
     <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
     <link rel="manifest" href="/site.webmanifest"/>
     <meta name="theme-color" content="#1A436D"/>
@@ -25,10 +27,10 @@ $adres        = t($contact, 'adres', 'Tilburg');
     <title>Diensten Woningontruiming Tilburg | Jim Ruimt Op</title>
     <meta name="description" content="Woningontruiming, opruimen & overzicht, en spoedontruiming in Tilburg. Vaste prijzen, plan een kennismaking. Jim Ruimt Op — specialist in Tilburg en omgeving."/>
     <meta name="robots" content="index, follow"/>
-    <link rel="canonical" href="https://www.jimruimtop.nl/diensten.php"/>
+    <link rel="canonical" href="https://jimruimt-op.nl/diensten.php"/>
     <meta property="og:title" content="Diensten Woningontruiming Tilburg | Jim Ruimt Op"/>
     <meta property="og:description" content="Complete woningontruiming, opruimen & overzicht, en begeleid ontruimen in Tilburg. Transparante prijzen, plan een kennismaking."/>
-    <meta property="og:url" content="https://www.jimruimtop.nl/diensten.php"/>
+    <meta property="og:url" content="https://jimruimt-op.nl/diensten.php"/>
     <meta property="og:type" content="website"/>
     <script type="application/ld+json">
     {

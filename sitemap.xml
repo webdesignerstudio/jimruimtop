@@ -3,7 +3,7 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://www.jimruimtop.nl/</loc>
+    <loc>https://jimruimt-op.nl/</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -11,7 +11,7 @@
 
   <!-- Diensten -->
   <url>
-    <loc>https://www.jimruimtop.nl/diensten.php</loc>
+    <loc>https://jimruimt-op.nl/diensten.php</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -19,7 +19,7 @@
 
   <!-- Over Ons -->
   <url>
-    <loc>https://www.jimruimtop.nl/over-mij.php</loc>
+    <loc>https://jimruimt-op.nl/over-mij.php</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -27,7 +27,7 @@
 
   <!-- Contact -->
   <url>
-    <loc>https://www.jimruimtop.nl/contact.php</loc>
+    <loc>https://jimruimt-op.nl/contact.php</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -35,7 +35,7 @@
 
   <!-- Foto's -->
   <url>
-    <loc>https://www.jimruimtop.nl/fotos.php</loc>
+    <loc>https://jimruimt-op.nl/fotos.php</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -43,31 +43,31 @@
 
   <!-- Locatiepagina's (schone SEO-URLs) -->
   <url>
-    <loc>https://www.jimruimtop.nl/woningontruiming-berkel-enschot</loc>
+    <loc>https://jimruimt-op.nl/woningontruiming-berkel-enschot</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.jimruimtop.nl/woningontruiming-oisterwijk</loc>
+    <loc>https://jimruimt-op.nl/woningontruiming-oisterwijk</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.jimruimtop.nl/woningontruiming-goirle</loc>
+    <loc>https://jimruimt-op.nl/woningontruiming-goirle</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.jimruimtop.nl/woningontruiming-hilvarenbeek</loc>
+    <loc>https://jimruimt-op.nl/woningontruiming-hilvarenbeek</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.jimruimtop.nl/woningontruiming-udenhout</loc>
+    <loc>https://jimruimt-op.nl/woningontruiming-udenhout</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

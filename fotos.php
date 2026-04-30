@@ -20,6 +20,8 @@ $adres        = t($contact, 'adres', 'Tilburg');
     <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
     <link rel="manifest" href="/site.webmanifest"/>
     <meta name="theme-color" content="#1A436D"/>
@@ -27,10 +29,10 @@ $adres        = t($contact, 'adres', 'Tilburg');
     <title>Foto's & Resultaten | Jim Ruimt Op — Woningontruiming Tilburg</title>
     <meta name="description" content="Bekijk foto's van woningontruimingen in Tilburg door Jim Ruimt Op. Voor- en nafoto's tonen het verschil — van vol naar leeg en bezemschoon."/>
     <meta name="robots" content="index, follow"/>
-    <link rel="canonical" href="https://www.jimruimtop.nl/fotos.php"/>
+    <link rel="canonical" href="https://jimruimt-op.nl/fotos.php"/>
     <meta property="og:title" content="Foto's & Resultaten | Jim Ruimt Op"/>
     <meta property="og:description" content="Voor- en nafoto's van woningontruimingen in Tilburg. Zie het verschil dat Jim maakt."/>
-    <meta property="og:url" content="https://www.jimruimtop.nl/fotos.php"/>
+    <meta property="og:url" content="https://jimruimt-op.nl/fotos.php"/>
     <meta property="og:type" content="website"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&family=Dancing+Script:wght@500&display=swap" rel="stylesheet"/>

@@ -23,6 +23,8 @@ $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren 
     <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
     <link rel="manifest" href="/site.webmanifest"/>
     <meta name="theme-color" content="#1A436D"/>
@@ -30,11 +32,11 @@ $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren 
     <title>Ontruimingsbedrijf Tilburg | Jim Ruimt Op — Woningontruiming & Ontzorging</title>
     <meta name="description" content="Professionele woningontruiming in Tilburg door Jim. Persoonlijk, empathisch en bezemschoon. Plan een kennismaking binnen 48 uur. Specialist voor senioren & nabestaanden."/>
     <meta name="robots" content="index, follow"/>
-    <link rel="canonical" href="https://www.jimruimtop.nl/"/>
+    <link rel="canonical" href="https://jimruimt-op.nl/"/>
     <meta property="og:title" content="Jim Ruimt Op — Woningontruiming Tilburg"/>
     <meta property="og:description" content="Persoonlijk ontruimingsbedrijf in Tilburg. Empathisch, discreet, bezemschoon. Specialist voor senioren en nabestaanden."/>
-    <meta property="og:image" content="https://www.jimruimtop.nl/jim-ruimt-op-logo.jpg"/>
-    <meta property="og:url" content="https://www.jimruimtop.nl"/>
+    <meta property="og:image" content="https://jimruimt-op.nl/jim-ruimt-op-logo.jpg"/>
+    <meta property="og:url" content="https://jimruimt-op.nl/"/>
     <meta property="og:type" content="website"/>
     <script type="application/ld+json">
     {
@@ -42,7 +44,7 @@ $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren 
       "@type": "LocalBusiness",
       "name": "Jim Ruimt Op",
       "description": "Ontruimingsbedrijf in Tilburg gespecialiseerd in woningontruiming, seniorenverhuizing en zorgeloos afscheid. Empathisch, discreet en professioneel.",
-      "url": "https://www.jimruimtop.nl",
+      "url": "https://jimruimt-op.nl",
       "telephone": "06 13 94 31 86",
       "email": "info@jimruimt-op.nl",
       "address": {

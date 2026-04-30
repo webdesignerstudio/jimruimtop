@@ -22,7 +22,7 @@ $titel      = htmlspecialchars($loc['titel']            ?? 'Woningontruiming | J
 $meta_desc  = htmlspecialchars($loc['meta_description'] ?? '', ENT_QUOTES, 'UTF-8');
 $h1         = htmlspecialchars($loc['h1']               ?? 'Woningontruiming ' . $naam, ENT_QUOTES, 'UTF-8');
 $intro      = htmlspecialchars($loc['intro']            ?? '', ENT_QUOTES, 'UTF-8');
-$canonical  = 'https://www.jimruimtop.nl/woningontruiming-' . $slug;
+$canonical  = 'https://jimruimt-op.nl/woningontruiming-' . $slug;
 
 $telefoon   = t($contact, 'telefoon', '06 13 94 31 86');
 $tel_href   = tel_link($contact);
@@ -35,6 +35,8 @@ $wa_url     = whatsapp_url($contact);
     <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
     <link rel="manifest" href="/site.webmanifest"/>
     <meta name="theme-color" content="#1A436D"/>
@@ -45,7 +47,7 @@ $wa_url     = whatsapp_url($contact);
     <link rel="canonical" href="<?= $canonical ?>"/>
     <meta property="og:title" content="<?= $titel ?>"/>
     <meta property="og:description" content="<?= $meta_desc ?>"/>
-    <meta property="og:image" content="https://www.jimruimtop.nl/jim-ruimt-op-logo.jpg"/>
+    <meta property="og:image" content="https://jimruimt-op.nl/jim-ruimt-op-logo.jpg"/>
     <meta property="og:url" content="<?= $canonical ?>"/>
     <meta property="og:type" content="website"/>
     <script type="application/ld+json">
