@@ -392,7 +392,7 @@ $adres        = t($contact, 'adres', 'Tilburg');
                             <div class="font-headline text-xs font-bold text-gray-400 uppercase tracking-tighter">Telefoon</div>
                             <div class="text-brandNavy font-bold"><?= $telefoon ?></div>
                         </a>
-                        <a href="<?= $wa_url ?>?text=Hallo%20Jim%2C%20ik%20heb%20een%20vraag%20over%20woningontruiming" target="_blank" rel="noopener" class="contact-card bg-white p-6 rounded-xl border-b-2 border-transparent hover:border-brandCyan transition-all block cloud-shadow">
+                        <a href="<?= $wa_url ?>" target="_blank" rel="noopener" class="contact-card bg-white p-6 rounded-xl border-b-2 border-transparent hover:border-brandCyan transition-all block cloud-shadow">
                             <div class="icon-container w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-3 transition-colors">
                                 <span class="material-symbols-outlined text-2xl transition-colors" style="color:#25D366">chat</span>
                             </div>

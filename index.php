@@ -502,24 +502,24 @@ $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren 
         <section class="py-20 px-6">
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-14 fade-in-up">
-                    <h2 class="font-headline text-4xl font-bold mb-4 text-brandNavy">Hoe werkt het?</h2>
-                    <p class="text-gray-600 max-w-xl mx-auto">In drie eenvoudige stappen regelen we alles voor u.</p>
+                    <h2 class="font-headline text-4xl font-bold mb-4 text-brandNavy"><?= t($p, 'hoe_werkt_kop', 'Hoe werkt het?') ?></h2>
+                    <p class="text-gray-600 max-w-xl mx-auto"><?= t($p, 'hoe_werkt_subtekst', 'In drie eenvoudige stappen regelen we alles voor u.') ?></p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="text-center fade-in-up delay-100">
                         <div class="w-16 h-16 bg-brandNavy text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 cloud-shadow">1</div>
-                        <h3 class="font-headline text-xl font-bold text-brandNavy mb-3">Kennismaking</h3>
-                        <p class="text-gray-600">Wij komen langs en bespreken uw situatie. Vrijblijvend en zonder verplichtingen.</p>
+                        <h3 class="font-headline text-xl font-bold text-brandNavy mb-3"><?= t($p, 'stap1_kop', 'Kennismaking') ?></h3>
+                        <p class="text-gray-600"><?= t($p, 'stap1_tekst', 'Wij komen langs en bespreken uw situatie. Vrijblijvend en zonder verplichtingen.') ?></p>
                     </div>
                     <div class="text-center fade-in-up delay-200">
                         <div class="w-16 h-16 bg-brandCyan text-brandNavy rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 cloud-shadow">2</div>
-                        <h3 class="font-headline text-xl font-bold text-brandNavy mb-3">Duidelijke afspraken</h3>
-                        <p class="text-gray-600">U ontvangt een heldere offerte, zonder verrassingen.</p>
+                        <h3 class="font-headline text-xl font-bold text-brandNavy mb-3"><?= t($p, 'stap2_kop', 'Duidelijke afspraken') ?></h3>
+                        <p class="text-gray-600"><?= t($p, 'stap2_tekst', 'U ontvangt een heldere offerte, zonder verrassingen.') ?></p>
                     </div>
                     <div class="text-center fade-in-up delay-300">
                         <div class="w-16 h-16 bg-brandNavy text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 cloud-shadow border-2 border-brandCyan">3</div>
-                        <h3 class="font-headline text-xl font-bold text-brandNavy mb-3">Wij ontzorgen u.</h3>
-                        <p class="text-gray-600">Van opruimen tot oplevering.</p>
+                        <h3 class="font-headline text-xl font-bold text-brandNavy mb-3"><?= t($p, 'stap3_kop', 'Wij ontzorgen u.') ?></h3>
+                        <p class="text-gray-600"><?= t($p, 'stap3_tekst', 'Van opruimen tot oplevering.') ?></p>
                     </div>
                 </div>
             </div>
