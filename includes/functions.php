@@ -93,6 +93,66 @@ function tel_link(array $contact): string {
 }
 
 /**
+ * Rate limiting: max $max_per_uur submissions per IP per uur.
+ * Slaat data op in /content/rate_limit.json (geblokkeerd via .htaccess).
+ * Geeft true terug als het mag, false als het geblokkeerd is.
+ */
+function rate_limit_ok(string $actie = 'form', int $max_per_uur = 5): bool
+{
+    $pad    = CONTENT_DIR . 'rate_limit.json';
+    $nu     = time();
+    $ip     = $_SERVER['REMOTE_ADDR'] ?? 'onbekend';
+    $sleutel = $actie . '_' . md5($ip);
+
+    $data = [];
+    if (file_exists($pad)) {
+        $inhoud = file_get_contents($pad);
+        $data   = json_decode($inhoud ?: '{}', true) ?: [];
+    }
+
+    // Verwijder oude entries (ouder dan 1 uur)
+    $data = array_filter($data, fn($r) => ($r['ts'] ?? 0) > $nu - 3600);
+
+    // Tel hits voor deze IP+actie
+    $hits = array_filter($data, fn($r) => ($r['k'] ?? '') === $sleutel);
+    if (count($hits) >= $max_per_uur) {
+        return false;
+    }
+
+    // Registreer nieuwe hit
+    $data[] = ['k' => $sleutel, 'ts' => $nu];
+    @file_put_contents($pad, json_encode(array_values($data)), LOCK_EX);
+    return true;
+}
+
+/**
+ * Genereer of haal een publiek CSRF-token op (voor contactformulieren).
+ */
+function csrf_token_publiek(): string
+{
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    if (empty($_SESSION['csrf_publiek'])) {
+        $_SESSION['csrf_publiek'] = bin2hex(random_bytes(16));
+    }
+    return $_SESSION['csrf_publiek'];
+}
+
+/**
+ * Valideer het publieke CSRF-token.
+ */
+function csrf_publiek_ok(): bool
+{
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    $token_post    = $_POST['csrf_token'] ?? '';
+    $token_sessie  = $_SESSION['csrf_publiek'] ?? '';
+    return $token_sessie !== '' && hash_equals($token_sessie, $token_post);
+}
+
+/**
  * Controleer pincode-vergrendeling. Toon pincode-scherm als site vergrendeld is.
  * Aanroepen bovenaan elke publieke pagina, vóór enige output.
  */

@@ -1,5 +1,13 @@
 {
     "toon_fotos_menu": true,
     "site_vergrendeld": true,
-    "pincode": "1234"
+    "pincode": "1234",
+    "smtp_host": "smtp.transip.email",
+    "smtp_port": 465,
+    "smtp_gebruiker": "",
+    "smtp_wachtwoord": "",
+    "mail_ontvanger": "info@jimruimt-op.nl",
+    "mail_notificatie_onderwerp": "Nieuw contactformulier \u2014 Jim Ruimt Op",
+    "mail_bevestiging_onderwerp": "Bedankt voor uw bericht \u2014 Jim Ruimt Op",
+    "mail_bevestiging_tekst": "Beste {naam},\n\nBedankt voor uw bericht! Jim neemt zo snel mogelijk contact met u op, uiterlijk binnen 48 uur.\n\nMet vriendelijke groet,\nJim\nJim Ruimt Op \u2014 Tilburg\ninfo@jimruimt-op.nl"
 }

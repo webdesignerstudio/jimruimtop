@@ -16,6 +16,53 @@ $hero_kop     = t($p, 'hero_kop', 'Jim Ruimt Op');
 $hero_tagline = t($p, 'hero_tagline', 'Zorgeloos geregeld!');
 $hero_sub     = t($p, 'hero_sub', 'Woningontruiming zonder zorgen');
 $hero_tekst   = t($p, 'hero_tekst', 'Wij ontzorgen senioren en nabestaanden bij woningontruiming, met aandacht voor wat praktisch nodig is én wat emotioneel belangrijk is.');
+
+// Mini-formulierverwerking
+$mini_fout   = '';
+$mini_succes = isset($_GET['verzonden']) && $_GET['verzonden'] === '1';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['_formulier_mini'])) {
+    require_once __DIR__ . '/includes/mailer.php';
+    if (!empty($_POST['_website'])) {
+        header('Location: index.php?verzonden=1#contact');
+        exit;
+    }
+    $start_tijd = (int)($_POST['_starttijd'] ?? 0);
+    if ($start_tijd === 0 || (time() - $start_tijd) < 3) {
+        header('Location: index.php?verzonden=1#contact');
+        exit;
+    }
+    if (!csrf_publiek_ok()) {
+        $mini_fout = 'Beveiligingsfout. Vernieuw de pagina en probeer opnieuw.';
+    } elseif (!rate_limit_ok('mini', 5)) {
+        $mini_fout = 'U heeft te veel berichten verstuurd. Probeer het over een uur opnieuw.';
+    } else {
+        $naam_m    = strip_tags(trim($_POST['first-name'] ?? '') . ' ' . trim($_POST['last-name'] ?? ''));
+        $naam_m    = trim($naam_m);
+        $email_m   = trim($_POST['email'] ?? '');
+        $bericht_m = strip_tags(trim($_POST['message'] ?? ''));
+        if ($naam_m === '' || $bericht_m === '') {
+            $mini_fout = 'Vul minimaal uw naam en bericht in.';
+        } elseif ($email_m !== '' && !filter_var($email_m, FILTER_VALIDATE_EMAIL)) {
+            $mini_fout = 'Voer een geldig e-mailadres in.';
+        } else {
+            $velden = [
+                'Naam'    => $naam_m,
+                'E-mail'  => $email_m ?: '—',
+                'Bericht' => $bericht_m,
+            ];
+            $result = verstuur_formulier($instellingen, $velden, $email_m, $naam_m);
+            if ($result['ok']) {
+                header('Location: index.php?verzonden=1#contact');
+                exit;
+            } else {
+                $mini_fout = 'Er ging iets mis. Probeer het opnieuw of bel ons direct.';
+            }
+        }
+    }
+}
+
+$csrf_token = csrf_token_publiek();
 $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren in het hoofd.');
 ?>
 <!DOCTYPE html>
@@ -559,7 +606,7 @@ $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren 
 
 
         <!-- Review & Contact Section -->
-        <section class="bg-brandCyan/10 py-10 md:py-16 px-4 md:px-6">
+        <section id="contact" class="bg-brandCyan/10 py-10 md:py-16 px-4 md:px-6">
             <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
                 <!-- Review Column -->
                 <div class="fade-in-left">
@@ -595,7 +642,24 @@ $hero_quote   = t($p, 'hero_quote', 'Ruimte creëren in huis is ruimte creëren 
                 <div class="fade-in-right delay-200">
                     <h2 class="font-headline text-3xl font-bold mb-2 text-brandNavy">Contact of bel terug</h2>
                     <p class="text-gray-500 mb-6 text-sm flex items-center gap-1"><span class="material-symbols-outlined text-brandCyan text-base">verified</span> Ik reageer binnen 48 uur</p>
-                    <form id="contact-form" action="#" method="POST" class="space-y-4 bg-white p-5 md:p-6 rounded-xl cloud-shadow">
+                    <?php if ($mini_succes): ?>
+                    <div class="bg-green-50 border border-green-200 rounded-xl p-4 mb-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-green-600">check_circle</span>
+                        <p class="text-green-800 font-semibold text-sm">Bericht verzonden! Jim neemt snel contact op.</p>
+                    </div>
+                    <?php endif; ?>
+                    <?php if ($mini_fout !== ''): ?>
+                    <div class="bg-red-50 border border-red-200 rounded-xl p-3 mb-3">
+                        <p class="text-red-700 text-sm"><?= htmlspecialchars($mini_fout) ?></p>
+                    </div>
+                    <?php endif; ?>
+                    <form id="contact-form" action="index.php#contact" method="POST" class="space-y-4 bg-white p-5 md:p-6 rounded-xl cloud-shadow">
+                        <input type="hidden" name="_formulier_mini" value="1"/>
+                        <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>"/>
+                        <input type="hidden" name="_starttijd" value="<?= time() ?>"/>
+                        <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+                            <input type="text" name="_website" tabindex="-1" autocomplete="off"/>
+                        </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label for="first-name" class="sr-only">Naam</label>

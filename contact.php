@@ -12,6 +12,64 @@ $tel_href     = tel_link($contact);
 $wa_url       = whatsapp_url($contact);
 $email        = htmlspecialchars($contact['email'] ?? 'info@jimruimt-op.nl', ENT_QUOTES, 'UTF-8');
 $adres        = t($contact, 'adres', 'Tilburg');
+
+// Formulierverwerking (PRG-patroon)
+$form_fout    = '';
+$form_succes  = isset($_GET['verzonden']) && $_GET['verzonden'] === '1';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['_formulier_contact'])) {
+    require_once __DIR__ . '/includes/mailer.php';
+
+    // Honeypot: als dit veld is ingevuld = bot
+    if (!empty($_POST['_website'])) {
+        header('Location: contact.php?verzonden=1');
+        exit;
+    }
+
+    // Tijdslimiet: formulier te snel ingediend = bot (< 3 seconden)
+    $start_tijd = (int)($_POST['_starttijd'] ?? 0);
+    if ($start_tijd === 0 || (time() - $start_tijd) < 3) {
+        header('Location: contact.php?verzonden=1');
+        exit;
+    }
+
+    // CSRF
+    if (!csrf_publiek_ok()) {
+        $form_fout = 'Beveiligingsfout. Vernieuw de pagina en probeer opnieuw.';
+    // Rate limiting
+    } elseif (!rate_limit_ok('contact', 5)) {
+        $form_fout = 'U heeft te veel berichten verstuurd. Probeer het over een uur opnieuw.';
+    } else {
+        $naam    = strip_tags(trim($_POST['name']    ?? ''));
+        $email_k = trim($_POST['email']   ?? '');
+        $telefoon_k = strip_tags(trim($_POST['phone'] ?? ''));
+        $onderwerp  = strip_tags(trim($_POST['subject'] ?? ''));
+        $bericht = strip_tags(trim($_POST['message'] ?? ''));
+
+        if ($naam === '' || $bericht === '') {
+            $form_fout = 'Vul minimaal uw naam en bericht in.';
+        } elseif ($email_k !== '' && !filter_var($email_k, FILTER_VALIDATE_EMAIL)) {
+            $form_fout = 'Voer een geldig e-mailadres in.';
+        } else {
+            $velden = [
+                'Naam'         => $naam,
+                'E-mail'       => $email_k ?: '—',
+                'Telefoon'     => $telefoon_k ?: '—',
+                'Onderwerp'    => $onderwerp ?: '—',
+                'Bericht'      => $bericht,
+            ];
+            $result = verstuur_formulier($instellingen, $velden, $email_k, $naam);
+            if ($result['ok']) {
+                header('Location: contact.php?verzonden=1');
+                exit;
+            } else {
+                $form_fout = 'Er ging iets mis bij het versturen. Probeer het opnieuw of bel ons direct.';
+            }
+        }
+    }
+}
+
+$csrf_token = csrf_token_publiek();
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -339,7 +397,28 @@ $adres        = t($contact, 'adres', 'Tilburg');
                             Gratis &amp; vrijblijvend
                         </span>
                     </div>
-                    <form id="contact-form" class="space-y-6" action="#" method="POST">
+                    <?php if ($form_succes): ?>
+                    <div class="bg-green-50 border border-green-200 rounded-xl p-6 mb-6 flex items-start gap-3">
+                        <span class="material-symbols-outlined text-green-600 text-2xl">check_circle</span>
+                        <div>
+                            <p class="font-bold text-green-800">Bericht verzonden!</p>
+                            <p class="text-green-700 text-sm mt-1">Bedankt voor uw bericht. Jim neemt binnen 48 uur contact met u op.</p>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    <?php if ($form_fout !== ''): ?>
+                    <div class="bg-red-50 border border-red-200 rounded-xl p-4 mb-4">
+                        <p class="text-red-700 text-sm font-medium"><?= htmlspecialchars($form_fout) ?></p>
+                    </div>
+                    <?php endif; ?>
+                    <form id="contact-form" class="space-y-6" action="contact.php" method="POST">
+                        <input type="hidden" name="_formulier_contact" value="1"/>
+                        <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>"/>
+                        <input type="hidden" name="_starttijd" value="<?= time() ?>"/>
+                        <!-- Honeypot -->
+                        <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+                            <input type="text" name="_website" tabindex="-1" autocomplete="off"/>
+                        </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                             <div class="space-y-2">
                                 <label for="name" class="block font-headline text-sm font-bold text-gray-600">Volledige Naam *</label>

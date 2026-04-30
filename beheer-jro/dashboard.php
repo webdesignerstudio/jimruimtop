@@ -51,6 +51,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
+        elseif ($actie === 'sla_smtp_op') {
+            $instellingen['smtp_host']      = trim($_POST['smtp_host'] ?? 'smtp.transip.email');
+            $instellingen['smtp_port']      = (int)trim($_POST['smtp_port'] ?? 465);
+            $instellingen['smtp_gebruiker'] = trim($_POST['smtp_gebruiker'] ?? '');
+            $nieuw_pass = trim($_POST['smtp_wachtwoord'] ?? '');
+            if ($nieuw_pass !== '') {
+                $instellingen['smtp_wachtwoord'] = $nieuw_pass;
+            }
+            $instellingen['mail_ontvanger']              = trim($_POST['mail_ontvanger'] ?? 'info@jimruimt-op.nl');
+            $instellingen['mail_notificatie_onderwerp']  = trim($_POST['mail_notificatie_onderwerp'] ?? '');
+            $instellingen['mail_bevestiging_onderwerp']  = trim($_POST['mail_bevestiging_onderwerp'] ?? '');
+            $instellingen['mail_bevestiging_tekst']      = trim($_POST['mail_bevestiging_tekst'] ?? '');
+            if (sla_json_op_admin('instellingen.json', $instellingen)) {
+                $melding = 'E-mailinstellingen opgeslagen.';
+            } else {
+                $melding = 'Fout bij opslaan. Controleer schrijfrechten op /content/.';
+                $melding_type = 'rood';
+            }
+        }
+
+        elseif ($actie === 'stuur_testmail') {
+            require_once dirname(__DIR__) . '/includes/mailer.php';
+            $result = verstuur_testmail($instellingen);
+            if ($result['ok']) {
+                $melding = '✅ Testmail verzonden naar ' . htmlspecialchars($instellingen['mail_ontvanger'] ?? '');
+            } else {
+                $melding = '❌ Testmail mislukt: ' . htmlspecialchars($result['fout']);
+                $melding_type = 'rood';
+            }
+        }
+
         elseif ($actie === 'sla_locatie_op') {
             $slug_loc = preg_replace('/[^a-z0-9\-]/', '', strtolower(trim($_POST['slug'] ?? '')));
             $toegestane_slugs = ['berkel-enschot','oisterwijk','goirle','hilvarenbeek','udenhout'];
@@ -173,6 +204,7 @@ $csrf = csrf_token();
                 'contact_teksten' => 'Contact pagina',
                 'fotos_teksten'   => "Foto's pagina",
                 'locaties'        => 'Locatiepagina\'s',
+                'email'           => '📧 E-mail',
                 'instellingen'    => 'Instellingen',
             ];
             foreach ($tabs as $sleutel => $naam):
@@ -570,6 +602,92 @@ $csrf = csrf_token();
                 </div>
             </div>
         </div>
+        <!-- TAB: E-mail -->
+        <?php elseif ($tab === 'email'): ?>
+        <div class="space-y-6">
+
+            <!-- SMTP instellingen -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h2 class="text-lg font-bold text-navy mb-1">SMTP-instellingen</h2>
+                <p class="text-sm text-gray-500 mb-5">Vul hier de gegevens in van het e-mailaccount waarmee formulieren worden verstuurd.</p>
+                <form method="POST">
+                    <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
+                    <input type="hidden" name="actie" value="sla_smtp_op"/>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 mb-1">SMTP-server</label>
+                            <input type="text" name="smtp_host" value="<?= htmlspecialchars($instellingen['smtp_host'] ?? 'smtp.transip.email') ?>" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"/>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 mb-1">Poort (465 = SSL, 587 = TLS)</label>
+                            <input type="number" name="smtp_port" value="<?= (int)($instellingen['smtp_port'] ?? 465) ?>" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"/>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 mb-1">E-mailadres (gebruikersnaam)</label>
+                            <input type="email" name="smtp_gebruiker" value="<?= htmlspecialchars($instellingen['smtp_gebruiker'] ?? '') ?>" placeholder="info@jimruimt-op.nl" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"/>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 mb-1">Wachtwoord <span class="text-gray-400 font-normal">(laat leeg om te behouden)</span></label>
+                            <input type="password" name="smtp_wachtwoord" placeholder="••••••••" autocomplete="new-password" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"/>
+                            <?php if (!empty($instellingen['smtp_wachtwoord'])): ?>
+                            <p class="text-xs text-green-600 mt-1">✓ Wachtwoord is ingesteld</p>
+                            <?php else: ?>
+                            <p class="text-xs text-amber-600 mt-1">⚠ Nog geen wachtwoord ingesteld</p>
+                            <?php endif; ?>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-xs font-bold text-gray-600 mb-1">Ontvanger (e-mailadres van Jim)</label>
+                            <input type="email" name="mail_ontvanger" value="<?= htmlspecialchars($instellingen['mail_ontvanger'] ?? 'info@jimruimt-op.nl') ?>" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"/>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <button type="submit" class="bg-navy text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all">Opslaan</button>
+                    </div>
+                </form>
+                <!-- Testmail -->
+                <div class="mt-5 pt-5 border-t border-gray-100">
+                    <p class="text-sm font-semibold text-gray-700 mb-2">SMTP testen</p>
+                    <p class="text-xs text-gray-500 mb-3">Sla eerst de gegevens op, stuur dan een testmail om te controleren of alles werkt.</p>
+                    <form method="POST" class="inline">
+                        <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
+                        <input type="hidden" name="actie" value="stuur_testmail"/>
+                        <button type="submit" class="bg-brandCyan text-navy px-5 py-2 rounded-lg font-semibold text-sm hover:bg-opacity-80 transition-all">📧 Stuur testmail</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- E-mailteksten -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h2 class="text-lg font-bold text-navy mb-1">Onderwerpen &amp; bevestigingstekst</h2>
+                <p class="text-sm text-gray-500 mb-5">Pas de onderwerpregel en de bevestigingsmail aan. Gebruik <code class="bg-gray-100 px-1 rounded">{naam}</code> voor de naam van de klant.</p>
+                <form method="POST">
+                    <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
+                    <input type="hidden" name="actie" value="sla_smtp_op"/>
+                    <?php
+                    // Stuur ook de SMTP-velden mee zodat ze niet worden overschreven
+                    foreach (['smtp_host','smtp_port','smtp_gebruiker','mail_ontvanger'] as $veld_smtp):
+                    ?>
+                    <input type="hidden" name="<?= $veld_smtp ?>" value="<?= htmlspecialchars((string)($instellingen[$veld_smtp] ?? '')) ?>"/>
+                    <?php endforeach; ?>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 mb-1">Onderwerp notificatie aan Jim</label>
+                            <input type="text" name="mail_notificatie_onderwerp" value="<?= htmlspecialchars($instellingen['mail_notificatie_onderwerp'] ?? 'Nieuw contactformulier — Jim Ruimt Op') ?>" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"/>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 mb-1">Onderwerp bevestigingsmail aan klant</label>
+                            <input type="text" name="mail_bevestiging_onderwerp" value="<?= htmlspecialchars($instellingen['mail_bevestiging_onderwerp'] ?? 'Bedankt voor uw bericht — Jim Ruimt Op') ?>" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"/>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 mb-1">Tekst bevestigingsmail (gebruik {naam} voor klantnaam)</label>
+                            <textarea name="mail_bevestiging_tekst" rows="6" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy font-mono"><?= htmlspecialchars($instellingen['mail_bevestiging_tekst'] ?? '') ?></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="mt-4 bg-navy text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all">Teksten opslaan</button>
+                </form>
+            </div>
+        </div>
+
         <!-- TAB: Locatiepagina's -->
         <!-- TAB: Instellingen -->
         <?php elseif ($tab === 'instellingen'): ?>
