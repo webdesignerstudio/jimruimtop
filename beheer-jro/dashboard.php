@@ -21,7 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $contact['telefoon_link']  = trim($_POST['telefoon_link'] ?? '');
             $contact['email']          = trim($_POST['email'] ?? '');
             $contact['whatsapp_nummer']  = trim($_POST['whatsapp_nummer'] ?? '');
-            $contact['whatsapp_bericht'] = trim($_POST['whatsapp_bericht'] ?? '');
+            $nieuw_wa_bericht = trim($_POST['whatsapp_bericht'] ?? '');
+            if ($nieuw_wa_bericht !== '') {
+                $contact['whatsapp_bericht'] = $nieuw_wa_bericht;
+            }
             $contact['adres']          = trim($_POST['adres'] ?? '');
             $contact['werkgebied']     = trim($_POST['werkgebied'] ?? '');
             $contact['openingstijden']['maandag_vrijdag'] = trim($_POST['ot_ma_vr'] ?? '');
@@ -247,6 +250,12 @@ $csrf = csrf_token();
                         <input type="text" name="whatsapp_nummer" value="<?= htmlspecialchars($contact['whatsapp_nummer'] ?? '') ?>"
                             class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"
                             placeholder="31613943186"/>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">WhatsApp standaard bericht <span class="font-normal text-gray-400">(laat leeg om te behouden)</span></label>
+                        <input type="text" name="whatsapp_bericht" value="<?= htmlspecialchars($contact['whatsapp_bericht'] ?? '') ?>"
+                            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"
+                            placeholder="Hallo Jim, ik heb een vraag over woningontruiming"/>
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-1">Adres / Stad</label>
@@ -606,13 +615,15 @@ $csrf = csrf_token();
         <?php elseif ($tab === 'email'): ?>
         <div class="space-y-6">
 
-            <!-- SMTP instellingen -->
-            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                <h2 class="text-lg font-bold text-navy mb-1">SMTP-instellingen</h2>
-                <p class="text-sm text-gray-500 mb-5">Vul hier de gegevens in van het e-mailaccount waarmee formulieren worden verstuurd.</p>
-                <form method="POST">
-                    <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
-                    <input type="hidden" name="actie" value="sla_smtp_op"/>
+            <!-- Één formulier voor alle e-mailinstellingen -->
+            <form method="POST">
+                <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
+                <input type="hidden" name="actie" value="sla_smtp_op"/>
+
+                <!-- SMTP instellingen -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-6">
+                    <h2 class="text-lg font-bold text-navy mb-1">SMTP-instellingen</h2>
+                    <p class="text-sm text-gray-500 mb-5">Vul hier de gegevens in van het e-mailaccount waarmee formulieren worden verstuurd.</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                         <div>
                             <label class="block text-xs font-bold text-gray-600 mb-1">SMTP-server</label>
@@ -640,35 +651,12 @@ $csrf = csrf_token();
                             <input type="email" name="mail_ontvanger" value="<?= htmlspecialchars($instellingen['mail_ontvanger'] ?? 'info@jimruimt-op.nl') ?>" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy"/>
                         </div>
                     </div>
-                    <div class="flex gap-3">
-                        <button type="submit" class="bg-navy text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all">Opslaan</button>
-                    </div>
-                </form>
-                <!-- Testmail -->
-                <div class="mt-5 pt-5 border-t border-gray-100">
-                    <p class="text-sm font-semibold text-gray-700 mb-2">SMTP testen</p>
-                    <p class="text-xs text-gray-500 mb-3">Sla eerst de gegevens op, stuur dan een testmail om te controleren of alles werkt.</p>
-                    <form method="POST" class="inline">
-                        <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
-                        <input type="hidden" name="actie" value="stuur_testmail"/>
-                        <button type="submit" class="bg-brandCyan text-navy px-5 py-2 rounded-lg font-semibold text-sm hover:bg-opacity-80 transition-all">📧 Stuur testmail</button>
-                    </form>
                 </div>
-            </div>
 
-            <!-- E-mailteksten -->
-            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                <h2 class="text-lg font-bold text-navy mb-1">Onderwerpen &amp; bevestigingstekst</h2>
-                <p class="text-sm text-gray-500 mb-5">Pas de onderwerpregel en de bevestigingsmail aan. Gebruik <code class="bg-gray-100 px-1 rounded">{naam}</code> voor de naam van de klant.</p>
-                <form method="POST">
-                    <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
-                    <input type="hidden" name="actie" value="sla_smtp_op"/>
-                    <?php
-                    // Stuur ook de SMTP-velden mee zodat ze niet worden overschreven
-                    foreach (['smtp_host','smtp_port','smtp_gebruiker','mail_ontvanger'] as $veld_smtp):
-                    ?>
-                    <input type="hidden" name="<?= $veld_smtp ?>" value="<?= htmlspecialchars((string)($instellingen[$veld_smtp] ?? '')) ?>"/>
-                    <?php endforeach; ?>
+                <!-- E-mailteksten -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-6">
+                    <h2 class="text-lg font-bold text-navy mb-1">Onderwerpen &amp; bevestigingstekst</h2>
+                    <p class="text-sm text-gray-500 mb-5">Pas de onderwerpregel en de bevestigingsmail aan. Gebruik <code class="bg-gray-100 px-1 rounded">{naam}</code> voor de naam van de klant.</p>
                     <div class="space-y-4">
                         <div>
                             <label class="block text-xs font-bold text-gray-600 mb-1">Onderwerp notificatie aan Jim</label>
@@ -683,7 +671,19 @@ $csrf = csrf_token();
                             <textarea name="mail_bevestiging_tekst" rows="6" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy font-mono"><?= htmlspecialchars($instellingen['mail_bevestiging_tekst'] ?? '') ?></textarea>
                         </div>
                     </div>
-                    <button type="submit" class="mt-4 bg-navy text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all">Teksten opslaan</button>
+                </div>
+
+                <button type="submit" class="bg-navy text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all">Alles opslaan</button>
+            </form>
+
+            <!-- Testmail (apart formulier, raakt geen instellingen aan) -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <p class="text-sm font-semibold text-gray-700 mb-2">SMTP testen</p>
+                <p class="text-xs text-gray-500 mb-3">Sla eerst de gegevens op, stuur dan een testmail om te controleren of alles werkt.</p>
+                <form method="POST" class="inline">
+                    <input type="hidden" name="csrf_token" value="<?= $csrf ?>"/>
+                    <input type="hidden" name="actie" value="stuur_testmail"/>
+                    <button type="submit" class="bg-brandCyan text-navy px-5 py-2 rounded-lg font-semibold text-sm hover:bg-opacity-80 transition-all">📧 Stuur testmail</button>
                 </form>
             </div>
         </div>
